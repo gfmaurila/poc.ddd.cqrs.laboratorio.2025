@@ -7,10 +7,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{D7A6C8BF-B40
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD3DF988-466A-4678-878C-6055F94E5645}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D3402DBE-5FFB-4AB7-AE11-E9E3D1BCAFA4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{4F937B71-A1DB-4987-A43A-573503BB6130}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AB2D190A-33E2-493E-BB1B-28B580C5BD8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{241598C1-0E72-4594-8E8A-B7F3A9E88917}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D6CF6351-267C-4D0A-97E3-88BF65959A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAuth", "src\API\ApiAuth\ApiAuth.csproj", "{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB2D190A-33E2-493E-BB1B-28B580C5BD8A} = {AD3DF988-466A-4678-878C-6055F94E5645}
+		{241598C1-0E72-4594-8E8A-B7F3A9E88917} = {AD3DF988-466A-4678-878C-6055F94E5645}
+		{D6CF6351-267C-4D0A-97E3-88BF65959A16} = {AD3DF988-466A-4678-878C-6055F94E5645}
+		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3} = {241598C1-0E72-4594-8E8A-B7F3A9E88917}
 	EndGlobalSection
 EndGlobal
