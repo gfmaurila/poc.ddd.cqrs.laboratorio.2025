@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{D7A6C8BF-B40F-49DD-8501-6C7EDAF514A2}"
 EndProject
@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{241598C1-0E7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D6CF6351-267C-4D0A-97E3-88BF65959A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAuth", "src\API\ApiAuth\ApiAuth.csproj", "{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Auth", "src\API\Api.Auth\Api.Auth.csproj", "{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +38,6 @@ Global
 		{AB2D190A-33E2-493E-BB1B-28B580C5BD8A} = {AD3DF988-466A-4678-878C-6055F94E5645}
 		{241598C1-0E72-4594-8E8A-B7F3A9E88917} = {AD3DF988-466A-4678-878C-6055F94E5645}
 		{D6CF6351-267C-4D0A-97E3-88BF65959A16} = {AD3DF988-466A-4678-878C-6055F94E5645}
-		{B6FD0C0A-E4E7-4334-BBE3-768364197CF3} = {241598C1-0E72-4594-8E8A-B7F3A9E88917}
+		{FBEC15AE-68E6-49C7-B1DC-F0AF6CF416F9} = {241598C1-0E72-4594-8E8A-B7F3A9E88917}
 	EndGlobalSection
 EndGlobal

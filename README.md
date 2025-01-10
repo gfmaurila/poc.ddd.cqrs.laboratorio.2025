@@ -27,7 +27,7 @@
 <div>
     <h2>Features</h2>
     <ul>
-        <li>EASP.NET Core 9.0: Framework para desenvolvimento da Microsoft.</li>
+        <li>ASP.NET Core 9.0: Framework para desenvolvimento da Microsoft.</li>
         <li>Entity Framework</li>               
         <li>MediatR</li>
         <li>Mapster</li>
