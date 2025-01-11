@@ -1,34 +1,40 @@
+using API.Auth.Extensions;
 
-namespace API.Auth
+namespace API.Auth;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Adicionando serviços
+        builder.Services.AddControllers()
+            .AddNewtonsoftJson(); // Forçar uso do Newtonsoft.Json
+
+        builder.Services.AddControllers();
+        builder.Services.AddConnections();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerConfig(builder.Configuration);
+        builder.Services.UseAuthentication(builder.Configuration);
+
+        var app = builder.Build();
+
+        // Configuração de middlewares
+        if (app.Environment.IsEnvironment("Test") ||
+            app.Environment.IsDevelopment() ||
+            app.Environment.IsEnvironment("Docker") ||
+            app.Environment.IsStaging() ||
+            app.Environment.IsProduction())
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-            builder.Services.AddOpenApi();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.MapOpenApi();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
+
+        app.UseHttpsRedirection();
+        app.UseAuthorization();
+        app.MapControllers();
+
+        app.Run();
     }
 }

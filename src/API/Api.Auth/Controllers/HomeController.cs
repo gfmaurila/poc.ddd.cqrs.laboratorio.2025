@@ -13,8 +13,9 @@ public class HomeController : ControllerBase
         _logger = logger;
     }
 
-    public string Get()
+    [HttpGet("status")]
+    public IActionResult GetStatus()
     {
-        return "hello auth";
+        return Ok("API is running");
     }
 }
