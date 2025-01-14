@@ -7,12 +7,13 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
 # Esta fase é usada para compilar o projeto de serviço
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/API/API.Auth/API.Auth.csproj", "src/API/API.Auth/"]
+COPY ["src/Core/Common.Domain.Net9/Common.Domain.Net9.csproj", "src/Core/Common.Domain.Net9/"]
+COPY ["src/Core/Common.Net9/Common.Net9.csproj", "src/Core/Common.Net9/"]
 RUN dotnet restore "./src/API/API.Auth/API.Auth.csproj"
 COPY . .
 WORKDIR "/src/src/API/API.Auth"
