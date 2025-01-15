@@ -4,7 +4,7 @@ services:
 
   api.gateway:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8443
       - ASPNETCORE_URLS=http://+:80
@@ -19,20 +19,20 @@ services:
 
   api.auth:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ASPNETCORE_URLS=http://+:80
       
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=api_auth;User=sa;Password=Poc2Minimal@Api;Encrypt=true;TrustServerCertificate=true
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Integrated Security=true;Initial Catalog=apiauth_docker;User Id=sa;Password=@Poc2Minimal@Api;Trusted_Connection=false;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=True;
       - ConnectionStrings__CacheConnection=Redis,password=Poc2Minimal@Api
       
       - MongoDB__ConnectionString=mongodb://mongoserver:27017
-      - MongoDB__Database=api_auth
+      - MongoDB__Database=apiauth_docker
 
       - Serilog__WriteTo__Name=MongoDB
       - Serilog__WriteTo__Args__databaseUrl=mongodb://mongoserver:27017/admin
-      - Serilog__WriteTo__Args__collectionName=api_auth
+      - Serilog__WriteTo__Args__collectionName=apiauth_docker
       - Serilog__WriteTo__Args__cappedMaxSizeMb=1024
       - Serilog__WriteTo__Args__cappedMaxDocuments=50000
       

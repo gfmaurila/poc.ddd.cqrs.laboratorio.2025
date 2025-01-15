@@ -12,7 +12,7 @@ public static class SwaggerConfig
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = "Gateway",
+                    Title = "API Gateway",
                     Version = "v1"
                 }
             );
