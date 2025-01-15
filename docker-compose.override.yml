@@ -1,6 +1,22 @@
 version: '3.4'
 
 services:
+
+  api.gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8443
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5000:80"
+      - "8443:443"  # Porta HTTPS alterada para evitar conflito
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+
   api.auth:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -73,5 +89,3 @@ services:
   kafka-ui:
     networks:
       - app-backend
-
-

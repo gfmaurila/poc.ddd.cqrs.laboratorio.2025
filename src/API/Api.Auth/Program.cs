@@ -8,9 +8,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Adicionando serviços
+        // Adicionando serviï¿½os
         builder.Services.AddControllers()
-            .AddNewtonsoftJson(); // Forçar uso do Newtonsoft.Json
+            .AddNewtonsoftJson(); // Forï¿½ar uso do Newtonsoft.Json
 
         builder.Services.AddControllers();
         builder.Services.AddConnections();
@@ -20,16 +20,19 @@ public class Program
 
         var app = builder.Build();
 
-        // Configuração de middlewares
-        if (app.Environment.IsEnvironment("Test") ||
-            app.Environment.IsDevelopment() ||
-            app.Environment.IsEnvironment("Docker") ||
-            app.Environment.IsStaging() ||
-            app.Environment.IsProduction())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        // Configuraï¿½ï¿½o de middlewares
+        // if (app.Environment.IsEnvironment("Test") ||
+        //     app.Environment.IsDevelopment() ||
+        //     app.Environment.IsEnvironment("Docker") ||
+        //     app.Environment.IsStaging() ||
+        //     app.Environment.IsProduction())
+        // {
+        //     app.UseSwagger();
+        //     app.UseSwaggerUI();
+        // }
+
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         app.UseHttpsRedirection();
         app.UseAuthorization();

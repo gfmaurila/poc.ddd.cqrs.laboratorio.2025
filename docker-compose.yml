@@ -11,6 +11,20 @@ networks:
 
 services:
 
+  # Acesso ao gateway
+  # http://localhost:5000/swagger/index.html
+  api.gateway:
+    image: ${DOCKER_REGISTRY-}apigateway
+    build:
+      context: .
+      dockerfile: src/API/API.Gateway/Dockerfile
+    networks:
+      - app-backend
+    depends_on:
+      - api.auth
+    links:
+      - api.auth
+
   # Acesso ao auth
   # http://localhost:5001/swagger/index.html
 
@@ -141,3 +155,4 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
