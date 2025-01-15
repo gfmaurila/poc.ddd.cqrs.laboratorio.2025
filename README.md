@@ -29,7 +29,7 @@
 ### **Descrição das Pastas**
 
 - **API.Gateway/**: Contém o projeto de API Gateway usando YARP para gerenciar as rotas.
-- **API.Auth/**: Contém os endpoints da API Auth.
+- **API.Auth/**: Contém os endpoints da API Auth.  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.netcore9/tree/main/src/API/API.Auth)
 - **Docker/**: Arquivos de configuração do Docker.
 
 ---
