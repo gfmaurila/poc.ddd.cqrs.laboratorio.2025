@@ -6,25 +6,13 @@ version: '3.4'
 # Update-Database -Context MainContext 
 
 networks:
-  my-app-network:
+  app-backend:
     driver: bridge
 
 services:
 
-  api.gateway:
-    image: ${DOCKER_REGISTRY-}apigateway
-    restart: always
-    build:
-      context: .
-      dockerfile: src/API/API.Gateway/Dockerfile
-    networks:
-      - my-app-network
-    depends_on:
-      - sqlserver
-      - kafka1
-      - api.auth
-    links:
-      - api.auth
+  # Acesso ao auth
+  # http://localhost:5001/swagger/index.html
 
   api.auth:
     image: ${DOCKER_REGISTRY-}apiauth
@@ -33,10 +21,12 @@ services:
       context: .
       dockerfile: src/API/API.Auth/Dockerfile
     networks:
-      - my-app-network
+      - app-backend
     depends_on:
       - sqlserver
       - kafka1
+      - redis
+      - mongoserver
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -45,11 +35,51 @@ services:
       - "1444:1433"
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: "KENhaLynconUngUIstRI"
+      SA_PASSWORD: "Poc2Minimal@Api"
     networks:
-      - my-app-network
+      - app-backend
     volumes:
       - sql_data:/var/opt/mssql
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    command: redis-server --requirepass Poc2Minimal@Api
+    restart: always
+    expose:
+      - 6379
+    ports:
+      - 6380:6379
+    networks:
+      - app-backend
+    volumes:
+      - redis_data:/var/opt/redis
+
+  mongoserver:
+    image: mongo:latest
+    container_name: mongoserver
+    restart: always
+    expose:
+      - 27017
+    ports:
+      - 27017:27017
+    networks:
+      - app-backend  
+    volumes:
+      - mongoserver_data:/var/opt/mongoserver
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    restart: always
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - app-backend  
 
   zookeeper:
     image: bitnami/zookeeper:3.8
@@ -61,7 +91,7 @@ services:
     environment:
       ALLOW_ANONYMOUS_LOGIN: "yes"
     networks:
-      - my-app-network
+      - app-backend
 
   kafka1:
     image: bitnami/kafka:3.6
@@ -82,7 +112,7 @@ services:
     depends_on:
       - zookeeper
     networks:
-      - my-app-network
+      - app-backend
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
@@ -96,7 +126,7 @@ services:
     depends_on:
       - kafka1
     networks:
-      - my-app-network
+      - app-backend
 
 volumes:
   zookeeper_data:
@@ -105,5 +135,9 @@ volumes:
     driver: local
   sql_data:
     driver: local
-
-
+  redis_data:
+    driver: local
+  mongoserver_data:
+    driver: local
+  .docker-conf:
+    driver: local

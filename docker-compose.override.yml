@@ -1,56 +1,77 @@
 version: '3.4'
 
 services:
-  api.gateway:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=BasketDb;User=sa;Password=KENhaLynconUngUIstRI;Encrypt=true;TrustServerCertificate=true
-      - Kafka__BootstrapServers=kafka1:9092
-      - Kafka__DefaultTopic=integration-events
-    ports:
-      - "8080:80"
-      - "8443:443"  # Alterei para 8443 para evitar conflitos
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-    networks:
-      - my-app-network
-
   api.auth:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - DOTNET_USE_POLLING_FILE_WATCHER=1
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
-      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=BasketDb;User=sa;Password=KENhaLynconUngUIstRI;Encrypt=true;TrustServerCertificate=true
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_URLS=http://+:80
+      
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=api_auth;User=sa;Password=Poc2Minimal@Api;Encrypt=true;TrustServerCertificate=true
+      - ConnectionStrings__CacheConnection=Redis,password=Poc2Minimal@Api
+      
+      - MongoDB__ConnectionString=mongodb://mongoserver:27017
+      - MongoDB__Database=api_auth
+
+      - Serilog__WriteTo__Name=MongoDB
+      - Serilog__WriteTo__Args__databaseUrl=mongodb://mongoserver:27017/admin
+      - Serilog__WriteTo__Args__collectionName=api_auth
+      - Serilog__WriteTo__Args__cappedMaxSizeMb=1024
+      - Serilog__WriteTo__Args__cappedMaxDocuments=50000
+      
       - Kafka__BootstrapServers=kafka1:9092
       - Kafka__DefaultTopic=integration-events
+
+      - RabbitMQ__Hostname=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+      - RabbitMQ__VirtualHost="/"
     ports:
-      - "8082:80"
-      - "8444:443"  # Alterei para 8444 para evitar conflitos
+      - "5001:80"
+      - "8081:443"  # Mapeamento HTTPS corrigido
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
     networks:
-      - my-app-network
+      - app-backend
 
   sqlserver:
     ports:
       - "1444:1433"
     networks:
-      - my-app-network
+      - app-backend
+
+  redis:
+    ports:
+      - "6380:6379"  # Redis utilizando a porta correta
+    networks:
+      - app-backend
+
+  mongoserver:
+    ports:
+      - "27017:27017"  
+    networks:
+      - app-backend
+
+  rabbitmq:
+    ports:
+      - 5672:5672
+      - 15672:15672  
+    networks:
+      - app-backend
 
   zookeeper:
     networks:
-      - my-app-network
+      - app-backend
 
   kafka1:
     networks:
-      - my-app-network
+      - app-backend
 
   kafka-ui:
     networks:
-      - my-app-network
+      - app-backend
+
+
