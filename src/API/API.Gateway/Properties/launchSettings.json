@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "http": {
+    "Development(http)": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -10,7 +10,7 @@
       "dotnetRunMessages": true,
       "applicationUrl": "http://localhost:5068"
     },
-    "https": {
+    "Development(https)": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

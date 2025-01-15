@@ -15,6 +15,7 @@ services:
   # http://localhost:5000/swagger/index.html
   api.gateway:
     image: ${DOCKER_REGISTRY-}apigateway
+    restart: always
     build:
       context: .
       dockerfile: src/API/API.Gateway/Dockerfile
