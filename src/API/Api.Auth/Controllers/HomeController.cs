@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Auth.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/[controller]")]
 public class HomeController : ControllerBase
 {
     private readonly ILogger<HomeController> _logger;

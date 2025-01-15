@@ -30,7 +30,7 @@
       "publishAllPorts": true,
       "useSSL": true
     },
-    "IIS Express": {
+    "Development(IIS Express)": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "swagger",
