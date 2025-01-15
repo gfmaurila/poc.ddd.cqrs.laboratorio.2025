@@ -75,6 +75,7 @@ git clone https://github.com/gfmaurila/poc.ddd.cqrs.netcore9.git
 
 ### **API.Auth**
 
+- **Swagger UI**: [http://localhost:5001/swagger/index.html](http://localhost:5001/swagger/index.html)
 - **GET /api/clinics**: Lista todas as clínicas.
 - **POST /api/clinics**: Adiciona uma nova clínica.
 - **PUT /api/clinics/{id}**: Atualiza os dados de uma clínica.
