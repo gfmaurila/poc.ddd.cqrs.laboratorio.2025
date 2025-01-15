@@ -1,4 +1,4 @@
-# 📘 Projeto: API Gateway - Sistema de Gestão de Clínicas
+# 📘 Projeto: Micro SaaS
 
 ### **Tecnologias Utilizadas**
 
@@ -19,7 +19,7 @@
 ```
 ├── API.Gateway
 │   └── Program.cs
-├── API.Clinics
+├── API.Auth
 │   └── Endpoints
 │       └── ClinicsController.cs
 ├── Docker
@@ -29,7 +29,7 @@
 ### **Descrição das Pastas**
 
 - **API.Gateway/**: Contém o projeto de API Gateway usando YARP para gerenciar as rotas.
-- **API.Clinics/**: Contém os endpoints da API de clínicas.
+- **API.Auth/**: Contém os endpoints da API Auth.
 - **Docker/**: Arquivos de configuração do Docker.
 
 ---
@@ -39,7 +39,10 @@
 Para rodar o projeto completo com todos os serviços:
 
 ```bash
+docker-compose down
+docker-compose up -d --build
 docker-compose up --build
+Update-Database -Context MainContext 
 ```
 
 ### **Serviços Configurados no Docker Compose:**
