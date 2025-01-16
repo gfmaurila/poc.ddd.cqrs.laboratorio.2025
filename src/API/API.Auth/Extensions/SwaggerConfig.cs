@@ -1,4 +1,4 @@
-﻿using Common.Net9.Models;
+﻿using Common.Core.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;

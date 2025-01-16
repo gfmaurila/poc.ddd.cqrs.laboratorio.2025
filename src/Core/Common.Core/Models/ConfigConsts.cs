@@ -1,4 +1,4 @@
-﻿namespace Common.Net9.Models;
+﻿namespace Common.Core.Models;
 
 public class ConfigConsts
 {
