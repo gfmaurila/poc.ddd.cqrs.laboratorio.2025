@@ -17,7 +17,7 @@ services:
     networks:
       - app-backend
 
-  api.auth:
+  api.auth.09:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_HTTP_PORTS=8080
@@ -50,6 +50,21 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+
+  api.exemple.core.08:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8082
+      - ASPNETCORE_URLS=http://+:80
+    ports: 
+      - "5002:80"
+      - "8082:443"  # Mapeamento HTTPS corrigido
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro  
     networks:
       - app-backend
 

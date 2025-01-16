@@ -22,19 +22,19 @@ services:
     networks:
       - app-backend
     depends_on:
-      - api.auth
+      - api.auth.09
     links:
-      - api.auth
+      - api.auth.09
 
   # Acesso ao auth
   # http://localhost:5001/swagger/index.html
 
-  api.auth:
+  api.auth.09:
     image: ${DOCKER_REGISTRY-}apiauth
     restart: always
     build:
       context: .
-      dockerfile: src/API/API.Auth/Dockerfile
+      dockerfile: src/API/API.Auth.09/Dockerfile
     networks:
       - app-backend
     depends_on:
@@ -42,6 +42,23 @@ services:
       - kafka1
       - redis
       - mongoserver
+      - rabbitmq
+
+  # Exemplo
+  # http://localhost:5002/swagger/index.html
+  api.exemple.core.08:
+    image: ${DOCKER_REGISTRY-}apiexemplecore08
+    build:
+      context: .
+      dockerfile: src/API/API.Exemple.Core.08/Dockerfile
+    networks:
+      - app-backend
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -156,4 +173,5 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
 
