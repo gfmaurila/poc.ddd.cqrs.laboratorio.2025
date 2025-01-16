@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Common.Core.Domain.ValueObjects;
+﻿namespace Common.Core.Domain.ValueObjects;
 
 public class PhoneNumber : ValueObject
 {

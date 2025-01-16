@@ -37,18 +37,4 @@
     <ProjectReference Include="..\..\Core\Common.Core\Common.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Feature\Modelo\Commands\Create\Events\" />
-    <Folder Include="Feature\Modelo\Commands\Delete\Events\" />
-    <Folder Include="Feature\Modelo\Commands\Update\Events\" />
-    <Folder Include="Feature\Modelo\Domain\Models\" />
-    <Folder Include="Feature\Modelo\Dtos\" />
-    <Folder Include="Feature\Modelo\Queries\Get\" />
-    <Folder Include="Feature\Modelo\Queries\GetById\" />
-    <Folder Include="Infrastructure\Database\Mappings\" />
-    <Folder Include="Infrastructure\Database\Repositories\" />
-    <Folder Include="Infrastructure\Messaging\Kafka\" />
-    <Folder Include="Infrastructure\Messaging\RabbiMQ\" />
-  </ItemGroup>
-
 </Project>

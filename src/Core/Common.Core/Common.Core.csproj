@@ -8,11 +8,10 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum" Version="8.2.0" />
+    <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
+    <PackageReference Include="csharpfunctionalextensions" Version="3.4.3" />
     <PackageReference Include="MediatR" Version="12.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\Messaging\" />
+    <PackageReference Include="scrutor" Version="6.0.1" />
   </ItemGroup>
 
 </Project>
