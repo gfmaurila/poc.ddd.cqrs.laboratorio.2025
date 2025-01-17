@@ -82,12 +82,6 @@
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\RabbiMQ\" />
     <Folder Include="Feature\Exemple\Delete\Models\" />
-    <Folder Include="Feature\Exemple\GetById\DTO\" />
-    <Folder Include="Feature\Exemple\GetById\Events\" />
-    <Folder Include="Feature\Exemple\GetById\Models\" />
-    <Folder Include="Feature\Exemple\Get\DTO\" />
-    <Folder Include="Feature\Exemple\Get\Events\" />
-    <Folder Include="Feature\Exemple\Get\Models\" />
     <Folder Include="Feature\Exemple\Update\DTO\" />
     <Folder Include="Feature\Exemple\Update\Events\" />
     <Folder Include="Feature\Exemple\Update\Models\" />

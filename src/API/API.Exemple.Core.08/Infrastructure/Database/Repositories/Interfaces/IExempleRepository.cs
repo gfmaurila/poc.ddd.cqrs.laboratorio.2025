@@ -9,4 +9,5 @@ public interface IExempleRepository : IBaseRepository<ExempleEntity>
 {
     Task<List<ExempleQueryModel>> GetAllAsync();
     Task<bool> ExistsByEmailAsync(Email email);
+    Task<ExempleQueryModel> GetByIdAsync(Guid id);
 }

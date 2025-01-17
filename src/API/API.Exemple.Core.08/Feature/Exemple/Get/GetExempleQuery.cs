@@ -4,9 +4,6 @@ using MediatR;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Get;
 
-public class GetExempleQuery : IRequest<ApiResult<List<ExempleQueryModel>>>
-{
-    public GetExempleQuery()
-    {
-    }
-}
+public record GetExempleQuery : IRequest<ApiResult<List<ExempleQueryModel>>>;
+
+

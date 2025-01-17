@@ -20,6 +20,17 @@ public class ExempleRepository : BaseRepository<ExempleEntity>, IExempleReposito
     public async Task<bool> ExistsByEmailAsync(Email email)
         => await _context.Exemple.AsNoTracking().AnyAsync(entity => entity.Email.Address == email.Address);
 
+    public async Task<ExempleQueryModel> GetByIdAsync(Guid id)
+    {
+        var entity = await _context.Exemple.AsNoTracking()
+                                   .Where(u => u.Id == id)
+                                   .FirstOrDefaultAsync();
+        if (entity is not null)
+            return MapperModelToEntity(entity);
+
+        return null;
+    }
+
 
     #region Private
     private List<ExempleQueryModel> MapperModelToEntity(List<ExempleEntity> entity)
