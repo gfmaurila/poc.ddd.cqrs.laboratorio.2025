@@ -60,14 +60,22 @@ services:
       - mongoserver
       - rabbitmq
 
+  # SQL Server
+  # Add-Migration Inicial -Context SqlServerDb
+  # Update-Database -Context SqlServerDb
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    cap_add: [ 'SYS_PTRACE' ]
+    hostname: mssql
+    container_name: sqlserver
     restart: always
+    expose:
+      - 1433
     ports:
-      - "1444:1433"
+      - 1433:1433
     environment:
-      ACCEPT_EULA: "Y"
-      SA_PASSWORD: "Poc2Minimal@Api"
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=@Poc2Minimal@Api
     networks:
       - app-backend
     volumes:
