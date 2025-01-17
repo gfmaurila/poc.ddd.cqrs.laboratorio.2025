@@ -140,7 +140,6 @@ public class Exemple2Controller : ControllerBase
     public async Task<IActionResult> DeleteExemple(Guid id)
     {
         // Envia o comando de deleção para o handler
-
         var result = await _sender.Send(new DeleteExempleCommand(id));
 
         // Retorna erro de validação ou estado incorreto
