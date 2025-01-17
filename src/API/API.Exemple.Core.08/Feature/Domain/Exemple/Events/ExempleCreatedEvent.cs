@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple.Core._08.Infrastructure.Domain.Exemple.Events;
+namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
 
 public class ExempleCreatedEvent : ExempleBaseEvent
 {

@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Infrastructure.Domain.Exemple;
+﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
 using Common.Core._08.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

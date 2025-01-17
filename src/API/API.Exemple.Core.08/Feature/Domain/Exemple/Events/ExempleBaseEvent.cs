@@ -1,7 +1,7 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 
-namespace API.Exemple.Core._08.Infrastructure.Domain.Exemple.Events;
+namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
 
 public abstract class ExempleBaseEvent : Event
 {

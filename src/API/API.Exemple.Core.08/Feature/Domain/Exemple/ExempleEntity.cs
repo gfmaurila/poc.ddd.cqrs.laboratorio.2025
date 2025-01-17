@@ -1,10 +1,10 @@
-﻿using API.Exemple.Core._08.Infrastructure.Domain.Exemple.Events;
+﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
 using Common.Core._08.Domain;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Interface;
 using Common.Core._08.Domain.ValueObjects;
 
-namespace API.Exemple.Core._08.Infrastructure.Domain.Exemple;
+namespace API.Exemple.Core._08.Feature.Domain.Exemple;
 
 public class ExempleEntity : BaseEntity, IAggregateRoot
 {

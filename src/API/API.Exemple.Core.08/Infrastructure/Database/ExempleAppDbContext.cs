@@ -1,5 +1,5 @@
-﻿using API.Exemple.Core._08.Infrastructure.Database.Mappings;
-using API.Exemple.Core._08.Infrastructure.Domain.Exemple;
+﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
+using API.Exemple.Core._08.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Exemple.Core._08.Infrastructure.Database;

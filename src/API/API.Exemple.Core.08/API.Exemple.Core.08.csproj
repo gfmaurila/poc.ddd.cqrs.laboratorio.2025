@@ -72,7 +72,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Domain\Exemple\Models\" />
+    <Folder Include="Feature\Exemple\Create\DTO\" />
+    <Folder Include="Feature\Exemple\Create\Models\" />
+    <Folder Include="Feature\Exemple\Delete\DTO\" />
+    <Folder Include="Feature\Exemple\Delete\Events\" />
+    <Folder Include="Feature\Exemple\Delete\Models\" />
+    <Folder Include="Feature\Exemple\GetById\DTO\" />
+    <Folder Include="Feature\Exemple\GetById\Events\" />
+    <Folder Include="Feature\Exemple\GetById\Models\" />
+    <Folder Include="Feature\Exemple\Get\DTO\" />
+    <Folder Include="Feature\Exemple\Get\Events\" />
+    <Folder Include="Feature\Exemple\Get\Models\" />
+    <Folder Include="Feature\Exemple\Update\DTO\" />
+    <Folder Include="Feature\Exemple\Update\Events\" />
+    <Folder Include="Feature\Exemple\Update\Models\" />
     <Folder Include="Infrastructure\Messaging\Kafka\" />
     <Folder Include="Infrastructure\Integration\" />
   </ItemGroup>
