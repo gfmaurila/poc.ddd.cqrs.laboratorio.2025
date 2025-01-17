@@ -50,10 +50,13 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
 
         await _repo.Create(entity);
 
-        // Executa eventos
+        // Executa DomainEvent
         foreach (var domainEvent in entity.DomainEvents)
             await _mediator.Publish(domainEvent);
         entity.ClearDomainEvents();
+
+        // Executa KafkaEvent
+        // Executa RabbiMQEvent
 
         return ApiResult<CreateExempleResponse>.CreateSuccess(new CreateExempleResponse(entity.Id), "Cadastrado com sucesso!");
     }

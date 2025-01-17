@@ -7,12 +7,12 @@ using MediatR;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Create.Events;
 
-public class ExempleCreateEventHandler : INotificationHandler<ExempleCreatedEvent>
+public class ExempleCreateDomainEventHandler : INotificationHandler<ExempleCreatedDomainEvent>
 {
-    private readonly ILogger<ExempleCreateEventHandler> _logger;
+    private readonly ILogger<ExempleCreateDomainEventHandler> _logger;
     private readonly IExempleRepository _repo;
     private readonly IRedisCacheService<List<ExempleQueryModel>> _cacheService;
-    public ExempleCreateEventHandler(ILogger<ExempleCreateEventHandler> logger,
+    public ExempleCreateDomainEventHandler(ILogger<ExempleCreateDomainEventHandler> logger,
                                       IExempleRepository repo,
                                       IRedisCacheService<List<ExempleQueryModel>> cacheService)
     {
@@ -21,7 +21,7 @@ public class ExempleCreateEventHandler : INotificationHandler<ExempleCreatedEven
         _cacheService = cacheService;
     }
 
-    public async Task Handle(ExempleCreatedEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(ExempleCreatedDomainEvent notification, CancellationToken cancellationToken)
     {
         const string cacheKey = nameof(GetExempleQuery);
         await _cacheService.DeleteAsync(cacheKey);

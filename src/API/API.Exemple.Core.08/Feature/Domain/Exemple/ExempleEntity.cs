@@ -44,6 +44,6 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Email = email;
         Phone = phone;
         Role = role;
-        AddDomainEvent(new ExempleCreatedEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
+        AddDomainEvent(new ExempleCreatedDomainEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
     }
 }
