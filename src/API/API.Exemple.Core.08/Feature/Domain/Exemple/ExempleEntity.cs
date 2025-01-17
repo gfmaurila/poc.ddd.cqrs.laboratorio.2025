@@ -1,4 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+using API.Exemple.Core._08.Feature.Exemple.Update;
 using Common.Core._08.Domain;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Interface;
@@ -48,8 +49,25 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
     }
 
     /// <summary>
-    /// Adiciona o evento de entidade deletada.
+    /// Update
+    /// </summary>
+    /// <param name="command"></param>
+    public ExempleEntity(UpdateExempleCommand command)
+    {
+        FirstName = command.FirstName;
+        LastName = command.LastName;
+        Gender = command.Gender;
+        Notification = command.Notification;
+        Email = new Email(command.Email);
+        Phone = new PhoneNumber(command.Phone);
+        Role = command.Role;
+        AddDomainEvent(new ExempleUpdateDomainEvent(Id, command.FirstName, command.LastName, command.Gender, command.Notification, command.Email, command.Phone, command.Role));
+    }
+
+    /// <summary>
+    /// Delete
     /// </summary>
     public void Delete()
         => AddDomainEvent(new ExempleDeleteDomainEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
+
 }

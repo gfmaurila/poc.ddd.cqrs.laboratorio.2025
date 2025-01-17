@@ -74,17 +74,14 @@
   <ItemGroup>
     <Folder Include="Feature\Domain\Exemple\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Domain\Exemple\Events\Messaging\RabbiMQ\" />
-    <Folder Include="Feature\Exemple\Create\DTO\" />
     <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Create\Events\Messaging\RabbiMQ\" />
-    <Folder Include="Feature\Exemple\Create\Models\" />
     <Folder Include="Feature\Exemple\Delete\DTO\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\RabbiMQ\" />
     <Folder Include="Feature\Exemple\Delete\Models\" />
-    <Folder Include="Feature\Exemple\Update\DTO\" />
-    <Folder Include="Feature\Exemple\Update\Events\" />
-    <Folder Include="Feature\Exemple\Update\Models\" />
+    <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
+    <Folder Include="Feature\Exemple\Update\Events\Messaging\RabbiMQ\" />
     <Folder Include="Infrastructure\Messaging\Kafka\" />
     <Folder Include="Infrastructure\Integration\" />
   </ItemGroup>
