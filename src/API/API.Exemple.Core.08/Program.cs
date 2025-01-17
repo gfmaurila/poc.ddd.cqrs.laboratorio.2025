@@ -1,5 +1,6 @@
 
 using API.Exemple.Core._08.Extensions;
+using Carter;
 using FluentValidation;
 using Serilog;
 
@@ -23,6 +24,7 @@ public class Program
         builder.Services.AddConnections();
         builder.Services.AddEndpointsApiExplorer();
         //builder.Services.AddSwaggerGen();
+        builder.Services.AddCarter();
 
         // Swagger
         builder.Services.AddSwaggerConfig(builder.Configuration);
@@ -36,6 +38,7 @@ public class Program
         });
 
         var app = builder.Build();
+        app.MapCarter();
 
         app.UseSwagger();
         app.UseSwaggerUI();

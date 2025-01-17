@@ -11,6 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+	  
+	  <PackageReference Include="Carter" Version="8.0.0" />
+	  <PackageReference Include="Mapster" Version="7.4.0" />
+	  <PackageReference Include="Mapster.Core" Version="1.2.1" />
+	  
 	  <PackageReference Include="Antlr4.Runtime" Version="4.6.6" />
 	  <PackageReference Include="Ardalis.Result" Version="9.1.0" />
 	  <PackageReference Include="Ardalis.SmartEnum" Version="8.2.0" />
@@ -87,3 +92,4 @@
   </ItemGroup>
 
 </Project>
+
