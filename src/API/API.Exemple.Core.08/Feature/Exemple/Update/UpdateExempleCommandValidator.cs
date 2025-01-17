@@ -1,5 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Exemple.Create;
-using Common.Core._08.Domain.Enumerado;
+﻿using Common.Core._08.Domain.Enumerado;
 using FluentValidation;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Update;
