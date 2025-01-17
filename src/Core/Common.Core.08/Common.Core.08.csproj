@@ -8,6 +8,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Ardalis.SmartEnum" Version="8.2.0" />
 		<PackageReference Include="MediatR" Version="11.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
@@ -49,7 +50,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Domain\Errors\" />
 	  <Folder Include="Domain\Exceptions\" />
 	  <Folder Include="Domain\Extensions\" />
 	</ItemGroup>
