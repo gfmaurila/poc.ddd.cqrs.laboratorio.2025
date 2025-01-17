@@ -44,6 +44,12 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Email = email;
         Phone = phone;
         Role = role;
-        AddDomainEvent(new ExempleCreatedDomainEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
+        AddDomainEvent(new ExempleCreateDomainEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
     }
+
+    /// <summary>
+    /// Adiciona o evento de entidade deletada.
+    /// </summary>
+    public void Delete()
+        => AddDomainEvent(new ExempleDeleteDomainEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
 }

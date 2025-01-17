@@ -5,23 +5,23 @@ using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Interface;
 using MediatR;
 
-namespace API.Exemple.Core._08.Feature.Exemple.Create.Events;
+namespace API.Exemple.Core._08.Feature.Exemple.Delete.Events;
 
-public class ExempleCreateDomainEventHandler : INotificationHandler<ExempleCreateDomainEvent>
+public class ExempleDeleteDomainEventHandler : INotificationHandler<ExempleDeleteDomainEvent>
 {
-    private readonly ILogger<ExempleCreateDomainEventHandler> _logger;
+    private readonly ILogger<ExempleDeleteDomainEventHandler> _logger;
     private readonly IExempleRepository _repo;
     private readonly IRedisCacheService<List<ExempleQueryModel>> _cacheService;
-    public ExempleCreateDomainEventHandler(ILogger<ExempleCreateDomainEventHandler> logger,
-                                      IExempleRepository repo,
-                                      IRedisCacheService<List<ExempleQueryModel>> cacheService)
+    public ExempleDeleteDomainEventHandler(ILogger<ExempleDeleteDomainEventHandler> logger,
+                                   IExempleRepository repo,
+                                   IRedisCacheService<List<ExempleQueryModel>> cacheService)
     {
         _logger = logger;
         _repo = repo;
         _cacheService = cacheService;
     }
 
-    public async Task Handle(ExempleCreateDomainEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(ExempleDeleteDomainEvent notification, CancellationToken cancellationToken)
     {
         const string cacheKey = nameof(GetExempleQuery);
         await _cacheService.DeleteAsync(cacheKey);

@@ -1,7 +1,7 @@
 
 using API.Exemple.Core._08.Extensions;
+using FluentValidation;
 using Serilog;
-using System.Reflection;
 
 namespace API.Exemple.Core._08;
 
@@ -12,6 +12,12 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+
+        // Register MediatR
+        var assembly = typeof(Program).Assembly;
+        //builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+        builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
+        builder.Services.AddValidatorsFromAssembly(assembly);
 
         builder.Services.AddControllers();
         builder.Services.AddConnections();
@@ -28,9 +34,6 @@ public class Program
         {
             config.ReadFrom.Configuration(builder.Configuration);
         });
-
-        // Register MediatR
-        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
         var app = builder.Build();
 

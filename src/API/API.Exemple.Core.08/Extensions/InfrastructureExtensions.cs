@@ -3,6 +3,7 @@ using API.Exemple.Core._08.Infrastructure.Database;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+using API.Exemple.Core._08.Infrastructure.Redis;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -36,7 +37,7 @@ public static class InfrastructureExtensions
         services.AddScoped<IExempleRepository, ExempleRepository>();
 
         // Redis
-        //DistributedCacheInitializer.Initialize(services, configuration);
+        DistributedCacheInitializer.Initialize(services, configuration);
 
         // Services
         CoreInitializer.Initialize(services);
