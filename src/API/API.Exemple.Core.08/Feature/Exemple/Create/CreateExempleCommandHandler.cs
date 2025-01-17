@@ -13,9 +13,9 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
     private readonly ILogger<CreateExempleCommandHandler> _logger;
     private readonly IMediator _mediator;
     public CreateExempleCommandHandler(ILogger<CreateExempleCommandHandler> logger,
-                                    IExempleRepository repo,
-                                    IMediator mediator,
-                                    CreateExempleCommandValidator validator)
+                                       IExempleRepository repo,
+                                       IMediator mediator,
+                                       CreateExempleCommandValidator validator)
     {
         _repo = repo;
         _logger = logger;
