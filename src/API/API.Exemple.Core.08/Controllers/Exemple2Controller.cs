@@ -6,7 +6,7 @@ namespace API.Exemple.Core._08.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class ExempleController(ISender sender, ILogger<ExempleController> logger) : BaseController(logger)
+public class Exemple2Controller(ISender sender, ILogger<Exemple2Controller> logger) : BaseController(logger)
 {
     private readonly ISender _sender = sender;
 
