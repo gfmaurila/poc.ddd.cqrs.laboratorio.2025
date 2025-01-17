@@ -5,5 +5,5 @@ namespace API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 
 public interface IExempleRepository : IBaseRepository<ExempleEntity>
 {
-    
+
 }

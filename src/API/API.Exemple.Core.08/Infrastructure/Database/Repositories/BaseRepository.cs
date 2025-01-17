@@ -1,5 +1,5 @@
-﻿using Common.Core._08.Domain.Interface;
-using Common.Core._08.Domain;
+﻿using Common.Core._08.Domain;
+using Common.Core._08.Domain.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Exemple.Core._08.Infrastructure.Database.Repositories;

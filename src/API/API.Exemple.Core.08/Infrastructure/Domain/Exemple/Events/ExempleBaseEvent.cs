@@ -1,6 +1,5 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
-using Common.Core._08.Domain.ValueObjects;
 
 namespace API.Exemple.Core._08.Infrastructure.Domain.Exemple.Events;
 

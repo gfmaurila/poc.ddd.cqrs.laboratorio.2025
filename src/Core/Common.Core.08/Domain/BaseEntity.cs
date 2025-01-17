@@ -1,11 +1,6 @@
 ﻿using Common.Core._08.Domain.Events;
 using Common.Core._08.Domain.Interface;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Core._08.Domain;
 

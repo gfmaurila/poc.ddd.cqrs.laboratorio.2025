@@ -3,13 +3,7 @@ using API.Exemple.Core._08.Infrastructure.Database;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
-using API.Exemple.Core._08.Infrastructure.Redis;
-using Common.Core._08.Domain.Interface;
-using Common.Core._08.Handle;
-using Common.Core._08.Interface;
-using Common.Core._08.Service;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
 using System.Reflection;
 
 namespace API.Exemple.Core._08.Extensions;

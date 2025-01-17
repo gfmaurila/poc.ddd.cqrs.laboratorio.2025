@@ -3,11 +3,6 @@ using Common.Core._08.Model;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using System.Text.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Core._08.Service;
 

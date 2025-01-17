@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using API.Exemple.Core._08.Infrastructure.Domain.Exemple;
+﻿using API.Exemple.Core._08.Infrastructure.Domain.Exemple;
 using Common.Core._08.Extensions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Text.Json;
 
 namespace API.Exemple.Core._08.Infrastructure.Database.Mappings;
