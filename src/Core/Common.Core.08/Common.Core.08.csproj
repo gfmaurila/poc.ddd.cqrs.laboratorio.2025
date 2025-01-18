@@ -49,4 +49,8 @@
 		<PackageReference Include="Microsoft.AspNetCore.openApi" Version="8.0.7" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Migration\" />
+	</ItemGroup>
+
 </Project>

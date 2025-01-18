@@ -45,6 +45,8 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Email = email;
         Phone = phone;
         Role = role;
+        DtInsert = DateTime.Now;
+        Status = true;
         AddDomainEvent(new ExempleCreateDomainEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
     }
 
@@ -61,6 +63,8 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Email = new Email(command.Email);
         Phone = new PhoneNumber(command.Phone);
         Role = command.Role;
+        DtUpdate = DateTime.Now;
+        Status = true;
         AddDomainEvent(new ExempleUpdateDomainEvent(Id, command.FirstName, command.LastName, command.Gender, command.Notification, command.Email, command.Phone, command.Role));
     }
 

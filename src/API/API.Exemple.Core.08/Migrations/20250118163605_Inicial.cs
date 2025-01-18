@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using Common.Core._08.Domain.Enumerado;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System.Data;
 
 #nullable disable
 
@@ -24,7 +23,14 @@ namespace API.Exemple.Core._08.Migrations
                     Notification = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     Email = table.Column<string>(type: "varchar(254)", unicode: false, maxLength: 254, nullable: false),
                     Phone = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    Role = table.Column<string>(type: "varchar(2048)", unicode: false, maxLength: 2048, nullable: false)
+                    Role = table.Column<string>(type: "varchar(2048)", unicode: false, maxLength: 2048, nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    DtInsert = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DtInsertId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DtUpdate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DtUpdateId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DtDelete = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DtDeleteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,7 +63,10 @@ namespace API.Exemple.Core._08.Migrations
                     Notification = faker.PickRandom<ENotificationType>().ToString(), // Enum ENotificationType
                     Email = faker.Internet.Email(),
                     Phone = faker.Phone.PhoneNumber("+1##########"),
-                    Role = string.Join(",", roles) // Combina múltiplas permissões em uma string
+                    Role = string.Join(",", roles), // Combina múltiplas permissões em uma string,
+                    DtInsert = DateTime.Now,
+                    DtInsertId = Guid.NewGuid(),
+                    Status = true
                 });
             }
 
@@ -66,17 +75,20 @@ namespace API.Exemple.Core._08.Migrations
             {
                 migrationBuilder.InsertData(
                     table: "Exemple",
-                    columns: new[] { "Id", "FirstName", "LastName", "Gender", "Notification", "Email", "Phone", "Role" },
+                    columns: new[] { "Id", "FirstName", "LastName", "Gender", "Notification", "Email", "Phone", "Role", "DtInsert", "DtInsertId", "Status" },
                     values: new object[]
                     {
                         ((dynamic)data).Id,
                         ((dynamic)data).FirstName,
                         ((dynamic)data).LastName,
-                        ((dynamic)data).Gender.ToString(), // Converter o enum para string
+                        ((dynamic)data).Gender.ToString(),
                         ((dynamic)data).Notification,
                         ((dynamic)data).Email,
                         ((dynamic)data).Phone,
-                        ((dynamic)data).Role
+                        ((dynamic)data).Role,
+                        ((dynamic)data).DtInsert,
+                        ((dynamic)data).DtInsertId,
+                        ((dynamic)data).Status
                     }
                 );
             }

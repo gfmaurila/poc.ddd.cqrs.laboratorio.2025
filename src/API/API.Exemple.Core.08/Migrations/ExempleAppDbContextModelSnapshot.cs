@@ -27,6 +27,24 @@ namespace API.Exemple.Core._08.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("DtDelete")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DtDeleteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DtInsert")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DtInsertId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DtUpdate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DtUpdateId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -56,6 +74,9 @@ namespace API.Exemple.Core._08.Migrations
                         .HasMaxLength(2048)
                         .IsUnicode(false)
                         .HasColumnType("varchar(2048)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
