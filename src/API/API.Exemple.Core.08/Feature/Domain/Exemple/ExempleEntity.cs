@@ -36,7 +36,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
     /// <param name="email"></param>
     /// <param name="phone"></param>
     /// <param name="role"></param>
-    public ExempleEntity(string firstName, string lastName, EGender gender, ENotificationType notification, Email email, PhoneNumber phone, List<string> role)
+    public ExempleEntity(string firstName, string lastName, EGender gender, ENotificationType notification, Email email, PhoneNumber phone, List<string> role, Guid dtInsertId, bool status)
     {
         FirstName = firstName;
         LastName = lastName;
@@ -46,15 +46,31 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Phone = phone;
         Role = role;
         DtInsert = DateTime.Now;
-        Status = true;
-        AddDomainEvent(new ExempleCreateDomainEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, role));
+        Status = status;
+        DtInsertId = dtInsertId;
+
+        AddDomainEvent(new ExempleCreateDomainEvent(Id, 
+                                                    firstName, 
+                                                    lastName, 
+                                                    gender, 
+                                                    notification, 
+                                                    email.Address, 
+                                                    phone.Phone, 
+                                                    role, 
+                                                    DtInsert,
+                                                    dtInsertId,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    null,
+                                                    status));
     }
 
     /// <summary>
     /// Update
     /// </summary>
     /// <param name="command"></param>
-    public ExempleEntity(UpdateExempleCommand command)
+    public ExempleEntity(UpdateExempleCommand command, Guid dtUpdateId, bool status)
     {
         FirstName = command.FirstName;
         LastName = command.LastName;
@@ -64,8 +80,23 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Phone = new PhoneNumber(command.Phone);
         Role = command.Role;
         DtUpdate = DateTime.Now;
-        Status = true;
-        AddDomainEvent(new ExempleUpdateDomainEvent(Id, command.FirstName, command.LastName, command.Gender, command.Notification, command.Email, command.Phone, command.Role));
+        DtUpdateId = dtUpdateId;
+        Status = status;
+        AddDomainEvent(new ExempleUpdateDomainEvent(Id, 
+                                                    command.FirstName, 
+                                                    command.LastName, 
+                                                    command.Gender, 
+                                                    command.Notification, 
+                                                    command.Email, 
+                                                    command.Phone, 
+                                                    command.Role,
+                                                    DtInsert,
+                                                    DtInsertId,
+                                                    DtUpdate,
+                                                    dtUpdateId,
+                                                    null,
+                                                    null,
+                                                    status));
     }
 
     /// <summary>

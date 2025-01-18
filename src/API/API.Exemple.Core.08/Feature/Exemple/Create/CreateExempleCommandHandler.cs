@@ -2,6 +2,7 @@
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Common.Core._08.Response;
+using MassTransit;
 using MediatR;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Create;
@@ -46,7 +47,9 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
             request.Notification,
             email,
             phone,
-            request.Role);
+            request.Role,
+            Guid.NewGuid(),
+            true);
 
         await _repo.Create(entity);
 
