@@ -7,6 +7,7 @@ namespace API.Exemple.Core._08.Feature.Exemple.Create;
 public record CreateExempleCommand(
     string FirstName,
     string LastName,
+    bool Status,
     EGender Gender,
     ENotificationType Notification,
     string Email,

@@ -70,7 +70,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
     /// Update
     /// </summary>
     /// <param name="command"></param>
-    public ExempleEntity(UpdateExempleCommand command, Guid dtUpdateId, bool status)
+    public ExempleEntity(UpdateExempleCommand command, Guid dtUpdateId)
     {
         FirstName = command.FirstName;
         LastName = command.LastName;
@@ -81,7 +81,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Role = command.Role;
         DtUpdate = DateTime.Now;
         DtUpdateId = dtUpdateId;
-        Status = status;
+        Status = command.Status;
         AddDomainEvent(new ExempleUpdateDomainEvent(Id, 
                                                     command.FirstName, 
                                                     command.LastName, 
@@ -96,7 +96,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
                                                     dtUpdateId,
                                                     null,
                                                     null,
-                                                    status));
+                                                    command.Status));
     }
 
     /// <summary>

@@ -39,7 +39,7 @@ public class UpdateExempleCommandHandler : IRequestHandler<UpdateExempleCommand,
                 },
                 400);
 
-        entity = new ExempleEntity(request, Guid.NewGuid(), true);
+        entity = new ExempleEntity(request, Guid.NewGuid());
 
         await _repo.Update(entity);
 

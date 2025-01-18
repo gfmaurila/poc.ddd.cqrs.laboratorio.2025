@@ -49,7 +49,7 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
             phone,
             request.Role,
             Guid.NewGuid(),
-            true);
+            request.Status);
 
         await _repo.Create(entity);
 
