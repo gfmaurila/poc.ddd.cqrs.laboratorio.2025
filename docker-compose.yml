@@ -48,6 +48,7 @@ services:
   # http://localhost:5002/swagger/index.html
   api.exemple.core.08:
     image: ${DOCKER_REGISTRY-}apiexemplecore08
+    restart: always
     build:
       context: .
       dockerfile: src/API/API.Exemple.Core.08/Dockerfile
