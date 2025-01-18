@@ -1,5 +1,6 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+using API.Exemple.Core._08.Feature.Exemple.GetPaginate;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,32 @@ public class ExempleRepository : BaseRepository<ExempleEntity>, IExempleReposito
 
     public async Task<List<ExempleQueryModel>> GetAllAsync()
         => MapperModelToEntity(await _context.Exemple.AsNoTracking().ToListAsync());
+
+    public async Task<List<ExempleQueryModel>> GetPaginatedItemsAsync(GetPaginateExempleQuery query)
+    {
+        return await _context.Exemple.AsNoTracking()
+            .Where(e => string.IsNullOrEmpty(query.FiltroFirstName) || e.FirstName.Contains(query.FiltroFirstName))
+            .Skip(query.CalculateRecordsToSkip()) // Paginação
+            .Take(query.PageSize) // Quantidade por página
+            .Select(e => new ExempleQueryModel
+            {
+                Id = e.Id,
+                FirstName = e.FirstName,
+                LastName = e.LastName,
+                Email = e.Email.Address,
+                Phone = e.Phone.Phone,
+                Gender = e.Gender,
+                Notification = e.Notification,
+                Role = e.Role
+            })
+            .ToListAsync();
+    }
+
+    public async Task<int> GetTotalCountAsync(GetPaginateExempleQuery query)
+    {
+        return await _context.Exemple.AsNoTracking()
+            .CountAsync(e => string.IsNullOrEmpty(query.FiltroFirstName) || e.FirstName.Contains(query.FiltroFirstName));
+    }
 
     public async Task<bool> ExistsByEmailAsync(Email email)
         => await _context.Exemple.AsNoTracking().AnyAsync(entity => entity.Email.Address == email.Address);

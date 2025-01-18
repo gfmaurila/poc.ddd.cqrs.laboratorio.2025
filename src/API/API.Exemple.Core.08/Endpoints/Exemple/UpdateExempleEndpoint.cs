@@ -1,9 +1,7 @@
 ﻿using API.Exemple.Core._08.Feature.Exemple.Update;
 using Carter;
-using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 
 namespace API.Exemple.Core._08.Endpoints.Exemple;
@@ -31,7 +29,7 @@ public class UpdateExempleEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}" })
+            //.RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}" })
             ;
     }
 

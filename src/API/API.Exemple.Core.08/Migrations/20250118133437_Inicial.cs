@@ -1,8 +1,7 @@
-﻿using System;
-using System.Data;
-using Bogus;
+﻿using Bogus;
 using Common.Core._08.Domain.Enumerado;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Data;
 
 #nullable disable
 

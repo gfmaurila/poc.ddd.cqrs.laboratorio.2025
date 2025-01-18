@@ -1,26 +1,27 @@
 ﻿using System.ComponentModel;
 
 namespace Common.Core._08.Domain.Enumerado;
+
 /// <summary>
-/// Gênero.
+/// Represents the gender options.
 /// </summary>
 public enum EGender
 {
     /// <summary>
-    /// Não informar.
+    /// Do not specify.
     /// </summary>
     [Description("Não informar")]
     None = 0,
 
     /// <summary>
-    /// Masculino.
+    /// Male gender.
     /// </summary>
-    [Description("Masculino")]
+    [Description("Male")]
     Male = 1,
 
     /// <summary>
-    /// Feminino.
+    /// Female gender.
     /// </summary>
-    [Description("Feminino")]
+    [Description("Female")]
     Female = 2
 }

@@ -3,70 +3,70 @@
 namespace Common.Core._08.Response;
 
 /// <summary>
-/// Classe responsável pela a padronização das respostas da API.
+/// Class responsible for standardizing API responses.
 /// </summary>
 public class ApiResponse
 {
     #region Properties
 
     /// <summary>
-    /// Indica se a requisição foi bem-sucedida.
+    /// Indicates whether the request was successful.
     /// </summary>
     public bool Success { get; set; }
 
     /// <summary>
-    /// Mensagem de sucesso.
+    /// Success message.
     /// </summary>
     public string SuccessMessage { get; set; }
 
     /// <summary>
-    /// O código do status HTTP.
+    /// The HTTP status code of the response.
     /// </summary>
     public int StatusCode { get; set; }
 
     /// <summary>
-    /// Lista com os erros da requisição se não for bem-sucedida.
+    /// A list of errors if the request was not successful.
     /// </summary>
     public IEnumerable<ApiError> Errors { get; set; } = Enumerable.Empty<ApiError>();
 
     #endregion
 
-    #region HTTP Status 200 Ok
+    #region HTTP Status 200 OK
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 200
+    /// Creates a response with HTTP status 200.
     /// </summary>
     public static ApiResponse Ok()
         => new() { Success = true, StatusCode = StatusCodes.Status200OK };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 200
+    /// Creates a response with HTTP status 200 and a success message.
     /// </summary>
-    /// <param name="successMessage">Mensagem de sucesso a ser exibida na resposta.</param>
+    /// <param name="successMessage">The success message to include in the response.</param>
     public static ApiResponse Ok(string successMessage)
         => new() { Success = true, StatusCode = StatusCodes.Status200OK, SuccessMessage = successMessage };
 
     #endregion
 
-    #region HTTP Status 400 BadRequest
+    #region HTTP Status 400 Bad Request
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 400.
+    /// Creates a response with HTTP status 400.
     /// </summary>
     public static ApiResponse BadRequest()
         => new() { Success = false, StatusCode = StatusCodes.Status400BadRequest };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 400.
+    /// Creates a response with HTTP status 400 and an error message.
     /// </summary>
-    /// <param name="errorMessage">Mensagem de erro a ser exibida na resposta.</param>
+    /// <param name="errorMessage">The error message to include in the response.</param>
     public static ApiResponse BadRequest(string errorMessage)
         => new() { Success = false, StatusCode = StatusCodes.Status400BadRequest, Errors = CreateApiErrors(errorMessage) };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 400.
+    /// Creates a response with HTTP status 400 and a list of errors.
     /// </summary>
-    /// <param name="errors">Lista de erros a serem exibidas na resposta.</param>
+    /// <param name="errors">The list of errors to include in the response.</param>
     public static ApiResponse BadRequest(IEnumerable<ApiError> errors)
         => new() { Success = false, StatusCode = StatusCodes.Status400BadRequest, Errors = errors };
 
@@ -75,22 +75,22 @@ public class ApiResponse
     #region HTTP Status 401 Unauthorized
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 401.
+    /// Creates a response with HTTP status 401.
     /// </summary>
     public static ApiResponse Unauthorized()
         => new() { Success = false, StatusCode = StatusCodes.Status401Unauthorized };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 401.
+    /// Creates a response with HTTP status 401 and an error message.
     /// </summary>
-    /// <param name="errorMessage">Mensagem de erro a ser exibida na resposta.</param>
+    /// <param name="errorMessage">The error message to include in the response.</param>
     public static ApiResponse Unauthorized(string errorMessage)
         => new() { Success = false, StatusCode = StatusCodes.Status401Unauthorized, Errors = CreateApiErrors(errorMessage) };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 401.
+    /// Creates a response with HTTP status 401 and a list of errors.
     /// </summary>
-    /// <param name="errors">Lista de erros a serem exibidas na resposta.</param>
+    /// <param name="errors">The list of errors to include in the response.</param>
     public static ApiResponse Unauthorized(IEnumerable<ApiError> errors)
         => new() { Success = false, StatusCode = StatusCodes.Status401Unauthorized, Errors = errors };
 
@@ -99,64 +99,64 @@ public class ApiResponse
     #region HTTP Status 403 Forbidden
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 403.
+    /// Creates a response with HTTP status 403.
     /// </summary>
     public static ApiResponse Forbidden()
         => new() { Success = false, StatusCode = StatusCodes.Status403Forbidden };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 403.
+    /// Creates a response with HTTP status 403 and an error message.
     /// </summary>
-    /// <param name="errorMessage">Mensagem de erro a ser exibida na resposta.</param>
+    /// <param name="errorMessage">The error message to include in the response.</param>
     public static ApiResponse Forbidden(string errorMessage)
         => new() { Success = false, StatusCode = StatusCodes.Status403Forbidden, Errors = CreateApiErrors(errorMessage) };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 403.
+    /// Creates a response with HTTP status 403 and a list of errors.
     /// </summary>
-    /// <param name="errors">Lista de erros a serem exibidas na resposta.</param>
+    /// <param name="errors">The list of errors to include in the response.</param>
     public static ApiResponse Forbidden(IEnumerable<ApiError> errors)
         => new() { Success = false, StatusCode = StatusCodes.Status403Forbidden, Errors = errors };
 
     #endregion
 
-    #region HTTP Status 404 NotFound
+    #region HTTP Status 404 Not Found
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 404.
+    /// Creates a response with HTTP status 404.
     /// </summary>
     public static ApiResponse NotFound()
         => new() { Success = false, StatusCode = StatusCodes.Status404NotFound };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 404.
+    /// Creates a response with HTTP status 404 and an error message.
     /// </summary>
-    /// <param name="errorMessage">Mensagem de erro a ser exibida na resposta.</param>
+    /// <param name="errorMessage">The error message to include in the response.</param>
     public static ApiResponse NotFound(string errorMessage)
         => new() { Success = false, StatusCode = StatusCodes.Status404NotFound, Errors = CreateApiErrors(errorMessage) };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 404.
+    /// Creates a response with HTTP status 404 and a list of errors.
     /// </summary>
-    /// <param name="errors">Lista de erros a serem exibidas na resposta.</param>
+    /// <param name="errors">The list of errors to include in the response.</param>
     public static ApiResponse NotFound(IEnumerable<ApiError> errors)
         => new() { Success = false, StatusCode = StatusCodes.Status404NotFound, Errors = errors };
 
     #endregion
 
-    #region HTTP Status 500 InternalServerError
+    #region HTTP Status 500 Internal Server Error
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 500.
+    /// Creates a response with HTTP status 500 and an error message.
     /// </summary>
-    /// <param name="errorMessage">Mensagem de erro a ser exibida na resposta.</param>
+    /// <param name="errorMessage">The error message to include in the response.</param>
     public static ApiResponse InternalServerError(string errorMessage)
         => new() { Success = false, StatusCode = StatusCodes.Status500InternalServerError, Errors = CreateApiErrors(errorMessage) };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 500.
+    /// Creates a response with HTTP status 500 and a list of errors.
     /// </summary>
-    /// <param name="errors">Lista de erros a serem exibidas na resposta.</param>
+    /// <param name="errors">The list of errors to include in the response.</param>
     public static ApiResponse InternalServerError(IEnumerable<ApiError> errors)
         => new() { Success = false, StatusCode = StatusCodes.Status500InternalServerError, Errors = errors };
 
@@ -166,28 +166,29 @@ public class ApiResponse
         => new[] { new ApiError(errorMessage) };
 }
 
-
-
-/// <inheritdoc />
+/// <summary>
+/// Represents a generic API response with a result.
+/// </summary>
+/// <typeparam name="T">The type of the result.</typeparam>
 public sealed class ApiResponse<T> : ApiResponse
 {
     /// <summary>
-    /// Resultado da resposta.
+    /// Gets the result of the response.
     /// </summary>
     public T Result { get; private init; }
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 200.
+    /// Creates a response with HTTP status 200 and a result.
     /// </summary>
-    /// <param name="result">Resultado da resposta.</param>
+    /// <param name="result">The result to include in the response.</param>
     public static ApiResponse<T> Ok(T result)
         => new() { Success = true, StatusCode = StatusCodes.Status200OK, Result = result };
 
     /// <summary>
-    /// Cria uma resposta com HTTP Status 200.
+    /// Creates a response with HTTP status 200, a result, and a success message.
     /// </summary>
-    /// <param name="result">Resultado da resposta.</param>
-    /// <param name="successMessage">Mensagem de sucesso a ser exibida na resposta.</param>
+    /// <param name="result">The result to include in the response.</param>
+    /// <param name="successMessage">The success message to include in the response.</param>
     public static ApiResponse<T> Ok(T result, string successMessage)
         => new() { Success = true, StatusCode = StatusCodes.Status200OK, Result = result, SuccessMessage = successMessage };
 }

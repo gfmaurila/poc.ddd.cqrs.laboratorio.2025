@@ -49,9 +49,4 @@
 		<PackageReference Include="Microsoft.AspNetCore.openApi" Version="8.0.7" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Domain\Exceptions\" />
-	  <Folder Include="Domain\Extensions\" />
-	</ItemGroup>
-
 </Project>

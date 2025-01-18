@@ -5,11 +5,10 @@ using API.Exemple.Core._08.Feature.Exemple.Create;
 using API.Exemple.Core._08.Feature.Exemple.Delete;
 using API.Exemple.Core._08.Feature.Exemple.Get;
 using API.Exemple.Core._08.Feature.Exemple.GetById;
+using API.Exemple.Core._08.Feature.Exemple.GetPaginate;
 using API.Exemple.Core._08.Feature.Exemple.Update;
-using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -49,12 +48,36 @@ public class Exemple2Controller : ControllerBase
     }
 
     /// <summary>
+    /// Endpoint para listagem paginada de Exemple registrados no sistema.
+    /// </summary>
+    /// <param name="query">GetPaginateExempleQuery contendo os parâmetros de paginação e filtro.</param>
+    /// <param name="cancellationToken">CancellationToken para controle de execução.</param>
+    /// <returns>Resultado paginado de Exemple.</returns>
+    [HttpGet("exemple")]
+    [ProducesResponseType(typeof(ApiResult<GetPaginateExempleQueryResult>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetAllExemple([FromQuery] GetPaginateExempleQuery query, CancellationToken cancellationToken)
+    {
+        // Envia o comando para o handler
+        var result = await _sender.Send(query);
+
+        // Verifica se o resultado é válido
+        if (!result.Success)
+        {
+            return BadRequest(result);
+        }
+
+        return Ok(result);
+    }
+
+
+    /// <summary>
     /// Retorna um Exemple específico pelo seu ID.
     /// </summary>
     /// <param name="id">Identificador do Exemple.</param>
     /// <returns>O Exemple correspondente ao ID.</returns>
     [HttpGet("{id}")]
-    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
     [ProducesResponseType(typeof(ApiResponse<ExempleQueryModel>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -83,7 +106,7 @@ public class Exemple2Controller : ControllerBase
     /// <param name="command">Dados para criação do Exemple.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpPost]
-    [Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
+    //[Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
     [ProducesResponseType(typeof(CreateExempleResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status500InternalServerError)]
@@ -107,7 +130,7 @@ public class Exemple2Controller : ControllerBase
     /// <param name="command">Dados para atualização do Exemple.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpPut]
-    [Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
+    //[Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -132,7 +155,7 @@ public class Exemple2Controller : ControllerBase
     /// <param name="id">Identificador do Exemple a ser deletado.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpDelete("{id}")]
-    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]

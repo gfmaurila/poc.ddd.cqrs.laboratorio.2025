@@ -37,7 +37,7 @@ public class GetExempleByIdQueryHandler : IRequestHandler<GetExempleByIdQuery, A
         if (modelRedis is not null)
             return ApiResult<ExempleQueryModel>.CreateSuccess(
                 modelRedis,
-                "Usuário recuperado com sucesso.");
+                "Registro recuperado com sucesso.");
 
         var entity = await _repo.GetByIdAsync(request.Id);
 
