@@ -20,6 +20,14 @@ public class Program
         builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
         builder.Services.AddValidatorsFromAssembly(assembly);
 
+        builder.Services.AddControllers()
+            .AddJsonOptions(options =>
+            {
+                // Configura enum como string no JSON
+                options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+                options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase; // CamelCase opcional
+            });
+
         builder.Services.AddControllers();
         builder.Services.AddConnections();
         builder.Services.AddEndpointsApiExplorer();

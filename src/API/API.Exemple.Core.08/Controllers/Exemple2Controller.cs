@@ -31,7 +31,7 @@ public class Exemple2Controller : ControllerBase
     /// </summary>
     /// <returns>Lista de Exemple.</returns>
     [HttpGet]
-    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
     [ProducesResponseType(typeof(ApiResponse<List<ExempleQueryModel>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetAllExemple()

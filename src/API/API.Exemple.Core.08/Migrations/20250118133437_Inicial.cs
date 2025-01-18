@@ -70,17 +70,19 @@ namespace API.Exemple.Core._08.Migrations
                     columns: new[] { "Id", "FirstName", "LastName", "Gender", "Notification", "Email", "Phone", "Role" },
                     values: new object[]
                     {
-                    ((dynamic)data).Id,
-                    ((dynamic)data).FirstName,
-                    ((dynamic)data).LastName,
-                    ((dynamic)data).Gender.ToString(), // Converter o enum para string
-                    ((dynamic)data).Notification,
-                    ((dynamic)data).Email,
-                    ((dynamic)data).Phone,
-                    ((dynamic)data).Role
+                        ((dynamic)data).Id,
+                        ((dynamic)data).FirstName,
+                        ((dynamic)data).LastName,
+                        ((dynamic)data).Gender.ToString(), // Converter o enum para string
+                        ((dynamic)data).Notification,
+                        ((dynamic)data).Email,
+                        ((dynamic)data).Phone,
+                        ((dynamic)data).Role
                     }
                 );
             }
+
+            migrationBuilder.Sql("UPDATE [exemple_dev].[dbo].[Exemple] SET Role = '[\"ADMIN_AUTH\", \"EMPLOYEE_AUTH\"]' ");
         }
 
         /// <inheritdoc />
