@@ -12,6 +12,8 @@
 
   <ItemGroup>
 	  
+	  <PackageReference Include="Bogus" Version="35.6.1" />
+	  
 	  <PackageReference Include="Carter" Version="8.0.0" />
 	  <PackageReference Include="Mapster" Version="7.4.0" />
 	  <PackageReference Include="Mapster.Core" Version="1.2.1" />
@@ -40,7 +42,7 @@
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.openApi" Version="8.0.7" />
-	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		  <PrivateAssets>all</PrivateAssets>

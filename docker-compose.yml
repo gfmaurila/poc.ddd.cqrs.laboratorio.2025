@@ -3,7 +3,8 @@ version: '3.4'
 # docker-compose down
 # docker-compose up -d --build
 # docker-compose up --build
-# Update-Database -Context MainContext 
+# Add-Migration Inicial -Context ExempleAppDbContext 
+# Update-Database -Context ExempleAppDbContext 
 
 networks:
   app-backend:
