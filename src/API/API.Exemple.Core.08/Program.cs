@@ -55,6 +55,8 @@ public class Program
         app.UseAuthorization();
         app.MapControllers();
 
+        app.MigrateAsync(); // Aqui faz migrations
+
         app.Run();
     }
 }
