@@ -1,4 +1,6 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+using API.Exemple.Core._08.Feature.Exemple.Create;
 using API.Exemple.Core._08.Feature.Exemple.Update;
 using Common.Core._08.Domain;
 using Common.Core._08.Domain.Enumerado;
@@ -26,51 +28,31 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
 
     public ExempleEntity() { } // ORM
 
-    /// <summary>
-    /// Create
-    /// </summary>
-    /// <param name="firstName"></param>
-    /// <param name="lastName"></param>
-    /// <param name="gender"></param>
-    /// <param name="notification"></param>
-    /// <param name="email"></param>
-    /// <param name="phone"></param>
-    /// <param name="role"></param>
-    public ExempleEntity(string firstName, string lastName, EGender gender, ENotificationType notification, Email email, PhoneNumber phone, List<string> role, Guid dtInsertId, bool status)
+    public ExempleEntity(CreateExempleCommand request, AuthExempleCreateUpdateDeleteModel model)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Gender = gender;
-        Notification = notification;
+        var email = new Email(request.Email);
+        var phone = new PhoneNumber(request.Phone);
+
+        FirstName = request.FirstName;
+        LastName = request.LastName;
+        Gender = request.Gender;
+        Notification = request.Notification;
         Email = email;
         Phone = phone;
-        Role = role;
-        DtInsert = DateTime.Now;
-        Status = status;
-        DtInsertId = dtInsertId;
+        Role = request.Role;
+        Status = request.Status;
 
-        AddDomainEvent(new ExempleCreateDomainEvent(Id, 
-                                                    firstName, 
-                                                    lastName, 
-                                                    gender, 
-                                                    notification, 
-                                                    email.Address, 
-                                                    phone.Phone, 
-                                                    role, 
-                                                    DtInsert,
-                                                    dtInsertId,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    status));
+        DtInsert = model.DtInsert;
+        DtInsertId = model.DtInsertId;
+
+        AddDomainEvent(new ExempleCreateDomainEvent(Id, request, model));
     }
 
     /// <summary>
     /// Update
     /// </summary>
     /// <param name="command"></param>
-    public ExempleEntity(UpdateExempleCommand command, Guid dtUpdateId)
+    public void Update(UpdateExempleCommand command, AuthExempleCreateUpdateDeleteModel model)
     {
         FirstName = command.FirstName;
         LastName = command.LastName;
@@ -79,24 +61,20 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         Email = new Email(command.Email);
         Phone = new PhoneNumber(command.Phone);
         Role = command.Role;
-        DtUpdate = DateTime.Now;
-        DtUpdateId = dtUpdateId;
+        DtUpdate = model.DtUpdate;
+        DtUpdateId = model.DtUpdateId;
         Status = command.Status;
-        AddDomainEvent(new ExempleUpdateDomainEvent(Id, 
-                                                    command.FirstName, 
-                                                    command.LastName, 
-                                                    command.Gender, 
-                                                    command.Notification, 
-                                                    command.Email, 
-                                                    command.Phone, 
+
+        AddDomainEvent(new ExempleUpdateDomainEvent(Id,
+                                                    command.FirstName,
+                                                    command.LastName,
+                                                    command.Gender,
+                                                    command.Notification,
+                                                    command.Email,
+                                                    command.Phone,
                                                     command.Role,
-                                                    DtInsert,
-                                                    DtInsertId,
-                                                    DtUpdate,
-                                                    dtUpdateId,
-                                                    null,
-                                                    null,
-                                                    command.Status));
+                                                    command.Status,
+                                                    model));
     }
 
     /// <summary>

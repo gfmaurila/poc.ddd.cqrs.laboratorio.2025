@@ -1,4 +1,5 @@
-﻿using Common.Core._08.Domain.Enumerado;
+﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 
 namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
@@ -32,21 +33,16 @@ public abstract class ExempleBaseEvent : Event
         Role = role;
     }
 
-    public ExempleBaseEvent(Guid id, 
-                            string firstName, 
-                            string lastName, 
-                            EGender gender, 
-                            ENotificationType notification, 
-                            string email, 
-                            string phone, 
+    public ExempleBaseEvent(Guid id,
+                            string firstName,
+                            string lastName,
+                            EGender gender,
+                            ENotificationType notification,
+                            string email,
+                            string phone,
                             List<string> role,
                             bool status,
-                            DateTime? dtInsert, 
-                            Guid? dtInsertId,
-                            DateTime? dtUpdate,
-                            Guid? dtUpdateId,
-                            DateTime? dtDelete,
-                            Guid? dtDeleteId)
+                            AuthExempleCreateUpdateDeleteModel model)
     {
         Id = id;
         FirstName = firstName;
@@ -58,14 +54,14 @@ public abstract class ExempleBaseEvent : Event
         Role = role;
         Status = status;
 
-        DtInsertId = dtInsertId;
-        DtInsert = dtInsert;
+        DtInsertId = model.DtInsertId;
+        DtInsert = model.DtInsert;
 
-        DtUpdateId = dtUpdateId;
-        DtUpdate = dtUpdate;
+        DtUpdateId = model.DtUpdateId;
+        DtUpdate = model.DtUpdate;
 
-        DtDeleteId = dtDeleteId;
-        DtDelete = dtDelete;
+        DtDeleteId = model.DtDeleteId;
+        DtDelete = model.DtDelete;
     }
 
 }

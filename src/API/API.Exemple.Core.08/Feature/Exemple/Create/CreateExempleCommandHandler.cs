@@ -1,8 +1,8 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
+using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Common.Core._08.Response;
-using MassTransit;
 using MediatR;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Create;
@@ -41,15 +41,14 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
                 },
                 400);
 
-        var entity = new ExempleEntity(request.FirstName,
-            request.LastName,
-            request.Gender,
-            request.Notification,
-            email,
-            phone,
-            request.Role,
-            Guid.NewGuid(),
-            request.Status);
+        var authModel = new AuthExempleCreateUpdateDeleteModel(DateTime.Now,
+                                                               Guid.NewGuid(),
+                                                               null,
+                                                               null,
+                                                               null,
+                                                               null);
+
+        var entity = new ExempleEntity(request, authModel);
 
         await _repo.Create(entity);
 

@@ -8,7 +8,7 @@ public record UpdateExempleCommand(
     Guid Id,
     string FirstName,
     string LastName,
-    bool Status, 
+    bool Status,
     EGender Gender,
     ENotificationType Notification,
     string Email,

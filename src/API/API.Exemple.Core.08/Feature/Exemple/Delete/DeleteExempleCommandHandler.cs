@@ -4,13 +4,13 @@ using MediatR;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Delete;
 
-public class DeleteUserCommandHandler : IRequestHandler<DeleteExempleCommand, ApiResult<DeleteExempleResponse>>
+public class DeleteExempleCommandHandler : IRequestHandler<DeleteExempleCommand, ApiResult<DeleteExempleResponse>>
 {
     private readonly DeleteExempleCommandValidator _validator;
     private readonly IExempleRepository _repo;
-    private readonly ILogger<DeleteUserCommandHandler> _logger;
+    private readonly ILogger<DeleteExempleCommandHandler> _logger;
     private readonly IMediator _mediator;
-    public DeleteUserCommandHandler(ILogger<DeleteUserCommandHandler> logger,
+    public DeleteExempleCommandHandler(ILogger<DeleteExempleCommandHandler> logger,
                                     IExempleRepository repo,
                                     DeleteExempleCommandValidator validator,
                                     IMediator mediator)

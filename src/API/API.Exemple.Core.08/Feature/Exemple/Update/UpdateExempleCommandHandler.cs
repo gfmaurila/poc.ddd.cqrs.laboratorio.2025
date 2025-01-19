@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
+﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Response;
 using MediatR;
@@ -39,7 +39,14 @@ public class UpdateExempleCommandHandler : IRequestHandler<UpdateExempleCommand,
                 },
                 400);
 
-        entity = new ExempleEntity(request, Guid.NewGuid());
+        var authModel = new AuthExempleCreateUpdateDeleteModel(entity.DtInsert,
+                                                               entity.DtInsertId,
+                                                               entity.DtUpdate ?? DateTime.Now,
+                                                               entity.DtUpdateId ?? Guid.NewGuid(),
+                                                               entity.DtDelete,
+                                                               entity.DtDeleteId);
+
+        entity.Update(request, authModel);
 
         await _repo.Update(entity);
 
