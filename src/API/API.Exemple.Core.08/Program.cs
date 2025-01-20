@@ -46,6 +46,9 @@ public class Program
         });
 
         var app = builder.Build();
+        // Apply migrations at runtime
+        app.ApplyMigrations();
+
         app.MapCarter();
 
         app.UseSwagger();
@@ -54,8 +57,6 @@ public class Program
         app.UseHttpsRedirection();
         app.UseAuthorization();
         app.MapControllers();
-
-        app.MigrateAsync(); // Aqui faz migrations
 
         app.Run();
     }
