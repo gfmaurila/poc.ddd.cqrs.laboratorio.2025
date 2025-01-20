@@ -76,7 +76,7 @@ services:
 
   redis:
     ports:
-      - "6380:6379"  # Redis utilizando a porta correta
+      - "6379:6379"  # Redis utilizando a porta correta
     networks:
       - app-backend
 

@@ -91,7 +91,7 @@ services:
     expose:
       - 6379
     ports:
-      - 6380:6379
+      - 6379:6379
     networks:
       - app-backend
     volumes:

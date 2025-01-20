@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class Exemple2Controller : ControllerBase
+public class Exemple2Controller : BaseController
 {
     private readonly ISender _sender;
 
