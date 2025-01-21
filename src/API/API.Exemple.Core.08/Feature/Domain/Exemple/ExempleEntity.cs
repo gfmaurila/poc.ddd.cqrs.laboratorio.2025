@@ -89,6 +89,11 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
     /// Delete
     /// </summary>
     public void Delete()
-        => AddDomainEvent(new ExempleDeleteDomainEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
+    {
+        AddDomainEvent(new ExempleDeleteDomainEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
+
+        // Evento que faz envio de email, whats por RabbiMQ
+        AddDomainEvent(new ExempleDeleteRabbitMQEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
+    }
 
 }
