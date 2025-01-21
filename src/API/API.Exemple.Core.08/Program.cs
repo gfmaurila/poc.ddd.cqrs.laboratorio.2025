@@ -32,7 +32,7 @@ public class Program
         builder.Services.AddConnections();
         builder.Services.AddEndpointsApiExplorer();
         //builder.Services.AddSwaggerGen();
-        builder.Services.AddCarter();
+        //builder.Services.AddCarter();
 
         // Swagger
         builder.Services.AddSwaggerConfig(builder.Configuration);
@@ -49,7 +49,7 @@ public class Program
         // Apply migrations at runtime
         app.ApplyMigrations();
 
-        app.MapCarter();
+        //app.MapCarter();
 
         app.UseSwagger();
         app.UseSwaggerUI();

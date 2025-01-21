@@ -5,6 +5,8 @@ services:
   poc.api.redis-webapi:
     ports:
       - 5074:5074
+    networks:
+      - shared-network
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
     volumes:

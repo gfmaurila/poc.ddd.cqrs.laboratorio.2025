@@ -89,6 +89,7 @@
     <Folder Include="Feature\Exemple\Delete\Models\" />
     <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Update\Events\Messaging\RabbiMQ\" />
+    <Folder Include="Feature\Notification\Messaging\Kafka\" />
     <Folder Include="Infrastructure\Messaging\Kafka\" />
     <Folder Include="Infrastructure\Integration\" />
   </ItemGroup>

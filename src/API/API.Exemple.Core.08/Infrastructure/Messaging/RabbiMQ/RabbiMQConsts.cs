@@ -9,10 +9,6 @@ public class RabbiMQConsts
     public const string Password = "RabbitMQ:Password";
     public const string VirtualHost = "RabbitMQ:VirtualHost";
 
-    // SENDGRID
-    public const string QUEUE_SENDGRID = "RabbitMQ:QUEUE:QUEUE_SENDGRID";
-
-    // TWILIO
-    public const string QUEUE_TWILIO_SMS = "RabbitMQ:QUEUE:QUEUE_TWILIO_SMS";
-    public const string QUEUE_TWILIO_WHATSAPP = "RabbitMQ:QUEUE:QUEUE_TWILIO_WHATSAPP";
+    // Email/WhatsApp/SMS
+    public const string QUEUENotification = "RabbitMQ:QUEUE:Notification";
 }

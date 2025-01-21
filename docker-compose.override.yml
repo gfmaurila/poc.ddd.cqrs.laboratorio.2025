@@ -16,6 +16,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
     networks:
       - app-backend
+      - shared-network
 
   api.auth.09:
     environment:
@@ -46,6 +47,7 @@ services:
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro  
     networks:
       - app-backend
+      - shared-network
 
   sqlserver:
     ports:

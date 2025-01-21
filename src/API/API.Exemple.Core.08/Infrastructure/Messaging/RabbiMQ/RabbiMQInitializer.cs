@@ -1,4 +1,7 @@
-﻿using Common.Core._08.Interface;
+﻿using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Consumers;
+using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Producer;
+using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Service;
+using Common.Core._08.Interface;
 
 namespace API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
 
@@ -8,12 +11,12 @@ public class RabbiMQInitializer
     {
         services.AddHttpClient();
         services.AddScoped<IMessageBusService, MessageBusService>();
-        //services.AddScoped<ITwilioService, TwilioService>();
+        services.AddScoped<INotificationService, NotificationService>();
 
         // Publish
-        //services.AddScoped<ITwilioProducer, TwilioProducer>();
+        services.AddScoped<INotificationProducer, NotificationProducer>();
 
         // Subscribe
-        // services.AddHostedService<TwilioWhatsAppConsumer>();
+        services.AddHostedService<NotificationConsumer>();
     }
 }

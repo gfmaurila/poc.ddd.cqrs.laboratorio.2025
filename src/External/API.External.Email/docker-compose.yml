@@ -3,6 +3,9 @@ version: '3.9'
 networks:
   app-send-menssage:
     driver: bridge
+  # docker network create shared-network
+  shared-network:
+    external: true
 
 services:
 
@@ -21,6 +24,7 @@ services:
       - redis
     networks:
       - app-send-menssage
+      - shared-network
     depends_on:
       - redis
       

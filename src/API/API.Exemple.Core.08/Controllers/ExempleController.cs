@@ -13,13 +13,13 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class Exemple2Controller : BaseController
+public class ExempleController : BaseController
 {
     private readonly ISender _sender;
 
-    private readonly ILogger<Exemple2Controller> _logger;
+    private readonly ILogger<ExempleController> _logger;
 
-    public Exemple2Controller(ISender sender, ILogger<Exemple2Controller> logger)
+    public ExempleController(ISender sender, ILogger<ExempleController> logger)
     {
         _sender = sender;
         _logger = logger;

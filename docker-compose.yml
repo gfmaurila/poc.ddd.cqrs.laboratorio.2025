@@ -9,6 +9,9 @@ version: '3.4'
 networks:
   app-backend:
     driver: bridge
+  # docker network create shared-network
+  shared-network:
+    external: true
 
 services:
 
@@ -22,10 +25,13 @@ services:
       dockerfile: src/API/API.Gateway/Dockerfile
     networks:
       - app-backend
+      - shared-network
     depends_on:
       - api.auth.09
+      - api.exemple.core.08
     links:
       - api.auth.09
+      - api.exemple.core.08
 
   # Acesso ao auth
   # http://localhost:5001/swagger/index.html
@@ -55,6 +61,7 @@ services:
       dockerfile: src/API/API.Exemple.Core.08/Dockerfile
     networks:
       - app-backend
+      - shared-network
     depends_on:
       - sqlserver
       - kafka1
