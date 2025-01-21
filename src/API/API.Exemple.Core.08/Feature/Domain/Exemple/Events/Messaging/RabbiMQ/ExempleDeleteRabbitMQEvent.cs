@@ -1,6 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Feature.Exemple.Update;
-using Common.Core._08.Domain.Enumerado;
+﻿using Common.Core._08.Domain.Enumerado;
 
 namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events.Messaging.RabbiMQ;
 

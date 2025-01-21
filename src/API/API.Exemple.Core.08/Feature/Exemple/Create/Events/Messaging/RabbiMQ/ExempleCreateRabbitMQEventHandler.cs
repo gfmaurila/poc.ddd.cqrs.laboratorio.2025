@@ -1,4 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events.Messaging.RabbiMQ;
+using API.Exemple.Core._08.Feature.Exemple.Create.Events.Messaging.RabbiMQ.Producer;
 using API.Exemple.Core._08.Feature.Notification;
 using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Request;
 using Common.Core._08.Domain.Enumerado;
@@ -11,19 +12,24 @@ public class ExempleCreateRabbitMQEventHandler : INotificationHandler<ExempleCre
 {
     private readonly IMediator _mediator;
     private readonly IConfiguration _configuration;
+    private readonly ICreateExempleProducer _producer;
 
 
-    public ExempleCreateRabbitMQEventHandler(IMediator mediator, IConfiguration configuration)
+    public ExempleCreateRabbitMQEventHandler(IMediator mediator, IConfiguration configuration, ICreateExempleProducer producer)
     {
         _mediator = mediator;
         _configuration = configuration;
+        _producer = producer;
     }
 
     public async Task Handle(ExempleCreateRabbitMQEvent request, CancellationToken cancellationToken)
     {
-        // RabbiMQ
+        // RabbiMQ - Acessando serviços externos.
         await EmailRabbiMQAppCommand(request);
         await WhatsAppRabbiMQAppCommand(request);
+
+        // RabbiMQ - publica sem acessar nenhum serviços externo
+        _producer.PublishAsync(request);
     }
 
     private async Task EmailRabbiMQAppCommand(ExempleCreateRabbitMQEvent request)
