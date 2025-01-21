@@ -80,9 +80,7 @@
 
   <ItemGroup>
     <Folder Include="Feature\Domain\Exemple\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Domain\Exemple\Events\Messaging\RabbiMQ\" />
     <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Create\Events\Messaging\RabbiMQ\" />
     <Folder Include="Feature\Exemple\Delete\DTO\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\RabbiMQ\" />

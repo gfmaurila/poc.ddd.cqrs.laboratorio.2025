@@ -52,7 +52,7 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
 
         await _repo.Create(entity);
 
-        // Executa DomainEvent
+        // Executa DomainEvent RabbiMQEvent / KafkaEvent e salva no Redis
         foreach (var domainEvent in entity.DomainEvents)
             await _mediator.Publish(domainEvent);
         entity.ClearDomainEvents();

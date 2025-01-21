@@ -1,6 +1,5 @@
 ﻿namespace API.Exemple.Core._08.Controllers;
 
-using API.Exemple.Core._08.Feature.Exemple.Create;
 using API.Exemple.Core._08.Feature.Notification;
 using Common.Core._08.Response;
 using MediatR;

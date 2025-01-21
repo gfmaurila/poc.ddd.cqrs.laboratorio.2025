@@ -1,6 +1,5 @@
 
 using API.Exemple.Core._08.Extensions;
-using Carter;
 using FluentValidation;
 using Serilog;
 

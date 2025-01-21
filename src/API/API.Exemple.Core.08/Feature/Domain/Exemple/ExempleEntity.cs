@@ -1,4 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+using API.Exemple.Core._08.Feature.Domain.Exemple.Events.Messaging.RabbiMQ;
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
 using API.Exemple.Core._08.Feature.Exemple.Create;
 using API.Exemple.Core._08.Feature.Exemple.Update;
@@ -46,6 +47,9 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         DtInsertId = model.DtInsertId;
 
         AddDomainEvent(new ExempleCreateDomainEvent(Id, request, model));
+
+        // Evento que faz envio de email, whats por RabbiMQ
+        AddDomainEvent(new ExempleCreateRabbitMQEvent(Id, request, model));
     }
 
     /// <summary>
@@ -75,6 +79,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
                                                     command.Role,
                                                     command.Status,
                                                     model));
+
     }
 
     /// <summary>
