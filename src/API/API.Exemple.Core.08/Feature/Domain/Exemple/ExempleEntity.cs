@@ -80,6 +80,9 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
                                                     command.Status,
                                                     model));
 
+        // Evento que faz envio de email, whats por RabbiMQ
+        AddDomainEvent(new ExempleUpdateRabbitMQEvent(Id, command, model));
+
     }
 
     /// <summary>
