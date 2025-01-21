@@ -1,5 +1,8 @@
-﻿using API.Exemple.Core._08.Feature.Exemple.Create.Events.Messaging.RabbiMQ.Producer;
+﻿using API.Exemple.Core._08.Feature.Exemple.Create.Events.Messaging.RabbiMQ.Consumers;
+using API.Exemple.Core._08.Feature.Exemple.Create.Events.Messaging.RabbiMQ.Producer;
+using API.Exemple.Core._08.Feature.Exemple.Delete.Events.Messaging.RabbiMQ.Consumers;
 using API.Exemple.Core._08.Feature.Exemple.Delete.Events.Messaging.RabbiMQ.Producer;
+using API.Exemple.Core._08.Feature.Exemple.Update.Events.Messaging.RabbiMQ.Consumers;
 using API.Exemple.Core._08.Feature.Exemple.Update.Events.Messaging.RabbiMQ.Producer;
 using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Consumers;
 using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Producer;
@@ -24,5 +27,8 @@ public class RabbiMQInitializer
 
         // Subscribe
         services.AddHostedService<NotificationConsumer>();
+        services.AddHostedService<CreateExempleConsumer>();
+        services.AddHostedService<UpdateExempleConsumer>();
+        services.AddHostedService<DeleteExempleConsumer>();
     }
 }
