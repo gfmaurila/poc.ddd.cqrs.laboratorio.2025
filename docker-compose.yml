@@ -6,6 +6,9 @@ version: '3.4'
 # Add-Migration Inicial -Context ExempleAppDbContext 
 # Update-Database -Context ExempleAppDbContext 
 
+# Criando API nova
+# dotnet new webapi -n AuthSystem
+
 networks:
   app-backend:
     driver: bridge
