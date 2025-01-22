@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "api.auth": "StartDebugging",
-        "api.gateway": "StartDebugging"
+        "api.gateway": "StartDebugging",
+        "api.external.identity": "StartDebugging"
       }
     }
   }

@@ -71,6 +71,24 @@ services:
       - redis
       - mongoserver
       - rabbitmq
+  
+
+  # External INI-----------------------------------------------------------------------------
+  # http://localhost:5003/swagger/index.html
+  api.external.identity:
+    image: ${DOCKER_REGISTRY-}apiexternalidentity
+    build:
+      context: .
+      dockerfile: src/External/API.External.Identity/Dockerfile
+    networks:
+      - app-backend
+    depends_on:
+      - sqlserver
+
+   
+
+   # External FIM-----------------------------------------------------------------------------
+
 
   # SQL Server
   # Add-Migration Inicial -Context SqlServerDb
@@ -193,5 +211,6 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
 
 

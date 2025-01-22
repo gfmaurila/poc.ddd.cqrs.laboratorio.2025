@@ -78,7 +78,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Mapeia os controladores
-//app.MapControllers();
+app.MapControllers();
 
 
 
