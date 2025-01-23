@@ -6,10 +6,7 @@
       "serviceActions": {
         "api.auth": "StartDebugging",
         "api.gateway": "StartDebugging",
-        "API.External.MKT": "StartDebugging",
-        "api.external.auth": "StartDebugging",
-        "worker.kafka": "StartDebugging",
-        "worker.rabbitmq": "StartDebugging"
+        "API.External.MKT": "StartDebugging"
       }
     }
   }

@@ -1,5 +1,4 @@
 ﻿using API.External.Auth.Domain;
-using Common.Net8.Enumerado;
 
 namespace API.External.Auth.Feature.Users.GetUser;
 

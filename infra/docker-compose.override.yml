@@ -18,20 +18,6 @@ services:
       - app-backend
       - shared-network
 
-  api.external.auth:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
-      - ASPNETCORE_HTTP_PORTS=8080
-      - ASPNETCORE_HTTPS_PORTS=8081
-      - ASPNETCORE_URLS=http://+:80
-    ports:
-      - "5001:80"
-      - "8081:443"  # Mapeamento HTTPS corrigido
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-
-
   api.exemple.core.08:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
@@ -48,24 +34,9 @@ services:
       - app-backend
       - shared-network
 
-
-  worker.kafka:
-    environment:
-      - DOTNET_ENVIRONMENT=Development
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-
-  worker.rabbitmq:
-    environment:
-      - DOTNET_ENVIRONMENT=Development
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-
-
-
   sqlserver:
     ports:
-      - "1433:1433"
+      - "1444:1433"
     networks:
       - app-backend
 
@@ -100,6 +71,3 @@ services:
     networks:
       - app-backend
 
-
-
-  

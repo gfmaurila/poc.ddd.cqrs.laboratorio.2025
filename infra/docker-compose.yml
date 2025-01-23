@@ -33,10 +33,8 @@ services:
       - shared-network
     depends_on:
       - api.exemple.core.08
-      - api.external.auth
     links:
       - api.exemple.core.08
-      - api.external.auth
 
   # Exemplo
   # http://localhost:5002/swagger/index.html
@@ -59,53 +57,18 @@ services:
 # APIs FIM --------------------------------------------------------
 
 
-
 # External INI --------------------------------------------------------  
 
 
-  # Auth
-  # http://localhost:5001/swagger/index.html
-  api.external.auth:
-    image: ${DOCKER_REGISTRY-}apiexternalauth
-    build:
-      context: .
-      dockerfile: src/External/API.External.Auth/backend/API.Admin/Dockerfile
-    networks:
-      - app-backend
-      - shared-network
-    depends_on:
-      - sqlserver
-      - redis
-      - mongoserver
-      - rabbitmq
+# .....
+   
 
 # External FIM --------------------------------------------------------  
 
 
-# Workers INI -------------------------------------------------------- 
 
-  worker.kafka:
-    image: ${DOCKER_REGISTRY-}workerkafka
-    build:
-      context: .
-      dockerfile: src/Worker/Worker.Kafka/Dockerfile
-    networks:
-      - app-backend
-      - shared-network
-    depends_on:
-      - mongoserver
-      - kafka1
 
-  worker.rabbitmq:
-    image: ${DOCKER_REGISTRY-}workerrabbitmq
-    build:
-      context: .
-      dockerfile: src/Worker/Worker.RabbitMQ/Dockerfile
-    depends_on:
-      - mongoserver
-      - rabbitmq
 
-# Workers FIM -------------------------------------------------------- 
 
 
 
@@ -225,6 +188,9 @@ services:
 
 # INFRA FIM --------------------------------------------------------
 
+
+
+
 volumes:
   zookeeper_data:
     driver: local
@@ -238,9 +204,6 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
-
-
-
 
 
 

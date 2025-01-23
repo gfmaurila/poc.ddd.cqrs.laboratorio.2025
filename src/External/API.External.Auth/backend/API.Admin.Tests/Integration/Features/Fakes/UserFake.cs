@@ -6,7 +6,6 @@ using API.External.Auth.Feature.Users.UpdateUser;
 using API.External.Auth.Infrastructure.Database;
 using API.External.Auth.Tests.Integration.Utilities;
 using Bogus;
-using Common.Net8.Enumerado;
 using Common.Net8.Extensions;
 using Common.Net8.ValueObjects;
 using Microsoft.Extensions.DependencyInjection;

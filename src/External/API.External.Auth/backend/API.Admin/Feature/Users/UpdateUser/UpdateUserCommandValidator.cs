@@ -1,5 +1,4 @@
-﻿using Common.Net8.Enumerado;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace API.External.Auth.Feature.Users.UpdateUser;
 

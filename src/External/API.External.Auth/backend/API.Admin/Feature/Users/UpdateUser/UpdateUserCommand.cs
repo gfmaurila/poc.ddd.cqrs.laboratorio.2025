@@ -1,5 +1,4 @@
-﻿using Common.Net8.Enumerado;
-using Common.Net8.Response;
+﻿using Common.Net8.Response;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
