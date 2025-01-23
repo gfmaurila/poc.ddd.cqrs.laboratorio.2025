@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "API.Auth.Net08.Tests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
