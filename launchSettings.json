@@ -6,7 +6,7 @@
       "serviceActions": {
         "api.auth": "StartDebugging",
         "api.gateway": "StartDebugging",
-        "api.external.identity": "StartDebugging"
+        "API.External.MKT": "StartDebugging"
       }
     }
   }

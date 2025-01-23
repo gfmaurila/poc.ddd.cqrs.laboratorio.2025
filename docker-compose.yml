@@ -75,15 +75,15 @@ services:
 
   # External INI-----------------------------------------------------------------------------
   # http://localhost:5003/swagger/index.html
-  api.external.identity:
-    image: ${DOCKER_REGISTRY-}apiexternalidentity
-    build:
-      context: .
-      dockerfile: src/External/API.External.Identity/Dockerfile
-    networks:
-      - app-backend
-    depends_on:
-      - sqlserver
+  # API.External.MKT:
+  #   image: ${DOCKER_REGISTRY-}apiexternalidentity
+  #   build:
+  #     context: .
+  #     dockerfile: src/External/API.External.MKT/Dockerfile
+  #   networks:
+  #     - app-backend
+  #   depends_on:
+  #     - sqlserver
 
    
 

@@ -1,6 +1,0 @@
-@API.External.Identity_HostAddress = http://localhost:5117
-
-GET {{API.External.Identity_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
