@@ -93,7 +93,7 @@ namespace API.Exemple.Core._08.Migrations
                 );
             }
 
-            migrationBuilder.Sql("UPDATE [exemple_dev].[dbo].[Exemple] SET Role = '[\"ADMIN_AUTH\", \"EMPLOYEE_AUTH\"]' ");
+            migrationBuilder.Sql("UPDATE [API_Exemple].[dbo].[Exemple] SET Role = '[\"ADMIN_AUTH\", \"EMPLOYEE_AUTH\"]' ");
         }
 
         /// <inheritdoc />
