@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Common.External.Auth.Net8.Enumerado;
+using FluentValidation;
 
 namespace API.External.Auth.Feature.Users.CreateUser;
 
@@ -34,6 +35,11 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
             .Equal(command => command.Password)
             .WithMessage("A confirmação da senha deve ser igual à senha.");
 
+        // Validação para Gender, garantindo que um valor válido foi selecionado
+        RuleFor(command => command.Gender)
+            .Must(gender => gender != EGender.None)
+            .WithMessage("Selecione um gênero válido. 'Não informar' não é uma opção permitida.");
+
         // Validação para DateOfBirth, garantindo que é uma data passada e o campo é obrigatório
         RuleFor(command => command.DateOfBirth)
             .NotEmpty()
@@ -50,6 +56,9 @@ public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
         .Must(BeAtLeast18YearsOld) // Isso garante que o usuário tem pelo menos 18 anos de idade.
         .WithMessage("O usuário deve ter pelo menos 18 anos de idade.");
 
+        RuleFor(command => command.RoleUserAuth)
+            .Must(roleList => roleList != null && roleList.Any())
+            .WithMessage("É obrigatório fornecer pelo menos uma permissão.");
 
     }
 

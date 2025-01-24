@@ -1,5 +1,6 @@
-﻿using Common.Net8.AppSettings;
-using Common.Net8.Interface;
+﻿using Common.External.Auth.Net8.AppSettings;
+using Common.External.Auth.Net8.Interface;
+using Common.External.Auth.Net8.User;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -7,7 +8,7 @@ using System.Security.Claims;
 using System.Text;
 
 
-namespace Common.Net8.API.Auth;
+namespace Common.External.Auth.Net8.API.Auth;
 
 public class AuthService : IAuthService
 {
@@ -54,7 +55,7 @@ public class AuthService : IAuthService
         {
             new Claim("userName",email),
             new Claim("id",id),
-            //new Claim(ClaimTypes.Role, ERoleUserAuth.AUTH_RESET.ToString())
+            new Claim(ClaimTypes.Role, ERoleUserAuth.AUTH_RESET.ToString())
         };
         var token = new JwtSecurityToken(issuer: issuer,
             audience: audience,

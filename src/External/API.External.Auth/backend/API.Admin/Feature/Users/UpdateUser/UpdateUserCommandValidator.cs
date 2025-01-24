@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Common.External.Auth.Net8.Enumerado;
+using FluentValidation;
 
 namespace API.External.Auth.Feature.Users.UpdateUser;
 
@@ -16,6 +17,10 @@ public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
         RuleFor(command => command.LastName)
             .NotEmpty()
             .MaximumLength(100);
+
+        RuleFor(command => command.Gender)
+            .Must(gender => gender != EGender.None)
+            .WithMessage("Selecione um gênero válido. 'Não informar' não é uma opção permitida.");
 
         RuleFor(command => command.DateOfBirth)
         .NotEmpty()

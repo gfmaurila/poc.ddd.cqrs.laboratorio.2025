@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Response;
+﻿namespace Common.External.Auth.Net8.Response;
 
 public class ErrorDetail
 {

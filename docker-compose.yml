@@ -111,7 +111,27 @@ services:
 # Workers FIM -------------------------------------------------------- 
 
 
+# Test INI --------------------------------------------------------
 
+  common.external.auth.net8.tests:
+    image: ${DOCKER_REGISTRY-}commonexternalauthnet8tests
+    restart: always
+    build:
+      context: .
+      dockerfile: src/External/API.External.Auth/backend/Common.Net8.Tests/Dockerfile
+    networks:
+      - app-backend
+
+  api.external.auth.tests:
+    image: ${DOCKER_REGISTRY-}apiexternalauthtests
+    restart: always
+    build:
+      context: src/External/API.External.Auth
+      dockerfile: backend/API.Admin.Tests/Dockerfile
+    networks:
+      - app-backend
+
+# Test FIM --------------------------------------------------------
 
 
 
@@ -241,6 +261,8 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
+
 
 
 

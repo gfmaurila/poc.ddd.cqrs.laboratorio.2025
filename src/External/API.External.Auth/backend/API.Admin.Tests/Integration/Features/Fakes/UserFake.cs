@@ -6,8 +6,9 @@ using API.External.Auth.Feature.Users.UpdateUser;
 using API.External.Auth.Infrastructure.Database;
 using API.External.Auth.Tests.Integration.Utilities;
 using Bogus;
-using Common.Net8.Extensions;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8.Enumerado;
+using Common.External.Auth.Net8.Extensions;
+using Common.External.Auth.Net8.ValueObjects;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http.Headers;
 
@@ -53,9 +54,12 @@ public static class UserFake
         var newUser = new UserEntity(
             faker.Person.FirstName,
             faker.Person.LastName,
+            EGender.Male,
+            ENotificationType.WhatsApp,
             new Email(email),
             phone,
             Password.ComputeSha256Hash(password),
+            UtilFake.Role(),
             new DateTime(1990, 1, 1));
 
         return newUser;
@@ -121,6 +125,8 @@ public static class UserFake
             Id = id,
             FirstName = "",
             LastName = "",
+            Gender = EGender.Male,
+            Notification = ENotificationType.WhatsApp,
             DateOfBirth = new DateTime(1990, 1, 1),
             Phone = ""
         };
@@ -136,6 +142,8 @@ public static class UserFake
             Id = id,
             FirstName = faker.Person.FirstName,
             LastName = faker.Person.LastName,
+            Gender = EGender.Male,
+            Notification = ENotificationType.WhatsApp,
             DateOfBirth = new DateTime(1990, 1, 1),
             Phone = faker.Person.Phone
         };
@@ -150,11 +158,14 @@ public static class UserFake
         {
             FirstName = faker.Person.FirstName,
             LastName = faker.Person.LastName,
+            Gender = EGender.Male,
+            Notification = ENotificationType.WhatsApp,
             Password = "@G21r03a1985",
             ConfirmPassword = "@G21r03a1985",
             DateOfBirth = new DateTime(1990, 1, 1),
             Email = faker.Person.Email,
-            Phone = faker.Person.Phone
+            Phone = faker.Person.Phone,
+            RoleUserAuth = UtilFake.Role()
         };
         return command;
     }
@@ -167,11 +178,14 @@ public static class UserFake
         {
             FirstName = "",
             LastName = "",
+            Gender = EGender.Male,
+            Notification = ENotificationType.WhatsApp,
             Password = "",
             ConfirmPassword = "",
             DateOfBirth = new DateTime(1990, 1, 1),
             Email = "",
-            Phone = ""
+            Phone = "",
+            RoleUserAuth = UtilFake.Role()
         };
         return command;
     }
@@ -184,11 +198,14 @@ public static class UserFake
         {
             FirstName = faker.Person.FirstName,
             LastName = faker.Person.LastName,
+            Gender = EGender.Male,
+            Notification = ENotificationType.WhatsApp,
             Password = "@G21r03a1985",
             ConfirmPassword = "@G21r03a1985",
             DateOfBirth = new DateTime(1990, 1, 1),
             Email = "emailteste-8@teste.com.br",
-            Phone = faker.Person.Phone
+            Phone = faker.Person.Phone,
+            RoleUserAuth = UtilFake.Role()
         };
         return command;
     }

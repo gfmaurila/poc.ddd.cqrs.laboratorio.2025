@@ -1,8 +1,8 @@
-using Common.Net8.AppSettings;
+using Common.External.Auth.Net8.AppSettings;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Common.Net8.Extensions;
+namespace Common.External.Auth.Net8.Extensions;
 
 [ExcludeFromCodeCoverage]
 public static class ServicesCollectionExtensions

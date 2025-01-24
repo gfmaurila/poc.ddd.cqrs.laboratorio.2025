@@ -1,7 +1,7 @@
-﻿using Common.Net8.Interface;
-using Common.Net8.Model;
+﻿using Common.External.Auth.Net8.Interface;
+using Common.External.Auth.Net8.Model;
 
-namespace Common.Net8.Handle;
+namespace Common.External.Auth.Net8.Handle;
 
 public class NotificationHandle : INotificationHandle
 {

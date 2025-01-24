@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Filter.QueryStore.Response;
+﻿namespace Common.External.Auth.Net8.Filter.QueryStore.Response;
 
 /// <summary>
 /// Classe genérica para encapsular a resposta de paginação.

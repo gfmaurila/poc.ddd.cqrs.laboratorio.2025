@@ -1,6 +1,6 @@
-﻿using Common.Net8.ValueObjects;
+﻿using Common.External.Auth.Net8.ValueObjects;
 
-namespace Common.Net8.Tests.ValueObjects;
+namespace Common.External.Auth.Net8.Tests.ValueObjects;
 
 public class PhoneNumberTests
 {

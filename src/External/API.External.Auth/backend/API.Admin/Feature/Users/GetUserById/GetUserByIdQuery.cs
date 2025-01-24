@@ -1,5 +1,5 @@
 ﻿using API.External.Auth.Feature.Users.GetUser;
-using Common.Net8.Response;
+using Common.External.Auth.Net8.Response;
 using MediatR;
 
 namespace API.External.Auth.Feature.Users.GetUserById;

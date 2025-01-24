@@ -1,6 +1,6 @@
-﻿using Common.Net8.Helper;
+﻿using Common.External.Auth.Net8.Helper;
 
-namespace Common.Net8.Tests.Helper;
+namespace Common.External.Auth.Net8.Tests.Helper;
 
 public class EmailHelperTests
 {

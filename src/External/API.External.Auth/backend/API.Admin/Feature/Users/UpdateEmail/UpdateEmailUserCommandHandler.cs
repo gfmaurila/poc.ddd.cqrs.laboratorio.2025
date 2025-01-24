@@ -1,6 +1,6 @@
 ﻿using API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
-using Common.Net8.Response;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8.Response;
+using Common.External.Auth.Net8.ValueObjects;
 using MediatR;
 
 namespace API.External.Auth.Feature.Users.UpdateEmail;

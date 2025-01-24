@@ -1,8 +1,8 @@
 ﻿using Ardalis.Result;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Common.Net8.API.Extensions;
+namespace Common.External.Auth.Net8.API.Extensions;
 public static class ResultExtensions
 {
     public static IActionResult ToActionResult(this Result result)

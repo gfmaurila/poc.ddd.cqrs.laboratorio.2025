@@ -1,4 +1,5 @@
-﻿using Common.Net8.Response;
+﻿using Common.External.Auth.Net8.Enumerado;
+using Common.External.Auth.Net8.Response;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
@@ -18,6 +19,12 @@ public class UpdateUserCommand : IRequest<ApiResult<UpdateUserResponse>>
     [MaxLength(100)]
     [DataType(DataType.Text)]
     public string LastName { get; set; }
+
+    [Required]
+    public EGender Gender { get; set; }
+
+    [Required]
+    public ENotificationType Notification { get; set; }
 
     [Required]
     [MaxLength(20)]

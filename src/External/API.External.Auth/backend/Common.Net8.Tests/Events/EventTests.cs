@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Tests.Events;
+﻿namespace Common.External.Auth.Net8.Tests.Events;
 
 public class EventTests
 {

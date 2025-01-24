@@ -2,8 +2,10 @@ using API.External.Auth.Extensions;
 using API.External.Auth.Infrastructure.Database;
 using API.External.Auth.Infrastructure.Database.Repositories;
 using API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
+using API.External.Auth.RabbiMQ;
 using Carter;
-using Common.Net8;
+using Common.External.Auth.Net8;
+using Common.External.Auth.Net8.DistributedCache;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using poc.vertical.slices.net8.Extensions;
@@ -19,13 +21,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerConfig(builder.Configuration);
 builder.Services.UseAuthentication(builder.Configuration);
 
-builder.Services.AddDbContext<EFSqlServerContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+builder.Services.AddDbContext<EFSqlServerContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("SqlConnection"),
+        sqlOptions =>
+        {
+            sqlOptions.CommandTimeout(1020);
+        }));
 
 var assembly = typeof(Program).Assembly;
 
 builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(assembly));
 
+DistributedCacheInitializer.Initialize(builder.Services, builder.Configuration);
 CoreInitializer.Initialize(builder.Services);
+RabbiMQInitializer.Initialize(builder.Services);
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 
@@ -43,7 +53,8 @@ builder.Host.UseSerilog((context, config) =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment() ||
+if (app.Environment.IsEnvironment("Test") ||
+    app.Environment.IsDevelopment() ||
     app.Environment.IsEnvironment("Docker") ||
     app.Environment.IsStaging() ||
     app.Environment.IsProduction())

@@ -1,6 +1,6 @@
 ﻿using API.External.Auth.Feature.Auth.Login;
 using Carter;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
 using MediatR;
 using Microsoft.OpenApi.Models;
 

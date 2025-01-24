@@ -1,4 +1,4 @@
-﻿using Common.Net8.API.Models;
+﻿using Common.External.Auth.Net8.API.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;

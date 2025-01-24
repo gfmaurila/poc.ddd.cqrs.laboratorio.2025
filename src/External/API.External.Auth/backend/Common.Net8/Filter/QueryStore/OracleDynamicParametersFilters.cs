@@ -1,8 +1,8 @@
-﻿using Common.Net8.Enumerado;
+﻿using Common.External.Auth.Net8.Enumerado;
 using Dapper;
 using System.Data;
 
-namespace Common.Net8.Filter.QueryStore;
+namespace Common.External.Auth.Net8.Filter.QueryStore;
 
 
 public static class OracleDynamicParametersFilters

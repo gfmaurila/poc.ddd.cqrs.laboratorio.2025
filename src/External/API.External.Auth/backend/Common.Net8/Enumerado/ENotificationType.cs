@@ -1,5 +1,5 @@
 ﻿
-namespace Common.Net8.Enumerado;
+namespace Common.External.Auth.Net8.Enumerado;
 
 public enum ENotificationType
 {

@@ -1,12 +1,12 @@
-﻿using Common.Net8.AppSettings;
-using Common.Net8.DistributedCache.Configuration;
-using Common.Net8.DistributedCache.Redis;
-using Common.Net8.Interface;
+﻿using Common.External.Auth.Net8.AppSettings;
+using Common.External.Auth.Net8.DistributedCache.Configuration;
+using Common.External.Auth.Net8.DistributedCache.Redis;
+using Common.External.Auth.Net8.Interface;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
 
-namespace Common.Net8.DistributedCache;
+namespace Common.External.Auth.Net8.DistributedCache;
 
 public class DistributedCacheInitializer
 {

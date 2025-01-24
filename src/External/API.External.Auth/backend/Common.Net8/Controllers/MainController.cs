@@ -1,12 +1,12 @@
-﻿using Common.Net8.Interface;
-using Common.Net8.Model;
-using Common.Net8.Response;
+﻿using Common.External.Auth.Net8.Interface;
+using Common.External.Auth.Net8.Model;
+using Common.External.Auth.Net8.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
-namespace Common.Net8.Controllers;
+namespace Common.External.Auth.Net8.Controllers;
 
 /// <summary>
 /// Controlador base que fornece funcionalidades comuns a outros controladores.

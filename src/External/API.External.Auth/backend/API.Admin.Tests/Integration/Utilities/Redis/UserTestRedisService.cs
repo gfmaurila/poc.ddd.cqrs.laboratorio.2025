@@ -1,5 +1,5 @@
 ﻿using API.External.Auth.Feature.Users.GetUser;
-using Common.Net8.Interface;
+using Common.External.Auth.Net8.Interface;
 
 namespace API.External.Auth.Tests.Integration.Utilities.Redis;
 

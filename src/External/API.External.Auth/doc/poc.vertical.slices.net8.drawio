@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-07-27T07:10:29.559Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="U7nkUBHq4rqKFTxlxxku" version="24.0.4" type="device" pages="8">
+<mxfile host="Electron" modified="2024-11-18T12:19:06.137Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.6.1 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="XYLOBTUE-ECb7aEAOwy_" version="24.6.1" type="device" pages="8">
   <diagram name="Vertical Slice Architecture" id="6KKKKZAk7pw4pZNN8Spq">
     <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="0">
       <root>
@@ -78,6 +78,30 @@
         </mxCell>
         <mxCell id="PWbC6GFVs9YUKvNQ46mf-25" value="No content" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#0050ef;strokeColor=#001DBC;fontColor=#0D0D0D;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="640" y="620" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-1" value="UI/API" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="40" y="900" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-2" value="Domain Objects" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#d5e8d4;strokeColor=#82b366;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1020" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-3" value="Repository" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#ffe6cc;strokeColor=#d79b00;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1140" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-4" value="Database" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#f8cecc;strokeColor=#b85450;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1260" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-6" value="POST" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;direction=south;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;textDirection=ltr;" vertex="1" parent="1">
+          <mxGeometry x="50" y="850" width="40" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-7" value="GET/GET BY ID" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;direction=south;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;textDirection=ltr;" vertex="1" parent="1">
+          <mxGeometry x="110" y="850" width="40" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-12" value="PUT" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;direction=south;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;textDirection=ltr;" vertex="1" parent="1">
+          <mxGeometry x="176" y="850" width="40" height="540" as="geometry" />
+        </mxCell>
+        <mxCell id="YeCqpPwFeMRfx5tpiRbL-17" value="Delete" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;fontStyle=1;fontSize=16;direction=south;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;textDirection=ltr;" vertex="1" parent="1">
+          <mxGeometry x="236" y="850" width="40" height="540" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

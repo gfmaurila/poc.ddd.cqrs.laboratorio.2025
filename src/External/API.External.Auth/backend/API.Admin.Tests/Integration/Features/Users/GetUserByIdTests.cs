@@ -1,7 +1,7 @@
 ﻿using API.External.Auth.Feature.Users.GetUser;
 using API.External.Auth.Tests.Integration.Features.Fakes;
 using API.External.Auth.Tests.Integration.Utilities;
-using Common.Net8.Response;
+using Common.External.Auth.Net8.Response;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;

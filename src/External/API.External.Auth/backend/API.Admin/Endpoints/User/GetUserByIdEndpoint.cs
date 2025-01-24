@@ -1,7 +1,8 @@
 ﻿using API.External.Auth.Feature.Users.GetUser;
 using API.External.Auth.Feature.Users.GetUserById;
 using Carter;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
+using Common.External.Auth.Net8.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
@@ -29,7 +30,8 @@ public class GetUserByIdEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute());
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.GetUserById}" })
+            ;
     }
     private async Task<IResult> HandleGetUserById(Guid id, ISender sender)
     {

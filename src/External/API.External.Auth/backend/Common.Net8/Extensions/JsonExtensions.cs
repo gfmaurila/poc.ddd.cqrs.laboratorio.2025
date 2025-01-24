@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace Common.Net8.Extensions;
+namespace Common.External.Auth.Net8.Extensions;
 
 /// <summary>
 /// Extensões para a utilização do JSON.

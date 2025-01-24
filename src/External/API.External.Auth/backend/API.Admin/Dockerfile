@@ -13,7 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/External/API.External.Auth/backend/API.Admin/API.External.Auth.csproj", "src/External/API.External.Auth/backend/API.Admin/"]
-COPY ["src/External/API.External.Auth/backend/Common.Net8/Common.Net8.csproj", "src/External/API.External.Auth/backend/Common.Net8/"]
+COPY ["src/External/API.External.Auth/backend/Common.Net8/Common.External.Auth.Net8.csproj", "src/External/API.External.Auth/backend/Common.Net8/"]
 RUN dotnet restore "./src/External/API.External.Auth/backend/API.Admin/API.External.Auth.csproj"
 COPY . .
 WORKDIR "/src/src/External/API.External.Auth/backend/API.Admin"

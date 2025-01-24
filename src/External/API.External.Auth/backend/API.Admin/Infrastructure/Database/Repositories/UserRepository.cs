@@ -1,7 +1,7 @@
 ﻿using API.External.Auth.Domain.User;
 using API.External.Auth.Feature.Users.GetUser;
 using API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.External.Auth.Infrastructure.Database.Repositories;
@@ -66,8 +66,10 @@ public class UserRepository : BaseRepository<UserEntity>, IUserRepository
             Id = entity.Id,
             FirstName = entity.FirstName,
             LastName = entity.LastName,
+            Gender = entity.Gender,
             Email = entity.Email.Address,
             Phone = entity.Phone.Phone,
+            RoleUserAuth = entity.RoleUserAuth,
             DateOfBirth = entity.DateOfBirth
         };
     }
@@ -82,8 +84,10 @@ public class UserRepository : BaseRepository<UserEntity>, IUserRepository
                 Id = entityItem.Id,
                 FirstName = entityItem.FirstName,
                 LastName = entityItem.LastName,
+                Gender = entityItem.Gender,
                 Email = entityItem.Email.Address,
                 Phone = entityItem.Phone.Phone,
+                RoleUserAuth = entityItem.RoleUserAuth,
                 //Password = entityItem.Password,
                 DateOfBirth = entityItem.DateOfBirth
             });

@@ -1,6 +1,6 @@
-﻿using Common.Net8.Extensions;
+﻿using Common.External.Auth.Net8.Extensions;
 
-namespace Common.Net8.Tests.Extensions;
+namespace Common.External.Auth.Net8.Tests.Extensions;
 
 public class PasswordTests
 {

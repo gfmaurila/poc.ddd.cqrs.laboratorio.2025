@@ -1,8 +1,8 @@
-using Common.Net8.Abstractions;
-using Common.Net8.Events;
+using Common.External.Auth.Net8.Abstractions;
+using Common.External.Auth.Net8.Events;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Common.Net8;
+namespace Common.External.Auth.Net8;
 
 /// <summary>
 /// Classe base que contém os comportamentos de uma entidade.

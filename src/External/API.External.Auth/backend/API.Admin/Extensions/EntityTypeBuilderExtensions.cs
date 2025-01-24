@@ -1,4 +1,4 @@
-﻿using Common.Net8;
+﻿using Common.External.Auth.Net8;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace poc.vertical.slices.net8.Extensions;

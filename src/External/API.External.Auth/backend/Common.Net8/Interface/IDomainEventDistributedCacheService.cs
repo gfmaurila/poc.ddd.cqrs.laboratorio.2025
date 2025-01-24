@@ -1,6 +1,6 @@
-﻿using Common.Net8.Model;
+﻿using Common.External.Auth.Net8.Model;
 
-namespace Common.Net8.Interface;
+namespace Common.External.Auth.Net8.Interface;
 
 public interface IDomainEventDistributedCacheService
 {

@@ -1,4 +1,6 @@
-﻿namespace API.External.Auth.Domain.User.Models;
+﻿using Common.External.Auth.Net8.User;
+
+namespace API.External.Auth.Domain.User.Models;
 
 public class UserModel
 {
@@ -9,4 +11,5 @@ public class UserModel
     public DateTime CreatedAt { get; set; }
     public bool Active { get; set; }
     public string Password { get; set; }
+    public ERoleUserAuth[] RoleUserAuth { get; set; }
 }

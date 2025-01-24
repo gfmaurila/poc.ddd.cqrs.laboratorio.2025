@@ -1,5 +1,5 @@
-﻿using Common.Net8;
-using Common.Net8.Abstractions;
+﻿using Common.External.Auth.Net8;
+using Common.External.Auth.Net8.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.External.Auth.Infrastructure.Database.Repositories;

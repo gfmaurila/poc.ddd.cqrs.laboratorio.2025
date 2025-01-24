@@ -1,8 +1,8 @@
 ﻿using API.External.Auth.Domain.User;
 using API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
-using Common.Net8.Extensions;
-using Common.Net8.Response;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8.Extensions;
+using Common.External.Auth.Net8.Response;
+using Common.External.Auth.Net8.ValueObjects;
 using MediatR;
 
 namespace API.External.Auth.Feature.Users.CreateUser;
@@ -43,9 +43,12 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, ApiRe
 
         var entity = new UserEntity(request.FirstName,
             request.LastName,
+            request.Gender,
+            request.Notification,
             email,
             phone,
             Password.ComputeSha256Hash(request.Password),
+            request.RoleUserAuth,
             request.DateOfBirth);
 
         await _repo.Create(entity);

@@ -1,6 +1,6 @@
-﻿using Common.Net8.Model;
+﻿using Common.External.Auth.Net8.Model;
 
-namespace Common.Net8.Tests.Model;
+namespace Common.External.Auth.Net8.Tests.Model;
 
 public class DomainEventDistributedCacheTests
 {

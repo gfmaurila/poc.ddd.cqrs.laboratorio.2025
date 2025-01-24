@@ -1,6 +1,6 @@
-﻿using Common.Net8.Response;
+﻿using Common.External.Auth.Net8.Response;
 
-namespace Common.Net8.Tests.Response;
+namespace Common.External.Auth.Net8.Tests.Response;
 
 public class ResponseDefaultTests
 {

@@ -1,4 +1,5 @@
-﻿using Common.Net8.Response;
+﻿using Common.External.Auth.Net8.Enumerado;
+using Common.External.Auth.Net8.Response;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,6 +16,12 @@ public class CreateUserCommand : IRequest<ApiResult<CreateUserResponse>>
     [MaxLength(100)]
     [DataType(DataType.Text)]
     public string LastName { get; set; }
+
+    [Required]
+    public EGender Gender { get; set; }
+
+    [Required]
+    public ENotificationType Notification { get; set; }
 
     [Required]
     [DataType(DataType.Date)]
@@ -38,4 +45,5 @@ public class CreateUserCommand : IRequest<ApiResult<CreateUserResponse>>
     [DataType(DataType.Password)]
     public string ConfirmPassword { get; set; }
 
+    public List<string> RoleUserAuth { get; set; } = new List<string>();
 }

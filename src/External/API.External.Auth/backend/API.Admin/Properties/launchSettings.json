@@ -1,7 +1,7 @@
 {
   "profiles": {
 
-    "poc.vertical.slices.net8": {
+    "API.External.Auth": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

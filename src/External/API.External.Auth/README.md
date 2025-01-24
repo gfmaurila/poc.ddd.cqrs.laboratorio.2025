@@ -37,10 +37,31 @@
         <li>Fluent Validation</li>
         <li>Swagger</li>
         <li>Serilog</li>
+        <li>MongoDB</li>
+        <li>Redis</li>
         <li>SQL Server</li>
         <li>Serilog</li>
+        <li>RabbitMQ</li>
+        <li>Kafka</li>
         <li>Docker & Docker Compose</li>
+        <li>Integration Tests</li>
+            <ul>
+                <li>In-memory DB</li>
+                <li>Sqlite</li>
+                <li>Sql Server</li>
+                <li>XUnit</li>
+                <li>NUnit</li>
+                <li>Moq</li>
+                <li>Bogus</li>
+            </ul>
         </ul>    
+</div>
+
+<div>
+    <h2>Frontend - Ainda não foi concluido</h2>
+    <ul>
+        <li>React</li>
+    </ul>    
 </div>
 
 <div>
@@ -61,6 +82,10 @@
     <h2>Configurando projeto</h2>
     <table>
         <tr>
+            <td>Frontend:</td>
+            <td>http://localhost/</td>
+        </tr>
+        <tr>
             <td>Backend:</td>
             <td>http://localhost:5075/swagger/index.html</td>
         </tr>
@@ -71,6 +96,16 @@
         <tr>
             <td>Rodando a aplicação</td>
             <td>docker-compose up --build</td>
+        </tr>
+        <tr>
+            <td>React</td>
+            <td>
+                <ul>
+                    <li>npm install ou yarn install</li>
+                    <li>npm install</li>
+                    <li>npm start ou yarn start</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>SQL Server</td>
@@ -84,7 +119,23 @@
     </table>    
 </div>
 
-
+<div>
+    <h2>Teste Unitário</h2>
+    <table>
+        <tr>
+            <th>Projeto</th>
+            <th>Desenvolvedor</th>
+            <th>-</th>
+            <th>Line Coverage %</th>
+        </tr>
+        <tr>
+            <th>API.Admin</th>
+            <th>Guilherme F Maurila</th>
+            <th>-</th>
+            <th>96.4%</th>
+        </tr>
+    </table>    
+</div>
 
 ## API - Swagger
 

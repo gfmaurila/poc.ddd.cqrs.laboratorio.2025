@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Common.Net8.Enumerado;
+namespace Common.External.Auth.Net8.Enumerado;
 
 /// <summary>
 /// Gênero.

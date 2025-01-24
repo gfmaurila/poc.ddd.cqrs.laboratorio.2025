@@ -9,7 +9,9 @@
         "API.External.MKT": "StartDebugging",
         "api.external.auth": "StartDebugging",
         "worker.kafka": "StartDebugging",
-        "worker.rabbitmq": "StartDebugging"
+        "worker.rabbitmq": "StartDebugging",
+        "common.external.auth.net8.tests": "StartDebugging",
+        "api.external.auth.tests": "StartDebugging"
       }
     }
   }

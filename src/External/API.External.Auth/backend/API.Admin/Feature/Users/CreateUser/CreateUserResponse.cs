@@ -1,4 +1,4 @@
-﻿using Common.Net8;
+﻿using Common.External.Auth.Net8;
 
 namespace API.External.Auth.Feature.Users.CreateUser;
 
@@ -11,7 +11,7 @@ public class CreateUserResponse : BaseResponse
 
 
 
-//using Common.Net8;
+//using Common.External.Auth.Net8;
 
 //namespace API.External.Auth.Feature.Users.CreateUser;
 

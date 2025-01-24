@@ -1,4 +1,4 @@
-﻿using Common.Net8.Events;
+﻿using Common.External.Auth.Net8.Events;
 
 namespace API.External.Auth.Domain.User.Events.Auth;
 

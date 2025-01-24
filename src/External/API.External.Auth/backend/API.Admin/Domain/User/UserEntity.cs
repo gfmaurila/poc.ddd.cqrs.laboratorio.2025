@@ -1,24 +1,41 @@
 ﻿using API.External.Auth.Domain.User.Events;
 using API.External.Auth.Domain.User.Events.Auth;
 using API.External.Auth.Feature.Users.UpdateUser;
-using Common.Net8;
-using Common.Net8.Abstractions;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8;
+using Common.External.Auth.Net8.Abstractions;
+using Common.External.Auth.Net8.Enumerado;
+using Common.External.Auth.Net8.ValueObjects;
 
 namespace API.External.Auth.Domain.User;
 
 public class UserEntity : BaseEntity, IAggregateRoot
 {
-    public UserEntity(string firstName, string lastName, Email email, PhoneNumber phone, string password, DateTime dateOfBirth)
+    /// <summary>
+    /// Inicializa uma inståncia de um novo usuario.
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <param name="gender"></param>
+    /// <param name="notification"></param>
+    /// <param name="email"></param>
+    /// <param name="phone"></param>
+    /// <param name="password"></param>
+    /// <param name="role"></param>
+    /// <param name="dateOfBirth"></param>
+    public UserEntity(string firstName, string lastName, EGender gender, ENotificationType notification, Email email, PhoneNumber phone, string password, List<string> role, DateTime dateOfBirth)
     {
         FirstName = firstName;
         LastName = lastName;
+        Gender = gender;
+        Notification = notification;
         Email = email;
         Phone = phone;
+        RoleUserAuth = role;
         Password = password;
         DateOfBirth = dateOfBirth;
 
-        AddDomainEvent(new UserCreatedEvent(Id, firstName, lastName, email.Address, phone.Phone, password, dateOfBirth));
+        // Adicionando a nova instãncia nos eventos de domínio.
+        AddDomainEvent(new UserCreatedEvent(Id, firstName, lastName, gender, notification, email.Address, phone.Phone, password, role, dateOfBirth));
     }
 
     public UserEntity() { } // ORM
@@ -32,6 +49,16 @@ public class UserEntity : BaseEntity, IAggregateRoot
     /// Sobrenome.
     /// </summary>
     public string LastName { get; private set; }
+
+    /// <summary>
+    /// Gênero.
+    /// </summary>
+    public EGender Gender { get; private set; }
+
+    /// <summary>
+    /// Valida se as notificações vão chegar por e-mail, sms ou whatsapp
+    /// </summary>
+    public ENotificationType Notification { get; private set; }
 
     /// <summary>
     /// Data de Nascimento.
@@ -53,12 +80,18 @@ public class UserEntity : BaseEntity, IAggregateRoot
     /// </summary>
     public string Password { get; private set; }
 
+    /// <summary>
+    /// Roles do sistema
+    /// </summary>
+    public List<string> RoleUserAuth { get; private set; } = new List<string>();
+
+
     public void ChangeEmail(Email newEmail)
     {
         if (!Email.Equals(newEmail))
         {
             Email = newEmail;
-            AddDomainEvent(new UserUpdatedEvent(Id, FirstName, LastName, newEmail.Address, Phone.Phone, Password, DateOfBirth));
+            AddDomainEvent(new UserUpdatedEvent(Id, FirstName, LastName, Gender, Notification, newEmail.Address, Phone.Phone, Password, RoleUserAuth, DateOfBirth));
         }
     }
 
@@ -71,8 +104,20 @@ public class UserEntity : BaseEntity, IAggregateRoot
         FirstName = dto.FirstName;
         LastName = dto.LastName;
         Phone = new PhoneNumber(dto.Phone);
+        Gender = dto.Gender;
+        Notification = dto.Notification;
         DateOfBirth = dto.DateOfBirth;
-        AddDomainEvent(new UserUpdatedEvent(Id, dto.FirstName, dto.LastName, Email.Address, dto.Phone, Password, dto.DateOfBirth));
+        AddDomainEvent(new UserUpdatedEvent(Id, dto.FirstName, dto.LastName, dto.Gender, dto.Notification, Email.Address, dto.Phone, Password, RoleUserAuth, dto.DateOfBirth));
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="role"></param>
+    public void UpdateRole(List<string> role)
+    {
+        RoleUserAuth = role;
+        AddDomainEvent(new UserUpdatedEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Password, role, DateOfBirth));
     }
 
     /// <summary>
@@ -86,7 +131,7 @@ public class UserEntity : BaseEntity, IAggregateRoot
         {
             Password = password;
             // Adicionando a alteração nos eventos de domínio.
-            AddDomainEvent(new UserUpdatedEvent(Id, FirstName, LastName, Email.Address, Phone.Phone, Password, DateOfBirth));
+            AddDomainEvent(new UserUpdatedEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Password, RoleUserAuth, DateOfBirth));
         }
     }
 
@@ -94,7 +139,7 @@ public class UserEntity : BaseEntity, IAggregateRoot
     /// Adiciona o evento de entidade deletada.
     /// </summary>
     public void Delete()
-        => AddDomainEvent(new UserDeletedEvent(Id, FirstName, LastName, Email.Address, Phone.Phone, Password, DateOfBirth));
+        => AddDomainEvent(new UserDeletedEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Password, RoleUserAuth, DateOfBirth));
 
     /// <summary>
     /// 
@@ -110,6 +155,6 @@ public class UserEntity : BaseEntity, IAggregateRoot
     /// 
     /// </summary>
     public void AuthResetEvent()
-        => AddDomainEvent(new AuthResetEvent(Id, FirstName, LastName, Email.Address, Phone.Phone, Password, DateOfBirth));
+        => AddDomainEvent(new AuthResetEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Password, RoleUserAuth, DateOfBirth));
 
 }

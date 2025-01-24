@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Model;
+﻿namespace Common.External.Auth.Net8.Model;
 
 public class Notification
 {

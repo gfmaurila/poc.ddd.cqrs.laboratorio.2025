@@ -1,6 +1,6 @@
-﻿using Common.Net8.Abstractions;
+﻿using Common.External.Auth.Net8.Abstractions;
 
-namespace Common.Net8.Interface;
+namespace Common.External.Auth.Net8.Interface;
 
 public interface IMongoDbCacheService
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Common.Net8.API.Models;
+namespace Common.External.Auth.Net8.API.Models;
 
 /// <summary>
 /// Classe responsável pela a padronização das respostas da API.

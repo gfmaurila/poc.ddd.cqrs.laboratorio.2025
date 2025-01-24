@@ -1,6 +1,7 @@
 ﻿using API.External.Auth.Feature.Users.GetUser;
 using Carter;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
+using Common.External.Auth.Net8.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
@@ -27,7 +28,8 @@ public class GetAllUsersEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute());
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.GetUser}" })
+            ;
     }
 
     private async Task<IResult> HandleGetAllUsers(ISender sender)

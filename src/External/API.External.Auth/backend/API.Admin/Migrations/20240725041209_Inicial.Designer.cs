@@ -76,7 +76,7 @@ namespace API.External.Auth.Migrations
 
             modelBuilder.Entity("API.External.Auth.Domain.User.UserEntity", b =>
                 {
-                    b.OwnsOne("Common.Net8.ValueObjects.Email", "Email", b1 =>
+                    b.OwnsOne("Common.External.Auth.Net8.ValueObjects.Email", "Email", b1 =>
                         {
                             b1.Property<Guid>("UserEntityId")
                                 .HasColumnType("uniqueidentifier");
@@ -96,7 +96,7 @@ namespace API.External.Auth.Migrations
                                 .HasForeignKey("UserEntityId");
                         });
 
-                    b.OwnsOne("Common.Net8.ValueObjects.PhoneNumber", "Phone", b1 =>
+                    b.OwnsOne("Common.External.Auth.Net8.ValueObjects.PhoneNumber", "Phone", b1 =>
                         {
                             b1.Property<Guid>("UserEntityId")
                                 .HasColumnType("uniqueidentifier");

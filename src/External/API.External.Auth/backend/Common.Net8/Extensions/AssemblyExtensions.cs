@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace Common.Net8.Extensions;
+namespace Common.External.Auth.Net8.Extensions;
 
 [ExcludeFromCodeCoverage]
 public static class AssemblyExtensions

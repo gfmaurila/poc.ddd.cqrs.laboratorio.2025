@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Interface;
+﻿namespace Common.External.Auth.Net8.Interface;
 
 public interface IRedisCacheService<T>
 {

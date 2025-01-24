@@ -1,7 +1,7 @@
-﻿using Common.Net8.Handle;
-using Common.Net8.Model;
+﻿using Common.External.Auth.Net8.Handle;
+using Common.External.Auth.Net8.Model;
 
-namespace Common.Net8.Tests.Handle;
+namespace Common.External.Auth.Net8.Tests.Handle;
 
 
 public class NotificationHandleTests

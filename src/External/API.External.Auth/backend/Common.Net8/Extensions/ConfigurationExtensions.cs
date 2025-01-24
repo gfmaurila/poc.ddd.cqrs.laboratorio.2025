@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Common.Net8.Extensions;
+namespace Common.External.Auth.Net8.Extensions;
 
 [ExcludeFromCodeCoverage]
 public static class ConfigurationExtensions

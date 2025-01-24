@@ -1,6 +1,6 @@
-﻿using Common.Net8.Constants;
+﻿using Common.External.Auth.Net8.Constants;
 
-namespace Common.Net8.Tests.Constants;
+namespace Common.External.Auth.Net8.Tests.Constants;
 
 public class RegexPatternsTests
 {

@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Common.Net8.Extensions;
+namespace Common.External.Auth.Net8.Extensions;
 
 public static class Password
 {

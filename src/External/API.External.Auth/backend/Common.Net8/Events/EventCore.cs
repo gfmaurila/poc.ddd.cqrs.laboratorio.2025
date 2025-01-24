@@ -1,4 +1,4 @@
-namespace Common.Net8.Events;
+namespace Common.External.Auth.Net8.Events;
 
 /// <summary>
 /// A classe de armazenamento de evento.

@@ -1,7 +1,7 @@
 ﻿using API.External.Auth.Domain.User;
 using API.External.Auth.Feature.Users.GetUser;
-using Common.Net8.Abstractions;
-using Common.Net8.ValueObjects;
+using Common.External.Auth.Net8.Abstractions;
+using Common.External.Auth.Net8.ValueObjects;
 
 namespace API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
 

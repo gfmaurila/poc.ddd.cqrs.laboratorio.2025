@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Abstractions;
+﻿namespace Common.External.Auth.Net8.Abstractions;
 
 public interface IBaseWriteOnlyRepository<T> where T : BaseEntity
 {

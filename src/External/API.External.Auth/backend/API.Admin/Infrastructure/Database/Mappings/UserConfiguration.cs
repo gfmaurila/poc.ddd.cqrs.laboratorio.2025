@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using poc.vertical.slices.net8.Extensions;
+using System.Text.Json;
 
 namespace API.External.Auth.Infrastructure.Database.Mappings;
 
@@ -22,6 +23,20 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
             .IsRequired() // NOT NULL
             .IsUnicode(false) // VARCHAR
             .HasMaxLength(100);
+
+        builder
+            .Property(entity => entity.Gender)
+            .IsRequired() // NOT NULL
+            .IsUnicode(false) // VARCHAR
+            .HasMaxLength(6)
+            .HasConversion<string>();
+
+        builder
+            .Property(entity => entity.Notification)
+            .IsRequired() // NOT NULL
+            .IsUnicode(false) // VARCHAR
+            .HasMaxLength(10)
+            .HasConversion<string>();
 
         builder.OwnsOne(entity => entity.Phone, ownedNav =>
         {
@@ -48,6 +63,14 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
             .IsRequired() // NOT NULL
             .IsUnicode(false) // VARCHAR
             .HasMaxLength(100);
+
+        builder.Property(entity => entity.RoleUserAuth)
+            .IsRequired()
+            .HasConversion(
+                v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null),
+                v => JsonSerializer.Deserialize<List<string>>(v, (JsonSerializerOptions)null))
+            .IsUnicode(false)
+            .HasMaxLength(2048);
 
         builder
             .Property(entity => entity.DateOfBirth)

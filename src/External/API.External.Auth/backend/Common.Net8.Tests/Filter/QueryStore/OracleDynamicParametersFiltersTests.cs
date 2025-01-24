@@ -1,7 +1,7 @@
-﻿using Common.Net8.Filter.QueryStore;
+﻿using Common.External.Auth.Net8.Filter.QueryStore;
 using Dapper;
 
-namespace Common.Net8.Tests.Filter.QueryStore;
+namespace Common.External.Auth.Net8.Tests.Filter.QueryStore;
 
 public class OracleDynamicParametersFiltersTests
 {

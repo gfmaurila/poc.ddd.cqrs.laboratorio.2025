@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace Common.Net8.Constants;
+namespace Common.External.Auth.Net8.Constants;
 
 public static partial class RegexPatterns
 {

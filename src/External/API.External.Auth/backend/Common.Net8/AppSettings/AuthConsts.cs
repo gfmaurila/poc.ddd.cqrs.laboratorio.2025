@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.AppSettings;
+﻿namespace Common.External.Auth.Net8.AppSettings;
 
 public class AuthConsts
 {

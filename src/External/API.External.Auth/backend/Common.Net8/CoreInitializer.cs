@@ -1,10 +1,10 @@
-﻿using Common.Net8.API.Auth;
-using Common.Net8.Handle;
-using Common.Net8.Interface;
+﻿using Common.External.Auth.Net8.API.Auth;
+using Common.External.Auth.Net8.Handle;
+using Common.External.Auth.Net8.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Common.Net8;
+namespace Common.External.Auth.Net8;
 
 [ExcludeFromCodeCoverage]
 public class CoreInitializer

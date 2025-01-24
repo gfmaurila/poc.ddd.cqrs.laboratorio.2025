@@ -1,6 +1,6 @@
-﻿using Common.Net8.Events;
+﻿using Common.External.Auth.Net8.Events;
 
-namespace Common.Net8.Tests.Events;
+namespace Common.External.Auth.Net8.Tests.Events;
 
 public class EventCoreTests
 {

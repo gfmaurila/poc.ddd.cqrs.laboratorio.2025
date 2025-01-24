@@ -1,8 +1,8 @@
-﻿using Common.Net8.Extensions;
+﻿using Common.External.Auth.Net8.Extensions;
 using FluentAssertions;
 using Xunit.Categories;
 
-namespace Common.Net8.Tests.Extensions;
+namespace Common.External.Auth.Net8.Tests.Extensions;
 
 [UnitTest]
 public class JsonExtensionsTests

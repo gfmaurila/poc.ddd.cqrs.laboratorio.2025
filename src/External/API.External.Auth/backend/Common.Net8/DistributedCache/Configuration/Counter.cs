@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.DistributedCache.Configuration;
+﻿namespace Common.External.Auth.Net8.DistributedCache.Configuration;
 
 public class Counter
 {

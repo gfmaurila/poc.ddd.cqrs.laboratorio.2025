@@ -1,7 +1,7 @@
 ﻿using API.External.Auth.Infrastructure.Database.Repositories.Interfaces;
-using Common.Net8.Extensions;
-using Common.Net8.Interface;
-using Common.Net8.Response;
+using Common.External.Auth.Net8.Extensions;
+using Common.External.Auth.Net8.Interface;
+using Common.External.Auth.Net8.Response;
 using MediatR;
 
 namespace API.External.Auth.Feature.Auth.Login;
@@ -42,7 +42,7 @@ public class AuthCommandHandler : IRequestHandler<AuthCommand, ApiResult<AuthTok
                 },
                 400);
 
-        var token = _authService.GenerateJwtToken(auth.Id.ToString(), auth.Email.Address);
+        var token = _authService.GenerateJwtToken(auth.Id.ToString(), auth.Email.Address, auth.RoleUserAuth);
 
         auth.AuthEvent(auth.Id.ToString(), auth.LastName, auth.Email.Address, token);
 

@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.ValueObjects;
+﻿namespace Common.External.Auth.Net8.ValueObjects;
 
 public class PhoneNumber : ValueObject
 {

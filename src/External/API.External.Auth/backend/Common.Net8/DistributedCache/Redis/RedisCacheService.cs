@@ -1,11 +1,11 @@
-﻿using Common.Net8.AppSettings;
-using Common.Net8.DistributedCache.Configuration;
-using Common.Net8.Interface;
+﻿using Common.External.Auth.Net8.AppSettings;
+using Common.External.Auth.Net8.DistributedCache.Configuration;
+using Common.External.Auth.Net8.Interface;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using System.Text.Json;
 
-namespace Common.Net8.DistributedCache.Redis;
+namespace Common.External.Auth.Net8.DistributedCache.Redis;
 
 public class RedisCacheService<T> : IRedisCacheService<T>
 {

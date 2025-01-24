@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Abstractions;
+﻿namespace Common.External.Auth.Net8.Abstractions;
 public interface IBaseRepository<T> where T : BaseEntity
 {
     Task<T> Create(T obj);

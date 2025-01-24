@@ -1,5 +1,8 @@
-﻿using Common.Net8.Extensions;
+﻿using Common.External.Auth.Net8.Enumerado;
+using Common.External.Auth.Net8.Extensions;
+using Common.External.Auth.Net8.User;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Text.Json;
 
 #nullable disable
 
@@ -18,10 +21,13 @@ namespace API.External.Auth.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
                     LastName = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    Gender = table.Column<string>(type: "varchar(6)", unicode: false, maxLength: 6, nullable: false),
+                    Notification = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "DATE", nullable: false),
                     Email = table.Column<string>(type: "varchar(254)", unicode: false, maxLength: 254, nullable: false),
                     Phone = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false),
-                    Password = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false)
+                    Password = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: false),
+                    RoleUserAuth = table.Column<string>(type: "varchar(2048)", unicode: false, maxLength: 2048, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,30 +51,82 @@ namespace API.External.Auth.Migrations
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "FirstName", "LastName", "DateOfBirth", "Email", "Password", "Phone" },
+                columns: new[] { "Id", "FirstName", "LastName", "Gender", "DateOfBirth", "Email", "Password", "RoleUserAuth", "Notification", "Phone" },
                 values: new object[]
                 {
                     "9A749D84-5734-4FAA-95C2-CF2B209EBE89",
                     "AuthTest",
                     "AuthTest",
+                    EGender.Male.ToString(),
                     new DateTime(1986, 03, 18),
                     "auth@auth.com.br",
                     Password.ComputeSha256Hash("Test123$"),
+                    JsonSerializer.Serialize(new List<string>
+                    {
+                        ERoleUserAuth.USER.ToString(),
+                        ERoleUserAuth.CREATE_USER.ToString(),
+                        ERoleUserAuth.UPDATE_USER.ToString(),
+                        ERoleUserAuth.DELETE_USER.ToString(),
+                        ERoleUserAuth.GET_USER.ToString(),
+                        ERoleUserAuth.GET_BY_ID_USER.ToString(),
+
+                        ERoleUserAuth.NOTIFICATION.ToString(),
+                        ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
+                        ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
+                        ERoleUserAuth.GET_NOTIFICATION.ToString(),
+
+                        ERoleUserAuth.REGION.ToString(),
+                        ERoleUserAuth.COUNTRI.ToString(),
+                        ERoleUserAuth.DEPARTMENT.ToString(),
+                        ERoleUserAuth.EMPLOYEE.ToString(),
+                        ERoleUserAuth.JOB.ToString(),
+                        ERoleUserAuth.JOB_HISTORY.ToString(),
+                        ERoleUserAuth.LOCATION.ToString(),
+
+                        ERoleUserAuth.MKT_POST.ToString(),
+                    }, (JsonSerializerOptions)null),
+                    "WhatsApp",
                     "51985623999"
                 }
             );
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "Id", "FirstName", "LastName", "DateOfBirth", "Email", "Password", "Phone" },
+                columns: new[] { "Id", "FirstName", "LastName", "Gender", "DateOfBirth", "Email", "Password", "RoleUserAuth", "Notification", "Phone" },
                 values: new object[]
                 {
                     "11ADD073-9B94-4FD3-8073-27443423E1D0",
                     "Guilherme",
                     "Figueiras Maurila",
+                    EGender.Male.ToString(),
                     new DateTime(1986, 03, 18),
                     "gfmaurila@gmail.com",
                     Password.ComputeSha256Hash("@C23l10a1985"),
+                    JsonSerializer.Serialize(new List<string>
+                    {
+                        ERoleUserAuth.USER.ToString(),
+                        ERoleUserAuth.CREATE_USER.ToString(),
+                        ERoleUserAuth.UPDATE_USER.ToString(),
+                        ERoleUserAuth.DELETE_USER.ToString(),
+                        ERoleUserAuth.GET_USER.ToString(),
+                        ERoleUserAuth.GET_BY_ID_USER.ToString(),
+
+                        ERoleUserAuth.NOTIFICATION.ToString(),
+                        ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
+                        ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
+                        ERoleUserAuth.GET_NOTIFICATION.ToString(),
+
+                        ERoleUserAuth.REGION.ToString(),
+                        ERoleUserAuth.COUNTRI.ToString(),
+                        ERoleUserAuth.DEPARTMENT.ToString(),
+                        ERoleUserAuth.EMPLOYEE.ToString(),
+                        ERoleUserAuth.JOB.ToString(),
+                        ERoleUserAuth.JOB_HISTORY.ToString(),
+                        ERoleUserAuth.LOCATION.ToString(),
+
+                        ERoleUserAuth.MKT_POST.ToString(),
+                    }, (JsonSerializerOptions)null),
+                    "WhatsApp",
                     "51985623312"
                 }
             );
@@ -77,42 +135,106 @@ namespace API.External.Auth.Migrations
 
             Random random = new Random();
 
+            string[] contactMethods = new[] { "WhatsApp", "SMS", "Email" };
+
             foreach (var guid in guidArray)
             {
                 count++;
 
+                // Seleciona um método de contato aleatório
+                string randomContactMethod = contactMethods[random.Next(contactMethods.Length)];
+
                 // Inserir dados falsos
                 migrationBuilder.InsertData(
                     table: "User",
-                    columns: new[] { "Id", "FirstName", "LastName", "DateOfBirth", "Email", "Password", "Phone" },
+                    columns: new[] { "Id", "FirstName", "LastName", "Gender", "DateOfBirth", "Email", "Password", "RoleUserAuth", "Notification", "Phone" },
                     values: new object[]
                     {
                         guid,
                         $"NomeTeste-{count}",
                         $"SobreNomeTeste-{count}",
+                        EGender.Male.ToString(),
                         new DateTime(1986, 03, 18),
                         $"emailteste-{count}@teste.com.br",
                         Password.ComputeSha256Hash($"@C{count}3l10a1985"),
+                        JsonSerializer.Serialize(new List<string>
+                        {
+                            ERoleUserAuth.USER.ToString(),
+                            ERoleUserAuth.CREATE_USER.ToString(),
+                            ERoleUserAuth.UPDATE_USER.ToString(),
+                            ERoleUserAuth.DELETE_USER.ToString(),
+                            ERoleUserAuth.GET_USER.ToString(),
+                            ERoleUserAuth.GET_BY_ID_USER.ToString(),
+
+                            ERoleUserAuth.NOTIFICATION.ToString(),
+                            ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
+                            ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
+                            ERoleUserAuth.GET_NOTIFICATION.ToString(),
+
+                            ERoleUserAuth.REGION.ToString(),
+                            ERoleUserAuth.COUNTRI.ToString(),
+                            ERoleUserAuth.DEPARTMENT.ToString(),
+                            ERoleUserAuth.EMPLOYEE.ToString(),
+                            ERoleUserAuth.JOB.ToString(),
+                            ERoleUserAuth.JOB_HISTORY.ToString(),
+                            ERoleUserAuth.LOCATION.ToString(),
+
+                            ERoleUserAuth.MKT_POST.ToString(),
+                        }, (JsonSerializerOptions)null),
+                        randomContactMethod,
                         $"519{count}56{count}33{count}2"
                     }
                 );
             }
 
+
+
+
+
             for (int i = 0; i < 10; i++)
             {
+
+                // Seleciona um método de contato aleatório
+                string randomContactMethod = contactMethods[random.Next(contactMethods.Length)];
 
                 // Inserir dados falsos
                 migrationBuilder.InsertData(
                     table: "User",
-                    columns: new[] { "Id", "FirstName", "LastName", "DateOfBirth", "Email", "Password", "Phone" },
+                    columns: new[] { "Id", "FirstName", "LastName", "Gender", "DateOfBirth", "Email", "Password", "RoleUserAuth", "Notification", "Phone" },
                     values: new object[]
                     {
                         Guid.NewGuid(),
                         $"NomeTesteFake-{i}",
                         $"SobreNomeTesteFake-{i}",
+                        EGender.Male.ToString(),
                         new DateTime(1986, 03, 18),
                         $"emailtesteFake-{i}@testeFake.com.br",
                         Password.ComputeSha256Hash($"@C{i}3l10a1985"),
+                        JsonSerializer.Serialize(new List<string>
+                        {
+                            ERoleUserAuth.USER.ToString(),
+                            ERoleUserAuth.CREATE_USER.ToString(),
+                            ERoleUserAuth.UPDATE_USER.ToString(),
+                            ERoleUserAuth.DELETE_USER.ToString(),
+                            ERoleUserAuth.GET_USER.ToString(),
+                            ERoleUserAuth.GET_BY_ID_USER.ToString(),
+
+                            ERoleUserAuth.NOTIFICATION.ToString(),
+                            ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
+                            ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
+                            ERoleUserAuth.GET_NOTIFICATION.ToString(),
+
+                            ERoleUserAuth.REGION.ToString(),
+                            ERoleUserAuth.COUNTRI.ToString(),
+                            ERoleUserAuth.DEPARTMENT.ToString(),
+                            ERoleUserAuth.EMPLOYEE.ToString(),
+                            ERoleUserAuth.JOB.ToString(),
+                            ERoleUserAuth.JOB_HISTORY.ToString(),
+                            ERoleUserAuth.LOCATION.ToString(),
+
+                            ERoleUserAuth.MKT_POST.ToString(),
+                        }, (JsonSerializerOptions)null),
+                        randomContactMethod,
                         $"519{i}56{i}33{i}2"
                     }
                 );

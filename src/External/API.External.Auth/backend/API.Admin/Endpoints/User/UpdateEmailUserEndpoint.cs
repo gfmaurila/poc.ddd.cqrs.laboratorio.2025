@@ -1,6 +1,7 @@
 ﻿using API.External.Auth.Feature.Users.UpdateEmail;
 using Carter;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
+using Common.External.Auth.Net8.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
@@ -29,7 +30,8 @@ public class UpdateEmailUserEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute());
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.PutUser}" })
+            ;
     }
 
     private async Task<IResult> HandleUpdateEmail(UpdateEmailUserCommand command, ISender sender)

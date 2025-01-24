@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Common.Net8.Abstractions;
+namespace Common.External.Auth.Net8.Abstractions;
 
 public interface IEntityMongoDb
 {

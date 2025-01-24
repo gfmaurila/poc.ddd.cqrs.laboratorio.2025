@@ -1,6 +1,6 @@
 ﻿using API.External.Auth.Tests.Integration.Features.Fakes;
 using API.External.Auth.Tests.Integration.Utilities;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 

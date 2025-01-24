@@ -1,4 +1,4 @@
-﻿namespace Common.Net8.Abstractions;
+﻿namespace Common.External.Auth.Net8.Abstractions;
 
 /// <summary>
 /// Interface marcadora para representar um modelo de query (ReadOnly).

@@ -1,6 +1,7 @@
 ﻿using API.External.Auth.Feature.Users.CreateUser;
 using Carter;
-using Common.Net8.API.Models;
+using Common.External.Auth.Net8.API.Models;
+using Common.External.Auth.Net8.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
@@ -24,7 +25,8 @@ public class CreateUserEndpoint : ICarterModule
                 x.Tags = new List<OpenApiTag> { new OpenApiTag { Name = "Usuários" } };
                 return x;
             })
-            .RequireAuthorization(new AuthorizeAttribute());
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.PostUser}" })
+            ;
     }
     private async Task<IResult> HandleCreateUser(CreateUserCommand command, ISender sender)
     {
