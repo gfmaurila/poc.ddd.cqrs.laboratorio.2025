@@ -67,6 +67,7 @@ services:
   # http://localhost:5001/swagger/index.html
   api.external.auth:
     image: ${DOCKER_REGISTRY-}apiexternalauth
+    restart: always
     build:
       context: .
       dockerfile: src/External/API.External.Auth/backend/API.Admin/Dockerfile
@@ -86,6 +87,7 @@ services:
 
   worker.kafka:
     image: ${DOCKER_REGISTRY-}workerkafka
+    restart: always
     build:
       context: .
       dockerfile: src/Worker/Worker.Kafka/Dockerfile
@@ -98,6 +100,7 @@ services:
 
   worker.rabbitmq:
     image: ${DOCKER_REGISTRY-}workerrabbitmq
+    restart: always
     build:
       context: .
       dockerfile: src/Worker/Worker.RabbitMQ/Dockerfile
