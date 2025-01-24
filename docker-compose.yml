@@ -79,6 +79,32 @@ services:
       - redis
       - mongoserver
       - rabbitmq
+      
+  api.external.email:
+    image: ${DOCKER_REGISTRY-}apiexternalemail
+    restart: always
+    build:
+      context: .
+      dockerfile: src/External/API.External.Email/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - redis
+
+  api.external.mkt:
+    image: ${DOCKER_REGISTRY-}apiexternalmkt
+    restart: always
+    build:
+      context: .
+      dockerfile: src/External/API.External.MKT/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+
+
 
 # External FIM --------------------------------------------------------  
 
@@ -248,6 +274,8 @@ services:
 
 # INFRA FIM --------------------------------------------------------
 
+
+
 volumes:
   zookeeper_data:
     driver: local
@@ -261,6 +289,8 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
+
 
 
 

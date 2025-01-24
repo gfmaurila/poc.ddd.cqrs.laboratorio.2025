@@ -62,7 +62,7 @@ builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 var app = builder.Build();
 
 // Desconmenta quando precisar gerar tabelas
-//app.ApplyMigrations();
+app.ApplyMigrations();
 
 // Configura o Swagger para o ambiente de desenvolvimento
 //app.UseSwagger();

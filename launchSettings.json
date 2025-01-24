@@ -11,7 +11,8 @@
         "worker.kafka": "StartDebugging",
         "worker.rabbitmq": "StartDebugging",
         "common.external.auth.net8.tests": "StartDebugging",
-        "api.external.auth.tests": "StartDebugging"
+        "api.external.auth.tests": "StartDebugging",
+        "api.external.email": "StartDebugging"
       }
     }
   }
