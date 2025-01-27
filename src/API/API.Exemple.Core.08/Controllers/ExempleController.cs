@@ -7,8 +7,10 @@ using API.Exemple.Core._08.Feature.Exemple.Get;
 using API.Exemple.Core._08.Feature.Exemple.GetById;
 using API.Exemple.Core._08.Feature.Exemple.GetPaginate;
 using API.Exemple.Core._08.Feature.Exemple.Update;
+using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -30,7 +32,7 @@ public class ExempleController : BaseController
     /// </summary>
     /// <returns>Lista de Exemple.</returns>
     [HttpGet]
-    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_EXEMPLE}, {RoleConstants.ADMIN_EXEMPLE}")]
     [ProducesResponseType(typeof(ApiResponse<List<ExempleQueryModel>>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetAllExemple()
@@ -54,6 +56,7 @@ public class ExempleController : BaseController
     /// <param name="cancellationToken">CancellationToken para controle de execução.</param>
     /// <returns>Resultado paginado de Exemple.</returns>
     [HttpGet("exemple")]
+    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_EXEMPLE}, {RoleConstants.ADMIN_EXEMPLE}")]
     [ProducesResponseType(typeof(ApiResult<GetPaginateExempleQueryResult>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAllExemple([FromQuery] GetPaginateExempleQuery query, CancellationToken cancellationToken)
@@ -77,7 +80,7 @@ public class ExempleController : BaseController
     /// <param name="id">Identificador do Exemple.</param>
     /// <returns>O Exemple correspondente ao ID.</returns>
     [HttpGet("{id}")]
-    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_EXEMPLE}, {RoleConstants.ADMIN_EXEMPLE}")]
     [ProducesResponseType(typeof(ApiResponse<ExempleQueryModel>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -106,7 +109,7 @@ public class ExempleController : BaseController
     /// <param name="command">Dados para criação do Exemple.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpPost]
-    //[Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
     [ProducesResponseType(typeof(CreateExempleResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status500InternalServerError)]
@@ -130,7 +133,7 @@ public class ExempleController : BaseController
     /// <param name="command">Dados para atualização do Exemple.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpPut]
-    //[Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -155,7 +158,7 @@ public class ExempleController : BaseController
     /// <param name="id">Identificador do Exemple a ser deletado.</param>
     /// <returns>Resultado da operação.</returns>
     [HttpDelete("{id}")]
-    //[Authorize(Roles = $"{RoleConstants.EMPLOYEE_AUTH}, {RoleConstants.ADMIN_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_EXEMPLE}, {RoleConstants.ADMIN_EXEMPLE}")]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
