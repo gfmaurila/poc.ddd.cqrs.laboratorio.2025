@@ -30,7 +30,7 @@ public class UpdateRoleUserEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.PutUser}" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.ADMIN_AUTH}, {RoleUserAuthConstants.EMPLOYEE_AUTH}" })
             ;
     }
 

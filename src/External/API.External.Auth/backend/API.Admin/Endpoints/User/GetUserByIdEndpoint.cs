@@ -30,7 +30,7 @@ public class GetUserByIdEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.GetUserById}" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.ADMIN_AUTH}, {RoleUserAuthConstants.EMPLOYEE_AUTH}" })
             ;
     }
     private async Task<IResult> HandleGetUserById(Guid id, ISender sender)

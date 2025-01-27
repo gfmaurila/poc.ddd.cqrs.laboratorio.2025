@@ -2,26 +2,16 @@
 
 public static class RoleUserAuthConstants
 {
-    // USER
-    public const string User = nameof(ERoleUserAuth.USER);
-    public const string GetUser = nameof(ERoleUserAuth.GET_USER);
-    public const string GetUserById = nameof(ERoleUserAuth.GET_BY_ID_USER);
-    public const string PostUser = nameof(ERoleUserAuth.CREATE_USER);
-    public const string PutUser = nameof(ERoleUserAuth.UPDATE_USER);
-    public const string DeleteUser = nameof(ERoleUserAuth.DELETE_USER);
+    /// <summary>
+    /// Constant representing the administrator authorization role.
+    /// </summary>
+    public const string ADMIN_AUTH = nameof(ERoleUserAuth.ADMIN_AUTH);
 
-    // Notification
-    public const string Notification = nameof(ERoleUserAuth.NOTIFICATION);
-    public const string GetNotification = nameof(ERoleUserAuth.GET_NOTIFICATION);
-    public const string PostNotification = nameof(ERoleUserAuth.CREATE_NOTIFICATION);
-    public const string DeleteNotification = nameof(ERoleUserAuth.DELETE_NOTIFICATION);
+    /// <summary>
+    /// Constant representing the employee authorization role.
+    /// </summary>
+    public const string EMPLOYEE_AUTH = nameof(ERoleUserAuth.EMPLOYEE_AUTH);
 
-    // AUTH
-    public const string AuthReset = nameof(ERoleUserAuth.AUTH_RESET);
-
-    // Regios
-    public const string Region = nameof(ERoleUserAuth.REGION);
-
-    // MySQL
-    public const string MKT_POST = nameof(ERoleUserAuth.MKT_POST);
+    public const string ADMIN_EXEMPLE = nameof(ERoleUserAuth.ADMIN_EXEMPLE);
+    public const string EMPLOYEE_EXEMPLE = nameof(ERoleUserAuth.EMPLOYEE_EXEMPLE);
 }

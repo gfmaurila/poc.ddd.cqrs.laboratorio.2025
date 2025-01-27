@@ -74,7 +74,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 
-//await app.MigrateAsync(); // Aqui faz migrations
+await app.MigrateAsync(); // Aqui faz migrations
 
 app.Run();
 

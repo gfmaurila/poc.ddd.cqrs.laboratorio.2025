@@ -29,7 +29,7 @@ public class DeleteUserEndpoint : ICarterModule
                     }
                 }
              })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.DeleteUser}" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.ADMIN_AUTH}, {RoleUserAuthConstants.EMPLOYEE_AUTH}" })
             ;
     }
     private async Task<IResult> HandleDeleteUser(Guid id, ISender sender)

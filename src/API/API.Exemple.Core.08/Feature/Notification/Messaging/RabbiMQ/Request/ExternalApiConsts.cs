@@ -2,13 +2,13 @@
 
 public class ExternalApiConsts
 {
-    public const string BaseUrl = "ExternalApi:BaseUrl";
+    public const string BaseUrl = "APIExternalEmail:BaseUrl";
 
-    public const string AccountSid = "ExternalApi:Auth:AccountSid";
-    public const string AuthToken = "ExternalApi:Auth:AuthToken";
-    public const string From = "ExternalApi:Auth:From";
+    public const string AccountSid = "APIExternalEmail:Auth:AccountSid";
+    public const string AuthToken = "APIExternalEmail:Auth:AuthToken";
+    public const string From = "APIExternalEmail:Auth:From";
 
-    public const string TIMEOUT = "ExternalApi:TIMEOUT";
-    public const string RETRYCOUNT = "ExternalApi:RetryPolicy:RetryCount";
-    public const string SleepDurationProvider = "ExternalApi:RetryPolicy:SleepDurationProvider";
+    public const string TIMEOUT = "APIExternalEmail:TIMEOUT";
+    public const string RETRYCOUNT = "APIExternalEmail:RetryPolicy:RetryCount";
+    public const string SleepDurationProvider = "APIExternalEmail:RetryPolicy:SleepDurationProvider";
 }

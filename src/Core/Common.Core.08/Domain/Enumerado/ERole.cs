@@ -13,6 +13,10 @@ public enum ERole
     /// <summary>
     /// Employee role with authentication permissions.
     /// </summary>
-    EMPLOYEE_AUTH = 2
+    EMPLOYEE_AUTH = 2,
+
+
+    ADMIN_EXEMPLE = 3,
+    EMPLOYEE_EXEMPLE = 4
 }
 

@@ -25,7 +25,7 @@ public class CreateUserEndpoint : ICarterModule
                 x.Tags = new List<OpenApiTag> { new OpenApiTag { Name = "Usuários" } };
                 return x;
             })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.PostUser}" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.ADMIN_AUTH}, {RoleUserAuthConstants.EMPLOYEE_AUTH}" })
             ;
     }
     private async Task<IResult> HandleCreateUser(CreateUserCommand command, ISender sender)

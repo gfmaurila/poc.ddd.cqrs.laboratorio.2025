@@ -28,7 +28,7 @@ public class GetAllUsersEndpoint : ICarterModule
                     }
                 }
             })
-            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.User}, {RoleUserAuthConstants.GetUser}" })
+            .RequireAuthorization(new AuthorizeAttribute { Roles = $"{RoleUserAuthConstants.ADMIN_AUTH}, {RoleUserAuthConstants.EMPLOYEE_AUTH}" })
             ;
     }
 

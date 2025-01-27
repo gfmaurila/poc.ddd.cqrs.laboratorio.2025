@@ -17,4 +17,7 @@ public static class RoleConstants
     /// Constant representing the employee authorization role.
     /// </summary>
     public const string EMPLOYEE_AUTH = nameof(ERole.EMPLOYEE_AUTH);
+
+    public const string ADMIN_EXEMPLE = nameof(ERole.ADMIN_EXEMPLE);
+    public const string EMPLOYEE_EXEMPLE = nameof(ERole.EMPLOYEE_EXEMPLE);
 }

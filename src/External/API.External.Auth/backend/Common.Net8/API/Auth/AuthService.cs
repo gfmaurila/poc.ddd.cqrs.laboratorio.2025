@@ -55,7 +55,7 @@ public class AuthService : IAuthService
         {
             new Claim("userName",email),
             new Claim("id",id),
-            new Claim(ClaimTypes.Role, ERoleUserAuth.AUTH_RESET.ToString())
+            new Claim(ClaimTypes.Role, ERoleUserAuth.ADMIN_AUTH.ToString())
         };
         var token = new JwtSecurityToken(issuer: issuer,
             audience: audience,

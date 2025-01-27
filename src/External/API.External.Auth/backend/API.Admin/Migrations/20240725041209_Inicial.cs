@@ -63,27 +63,10 @@ namespace API.External.Auth.Migrations
                     Password.ComputeSha256Hash("Test123$"),
                     JsonSerializer.Serialize(new List<string>
                     {
-                        ERoleUserAuth.USER.ToString(),
-                        ERoleUserAuth.CREATE_USER.ToString(),
-                        ERoleUserAuth.UPDATE_USER.ToString(),
-                        ERoleUserAuth.DELETE_USER.ToString(),
-                        ERoleUserAuth.GET_USER.ToString(),
-                        ERoleUserAuth.GET_BY_ID_USER.ToString(),
-
-                        ERoleUserAuth.NOTIFICATION.ToString(),
-                        ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
-                        ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
-                        ERoleUserAuth.GET_NOTIFICATION.ToString(),
-
-                        ERoleUserAuth.REGION.ToString(),
-                        ERoleUserAuth.COUNTRI.ToString(),
-                        ERoleUserAuth.DEPARTMENT.ToString(),
-                        ERoleUserAuth.EMPLOYEE.ToString(),
-                        ERoleUserAuth.JOB.ToString(),
-                        ERoleUserAuth.JOB_HISTORY.ToString(),
-                        ERoleUserAuth.LOCATION.ToString(),
-
-                        ERoleUserAuth.MKT_POST.ToString(),
+                        ERoleUserAuth.ADMIN_AUTH.ToString(),
+                        ERoleUserAuth.EMPLOYEE_AUTH.ToString(),
+                        ERoleUserAuth.ADMIN_EXEMPLE.ToString(),
+                        ERoleUserAuth.EMPLOYEE_EXEMPLE.ToString(),
                     }, (JsonSerializerOptions)null),
                     "WhatsApp",
                     "51985623999"
@@ -104,27 +87,10 @@ namespace API.External.Auth.Migrations
                     Password.ComputeSha256Hash("@C23l10a1985"),
                     JsonSerializer.Serialize(new List<string>
                     {
-                        ERoleUserAuth.USER.ToString(),
-                        ERoleUserAuth.CREATE_USER.ToString(),
-                        ERoleUserAuth.UPDATE_USER.ToString(),
-                        ERoleUserAuth.DELETE_USER.ToString(),
-                        ERoleUserAuth.GET_USER.ToString(),
-                        ERoleUserAuth.GET_BY_ID_USER.ToString(),
-
-                        ERoleUserAuth.NOTIFICATION.ToString(),
-                        ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
-                        ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
-                        ERoleUserAuth.GET_NOTIFICATION.ToString(),
-
-                        ERoleUserAuth.REGION.ToString(),
-                        ERoleUserAuth.COUNTRI.ToString(),
-                        ERoleUserAuth.DEPARTMENT.ToString(),
-                        ERoleUserAuth.EMPLOYEE.ToString(),
-                        ERoleUserAuth.JOB.ToString(),
-                        ERoleUserAuth.JOB_HISTORY.ToString(),
-                        ERoleUserAuth.LOCATION.ToString(),
-
-                        ERoleUserAuth.MKT_POST.ToString(),
+                        ERoleUserAuth.ADMIN_AUTH.ToString(),
+                        ERoleUserAuth.EMPLOYEE_AUTH.ToString(),
+                        ERoleUserAuth.ADMIN_EXEMPLE.ToString(),
+                        ERoleUserAuth.EMPLOYEE_EXEMPLE.ToString(),
                     }, (JsonSerializerOptions)null),
                     "WhatsApp",
                     "51985623312"
@@ -159,27 +125,10 @@ namespace API.External.Auth.Migrations
                         Password.ComputeSha256Hash($"@C{count}3l10a1985"),
                         JsonSerializer.Serialize(new List<string>
                         {
-                            ERoleUserAuth.USER.ToString(),
-                            ERoleUserAuth.CREATE_USER.ToString(),
-                            ERoleUserAuth.UPDATE_USER.ToString(),
-                            ERoleUserAuth.DELETE_USER.ToString(),
-                            ERoleUserAuth.GET_USER.ToString(),
-                            ERoleUserAuth.GET_BY_ID_USER.ToString(),
-
-                            ERoleUserAuth.NOTIFICATION.ToString(),
-                            ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
-                            ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
-                            ERoleUserAuth.GET_NOTIFICATION.ToString(),
-
-                            ERoleUserAuth.REGION.ToString(),
-                            ERoleUserAuth.COUNTRI.ToString(),
-                            ERoleUserAuth.DEPARTMENT.ToString(),
-                            ERoleUserAuth.EMPLOYEE.ToString(),
-                            ERoleUserAuth.JOB.ToString(),
-                            ERoleUserAuth.JOB_HISTORY.ToString(),
-                            ERoleUserAuth.LOCATION.ToString(),
-
-                            ERoleUserAuth.MKT_POST.ToString(),
+                            ERoleUserAuth.ADMIN_AUTH.ToString(),
+                            ERoleUserAuth.EMPLOYEE_AUTH.ToString(),
+                            ERoleUserAuth.ADMIN_EXEMPLE.ToString(),
+                            ERoleUserAuth.EMPLOYEE_EXEMPLE.ToString(),
                         }, (JsonSerializerOptions)null),
                         randomContactMethod,
                         $"519{count}56{count}33{count}2"
@@ -212,27 +161,10 @@ namespace API.External.Auth.Migrations
                         Password.ComputeSha256Hash($"@C{i}3l10a1985"),
                         JsonSerializer.Serialize(new List<string>
                         {
-                            ERoleUserAuth.USER.ToString(),
-                            ERoleUserAuth.CREATE_USER.ToString(),
-                            ERoleUserAuth.UPDATE_USER.ToString(),
-                            ERoleUserAuth.DELETE_USER.ToString(),
-                            ERoleUserAuth.GET_USER.ToString(),
-                            ERoleUserAuth.GET_BY_ID_USER.ToString(),
-
-                            ERoleUserAuth.NOTIFICATION.ToString(),
-                            ERoleUserAuth.CREATE_NOTIFICATION.ToString(),
-                            ERoleUserAuth.DELETE_NOTIFICATION.ToString(),
-                            ERoleUserAuth.GET_NOTIFICATION.ToString(),
-
-                            ERoleUserAuth.REGION.ToString(),
-                            ERoleUserAuth.COUNTRI.ToString(),
-                            ERoleUserAuth.DEPARTMENT.ToString(),
-                            ERoleUserAuth.EMPLOYEE.ToString(),
-                            ERoleUserAuth.JOB.ToString(),
-                            ERoleUserAuth.JOB_HISTORY.ToString(),
-                            ERoleUserAuth.LOCATION.ToString(),
-
-                            ERoleUserAuth.MKT_POST.ToString(),
+                            ERoleUserAuth.ADMIN_AUTH.ToString(),
+                            ERoleUserAuth.EMPLOYEE_AUTH.ToString(),
+                            ERoleUserAuth.ADMIN_EXEMPLE.ToString(),
+                            ERoleUserAuth.EMPLOYEE_EXEMPLE.ToString(),
                         }, (JsonSerializerOptions)null),
                         randomContactMethod,
                         $"519{i}56{i}33{i}2"
