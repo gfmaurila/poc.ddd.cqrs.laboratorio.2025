@@ -42,7 +42,7 @@ public class CreateExempleCommandHandler : IRequestHandler<CreateExempleCommand,
                 400);
 
         var authModel = new AuthExempleCreateUpdateDeleteModel(DateTime.Now,
-                                                               Guid.NewGuid(),
+                                                               0,
                                                                null,
                                                                null,
                                                                null,

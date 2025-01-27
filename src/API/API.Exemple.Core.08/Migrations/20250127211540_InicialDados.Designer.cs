@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Exemple.Core._08.Migrations
 {
     [DbContext(typeof(ExempleAppDbContext))]
-    [Migration("20250118163605_Inicial")]
-    partial class Inicial
+    [Migration("20250127211540_InicialDados")]
+    partial class InicialDados
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,20 +33,20 @@ namespace API.Exemple.Core._08.Migrations
                     b.Property<DateTime?>("DtDelete")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DtDeleteId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("DtDeleteId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DtInsert")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DtInsertId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("DtInsertId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("DtUpdate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DtUpdateId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("DtUpdateId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()

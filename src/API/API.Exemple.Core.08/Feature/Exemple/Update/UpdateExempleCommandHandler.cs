@@ -42,7 +42,7 @@ public class UpdateExempleCommandHandler : IRequestHandler<UpdateExempleCommand,
         var authModel = new AuthExempleCreateUpdateDeleteModel(entity.DtInsert,
                                                                entity.DtInsertId,
                                                                entity.DtUpdate ?? DateTime.Now,
-                                                               entity.DtUpdateId ?? Guid.NewGuid(),
+                                                               entity.DtUpdateId ?? 0,
                                                                entity.DtDelete,
                                                                entity.DtDeleteId);
 

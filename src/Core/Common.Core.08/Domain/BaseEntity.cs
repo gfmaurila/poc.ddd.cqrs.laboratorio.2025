@@ -28,12 +28,12 @@ public abstract class BaseEntity : IEntity<Guid>
     /// Gets or sets the date and time when the entity was inserted.
     /// Defaults to the current UTC time.
     /// </summary>
-    public DateTime? DtInsert { get; set; } = DateTime.UtcNow;
+    public DateTime? DtInsert { get; set; }
 
     /// <summary>
     /// Gets or sets the identifier of the user or process that inserted the entity.
     /// </summary>
-    public Guid? DtInsertId { get; set; }
+    public int? DtInsertId { get; set; }
 
     /// <summary>
     /// Gets or sets the date and time when the entity was last updated.
@@ -43,7 +43,7 @@ public abstract class BaseEntity : IEntity<Guid>
     /// <summary>
     /// Gets or sets the identifier of the user or process that updated the entity.
     /// </summary>
-    public Guid? DtUpdateId { get; set; }
+    public int? DtUpdateId { get; set; }
 
     /// <summary>
     /// Gets or sets the date and time when the entity was deleted.
@@ -53,7 +53,7 @@ public abstract class BaseEntity : IEntity<Guid>
     /// <summary>
     /// Gets or sets the identifier of the user or process that deleted the entity.
     /// </summary>
-    public Guid? DtDeleteId { get; set; }
+    public int? DtDeleteId { get; set; }
 
     /// <summary>
     /// Sets the entity's unique identifier.

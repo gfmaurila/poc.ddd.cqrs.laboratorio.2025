@@ -1,8 +1,8 @@
 ﻿namespace API.Exemple.Core._08.Feature.Domain.Exemple.Models;
 
 public record AuthExempleCreateUpdateDeleteModel(DateTime? DtInsert,
-                                                  Guid? DtInsertId,
+                                                  int? DtInsertId,
                                                   DateTime? DtUpdate,
-                                                  Guid? DtUpdateId,
+                                                  int? DtUpdateId,
                                                   DateTime? DtDelete,
-                                                  Guid? DtDeleteId);
+                                                  int? DtDeleteId);

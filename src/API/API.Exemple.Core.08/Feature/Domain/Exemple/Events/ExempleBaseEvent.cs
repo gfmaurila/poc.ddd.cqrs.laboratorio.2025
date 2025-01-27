@@ -16,11 +16,11 @@ public abstract class ExempleBaseEvent : Event
     public List<string> Role { get; private init; } = new List<string>();
     public bool Status { get; private init; } = true;
     public DateTime? DtInsert { get; private init; } = DateTime.UtcNow;
-    public Guid? DtInsertId { get; private init; }
+    public int? DtInsertId { get; private init; }
     public DateTime? DtUpdate { get; private init; }
-    public Guid? DtUpdateId { get; private init; }
+    public int? DtUpdateId { get; private init; }
     public DateTime? DtDelete { get; private init; }
-    public Guid? DtDeleteId { get; private init; }
+    public int? DtDeleteId { get; private init; }
     public ExempleBaseEvent(Guid id, string firstName, string lastName, EGender gender, ENotificationType notification, string email, string phone, List<string> role)
     {
         Id = id;

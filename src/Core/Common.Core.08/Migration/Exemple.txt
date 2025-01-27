@@ -24,7 +24,6 @@ for (int i = 0; i < 100; i++)
         Email = faker.Internet.Email(),
         Phone = faker.Phone.PhoneNumber("+1##########"),
         Role = string.Join(",", roles), // Combina múltiplas permissões em uma string,
-        DtInsert = DateTime.Now,
         Status = true
     });
 }
@@ -34,19 +33,18 @@ foreach (var data in mockData)
 {
     migrationBuilder.InsertData(
         table: "Exemple",
-        columns: new[] { "Id", "FirstName", "LastName", "Gender", "Notification", "Email", "Phone", "Role", "DtInsert", "Status" },
+        columns: new[] { "Id", "FirstName", "LastName", "Gender", "Notification", "Email", "Phone", "Role", "Status" },
         values: new object[]
         {
-    ((dynamic)data).Id,
-    ((dynamic)data).FirstName,
-    ((dynamic)data).LastName,
-    ((dynamic)data).Gender.ToString(),
-    ((dynamic)data).Notification,
-    ((dynamic)data).Email,
-    ((dynamic)data).Phone,
-    ((dynamic)data).Role,
-    ((dynamic)data).DtInsert,
-    ((dynamic)data).Status
+            ((dynamic)data).Id,
+            ((dynamic)data).FirstName,
+            ((dynamic)data).LastName,
+            ((dynamic)data).Gender.ToString(),
+            ((dynamic)data).Notification,
+            ((dynamic)data).Email,
+            ((dynamic)data).Phone,
+            ((dynamic)data).Role,
+            ((dynamic)data).Status
         }
     );
 }
