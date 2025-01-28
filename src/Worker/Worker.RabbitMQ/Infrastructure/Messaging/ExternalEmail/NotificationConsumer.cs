@@ -15,8 +15,9 @@ public class NotificationConsumer : BackgroundService
     private readonly IConfiguration _configuration;
     private readonly IModel _channel;
     private readonly IServiceProvider _serviceProvider;
+    private readonly ILogger<NotificationConsumer> _logger;
 
-    public NotificationConsumer(IServiceProvider servicesProvider, IConfiguration configuration)
+    public NotificationConsumer(IServiceProvider servicesProvider, IConfiguration configuration, ILogger<NotificationConsumer> logger)
     {
         _serviceProvider = servicesProvider;
         _configuration = configuration;
@@ -38,22 +39,46 @@ public class NotificationConsumer : BackgroundService
             exclusive: false,
             autoDelete: false,
             arguments: null);
+        _logger = logger;
     }
 
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var consumer = new EventingBasicConsumer(_channel);
-        consumer.Received += async (sender, eventArgs) =>
+        while (!stoppingToken.IsCancellationRequested)
         {
-            var infoBytes = eventArgs.Body.ToArray();
-            var infoJson = Encoding.UTF8.GetString(infoBytes);
-            var info = JsonSerializer.Deserialize<NotificationRequest>(infoJson);
-            await SendNotification(info);
-            _channel.BasicAck(eventArgs.DeliveryTag, false);
-        };
-        _channel.BasicConsume(_configuration.GetValue<string>(RabbiMQConsts.QUEUENotification), false, consumer);
-        return Task.CompletedTask;
+            if (_logger.IsEnabled(LogLevel.Information))
+            {
+                _logger.LogInformation("NotificationConsumer running at: {time}", DateTimeOffset.Now);
+            }
+
+            var consumer = new EventingBasicConsumer(_channel);
+            consumer.Received += async (sender, eventArgs) =>
+            {
+                var infoBytes = eventArgs.Body.ToArray();
+                var infoJson = Encoding.UTF8.GetString(infoBytes);
+                var info = JsonSerializer.Deserialize<NotificationRequest>(infoJson);
+                await SendNotification(info);
+                _channel.BasicAck(eventArgs.DeliveryTag, false);
+            };
+            _channel.BasicConsume(_configuration.GetValue<string>(RabbiMQConsts.QUEUENotification), false, consumer);
+            await Task.Delay(1000, stoppingToken);
+        }
     }
+
+    //protected override Task ExecuteAsync(CancellationToken stoppingToken)
+    //{
+    //    var consumer = new EventingBasicConsumer(_channel);
+    //    consumer.Received += async (sender, eventArgs) =>
+    //    {
+    //        var infoBytes = eventArgs.Body.ToArray();
+    //        var infoJson = Encoding.UTF8.GetString(infoBytes);
+    //        var info = JsonSerializer.Deserialize<NotificationRequest>(infoJson);
+    //        await SendNotification(info);
+    //        _channel.BasicAck(eventArgs.DeliveryTag, false);
+    //    };
+    //    _channel.BasicConsume(_configuration.GetValue<string>(RabbiMQConsts.QUEUENotification), false, consumer);
+    //    return Task.CompletedTask;
+    //}
 
     public async Task SendNotification(NotificationRequest dto)
     {

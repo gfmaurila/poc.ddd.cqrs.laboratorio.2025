@@ -2,18 +2,19 @@
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
+using Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08;
 using Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08.Model;
 
-namespace Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08;
+namespace Worker.RabbitMQ.Infrastructure.Messaging.ExternalEmail;
 
-public class CreateExempleConsumer : BackgroundService
+public class UpdateExempleConsumer : BackgroundService
 {
     private readonly IConnection _connection;
     private readonly IConfiguration _configuration;
     private readonly IModel _channel;
-    private readonly ILogger<CreateExempleConsumer> _logger;
+    private readonly ILogger<UpdateExempleConsumer> _logger;
 
-    public CreateExempleConsumer(IServiceProvider servicesProvider, IConfiguration configuration, ILogger<CreateExempleConsumer> logger)
+    public UpdateExempleConsumer(IServiceProvider servicesProvider, IConfiguration configuration, ILogger<UpdateExempleConsumer> logger)
     {
         _configuration = configuration;
 
@@ -29,7 +30,7 @@ public class CreateExempleConsumer : BackgroundService
         _channel = _connection.CreateModel();
 
         _channel.QueueDeclare(
-            queue: ExempleEventConstants.QueueExempleCreate,
+            queue: ExempleEventConstants.QueueExempleUpdate,
             durable: false,
             exclusive: false,
             autoDelete: false,
@@ -43,8 +44,9 @@ public class CreateExempleConsumer : BackgroundService
         {
             if (_logger.IsEnabled(LogLevel.Information))
             {
-                _logger.LogInformation("CreateExempleConsumer running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("UpdateExempleConsumer running at: {time}", DateTimeOffset.Now);
             }
+
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (sender, eventArgs) =>
             {
@@ -54,25 +56,23 @@ public class CreateExempleConsumer : BackgroundService
                 await SendNotification(info);
                 _channel.BasicAck(eventArgs.DeliveryTag, false);
             };
-            _channel.BasicConsume(ExempleEventConstants.QueueExempleCreate, false, consumer);
+            _channel.BasicConsume(ExempleEventConstants.QueueExempleUpdate, false, consumer);
+            //return Task.CompletedTask;
             await Task.Delay(1000, stoppingToken);
         }
-    }
 
-    //protected override Task ExecuteAsync(CancellationToken stoppingToken)
-    //{
-    //    var consumer = new EventingBasicConsumer(_channel);
-    //    consumer.Received += async (sender, eventArgs) =>
-    //    {
-    //        var infoBytes = eventArgs.Body.ToArray();
-    //        var infoJson = Encoding.UTF8.GetString(infoBytes);
-    //        var info = JsonSerializer.Deserialize<ExempleConsumer>(infoJson);
-    //        await SendNotification(info);
-    //        _channel.BasicAck(eventArgs.DeliveryTag, false);
-    //    };
-    //    _channel.BasicConsume(ExempleEventConstants.QueueExempleCreate, false, consumer);
-    //    return Task.CompletedTask;
-    //}
+        //var consumer = new EventingBasicConsumer(_channel);
+        //consumer.Received += async (sender, eventArgs) =>
+        //{
+        //    var infoBytes = eventArgs.Body.ToArray();
+        //    var infoJson = Encoding.UTF8.GetString(infoBytes);
+        //    var info = JsonSerializer.Deserialize<ExempleConsumer>(infoJson);
+        //    await SendNotification(info);
+        //    _channel.BasicAck(eventArgs.DeliveryTag, false);
+        //};
+        //_channel.BasicConsume(ExempleEventConstants.QueueExempleUpdate, false, consumer);
+        //return Task.CompletedTask;
+    }
 
     public async Task SendNotification(ExempleConsumer dto)
     {

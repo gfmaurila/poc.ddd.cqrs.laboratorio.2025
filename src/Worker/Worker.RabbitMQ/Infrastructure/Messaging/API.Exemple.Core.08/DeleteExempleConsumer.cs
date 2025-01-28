@@ -2,18 +2,19 @@
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
+using Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08;
 using Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08.Model;
 
-namespace Worker.RabbitMQ.Infrastructure.Messaging.API.Exemple.Core._08;
+namespace Worker.RabbitMQ.Infrastructure.Messaging.ExternalEmail;
 
-public class CreateExempleConsumer : BackgroundService
+public class DeleteExempleConsumer : BackgroundService
 {
     private readonly IConnection _connection;
     private readonly IConfiguration _configuration;
     private readonly IModel _channel;
-    private readonly ILogger<CreateExempleConsumer> _logger;
+    private readonly ILogger<DeleteExempleConsumer> _logger;
 
-    public CreateExempleConsumer(IServiceProvider servicesProvider, IConfiguration configuration, ILogger<CreateExempleConsumer> logger)
+    public DeleteExempleConsumer(IServiceProvider servicesProvider, IConfiguration configuration, ILogger<DeleteExempleConsumer> logger)
     {
         _configuration = configuration;
 
@@ -29,7 +30,7 @@ public class CreateExempleConsumer : BackgroundService
         _channel = _connection.CreateModel();
 
         _channel.QueueDeclare(
-            queue: ExempleEventConstants.QueueExempleCreate,
+            queue: ExempleEventConstants.QueueExempleDelete,
             durable: false,
             exclusive: false,
             autoDelete: false,
@@ -43,8 +44,9 @@ public class CreateExempleConsumer : BackgroundService
         {
             if (_logger.IsEnabled(LogLevel.Information))
             {
-                _logger.LogInformation("CreateExempleConsumer running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("DeleteExempleConsumer running at: {time}", DateTimeOffset.Now);
             }
+
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (sender, eventArgs) =>
             {
@@ -54,7 +56,8 @@ public class CreateExempleConsumer : BackgroundService
                 await SendNotification(info);
                 _channel.BasicAck(eventArgs.DeliveryTag, false);
             };
-            _channel.BasicConsume(ExempleEventConstants.QueueExempleCreate, false, consumer);
+            _channel.BasicConsume(ExempleEventConstants.QueueExempleDelete, false, consumer);
+
             await Task.Delay(1000, stoppingToken);
         }
     }
@@ -70,7 +73,7 @@ public class CreateExempleConsumer : BackgroundService
     //        await SendNotification(info);
     //        _channel.BasicAck(eventArgs.DeliveryTag, false);
     //    };
-    //    _channel.BasicConsume(ExempleEventConstants.QueueExempleCreate, false, consumer);
+    //    _channel.BasicConsume(ExempleEventConstants.QueueExempleDelete, false, consumer);
     //    return Task.CompletedTask;
     //}
 
