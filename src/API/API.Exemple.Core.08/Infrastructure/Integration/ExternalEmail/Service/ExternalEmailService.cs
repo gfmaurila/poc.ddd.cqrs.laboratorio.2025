@@ -1,4 +1,6 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Api;
+﻿using API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
+using API.Exemple.Core._08.Feature.External.ExternalEmail.Get.Model;
+using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Api;
 using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
 using Polly;
 
@@ -62,6 +64,49 @@ public class ExternalEmailService : IExternalEmailService
             throw new Exception($"Erro na requisição GET: {response.StatusCode}, Mensagem: {response.Error.Content}");
         }
         return response.Content;
+    }
+
+    public async Task<List<EmailQueryModel>> GetPaginatedItemsAsync(GetPaginateEmailQuery query)
+    {
+        // Obtendo a lista completa de emails da API
+        var response = await _api.GetListSendAsync();
+
+        if (response.Content == null || !response.Content.Any())
+            return new List<EmailQueryModel>();
+
+        // Paginação
+        var paginatedItems = response.Content
+            .Skip((query.PageNumber - 1) * query.PageSize)
+            .Take(query.PageSize)
+            .Select(e => new EmailQueryModel()
+            {
+                Id = e.Id,
+                Notification = e.Notification,
+                Body = e.Body,
+                DtSend = e.DtSend,
+                To = e.To,
+                Auth = new AuthEmailQueryModel()
+                {
+                    AccountSid = e.Auth.AccountSid,
+                    AuthToken = e.Auth.AuthToken,
+                    From = e.Auth.From,
+                }
+            })
+            .ToList();
+
+
+        //throw new NotImplementedException();
+        return paginatedItems;
+    }
+
+    public async Task<int> GetTotalCountAsync()
+    {
+        var response = await _api.GetListSendAsync();
+
+        if (response.Content == null || !response.Content.Any())
+            return 0;
+
+        return response.Content.Count;
     }
 
 
