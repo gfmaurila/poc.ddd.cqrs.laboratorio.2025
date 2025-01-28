@@ -1,14 +1,13 @@
-﻿using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Request;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
-using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
-using RabbitMQ.Client;
+﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
+using Worker.RabbitMQ.Infrastructure.Integration.Externa.ExternalEmail;
+using Worker.RabbitMQ.Infrastructure.Integration.Externa.ExternalEmail.Model;
+using Worker.RabbitMQ.Infrastructure.Integration.Externa.ExternalEmail.Service;
+using Worker.RabbitMQ.Infrastructure.Messaging.ExternalEmail.Model;
 
-namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Consumers;
+namespace Worker.RabbitMQ.Infrastructure.Messaging.ExternalEmail;
 
 public class NotificationConsumer : BackgroundService
 {
@@ -78,5 +77,3 @@ public class NotificationConsumer : BackgroundService
         await sendService.SendMessageAsync(request);
     }
 }
-
-

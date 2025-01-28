@@ -1,4 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Request;
+using API.Exemple.Core._08.Infrastructure.Integration;
 using Polly;
 using System.Net;
 
@@ -22,7 +23,7 @@ public class NotificationService : INotificationService
             .Handle<HttpRequestException>()
             .OrResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
             .WaitAndRetryAsync(
-                retryCount: _configuration.GetValue<int>(ExternalApiConsts.RETRYCOUNT),
+                retryCount: _configuration.GetValue<int>(ApiConsts.RETRYCOUNT),
                 sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)),
                 onRetry: (ex, retryCount, context) =>
                 {
@@ -39,13 +40,13 @@ public class NotificationService : INotificationService
         {
             request.Auth = new AuthNotification()
             {
-                AccountSid = _configuration.GetValue<string>(ExternalApiConsts.AccountSid),
-                AuthToken = _configuration.GetValue<string>(ExternalApiConsts.AuthToken),
-                From = _configuration.GetValue<string>(ExternalApiConsts.From)
+                AccountSid = _configuration.GetValue<string>(ApiConsts.AccountSid),
+                AuthToken = _configuration.GetValue<string>(ApiConsts.AuthToken),
+                From = _configuration.GetValue<string>(ApiConsts.From)
             };
 
             var response = await _httpClient.PostAsJsonAsync(
-                _configuration.GetValue<string>(ExternalApiConsts.BaseUrl),
+                _configuration.GetValue<string>(ApiConsts.BaseUrl),
                 request
             );
 
