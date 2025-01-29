@@ -9,18 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD3DF988-466
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{4F937B71-A1DB-4987-A43A-573503BB6130}"
 	ProjectSection(SolutionItems) = preProject
-		Doc\01 - Architecture.drawio = Doc\01 - Architecture.drawio
-		Doc\02 - API.Gateway.drawio = Doc\02 - API.Gateway.drawio
-		Doc\03 - API.External.Person.drawio = Doc\03 - API.External.Person.drawio
-		Doc\04 - API.Registrations.Core.08.drawio = Doc\04 - API.Registrations.Core.08.drawio
-		Doc\05 - API.HR.Core.08.drawio = Doc\05 - API.HR.Core.08.drawio
-		Doc\06 - API.Freelancer.Core.08.drawio = Doc\06 - API.Freelancer.Core.08.drawio
-		Doc\07 - API.Clinic.Core.08.drawio = Doc\07 - API.Clinic.Core.08.drawio
-		Doc\08 - API.InventoryControl.Core.08.drawio = Doc\08 - API.InventoryControl.Core.08.drawio
-		Doc\09 - API.External.Email.drawio = Doc\09 - API.External.Email.drawio
-		Doc\10 - API.External.MKT.drawio = Doc\10 - API.External.MKT.drawio
-		Doc\API.External.Auth.drawio = Doc\API.External.Auth.drawio
-		Doc\poc.vertical.slices.net8.drawio = Doc\poc.vertical.slices.net8.drawio
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -45,6 +33,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.External.MKT", "src\External\API.External.MKT\API.External.MKT.csproj", "{B7B7F652-9C81-4798-8C50-CBFCCB07F3B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API.External.Auth", "API.External.Auth", "{21764D96-89CE-4620-8945-019D358A5DEE}"
+	ProjectSection(SolutionItems) = preProject
+		src\External\API.External.Auth\README.md = src\External\API.External.Auth\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Worker", "Worker", "{288F1014-70C6-4782-8FC9-EC3C9B117230}"
 EndProject
