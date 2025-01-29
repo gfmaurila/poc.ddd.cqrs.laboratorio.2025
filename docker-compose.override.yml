@@ -86,12 +86,18 @@ services:
       - DOTNET_ENVIRONMENT=Docker
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+    networks:
+      - app-backend
+      - shared-network
 
   worker.rabbitmq:
     environment:
       - DOTNET_ENVIRONMENT=Docker
     volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro 
+    networks:
+      - app-backend
+      - shared-network
 
 
 
