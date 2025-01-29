@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{D7A6C8BF-B40
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD3DF988-466A-4678-878C-6055F94E5645}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{4F937B71-A1DB-4987-A43A-573503BB6130}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documento", "Documento", "{4F937B71-A1DB-4987-A43A-573503BB6130}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection

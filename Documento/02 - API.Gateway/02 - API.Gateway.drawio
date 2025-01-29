@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2025-01-29T01:34:32.209Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="e32EU_2sNYmF_M2yhMzb" version="24.0.4" type="device">
+<mxfile host="Electron" modified="2025-01-29T19:53:34.244Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="t2gJOev9oFQ5jKQfyXGm" version="24.0.4" type="device">
   <diagram id="UpnjxEBypnCfxaO6hWaG" name="API Gateway">
     <mxGraphModel dx="2074" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -53,7 +53,7 @@
         <mxCell id="lg76CUhgI_q97KbNqbia-10" value="&lt;span style=&quot;font-size: 16px; font-weight: 700;&quot;&gt;API.Exemple.Core.08&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="430" y="210" width="220" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="lg76CUhgI_q97KbNqbia-11" value="&lt;span style=&quot;font-size: 16px; font-weight: 700;&quot;&gt;API.Registrations.Core.08&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
+        <mxCell id="lg76CUhgI_q97KbNqbia-11" value="&lt;span style=&quot;font-size: 16px; font-weight: 700;&quot;&gt;API.&lt;/span&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;Customer&lt;/b&gt;&lt;span style=&quot;font-size: 16px; font-weight: 700;&quot;&gt;.Core.08&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;sketch=1;curveFitting=1;jiggle=2;" parent="1" vertex="1">
           <mxGeometry x="430" y="290" width="240" height="60" as="geometry" />
         </mxCell>
         <mxCell id="lg76CUhgI_q97KbNqbia-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#ffe6cc;strokeColor=#d79b00;sketch=1;curveFitting=1;jiggle=2;entryX=0;entryY=0;entryDx=0;entryDy=27.5;entryPerimeter=0;" parent="1" source="lg76CUhgI_q97KbNqbia-13" target="lg76CUhgI_q97KbNqbia-14" edge="1">
