@@ -11,6 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Feature\Exemple\Delete\DTO\**" />
+    <Compile Remove="Feature\Exemple\Delete\Models\**" />
+    <Content Remove="Feature\Exemple\Delete\DTO\**" />
+    <Content Remove="Feature\Exemple\Delete\Models\**" />
+    <EmbeddedResource Remove="Feature\Exemple\Delete\DTO\**" />
+    <EmbeddedResource Remove="Feature\Exemple\Delete\Models\**" />
+    <None Remove="Feature\Exemple\Delete\DTO\**" />
+    <None Remove="Feature\Exemple\Delete\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  
 	  <PackageReference Include="Bogus" Version="35.6.1" />
 	  
@@ -84,9 +95,7 @@
   <ItemGroup>
     <Folder Include="Feature\Domain\Exemple\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Delete\DTO\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Delete\Models\" />
     <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Notification\Messaging\Kafka\" />
     <Folder Include="Infrastructure\Messaging\Kafka\" />
