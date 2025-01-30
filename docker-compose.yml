@@ -189,6 +189,8 @@ services:
     volumes:
       - mongoserver_data:/var/opt/mongoserver
 
+
+  # http://localhost:15672/#/
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'
@@ -213,7 +215,9 @@ services:
       ALLOW_ANONYMOUS_LOGIN: "yes"
     networks:
       - app-backend
+  
 
+  # http://localhost:9100
   kafka1:
     image: bitnami/kafka:3.6
     restart: always

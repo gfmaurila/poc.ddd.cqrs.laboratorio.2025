@@ -5,6 +5,7 @@ using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple.Core._08.Infrastructure.Integration;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
 using API.Exemple.Core._08.Infrastructure.Redis;
+using API.Exemple1.Core._08.Infrastructure.Messaging.Kafka;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -85,12 +86,17 @@ public static class InfrastructureExtensions
         // RabbitMQ
         RabbiMQInitializer.Initialize(services);
 
+        // Kafka
+        KafkaInitializer.Initialize(services);
+
         ExternalEmailInitializer.Initialize(services, configuration);
 
         // Get Kafka configuration from appsettings.json
         var kafkaConfig = configuration.GetSection("Kafka");
         var bootstrapServers = kafkaConfig["BootstrapServers"];
         var defaultTopic = kafkaConfig["DefaultTopic"];
+
+
 
         // Register KafkaIntegrationEventPublisher
         //services.AddSingleton<IIntegrationEventPublisher>(sp =>
