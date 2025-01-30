@@ -5,15 +5,15 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple.Core._08.Feature.Exemple.Delete.Events.Messaging.RabbiMQ.Consumers;
+namespace API.Exemple1.Core._08.Feature.Exemple.Create.Events.Messaging.Subscribe;
 
-public class DeleteExempleConsumer : BackgroundService
+public class CreateExempleSubscribe : BackgroundService
 {
     private readonly IConnection _connection;
     private readonly IConfiguration _configuration;
     private readonly IModel _channel;
 
-    public DeleteExempleConsumer(IServiceProvider servicesProvider, IConfiguration configuration)
+    public CreateExempleSubscribe(IServiceProvider servicesProvider, IConfiguration configuration)
     {
         _configuration = configuration;
 
@@ -29,7 +29,7 @@ public class DeleteExempleConsumer : BackgroundService
         _channel = _connection.CreateModel();
 
         _channel.QueueDeclare(
-            queue: ExempleEventConstants.QueueExempleDelete,
+            queue: ExempleEventConstants.EventExempleCreate,
             durable: false,
             exclusive: false,
             autoDelete: false,
@@ -47,7 +47,7 @@ public class DeleteExempleConsumer : BackgroundService
             await SendNotification(info);
             _channel.BasicAck(eventArgs.DeliveryTag, false);
         };
-        _channel.BasicConsume(ExempleEventConstants.QueueExempleDelete, false, consumer);
+        _channel.BasicConsume(ExempleEventConstants.EventExempleCreate, false, consumer);
         return Task.CompletedTask;
     }
 

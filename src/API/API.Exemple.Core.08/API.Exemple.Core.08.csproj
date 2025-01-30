@@ -7,6 +7,21 @@
     <RootNamespace>API.Exemple1.Core._08</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Feature\Domain\Exemple\Events\Messaging\Kafka\**" />
+    <Compile Remove="Feature\Exemple\Delete\Events\Messaging\Kafka\**" />
+    <Compile Remove="Feature\Exemple\Update\Events\Messaging\Kafka\**" />
+    <Content Remove="Feature\Domain\Exemple\Events\Messaging\Kafka\**" />
+    <Content Remove="Feature\Exemple\Delete\Events\Messaging\Kafka\**" />
+    <Content Remove="Feature\Exemple\Update\Events\Messaging\Kafka\**" />
+    <EmbeddedResource Remove="Feature\Domain\Exemple\Events\Messaging\Kafka\**" />
+    <EmbeddedResource Remove="Feature\Exemple\Delete\Events\Messaging\Kafka\**" />
+    <EmbeddedResource Remove="Feature\Exemple\Update\Events\Messaging\Kafka\**" />
+    <None Remove="Feature\Domain\Exemple\Events\Messaging\Kafka\**" />
+    <None Remove="Feature\Exemple\Delete\Events\Messaging\Kafka\**" />
+    <None Remove="Feature\Exemple\Update\Events\Messaging\Kafka\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 
 		<PackageReference Include="Bogus" Version="35.6.1" />
@@ -88,13 +103,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Feature\Domain\Exemple\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
   </ItemGroup>
 
 </Project>

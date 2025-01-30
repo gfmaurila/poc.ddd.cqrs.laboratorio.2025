@@ -1,8 +1,8 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Events.Messaging.RabbiMQ;
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
 using API.Exemple.Core._08.Feature.Exemple.Create;
 using API.Exemple.Core._08.Feature.Exemple.Update;
+using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Domain;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Interface;
@@ -49,7 +49,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         AddDomainEvent(new ExempleCreateDomainEvent(Id, request, model));
 
         // Evento que faz envio de email, whats por RabbiMQ
-        AddDomainEvent(new ExempleCreateRabbitMQEvent(Id, request, model));
+        AddDomainEvent(new ExempleCreateEvent(Id, request, model));
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
                                                     model));
 
         // Evento que faz envio de email, whats por RabbiMQ
-        AddDomainEvent(new ExempleUpdateRabbitMQEvent(Id, command, model));
+        AddDomainEvent(new ExempleUpdateEvent(Id, command, model));
 
     }
 
@@ -93,7 +93,7 @@ public class ExempleEntity : BaseEntity, IAggregateRoot
         AddDomainEvent(new ExempleDeleteDomainEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
 
         // Evento que faz envio de email, whats por RabbiMQ
-        AddDomainEvent(new ExempleDeleteRabbitMQEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
+        AddDomainEvent(new ExempleDeleteEvent(Id, FirstName, LastName, Gender, Notification, Email.Address, Phone.Phone, Role));
     }
 
 }
