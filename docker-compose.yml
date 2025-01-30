@@ -111,28 +111,28 @@ services:
 
 # Workers INI -------------------------------------------------------- 
 
-  worker.kafka:
-    image: ${DOCKER_REGISTRY-}workerkafka
-    restart: always
-    build:
-      context: .
-      dockerfile: src/Worker/Worker.Kafka/Dockerfile
-    networks:
-      - app-backend
-      - shared-network
-    depends_on:
-      - mongoserver
-      - kafka1
+  # worker.kafka:
+  #   image: ${DOCKER_REGISTRY-}workerkafka
+  #   restart: always
+  #   build:
+  #     context: .
+  #     dockerfile: src/Worker/Worker.Kafka/Dockerfile
+  #   networks:
+  #     - app-backend
+  #     - shared-network
+  #   depends_on:
+  #     - mongoserver
+  #     - kafka1
 
-  worker.rabbitmq:
-    image: ${DOCKER_REGISTRY-}workerrabbitmq
-    restart: always
-    build:
-      context: .
-      dockerfile: src/Worker/Worker.RabbitMQ/Dockerfile
-    depends_on:
-      - mongoserver
-      - rabbitmq
+  # worker.rabbitmq:
+  #   image: ${DOCKER_REGISTRY-}workerrabbitmq
+  #   restart: always
+  #   build:
+  #     context: .
+  #     dockerfile: src/Worker/Worker.RabbitMQ/Dockerfile
+  #   depends_on:
+  #     - mongoserver
+  #     - rabbitmq
 
 # Workers FIM -------------------------------------------------------- 
 

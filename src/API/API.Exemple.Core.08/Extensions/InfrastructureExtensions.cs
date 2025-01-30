@@ -5,7 +5,6 @@ using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple.Core._08.Infrastructure.Integration;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
 using API.Exemple.Core._08.Infrastructure.Redis;
-using API.Exemple1.Core._08.Infrastructure.Messaging.Kafka;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -87,7 +86,7 @@ public static class InfrastructureExtensions
         RabbiMQInitializer.Initialize(services);
 
         // Kafka
-        KafkaInitializer.Initialize(services);
+        //KafkaInitializer.Initialize(services);
 
         ExternalEmailInitializer.Initialize(services, configuration);
 

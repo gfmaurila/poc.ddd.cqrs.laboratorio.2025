@@ -1,9 +1,9 @@
-﻿using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Request;
-using API.Exemple.Core._08.Infrastructure.Integration;
+﻿using API.Exemple.Core._08.Infrastructure.Integration;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
 using Polly;
 using System.Net;
 
-namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Service;
+namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
 
 public class NotificationService : INotificationService
 {

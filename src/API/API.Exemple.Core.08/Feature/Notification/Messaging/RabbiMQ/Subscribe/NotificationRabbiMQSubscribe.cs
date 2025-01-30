@@ -1,23 +1,23 @@
-﻿using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Request;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
+﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
 using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
 using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Consumers;
+namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 
-public class NotificationConsumer : BackgroundService
+public class NotificationRabbiMQSubscribe : BackgroundService
 {
     private readonly IConnection _connection;
     private readonly IConfiguration _configuration;
     private readonly IModel _channel;
     private readonly IServiceProvider _serviceProvider;
 
-    public NotificationConsumer(IServiceProvider servicesProvider, IConfiguration configuration)
+    public NotificationRabbiMQSubscribe(IServiceProvider servicesProvider, IConfiguration configuration)
     {
         _serviceProvider = servicesProvider;
         _configuration = configuration;

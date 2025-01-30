@@ -7,6 +7,17 @@
     <RootNamespace>API.Exemple1.Core._08</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Feature\Notification\Messaging\Kafka\Publish\**" />
+    <Compile Remove="Feature\Notification\Messaging\Kafka\Subscribe\**" />
+    <Content Remove="Feature\Notification\Messaging\Kafka\Publish\**" />
+    <Content Remove="Feature\Notification\Messaging\Kafka\Subscribe\**" />
+    <EmbeddedResource Remove="Feature\Notification\Messaging\Kafka\Publish\**" />
+    <EmbeddedResource Remove="Feature\Notification\Messaging\Kafka\Subscribe\**" />
+    <None Remove="Feature\Notification\Messaging\Kafka\Publish\**" />
+    <None Remove="Feature\Notification\Messaging\Kafka\Subscribe\**" />
+  </ItemGroup>
+
 	<ItemGroup>
 
 		<PackageReference Include="Bogus" Version="35.6.1" />
@@ -95,8 +106,8 @@
     <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
-    <Folder Include="Feature\Notification\Messaging\Kafka\Subscribe\" />
-    <Folder Include="Feature\Notification\Messaging\Kafka\Publish\" />
+    <Folder Include="Feature\Notification\Messaging\Kafka\" />
+    <Folder Include="Infrastructure\Messaging\Kafka\" />
   </ItemGroup>
 
 </Project>
