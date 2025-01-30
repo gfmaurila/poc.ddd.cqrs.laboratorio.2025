@@ -1,4 +1,5 @@
-﻿using Common.Core._08.Interface;
+﻿using API.Exemple1.Core._08.Infrastructure.Messaging;
+using Common.Core._08.Interface;
 using RabbitMQ.Client;
 
 namespace API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
@@ -13,10 +14,10 @@ public class MessageBusService : IMessageBusService
         _configuration = configuration;
         _connectionFactory = new ConnectionFactory
         {
-            HostName = _configuration.GetValue<string>(RabbiMQConsts.Hostname),
-            Port = Convert.ToInt32(_configuration.GetValue<string>(RabbiMQConsts.Port)),
-            UserName = _configuration.GetValue<string>(RabbiMQConsts.Username),
-            Password = _configuration.GetValue<string>(RabbiMQConsts.Password)
+            HostName = _configuration.GetValue<string>(MessagingConsts.Hostname),
+            Port = Convert.ToInt32(_configuration.GetValue<string>(MessagingConsts.Port)),
+            UserName = _configuration.GetValue<string>(MessagingConsts.Username),
+            Password = _configuration.GetValue<string>(MessagingConsts.Password)
         };
     }
 

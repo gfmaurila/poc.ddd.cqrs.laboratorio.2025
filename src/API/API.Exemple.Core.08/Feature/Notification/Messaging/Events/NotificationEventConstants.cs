@@ -2,7 +2,8 @@
 
 public static class NotificationEventConstants
 {
-    public const string EventExempleCreate = "event-notification.create";
-    public const string EventExempleUpdate = "event-notification.update";
-    public const string EventExempleDelete = "event-notification.delete";
+    public const string EventNotificationExemple = "event-notification.exemple";
+    public const string EventNotificationCreate = "event-notification.create";
+    public const string EventNotificationUpdate = "event-notification.update";
+    public const string EventNotificationDelete = "event-notification.delete";
 }

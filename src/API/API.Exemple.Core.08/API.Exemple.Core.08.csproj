@@ -95,7 +95,6 @@
     <Folder Include="Feature\Exemple\Create\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Delete\Events\Messaging\Kafka\" />
     <Folder Include="Feature\Exemple\Update\Events\Messaging\Kafka\" />
-    <Folder Include="Infrastructure\Messaging\Kafka\" />
   </ItemGroup>
 
 </Project>

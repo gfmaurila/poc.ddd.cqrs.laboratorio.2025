@@ -3,8 +3,8 @@ using API.Exemple.Core._08.Infrastructure.Database;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories;
 using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple.Core._08.Infrastructure.Integration;
-using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
 using API.Exemple.Core._08.Infrastructure.Redis;
+using API.Exemple1.Core._08.Infrastructure.Messaging;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -83,7 +83,7 @@ public static class InfrastructureExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         // RabbitMQ
-        RabbiMQInitializer.Initialize(services);
+        MessagingInitializer.Initialize(services);
 
         // Kafka
         //KafkaInitializer.Initialize(services);

@@ -1,6 +1,6 @@
-﻿namespace API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+﻿namespace API.Exemple1.Core._08.Infrastructure.Messaging;
 
-public class RabbiMQConsts
+public class MessagingConsts
 {
     // RabbiMQ
     public const string Hostname = "RabbitMQ:Hostname";
@@ -9,6 +9,7 @@ public class RabbiMQConsts
     public const string Password = "RabbitMQ:Password";
     public const string VirtualHost = "RabbitMQ:VirtualHost";
 
-    // Email/WhatsApp/SMS
-    public const string QUEUENotification = "RabbitMQ:QUEUE:Notification";
+    // Kafka
+    public const string HostnameKafka = "Kafka:BootstrapServers";
+    public const string HostnameKafkaDefaultTopic = "Kafka:DefaultTopic";
 }

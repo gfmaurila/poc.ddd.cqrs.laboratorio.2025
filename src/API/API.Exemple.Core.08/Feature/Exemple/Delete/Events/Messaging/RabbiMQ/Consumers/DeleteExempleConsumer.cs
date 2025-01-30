@@ -1,5 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Common;
-using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+using API.Exemple1.Core._08.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -19,10 +19,10 @@ public class DeleteExempleConsumer : BackgroundService
 
         var factory = new ConnectionFactory
         {
-            HostName = _configuration.GetValue<string>(RabbiMQConsts.Hostname),
-            Port = Convert.ToInt32(_configuration.GetValue<string>(RabbiMQConsts.Port)),
-            UserName = _configuration.GetValue<string>(RabbiMQConsts.Username),
-            Password = _configuration.GetValue<string>(RabbiMQConsts.Password)
+            HostName = _configuration.GetValue<string>(MessagingConsts.Hostname),
+            Port = Convert.ToInt32(_configuration.GetValue<string>(MessagingConsts.Port)),
+            UserName = _configuration.GetValue<string>(MessagingConsts.Username),
+            Password = _configuration.GetValue<string>(MessagingConsts.Password)
         };
 
         _connection = factory.CreateConnection();

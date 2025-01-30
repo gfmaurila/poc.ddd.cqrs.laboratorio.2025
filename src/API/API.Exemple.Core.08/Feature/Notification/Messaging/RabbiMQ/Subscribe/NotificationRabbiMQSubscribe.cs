@@ -1,8 +1,9 @@
 ﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
 using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
 using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
-using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
+using API.Exemple1.Core._08.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -24,17 +25,17 @@ public class NotificationRabbiMQSubscribe : BackgroundService
 
         var factory = new ConnectionFactory
         {
-            HostName = _configuration.GetValue<string>(RabbiMQConsts.Hostname),
-            Port = Convert.ToInt32(_configuration.GetValue<string>(RabbiMQConsts.Port)),
-            UserName = _configuration.GetValue<string>(RabbiMQConsts.Username),
-            Password = _configuration.GetValue<string>(RabbiMQConsts.Password)
+            HostName = _configuration.GetValue<string>(MessagingConsts.Hostname),
+            Port = Convert.ToInt32(_configuration.GetValue<string>(MessagingConsts.Port)),
+            UserName = _configuration.GetValue<string>(MessagingConsts.Username),
+            Password = _configuration.GetValue<string>(MessagingConsts.Password)
         };
 
         _connection = factory.CreateConnection();
         _channel = _connection.CreateModel();
 
         _channel.QueueDeclare(
-            queue: _configuration.GetValue<string>(RabbiMQConsts.QUEUENotification),
+            queue: NotificationEventConstants.EventNotificationCreate,
             durable: false,
             exclusive: false,
             autoDelete: false,
@@ -52,7 +53,7 @@ public class NotificationRabbiMQSubscribe : BackgroundService
             await SendNotification(info);
             _channel.BasicAck(eventArgs.DeliveryTag, false);
         };
-        _channel.BasicConsume(_configuration.GetValue<string>(RabbiMQConsts.QUEUENotification), false, consumer);
+        _channel.BasicConsume(NotificationEventConstants.EventNotificationCreate, false, consumer);
         return Task.CompletedTask;
     }
 
