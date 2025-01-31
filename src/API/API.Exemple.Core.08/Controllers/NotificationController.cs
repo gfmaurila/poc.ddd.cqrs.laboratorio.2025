@@ -1,8 +1,10 @@
 ﻿namespace API.Exemple.Core._08.Controllers;
 
 using API.Exemple.Core._08.Feature.Notification;
+using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
@@ -33,7 +35,7 @@ public class NotificationController : BaseController
     /// <param name="command">The notification details to be sent.</param>
     /// <returns>Returns the operation result.</returns>
     [HttpPost]
-    //[Authorize(Roles = $"{RoleConstants.ADMIN_AUTH}, {RoleConstants.EMPLOYEE_AUTH}")]
+    [Authorize(Roles = $"{RoleConstants.EMPLOYEE_EXEMPLE}, {RoleConstants.ADMIN_EXEMPLE}")]
     [ProducesResponseType(typeof(CreateNotificationResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status500InternalServerError)]
