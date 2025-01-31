@@ -4,8 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Exemple.Core._08.Feature.Exemple.GetPaginate;
 
+/// <summary>
+/// Represents a paginated query request for retrieving Exemple entities.
+/// Allows filtering by the first name.
+/// </summary>
 public class GetPaginateExempleQuery : QueryRequestPaged<GetPaginateExempleQueryResult, ExempleQueryModel>
 {
+    /// <summary>
+    /// Gets or sets an optional filter for Exemple entities based on the first name.
+    /// </summary>
     [FromQuery]
-    public string? FiltroFirstName { get; set; } // Filtro opcional
+    public string? FiltroFirstName { get; set; }
 }
