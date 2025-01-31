@@ -11,6 +11,12 @@ public class NotificationKafkaSubscribe : IHostedService
     private readonly IKafkaConsumer _kafkaConsumer;
     private readonly IServiceScopeFactory _scopeFactory;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotificationKafkaSubscribe"/> class.
+    /// </summary>
+    /// <param name="kafkaConsumer">Kafka consumer instance for message processing.</param>
+    /// <param name="scopeFactory">Factory for creating scoped service instances.</param>
+    /// <param name="logger">Logger instance for logging operations.</param>
     public NotificationKafkaSubscribe(
         IKafkaConsumer kafkaConsumer,
         IServiceScopeFactory scopeFactory,
@@ -21,6 +27,11 @@ public class NotificationKafkaSubscribe : IHostedService
         _logger = logger;
     }
 
+    /// <summary>
+    /// Starts the Kafka consumer service asynchronously.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token to signal task cancellation.</param>
+    /// <returns>A completed task.</returns>
     public Task StartAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Starting Kafka Consumer...");
@@ -30,6 +41,10 @@ public class NotificationKafkaSubscribe : IHostedService
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Consumes messages from the Kafka topic and processes them asynchronously.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token to signal task cancellation.</param>
     private async Task ConsumeMessagesAsync(CancellationToken cancellationToken)
     {
         await _kafkaConsumer.ConsumeAsync(
@@ -37,15 +52,18 @@ public class NotificationKafkaSubscribe : IHostedService
             NotificationEventConstants.EventNotificationExemple,
             async message =>
             {
-                using (var scope = _scopeFactory.CreateScope())
-                {
-                    var messageProcessor = scope.ServiceProvider.GetRequiredService<INotificationMessageProcessor>();
-                    await messageProcessor.ProcessMessageAsync(message);
-                }
+                using var scope = _scopeFactory.CreateScope();
+                var messageProcessor = scope.ServiceProvider.GetRequiredService<INotificationMessageProcessor>();
+                await messageProcessor.ProcessMessageAsync(message);
             },
             cancellationToken);
     }
 
+    /// <summary>
+    /// Stops the Kafka consumer service asynchronously.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token to signal task cancellation.</param>
+    /// <returns>A completed task.</returns>
     public Task StopAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Stopping Kafka Consumer...");
@@ -53,107 +71,5 @@ public class NotificationKafkaSubscribe : IHostedService
     }
 }
 
-
-
-//public class NotificationKafkaSubscribe : IHostedService
-//{
-//    private readonly ILogger<NotificationKafkaSubscribe> _logger;
-//    private readonly IConsumer<Null, string> _consumer;
-//    private readonly IServiceScopeFactory _scopeFactory;
-//    private readonly IConfiguration _configuration;
-
-//    public NotificationKafkaSubscribe(IConfiguration configuration, ILogger<NotificationKafkaSubscribe> logger, IServiceScopeFactory scopeFactory)
-//    {
-//        _logger = logger;
-//        _scopeFactory = scopeFactory;
-//        _configuration = configuration;
-
-//        var consumerConfig = new ConsumerConfig
-//        {
-//            BootstrapServers = _configuration.GetValue<string>("Kafka:BootstrapServers"),
-//            GroupId = "notification-consumer-group",
-//            AutoOffsetReset = AutoOffsetReset.Earliest,
-//            EnableAutoCommit = false
-//        };
-
-//        _consumer = new ConsumerBuilder<Null, string>(consumerConfig).Build();
-//    }
-
-//    public Task StartAsync(CancellationToken cancellationToken)
-//    {
-//        _logger.LogInformation("Starting Kafka Consumer...");
-//        _consumer.Subscribe(NotificationEventConstants.EventNotificationCreate);
-
-//        Task.Run(() => ConsumeMessages(cancellationToken), cancellationToken);
-
-//        return Task.CompletedTask;
-//    }
-
-//    private async Task ConsumeMessages(CancellationToken cancellationToken)
-//    {
-//        try
-//        {
-//            while (!cancellationToken.IsCancellationRequested)
-//            {
-//                var consumeResult = _consumer.Consume(cancellationToken);
-
-//                if (consumeResult != null)
-//                {
-//                    _logger.LogInformation($"Received message: {consumeResult.Message.Value}");
-
-//                    try
-//                    {
-//                        var notificationEvent = JsonConvert.DeserializeObject<NotificationEvent>(consumeResult.Message.Value);
-
-//                        if (notificationEvent != null)
-//                        {
-//                            // Cria um escopo para resolver o serviço com escopo
-//                            using (var scope = _scopeFactory.CreateScope())
-//                            {
-//                                var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
-
-//                                var request = new NotificationRequest
-//                                {
-//                                    To = notificationEvent.To,
-//                                    Body = notificationEvent.Body,
-//                                    Notification = notificationEvent.NotificationType,
-//                                    Auth = new AuthNotification()
-//                                    {
-//                                        AccountSid = _configuration.GetValue<string>(ExternalEmailApiConsts.AccountSid),
-//                                        AuthToken = _configuration.GetValue<string>(ExternalEmailApiConsts.AuthToken),
-//                                        From = _configuration.GetValue<string>(ExternalEmailApiConsts.From),
-//                                    }
-//                                };
-
-//                                await notificationService.NotificationAsync(request);
-//                            }
-//                        }
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        _logger.LogError($"Error processing message: {ex.Message}");
-//                    }
-
-//                    _consumer.Commit(consumeResult);
-//                }
-//            }
-//        }
-//        catch (OperationCanceledException)
-//        {
-//            _logger.LogInformation("Kafka Consumer stopped.");
-//        }
-//        finally
-//        {
-//            _consumer.Close();
-//        }
-//    }
-
-//    public Task StopAsync(CancellationToken cancellationToken)
-//    {
-//        _logger.LogInformation("Stopping Kafka Consumer...");
-//        _consumer.Close();
-//        return Task.CompletedTask;
-//    }
-//}
 
 

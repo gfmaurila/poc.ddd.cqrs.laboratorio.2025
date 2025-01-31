@@ -11,6 +11,9 @@ using System.Text.Json;
 
 namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 
+/// <summary>
+/// Background service that subscribes to a RabbitMQ queue and processes incoming notification messages.
+/// </summary>
 public class NotificationRabbiMQSubscribe : BackgroundService
 {
     private readonly IConnection _connection;
@@ -18,6 +21,11 @@ public class NotificationRabbiMQSubscribe : BackgroundService
     private readonly IModel _channel;
     private readonly IServiceProvider _serviceProvider;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotificationRabbiMQSubscribe"/> class.
+    /// </summary>
+    /// <param name="servicesProvider">Service provider instance for dependency injection.</param>
+    /// <param name="configuration">Configuration instance for retrieving RabbitMQ credentials.</param>
     public NotificationRabbiMQSubscribe(IServiceProvider servicesProvider, IConfiguration configuration)
     {
         _serviceProvider = servicesProvider;
@@ -42,6 +50,11 @@ public class NotificationRabbiMQSubscribe : BackgroundService
             arguments: null);
     }
 
+    /// <summary>
+    /// Executes the RabbitMQ consumer, listening for messages asynchronously.
+    /// </summary>
+    /// <param name="stoppingToken">Cancellation token to handle graceful shutdown.</param>
+    /// <returns>A completed task.</returns>
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
         var consumer = new EventingBasicConsumer(_channel);
@@ -57,15 +70,19 @@ public class NotificationRabbiMQSubscribe : BackgroundService
         return Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Processes a received notification and sends it using an external email service.
+    /// </summary>
+    /// <param name="dto">The notification request containing recipient and message details.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public async Task SendNotification(NotificationRequest dto)
     {
         using var scope = _serviceProvider.CreateScope();
-        //var sendService = scope.ServiceProvider.GetRequiredService<INotificationService>();
         var sendService = scope.ServiceProvider.GetRequiredService<IExternalEmailService>();
 
-        var request = new CreateSendRequest()
+        var request = new CreateSendRequest
         {
-            Auth = new ExternalEmailAuth()
+            Auth = new ExternalEmailAuth
             {
                 AccountSid = _configuration.GetValue<string>(ExternalEmailApiConsts.AccountSid),
                 AuthToken = _configuration.GetValue<string>(ExternalEmailApiConsts.AuthToken),

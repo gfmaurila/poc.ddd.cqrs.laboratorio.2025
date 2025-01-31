@@ -12,6 +12,12 @@ public class NotificationMessageProcessor : INotificationMessageProcessor
     private readonly IConfiguration _configuration;
     private readonly ILogger<NotificationMessageProcessor> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotificationMessageProcessor"/> class.
+    /// </summary>
+    /// <param name="scopeFactory">Factory for creating scoped service instances.</param>
+    /// <param name="configuration">Configuration instance for retrieving external API credentials.</param>
+    /// <param name="logger">Logger instance for logging operations.</param>
     public NotificationMessageProcessor(IServiceScopeFactory scopeFactory, IConfiguration configuration, ILogger<NotificationMessageProcessor> logger)
     {
         _scopeFactory = scopeFactory;
@@ -19,6 +25,11 @@ public class NotificationMessageProcessor : INotificationMessageProcessor
         _logger = logger;
     }
 
+    /// <summary>
+    /// Processes an incoming notification message by deserializing it and forwarding it to the notification service.
+    /// </summary>
+    /// <param name="message">The raw JSON message received from Kafka or RabbitMQ.</param>
+    /// <returns>A task representing the asynchronous operation.</returns>
     public async Task ProcessMessageAsync(string message)
     {
         try
@@ -27,25 +38,23 @@ public class NotificationMessageProcessor : INotificationMessageProcessor
 
             if (notificationEvent != null)
             {
-                using (var scope = _scopeFactory.CreateScope())
+                using var scope = _scopeFactory.CreateScope();
+                var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
+
+                var request = new NotificationRequest
                 {
-                    var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
-
-                    var request = new NotificationRequest
+                    To = notificationEvent.To,
+                    Body = notificationEvent.Body,
+                    Notification = notificationEvent.NotificationType,
+                    Auth = new AuthNotification
                     {
-                        To = notificationEvent.To,
-                        Body = notificationEvent.Body,
-                        Notification = notificationEvent.NotificationType,
-                        Auth = new AuthNotification()
-                        {
-                            AccountSid = _configuration.GetValue<string>(ExternalEmailApiConsts.AccountSid),
-                            AuthToken = _configuration.GetValue<string>(ExternalEmailApiConsts.AuthToken),
-                            From = _configuration.GetValue<string>(ExternalEmailApiConsts.From),
-                        }
-                    };
+                        AccountSid = _configuration.GetValue<string>(ExternalEmailApiConsts.AccountSid),
+                        AuthToken = _configuration.GetValue<string>(ExternalEmailApiConsts.AuthToken),
+                        From = _configuration.GetValue<string>(ExternalEmailApiConsts.From),
+                    }
+                };
 
-                    await notificationService.NotificationAsync(request);
-                }
+                await notificationService.NotificationAsync(request);
             }
         }
         catch (Exception ex)
