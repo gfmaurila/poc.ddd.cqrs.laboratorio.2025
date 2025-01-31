@@ -3,35 +3,50 @@ using FluentValidation;
 
 namespace API.Exemple.Core._08.Feature.Exemple.Update;
 
+/// <summary>
+/// Validator for the <see cref="UpdateExempleCommand"/> class, ensuring that all required fields
+/// are provided and correctly formatted.
+/// </summary>
 public class UpdateExempleCommandValidator : AbstractValidator<UpdateExempleCommand>
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UpdateExempleCommandValidator"/> class.
+    /// Defines validation rules for updating an Exemple entity.
+    /// </summary>
     public UpdateExempleCommandValidator()
     {
         RuleFor(command => command.Id)
-            .NotEmpty();
+            .NotEmpty()
+            .WithMessage("The ID of the Exemple entity must not be empty.");
 
         RuleFor(command => command.FirstName)
             .NotEmpty()
-            .MaximumLength(100);
+            .WithMessage("First name is required.")
+            .MaximumLength(100)
+            .WithMessage("First name cannot exceed 100 characters.");
 
         RuleFor(command => command.LastName)
             .NotEmpty()
-            .MaximumLength(100);
+            .WithMessage("Last name is required.")
+            .MaximumLength(100)
+            .WithMessage("Last name cannot exceed 100 characters.");
 
         RuleFor(command => command.Email)
             .NotEmpty()
+            .WithMessage("Email is required.")
             .MaximumLength(254)
-            .EmailAddress();
+            .WithMessage("Email cannot exceed 254 characters.")
+            .EmailAddress()
+            .WithMessage("Invalid email format.");
 
-        // Validação para Gender, garantindo que um valor válido foi selecionado
+        // Validation for Gender, ensuring a valid value is selected.
         RuleFor(command => command.Gender)
             .Must(gender => gender != EGender.None)
-            .WithMessage("Selecione um gênero válido. 'Não informar' não é uma opção permitida.");
+            .WithMessage("Please select a valid gender. 'Not specified' is not a permitted option.");
 
         RuleFor(command => command.Role)
             .Must(roleList => roleList != null && roleList.Any())
-            .WithMessage("É obrigatório fornecer pelo menos uma permissão.");
-
+            .WithMessage("At least one role must be assigned.");
     }
 }
 
