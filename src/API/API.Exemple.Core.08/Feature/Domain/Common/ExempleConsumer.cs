@@ -14,9 +14,9 @@ public class ExempleConsumer
     public List<string> Role { get; set; } = new List<string>();
     public bool Status { get; set; } = true;
     public DateTime? DtInsert { get; set; } = DateTime.UtcNow;
-    public Guid? DtInsertId { get; set; }
+    public int? DtInsertId { get; set; }
     public DateTime? DtUpdate { get; set; }
-    public Guid? DtUpdateId { get; set; }
+    public int? DtUpdateId { get; set; }
     public DateTime? DtDelete { get; set; }
-    public Guid? DtDeleteId { get; set; }
+    public int? DtDeleteId { get; set; }
 }
