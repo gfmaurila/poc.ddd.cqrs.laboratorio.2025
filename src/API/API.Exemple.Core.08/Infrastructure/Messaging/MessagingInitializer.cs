@@ -1,7 +1,6 @@
 ﻿using API.Exemple.Core._08.Feature.Notification.Messaging.Kafka.Publish;
 using API.Exemple.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
 using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Publish;
-using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
 using API.Exemple1.Core._08.Feature.Exemple.Create.Events.Messaging.Publish;
 using API.Exemple1.Core._08.Feature.Exemple.Create.Events.Messaging.Subscribe;
@@ -9,8 +8,10 @@ using API.Exemple1.Core._08.Feature.Exemple.Delete.Events.Messaging.Publish;
 using API.Exemple1.Core._08.Feature.Exemple.Delete.Events.Messaging.Subscribe;
 using API.Exemple1.Core._08.Feature.Exemple.Update.Events.Messaging.RabbiMQ.Publish;
 using API.Exemple1.Core._08.Feature.Exemple.Update.Events.Messaging.RabbiMQ.Subscribe;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
 using Common.Core._08.Interface;
+using Common.Core._08.Kafka;
 
 namespace API.Exemple1.Core._08.Infrastructure.Messaging;
 
@@ -29,7 +30,7 @@ public class MessagingInitializer
         services.AddScoped<IDeleteExemplePublish, DeleteExemplePublish>();
 
         // Subscribe - RabbiMQ
-        services.AddHostedService<NotificationRabbiMQSubscribe>();
+        //services.AddHostedService<NotificationRabbiMQSubscribe>();
         services.AddHostedService<CreateExempleSubscribe>();
         services.AddHostedService<UpdateExempleSubscribe>();
         services.AddHostedService<DeleteExempleSubscribe>();
@@ -38,7 +39,17 @@ public class MessagingInitializer
         services.AddScoped<INotificationKafkaPublish, NotificationKafkaPublish>();
 
         // Subscribe - Kafka
-        services.AddSingleton<IHostedService, NotificationKafkaSubscribe>();
+        // Registrar o consumidor Kafka como singleton
+        services.AddSingleton<IKafkaConsumer, KafkaConsumer>();
+
+        // Registrar o processador de mensagens como scoped
+        services.AddScoped<INotificationMessageProcessor, NotificationMessageProcessor>();
+
+        // Registrar o NotificationKafkaSubscribe como hosted service (singleton)
+        services.AddHostedService<NotificationKafkaSubscribe>();
+
+
+        //services.AddSingleton<IHostedService, NotificationKafkaSubscribe>();
         //services.AddHostedService<NotificationKafkaSubscribe>();
     }
 }
