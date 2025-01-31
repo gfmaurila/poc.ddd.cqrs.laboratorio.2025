@@ -27,7 +27,7 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
 
         // RabbiMQ
         _logger.LogInformation("CreateNotificationCommand => RabbiMQ");
-        _producer.PublishAsync(new NotificationEvent(request.Notification, request.From, request.Body, request.To, Guid.NewGuid()));
+        _producer.PublishAsync(new NotificationEvent(request.Notification, $"RabbiMQ => {request.From}", $"RabbiMQ => {request.Body}", request.To, Guid.NewGuid()));
         return ApiResult<CreateNotificationResponse>.CreateSuccess(new CreateNotificationResponse(Guid.NewGuid()), "Mensagem enviada");
     }
 }

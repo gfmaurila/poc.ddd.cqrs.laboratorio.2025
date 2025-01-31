@@ -83,7 +83,7 @@ public static class InfrastructureExtensions
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         // RabbitMQ
-        MessagingInitializer.Initialize(services);
+        MessagingInitializer.Initialize(services, configuration);
 
         // Kafka
         //KafkaInitializer.Initialize(services);

@@ -33,7 +33,8 @@ public class NotificationKafkaSubscribe : IHostedService
     private async Task ConsumeMessagesAsync(CancellationToken cancellationToken)
     {
         await _kafkaConsumer.ConsumeAsync(
-            NotificationEventConstants.EventNotificationCreate,
+            new List<string> { NotificationEventConstants.EventNotificationCreate },
+            NotificationEventConstants.EventNotificationExemple,
             async message =>
             {
                 using (var scope = _scopeFactory.CreateScope())
