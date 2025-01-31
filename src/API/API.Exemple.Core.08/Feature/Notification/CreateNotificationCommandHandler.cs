@@ -23,11 +23,11 @@ public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificati
     {
         // Kafka
         _logger.LogInformation("CreateNotificationCommand => Kafka");
-        await _producerKafka.PublishAsync(new NotificationEvent(request.Notification, request.From, request.Body, request.To));
+        await _producerKafka.PublishAsync(new NotificationEvent(request.Notification, request.From, request.Body, request.To, Guid.NewGuid()));
 
         // RabbiMQ
         _logger.LogInformation("CreateNotificationCommand => RabbiMQ");
-        _producer.PublishAsync(new NotificationEvent(request.Notification, request.From, request.Body, request.To));
+        _producer.PublishAsync(new NotificationEvent(request.Notification, request.From, request.Body, request.To, Guid.NewGuid()));
         return ApiResult<CreateNotificationResponse>.CreateSuccess(new CreateNotificationResponse(Guid.NewGuid()), "Mensagem enviada");
     }
 }

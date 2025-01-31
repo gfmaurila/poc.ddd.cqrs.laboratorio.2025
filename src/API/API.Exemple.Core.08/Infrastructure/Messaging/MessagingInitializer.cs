@@ -38,6 +38,7 @@ public class MessagingInitializer
         services.AddScoped<INotificationKafkaPublish, NotificationKafkaPublish>();
 
         // Subscribe - Kafka
+        services.AddSingleton<IHostedService, NotificationKafkaSubscribe>();
         //services.AddHostedService<NotificationKafkaSubscribe>();
     }
 }

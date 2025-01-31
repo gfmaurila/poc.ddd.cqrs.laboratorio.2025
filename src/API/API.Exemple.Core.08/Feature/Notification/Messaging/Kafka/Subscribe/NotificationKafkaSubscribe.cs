@@ -1,117 +1,110 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
 using Confluent.Kafka;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace API.Exemple.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
 
-public class NotificationKafkaSubscribe : BackgroundService
+public class NotificationKafkaSubscribe : IHostedService
 {
-    private readonly ConsumerConfig _config;
-    private readonly IServiceScopeFactory _serviceScopeFactory;
     private readonly ILogger<NotificationKafkaSubscribe> _logger;
+    private readonly IConsumer<Null, string> _consumer;
+    private readonly IServiceScopeFactory _scopeFactory;
     private readonly IConfiguration _configuration;
-    private readonly Dictionary<string, Func<string, Task>> _topicHandlers;
 
-    public NotificationKafkaSubscribe(IServiceScopeFactory serviceScopeFactory, IConfiguration configuration, ILogger<NotificationKafkaSubscribe> logger)
+    public NotificationKafkaSubscribe(IConfiguration configuration, ILogger<NotificationKafkaSubscribe> logger, IServiceScopeFactory scopeFactory)
     {
-        _configuration = configuration;
         _logger = logger;
-        _serviceScopeFactory = serviceScopeFactory;
+        _scopeFactory = scopeFactory;
+        _configuration = configuration;
 
-        _config = new ConsumerConfig
+        var consumerConfig = new ConsumerConfig
         {
-            BootstrapServers = _configuration.GetValue<string>(MessagingConsts.HostnameKafka),
-            GroupId = NotificationEventConstants.EventNotificationExemple,
+            BootstrapServers = _configuration.GetValue<string>("Kafka:BootstrapServers"),
+            GroupId = "notification-consumer-group",
             AutoOffsetReset = AutoOffsetReset.Earliest,
             EnableAutoCommit = false
         };
 
-        _topicHandlers = new Dictionary<string, Func<string, Task>>
-        {
-            {
-                NotificationEventConstants.EventNotificationCreate, SendNotificationAsync
-            }
-        };
+        _consumer = new ConsumerBuilder<Null, string>(consumerConfig).Build();
     }
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    public Task StartAsync(CancellationToken cancellationToken)
     {
-        using var consumer = new ConsumerBuilder<Ignore, string>(_config).Build();
-        var topics = _topicHandlers.Keys;
-        consumer.Subscribe(topics);
+        _logger.LogInformation("Starting Kafka Consumer...");
+        _consumer.Subscribe(NotificationEventConstants.EventNotificationCreate);
 
+        Task.Run(() => ConsumeMessages(cancellationToken), cancellationToken);
+
+        return Task.CompletedTask;
+    }
+
+    private async Task ConsumeMessages(CancellationToken cancellationToken)
+    {
         try
         {
-            while (!stoppingToken.IsCancellationRequested)
+            while (!cancellationToken.IsCancellationRequested)
             {
-                try
-                {
-                    var consumeResult = consumer.Consume(stoppingToken);
+                var consumeResult = _consumer.Consume(cancellationToken);
 
-                    if (_topicHandlers.TryGetValue(consumeResult.Topic, out var handler))
+                if (consumeResult != null)
+                {
+                    _logger.LogInformation($"Received message: {consumeResult.Message.Value}");
+
+                    try
                     {
-                        await handler(consumeResult.Message.Value);
+                        var notificationEvent = JsonConvert.DeserializeObject<NotificationEvent>(consumeResult.Message.Value);
+
+                        if (notificationEvent != null)
+                        {
+                            // Cria um escopo para resolver o serviço com escopo
+                            using (var scope = _scopeFactory.CreateScope())
+                            {
+                                var notificationService = scope.ServiceProvider.GetRequiredService<INotificationService>();
+
+                                var request = new NotificationRequest
+                                {
+                                    To = notificationEvent.To,
+                                    Body = notificationEvent.Body,
+                                    Notification = notificationEvent.NotificationType,
+                                    Auth = new AuthNotification()
+                                    {
+                                        AccountSid = _configuration.GetValue<string>(ExternalEmailApiConsts.AccountSid),
+                                        AuthToken = _configuration.GetValue<string>(ExternalEmailApiConsts.AuthToken),
+                                        From = _configuration.GetValue<string>(ExternalEmailApiConsts.From),
+                                    }
+                                };
+
+                                await notificationService.NotificationAsync(request);
+                            }
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        _logger.LogWarning($"Nenhum manipulador encontrado para o tópico: {consumeResult.Topic}");
+                        _logger.LogError($"Error processing message: {ex.Message}");
                     }
 
-                    consumer.Commit(consumeResult);
-                }
-                catch (ConsumeException e)
-                {
-                    _logger.LogError($"Erro ao consumir mensagem: {e.Error.Reason}");
+                    _consumer.Commit(consumeResult);
                 }
             }
         }
         catch (OperationCanceledException)
         {
-            _logger.LogInformation("Execução cancelada.");
+            _logger.LogInformation("Kafka Consumer stopped.");
         }
         finally
         {
-            consumer.Close();
+            _consumer.Close();
         }
     }
 
-    private async Task SendNotificationAsync(string message)
+    public Task StopAsync(CancellationToken cancellationToken)
     {
-        try
-        {
-            var dto = JsonSerializer.Deserialize<NotificationRequest>(message);
-            if (dto == null)
-            {
-                _logger.LogWarning("Mensagem Kafka inválida.");
-                return;
-            }
-
-            using var scope = _serviceScopeFactory.CreateScope();
-            var sendService = scope.ServiceProvider.GetRequiredService<IExternalEmailService>();
-
-            var request = new CreateSendRequest()
-            {
-                Auth = new ExternalEmailAuth()
-                {
-                    AccountSid = _configuration.GetValue<string>("ExternalEmailApi:AccountSid"),
-                    AuthToken = _configuration.GetValue<string>("ExternalEmailApi:AuthToken"),
-                    From = _configuration.GetValue<string>("ExternalEmailApi:From"),
-                },
-                Body = dto.Body,
-                To = dto.To,
-                Notification = 1
-            };
-
-            await sendService.SendMessageAsync(request);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError($"Erro ao processar notificação: {ex.Message}");
-        }
+        _logger.LogInformation("Stopping Kafka Consumer...");
+        _consumer.Close();
+        return Task.CompletedTask;
     }
 }
 
