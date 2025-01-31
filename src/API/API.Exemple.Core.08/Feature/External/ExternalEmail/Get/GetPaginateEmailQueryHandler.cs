@@ -4,32 +4,47 @@ using MediatR;
 
 namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
 
+/// <summary>
+/// Handles queries for retrieving paginated email records from an external email service.
+/// </summary>
 public class GetPaginateEmailQueryHandler : IRequestHandler<GetPaginateEmailQuery, ApiResult<GetPaginateEmailQueryResult>>
 {
     private readonly IExternalEmailService _emailService;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetPaginateEmailQueryHandler"/> class.
+    /// </summary>
+    /// <param name="emailService">The external email service responsible for fetching email records.</param>
     public GetPaginateEmailQueryHandler(IExternalEmailService emailService)
     {
         _emailService = emailService;
     }
 
+    /// <summary>
+    /// Handles the request to retrieve paginated email records.
+    /// </summary>
+    /// <param name="request">The request containing pagination parameters.</param>
+    /// <param name="cancellationToken">Cancellation token to handle request cancellation.</param>
+    /// <returns>An <see cref="ApiResult{T}"/> containing the paginated email records.</returns>
     public async Task<ApiResult<GetPaginateEmailQueryResult>> Handle(GetPaginateEmailQuery request, CancellationToken cancellationToken)
     {
-        // Recupera os registros e o total
-        var registros = await _emailService.GetPaginatedItemsAsync(request);
-        var totalRegistros = await _emailService.GetTotalCountAsync();
+        // Retrieve paginated email records
+        var records = await _emailService.GetPaginatedItemsAsync(request);
 
-        // Calcula a quantidade de páginas
-        var quantidadePaginas = request.CalculateTotalPages(totalRegistros);
+        // Retrieve the total number of email records
+        var totalRecords = await _emailService.GetTotalCountAsync();
 
-        // Cria a resposta
+        // Calculate the total number of pages
+        var totalPages = request.CalculateTotalPages(totalRecords);
+
+        // Create the response object
         var response = new GetPaginateEmailQueryResult(
-            total: totalRegistros,
-            items: registros,
-            quantidadePaginas: quantidadePaginas
+            total: totalRecords,
+            items: records,
+            quantidadePaginas: totalPages
         );
 
-        return ApiResult<GetPaginateEmailQueryResult>.CreateSuccess(response, "Registros recuperados com sucesso.");
+        return ApiResult<GetPaginateEmailQueryResult>.CreateSuccess(response, "Email records retrieved successfully.");
     }
 }
 
