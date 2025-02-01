@@ -1,175 +1,168 @@
-# 📘 Projeto: API.Auth - Sistema de Autenticação e Autorização
+# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
 
-### **Tecnologias Utilizadas**
+# API Exemple
 
-- **ASP.NET Core 9.0**: Framework utilizado para desenvolvimento da API.
-- **Entity Framework Core**: ORM para comunicação com o banco de dados SQL Server.
-- **SQL Server**: Banco de dados relacional.
-- **Redis**: Utilizado para cache de tokens e gerenciamento de sessão.
-- **JWT (JSON Web Token)**: Utilizado para autenticação baseada em tokens.
-- **Docker & Docker Compose**: Gerenciamento de containers para deploy simplificado.
+## Visão Geral
+A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+
+## Tecnologias Utilizadas
+- **ASP.NET Core 8**
+- **Entity Framework Core**
+- **RabbitMQ e MassTransit**
+- **Kafka e Confluent.Kafka**
+- **Redis para cache**
+- **MediatR para CQRS**
+- **FluentValidation**
+- **Swagger para documentação da API**
+- **Serilog para logging**
+- **Docker para conteinerização**
+
+## Pacotes Utilizados
+- **Bogus**: Geração de dados fictícios para testes.
+- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
+- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
+- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
+- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
+- **Ardalis.Result**: Manipulação de retornos de operação.
+- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
+- **FluentValidation**: Validação de modelos de entrada.
+- **AutoMapper**: Mapeamento de objetos automatizado.
+- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
+- **MediatR**: Implementação do padrão CQRS.
+- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
+- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
+- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
+- **Newtonsoft.Json**: Manipulação avançada de JSON.
+- **Refit**: Cliente HTTP baseado em interfaces.
+- **Serilog**: Logging estruturado.
+- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+
+## Endpoints da API
+
+### Autenticação
+Gerar token de acesso:
+```sh
+curl --location 'http://localhost:5000/api-auth/api/v1/login' \
+--header 'accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'X-API-Key: ••••••' \
+--data-raw '{
+  "email": "gfmaurila@gmail.com",
+  "password": "@C23l10a1985"
+}'
+```
+
+### Endpoints da API Exemple
+
+#### Listar exemplos
+```sh
+curl --location 'https://localhost:44387/api/v1/Exemple' \
+--header 'accept: text/plain' \
+--header 'Authorization: ••••••'
+```
+
+#### Paginação e filtro por nome
+```sh
+curl --location 'https://localhost:44387/api/v1/Exemple/exemple?FiltroFirstName=t&PageNumber=1&PageSize=1' \
+--header 'Authorization: ••••••'
+```
+
+#### Buscar exemplo por ID
+```sh
+curl --location 'https://localhost:44387/api/v1/Exemple/92836fd8-8d5c-40af-a144-464b3749501b' \
+--header 'Authorization: Bearer ••••••'
+```
+
+#### Criar um novo exemplo
+```sh
+curl --location 'https://localhost:44387/api/v1/Exemple' \
+--header 'accept: text/plain' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: ••••••' \
+--data-raw '{
+  "firstName": "string",
+  "lastName": "string",
+  "status": true,
+  "gender": 1,
+  "notification": "SMS",
+  "email": "strings1@teste.com",
+  "phone": "string",
+  "role": [
+    "Admin"
+  ]
+}'
+```
+
+#### Atualizar um exemplo existente
+```sh
+curl --location --request PUT 'https://localhost:44387/api/v1/Exemple' \
+--header 'accept: text/plain' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: ••••••' \
+--data-raw '{
+  "id": "92836fd8-8d5c-40af-a144-464b3749501b",
+  "firstName": "Teste 01",
+  "lastName": "teste 01",
+  "gender": 1,
+  "notification": 1,
+  "email": "user1s@example.com",
+  "phone": "51985623312",
+  "role": [
+    "EMPLOYEE_AUTH", "ADMIN_AUTH"
+  ]
+}'
+```
+
+#### Excluir um exemplo
+```sh
+curl --location --request DELETE 'https://localhost:44387/api/v1/Exemple/92836fd8-8d5c-40af-a144-464b3749501b' \
+--header 'accept: text/plain' \
+--header 'Authorization: ••••••'
+```
+
+### Notificações
+Enviar notificação:
+```sh
+curl --location 'https://localhost:44387/api/v1/Notification' \
+--header 'accept: text/plain' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: ••••••' \
+--data '{
+  "notification": 1,
+  "from": "teste from - Teste ",
+  "body": "teste body - Teste ",
+  "to": "teste to - teste "
+}'
+```
+
+## Rodando a API
+### Subindo os serviços com Docker
+```sh
+docker network create shared-network
+docker-compose down
+docker-compose up -d --build
+```
+
+### Aplicando migrações do banco de dados
+```sh
+dotnet new webapi -n AuthSystem
+Add-Migration Inicial -Context ExempleAppDbContext 
+Update-Database -Context ExempleAppDbContext 
+```
+
+### Rodando testes
+```sh
+dotnet test
+```
+
+## Contribuição
+Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
+
+
 
 ---
 
-## 📁 **Estrutura do Projeto**
-
-```
-├── API.Auth
-│   ├── Controllers
-│   │   └── AuthController.cs
-│   ├── Services
-│   │   └── UserService.cs
-│   ├── Repositories
-│   │   └── UserRepository.cs
-│   ├── Models
-│   │   └── User.cs
-│   ├── DTOs
-│   │   └── LoginRequest.cs
-│   ├── Configurations
-│   │   └── JwtSettings.cs
-├── Infrastructure
-│   └── Database
-│       └── AuthDbContext.cs
-├── Extensions
-│   └── ServiceExtensions.cs
-├── Docker
-│   └── docker-compose.yml
-```
-
-### **Descrição das Pastas**
-
-- **API.Auth/**: Contém a lógica da API de autenticação e autorização.
-  - **Controllers/**: Contém os controladores da API.
-  - **Services/**: Contém os serviços responsáveis pelas regras de negócio.
-  - **Repositories/**: Contém os repositórios para manipulação dos dados no banco.
-  - **Models/**: Contém os modelos de domínio.
-  - **DTOs/**: Contém os objetos de transferência de dados.
-  - **Configurations/**: Contém as configurações de JWT e outras definições.
-
-- **Infrastructure/**: Configurações do banco de dados e contexto do Entity Framework.
-- **Extensions/**: Métodos de extensão para configuração de serviços.
-- **Docker/**: Arquivos de configuração do Docker.
-
----
-
-## 🌐 **Configuração do Docker**
-
-Para rodar o projeto completo com todos os serviços:
-
-```bash
-docker-compose up --build
-```
-
-### **Serviços Configurados no Docker Compose:**
-- **SQL Server** (porta: `1433`)
-- **Redis** (porta: `6379`)
-
----
-
-## 🔧 **Configurando o Projeto**
-
-### Clone o repositório:
-```bash
-git clone https://github.com/gfmaurila/api-auth.git
-```
-
-### Acesse a pasta do projeto:
-```bash
-cd api-auth
-```
-
-### Rodando a aplicação com Docker:
-```bash
-docker-compose up --build
-```
-
----
-
-## 📌 **Endpoints Importantes**
-
-### **Autenticação**
-- **POST /api/auth/login**: Realiza login e retorna o token JWT.
-  - **Body**:
-    ```json
-    {
-      "username": "example",
-      "password": "password123"
-    }
-    ```
-
-- **POST /api/auth/register**: Registra um novo usuário.
-  - **Body**:
-    ```json
-    {
-      "username": "example",
-      "email": "example@example.com",
-      "password": "password123"
-    }
-    ```
-
-- **GET /api/auth/me**: Retorna os dados do usuário autenticado.
-  - **Header**:
-    ```
-    Authorization: Bearer {token}
-    ```
-
----
-
-## 📚 **Configurações de Banco de Dados**
-
-### **SQL Server**
-- **Host**: localhost
-- **Porta**: 1433
-- **Usuário**: sa
-- **Senha**: Password!123
-
-### **Redis**
-- **Host**: localhost
-- **Porta**: 6379
-
----
-
-## 🔐 **Configurações de Autenticação JWT**
-
-### **JwtSettings.cs**
-```csharp
-public class JwtSettings
-{
-    public string Secret { get; set; }
-    public int ExpirationMinutes { get; set; }
-    public string Issuer { get; set; }
-    public string Audience { get; set; }
-}
-```
-
-### Configurar no **appsettings.json**:
-```json
-"JwtSettings": {
-  "Secret": "minha-chave-secreta",
-  "ExpirationMinutes": 60,
-  "Issuer": "api-auth",
-  "Audience": "api-users"
-}
-```
-
----
-
-## 📦 **Comandos Importantes**
-
-### Criar Migration e Atualizar Banco de Dados
-```bash
-dotnet ef migrations add InitialCreate -Context AuthDbContext
-dotnet ef database update -Context AuthDbContext
-```
-
-### Gerar Secret Key para JWT
-```bash
-openssl rand -base64 32
-```
-
----
-
-## 🧑‍💻 **Autores**
+## 🧑‍💻 **Autor**
 - **Guilherme Figueiras Maurila**
 
 ---
