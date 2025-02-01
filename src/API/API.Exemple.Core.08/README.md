@@ -159,7 +159,7 @@ RabbitMQ: http://localhost:15672/#/
 
 ### Documentação
 ```sh
-
+https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/blob/main/Documento/04%20-%20API.Exemple.Core.08/04%20-%20API.Exemple.Core.08.drawio
 ```
 
 ## Contribuição
