@@ -37,6 +37,108 @@ A API Exemple é uma aplicação de exemplo que demonstra a implementação de u
 - **Serilog**: Logging estruturado.
 - **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
 
+## Estrutura de Pastas
+
+### Projeto Principal
+```
+API.Exemple.Core.08
+├── Connected Services
+├── Dependências
+├── Properties
+├── Controllers
+│   ├── External
+│   │   └── ExternalEmail
+│   │       └── ExternalEmailController.cs
+│   ├── BaseController.cs
+│   ├── ExempleController.cs
+│   └── NotificationController.cs
+├── Extensions
+│   ├── InfrastructureExtensions.cs
+│   └── SwaggerConfig.cs
+├── Feature
+├── Infrastructure
+├── Migrations
+├── API.Exemple.Core.08.http
+├── appsettings.json
+├── Dockerfile
+├── Program.cs
+└── README.md
+```
+
+### Infrastructure
+```
+Infrastructure
+├── Auth
+│   └── CoreInitializer.cs
+├── Database
+│   ├── Mappings
+│   ├── Repositories
+│   │   ├── Interfaces
+│   │   │   ├── IExempleRepository.cs
+│   │   ├── BaseRepository.cs
+│   │   └── ExempleRepository.cs
+│   ├── ExempleAppDbContext.cs
+│   └── UnitOfWork.cs
+├── Integration
+│   ├── ExternalEmail
+│   │   ├── Api
+│   │   │   └── IExternalEmailApi.cs
+│   │   ├── Model
+│   │   │   └── ExternalEmailModel.cs
+│   │   ├── Service
+│   │   │   ├── ExternalEmailService.cs
+│   │   │   ├── ExternalEmailServiceConsts.cs
+│   │   │   └── ExternalEmailApiConsts.cs
+│   │   └── ExternalEmailInitializer.cs
+│   ├── ApiConsts.cs
+├── Messaging
+│   ├── RabbitMQ
+│   │   └── MessageBusService.cs
+│   ├── MessagingConsts.cs
+│   └── MessagingInitializer.cs
+└── Redis
+    └── DistributedCacheInitializer.cs
+```
+
+### Feature
+```
+Feature
+├── Domain
+│   ├── Common
+│   └── Exemple
+│       ├── Events
+│       │   ├── Messaging
+│       │   │   ├── ExempleCreateEvent.cs
+│       │   │   ├── ExempleDeleteEvent.cs
+│       │   │   └── ExempleUpdateEvent.cs
+│       │   ├── ExempleBaseEvent.cs
+│       │   ├── ExempleCreateDomainEvent.cs
+│       │   ├── ExempleDeleteDomainEvent.cs
+│       │   └── ExempleUpdateDomainEvent.cs
+│       └── Models
+│           └── ExempleEntity.cs
+├── Exemple
+│   ├── Create
+│   │   ├── Events
+│   │   │   ├── Messaging
+│   │   │   │   ├── Publish
+│   │   │   │   │   ├── CreateExemplePublish.cs
+│   │   │   │   │   └── ICreateExemplePublish.cs
+│   │   │   │   └── Subscribe
+│   │   │   │       ├── CreateExempleSubscribe.cs
+│   │   │   │       ├── ExempleCreateEventHandler.cs
+│   │   │   │       └── ExempleCreateDomainEventHandler.cs
+│   │   ├── CreateExempleCommand.cs
+│   │   ├── CreateExempleCommandHandler.cs
+│   │   ├── CreateExempleCommandValidator.cs
+│   │   └── CreateExempleResponse.cs
+│   ├── Delete
+│   ├── Get
+│   ├── GetById
+│   ├── GetPaginate
+│   └── Update
+```
+
 ## Endpoints da API
 
 ### Autenticação
@@ -178,4 +280,21 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme_Figueiras_Maurila-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-maurila)](https://www.linkedin.com/in/guilherme-maurila)
 [![Gmail Badge](https://img.shields.io/badge/-gfmaurila@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gfmaurila@gmail.com)](mailto:gfmaurila@gmail.com)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
