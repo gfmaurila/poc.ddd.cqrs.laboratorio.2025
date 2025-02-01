@@ -150,9 +150,16 @@ Add-Migration Inicial -Context ExempleAppDbContext
 Update-Database -Context ExempleAppDbContext 
 ```
 
-### Rodando testes
+### Ambientes
 ```sh
-dotnet test
+API: http://localhost:5002/swagger/index.html
+Kafka: http://localhost:9100/
+RabbitMQ: http://localhost:15672/#/
+```
+
+### Documentação
+```sh
+
 ```
 
 ## Contribuição
