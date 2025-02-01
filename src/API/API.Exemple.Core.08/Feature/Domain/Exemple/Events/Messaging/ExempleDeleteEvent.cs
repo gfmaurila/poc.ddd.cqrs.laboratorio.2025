@@ -22,5 +22,7 @@ public class ExempleDeleteEvent : ExempleBaseEvent
     public ExempleDeleteEvent(Guid id, string firstName, string lastName, EGender gender, ENotificationType notification, string email, string phone, List<string> role)
         : base(id, firstName, lastName, gender, notification, email, phone, role)
     {
+        AggregateId = Guid.NewGuid();
+        MessageType = nameof(ExempleDeleteEvent);
     }
 }

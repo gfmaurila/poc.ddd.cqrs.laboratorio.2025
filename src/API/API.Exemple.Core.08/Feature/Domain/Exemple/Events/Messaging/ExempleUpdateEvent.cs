@@ -20,5 +20,7 @@ public class ExempleUpdateEvent : ExempleBaseEvent
                               AuthExempleCreateUpdateDeleteModel model)
         : base(id, request.FirstName, request.LastName, request.Gender, request.Notification, request.Email, request.Phone, request.Role, request.Status, model)
     {
+        AggregateId = Guid.NewGuid();
+        MessageType = nameof(ExempleUpdateEvent);
     }
 }

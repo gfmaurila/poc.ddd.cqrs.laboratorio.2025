@@ -1,4 +1,5 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 
@@ -105,6 +106,8 @@ public abstract class ExempleBaseEvent : Event
         Email = email;
         Phone = phone;
         Role = role;
+        AggregateId = Guid.NewGuid();
+        MessageType = nameof(ExempleBaseEvent);
     }
 
     /// <summary>
@@ -147,5 +150,8 @@ public abstract class ExempleBaseEvent : Event
         DtUpdate = model.DtUpdate;
         DtDeleteId = model.DtDeleteId;
         DtDelete = model.DtDelete;
+
+        AggregateId = Guid.NewGuid();
+        MessageType = nameof(ExempleBaseEvent);
     }
 }
