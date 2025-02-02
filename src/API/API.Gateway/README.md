@@ -36,7 +36,7 @@ A arquitetura da API.Gateway está estruturada para gerenciar chamadas de usuár
 ### Diagramas
 
 #### Fluxo Geral da API Gateway
-![Fluxo Geral](02%20-%20API.Gateway.jpg)
+![Fluxo Geral](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/blob/main/Documento/02%20-%20API.Gateway/02%20-%20API.Gateway.jpg)
 
 #### Comunicação com os Backends
 - **POST/PUT/DELETE**: Enviam comandos para o banco de dados SQL Server.
