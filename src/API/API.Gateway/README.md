@@ -1,150 +1,107 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.Gateway - Sistema de Integração e Gerenciamento
 
-# API.Gateway
+## API.Gateway
 
-## Visão Geral
-A API.Gateway é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+### Visão Geral
+A API.Gateway é um gateway de integração que conecta múltiplos serviços de backend em um único ponto de acesso, facilitando a comunicação entre diferentes módulos do sistema. Implementada com **ASP.NET Core 8**, a API centraliza a autenticação, roteamento e monitoramento de várias APIs específicas de domínio, além de oferecer suporte para caching e banco de dados SQL Server.
 
-## Tecnologias Utilizadas
+### Principais Funcionalidades
+- Integração centralizada entre APIs.
+- Suporte a comandos **POST**, **PUT**, **DELETE** e consultas **GET** com redistribuição eficiente para diferentes serviços.
+- Uso de **Redis** para caching e otimização de consultas.
+- Conexão a um banco de dados **SQL Server** para persistência de dados.
+
+### Arquitetura
+A arquitetura da API.Gateway está estruturada para gerenciar chamadas de usuários, roteando-as para os serviços backend apropriados:
+
+#### Componentes Principais
+1. **APIs Conectadas**:
+   - API.Exemple.Core.08
+   - API.Customer.Core.08
+   - API.HR.Core.08
+   - API.Freelancer.Core.08
+   - API.Clinic.Core.08
+   - API.InventoryControl.Core.08
+
+2. **Redis**: Utilizado para caching de respostas de consultas **GET**.
+
+3. **SQL Server**: Banco de dados principal para operações de persistência e consulta.
+
+4. **Domain Model**:
+   - Command API para operações de escrita (**POST**, **PUT**, **DELETE**).
+   - Query API para operações de leitura (**GET**).
+
+5. **Sync**: Sincronização entre o cache e o banco de dados para otimização.
+
+### Diagramas
+
+#### Fluxo Geral da API Gateway
+![Fluxo Geral](02%20-%20API.Gateway.jpg)
+
+#### Comunicação com os Backends
+- **POST/PUT/DELETE**: Enviam comandos para o banco de dados SQL Server.
+- **GET**: Consulta o cache Redis antes de acessar o banco de dados, garantindo alta performance.
+
+#### Arquitetura do Servidor
+- **Comandos**:
+  - Recebidos do cliente e processados pelo Domain Model, com persistência no banco de dados SQL Server.
+- **Consultas**:
+  - Processadas pelo Read API e retornadas do cache Redis.
+
+### Tecnologias Utilizadas
 - **ASP.NET Core 8**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+- **Swagger**: Documentação interativa da API.
+- **Redis**: Sistema de caching.
+- **SQL Server**: Banco de dados relacional.
+- **Docker**: Conteinerização dos serviços.
+- **Serilog**: Logging centralizado.
 
-## Pacotes Utilizados
-- **yarp.ReverseProxy**: Geração de dados fictícios para testes.
-
-
-## Endpoints da API.Gateway
-
-### Autenticação
-Gerar token de acesso:
+### Endpoints Disponíveis
+#### Autenticação
+- **Gerar token de acesso**:
 ```sh
 curl --location 'http://localhost:5000/api-auth/api/v1/login' \
 --header 'accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'X-API-Key: ••••••' \
 --data-raw '{
-  "email": "gfmaurila@gmail.com",
-  "password": "@C23l10a1985"
+  "email": "usuario@example.com",
+  "password": "senha123"
 }'
 ```
 
-### Endpoints da API Exemple
-
-#### Listar exemplos
+#### Exemplos de Rotas de API
+- **Consultar dados de exemplo**:
 ```sh
-curl --location 'https://localhost:44387/api/v1/Exemple' \
---header 'accept: text/plain' \
---header 'Authorization: ••••••'
+curl --location 'http://localhost:5002/api/v1/exemplo' \
+--header 'Authorization: Bearer <seu_token>'
 ```
 
-#### Paginação e filtro por nome
+- **Criar novo registro**:
 ```sh
-curl --location 'https://localhost:44387/api/v1/Exemple/exemple?FiltroFirstName=t&PageNumber=1&PageSize=1' \
---header 'Authorization: ••••••'
-```
-
-#### Buscar exemplo por ID
-```sh
-curl --location 'https://localhost:44387/api/v1/Exemple/92836fd8-8d5c-40af-a144-464b3749501b' \
---header 'Authorization: Bearer ••••••'
-```
-
-#### Criar um novo exemplo
-```sh
-curl --location 'https://localhost:44387/api/v1/Exemple' \
---header 'accept: text/plain' \
+curl --location --request POST 'http://localhost:5002/api/v1/exemplo' \
 --header 'Content-Type: application/json' \
---header 'Authorization: ••••••' \
 --data-raw '{
-  "firstName": "string",
-  "lastName": "string",
-  "status": true,
-  "gender": 1,
-  "notification": "SMS",
-  "email": "strings1@teste.com",
-  "phone": "string",
-  "role": [
-    "Admin"
-  ]
+  "campo1": "valor1",
+  "campo2": "valor2"
 }'
 ```
 
-#### Atualizar um exemplo existente
-```sh
-curl --location --request PUT 'https://localhost:44387/api/v1/Exemple' \
---header 'accept: text/plain' \
---header 'Content-Type: application/json' \
---header 'Authorization: ••••••' \
---data-raw '{
-  "id": "92836fd8-8d5c-40af-a144-464b3749501b",
-  "firstName": "Teste 01",
-  "lastName": "teste 01",
-  "gender": 1,
-  "notification": 1,
-  "email": "user1s@example.com",
-  "phone": "51985623312",
-  "role": [
-    "EMPLOYEE_AUTH", "ADMIN_AUTH"
-  ]
-}'
-```
-
-#### Excluir um exemplo
-```sh
-curl --location --request DELETE 'https://localhost:44387/api/v1/Exemple/92836fd8-8d5c-40af-a144-464b3749501b' \
---header 'accept: text/plain' \
---header 'Authorization: ••••••'
-```
-
-### Notificações
-Enviar notificação:
-```sh
-curl --location 'https://localhost:44387/api/v1/Notification' \
---header 'accept: text/plain' \
---header 'Content-Type: application/json' \
---header 'Authorization: ••••••' \
---data '{
-  "notification": 1,
-  "from": "teste from - Teste ",
-  "body": "teste body - Teste ",
-  "to": "teste to - teste "
-}'
-```
-
-## Rodando a API
-### Subindo os serviços com Docker
+### Rodando a API
+#### Subindo os Serviços com Docker
 ```sh
 docker network create shared-network
 docker-compose down
 docker-compose up -d --build
 ```
 
-### Aplicando migrações do banco de dados
+#### Configuração do Banco de Dados
 ```sh
-dotnet new webapi -n AuthSystem
-Add-Migration Inicial -Context ExempleAppDbContext 
-Update-Database -Context ExempleAppDbContext 
+Add-Migration InitialMigration -Context GatewayDbContext
+Update-Database -Context GatewayDbContext
 ```
 
-### Ambientes
-```sh
-API: http://localhost:5002/swagger/index.html
-Kafka: http://localhost:9100/
-RabbitMQ: http://localhost:15672/#/
-```
-
-### Documentação
-![Diagrama Exemple](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/blob/main/Documento/04%20-%20API.Exemple.Core.08/04%20-%20API.Exemple.Core.08-Exemple.jpg)
-![Diagrama Notification](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/blob/main/Documento/04%20-%20API.Exemple.Core.08/04%20-%20API.Exemple.Core.08-Notification.jpg)
-![Fluxo](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/blob/main/Documento/04%20-%20API.Exemple.Core.08/04%20-%20API.Exemple.Core.08-Fluxo-API.jpg)
-
-
-
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
-
+### Contribuições
+Contribuições são bem-vindas! Caso identifique melhorias ou novos recursos, envie um pull request. 🚀
 
 ---
 
@@ -154,24 +111,5 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 ---
 
 ## 📫 Como me encontrar
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme_Figueiras_Maurila-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-maurila)](https://www.linkedin.com/in/guilherme-maurila)
 [![Gmail Badge](https://img.shields.io/badge/-gfmaurila@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gfmaurila@gmail.com)](mailto:gfmaurila@gmail.com)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
