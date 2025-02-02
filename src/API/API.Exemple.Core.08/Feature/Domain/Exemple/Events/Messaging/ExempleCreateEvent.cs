@@ -1,6 +1,6 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Feature.Exemple.Create;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
 
 namespace API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
 

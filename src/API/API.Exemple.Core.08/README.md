@@ -42,102 +42,43 @@ A API Exemple é uma aplicação de exemplo que demonstra a implementação de u
 ### Projeto Principal
 ```
 API.Exemple.Core.08
+API.Exemple.Core.08
 ├── Connected Services
 ├── Dependências
 ├── Properties
 ├── Controllers
-│   ├── External
-│   │   └── ExternalEmail
-│   │       └── ExternalEmailController.cs
-│   ├── BaseController.cs
-│   ├── ExempleController.cs
-│   └── NotificationController.cs
 ├── Extensions
-│   ├── InfrastructureExtensions.cs
-│   └── SwaggerConfig.cs
 ├── Feature
+│   ├── Domain
+│   │   ├── Common
+│   │   └── Exemple
+│   ├── Exemple
+│       ├── Commands
+│       │   ├── Create
+│       │   ├── Delete
+│       │   └── Update
+│       └── Queries
+│           ├── Get
+│           ├── GetById
+│           └── GetPaginate
 ├── Infrastructure
+│   ├── Auth
+│   ├── Database
+│   │   ├── Mappings
+│   │   ├── Repositories
+│   │   ├── ExempleAppDbContext.cs
+│   │   └── UnitOfWork.cs
+│   ├── Integration
+│   ├── Messaging
+│   └── Redis
 ├── Migrations
 ├── API.Exemple.Core.08.http
 ├── appsettings.json
 ├── Dockerfile
-├── Program.cs
+└── Program.cs
 └── README.md
 ```
 
-### Infrastructure
-```
-Infrastructure
-├── Auth
-│   └── CoreInitializer.cs
-├── Database
-│   ├── Mappings
-│   ├── Repositories
-│   │   ├── Interfaces
-│   │   │   ├── IExempleRepository.cs
-│   │   ├── BaseRepository.cs
-│   │   └── ExempleRepository.cs
-│   ├── ExempleAppDbContext.cs
-│   └── UnitOfWork.cs
-├── Integration
-│   ├── ExternalEmail
-│   │   ├── Api
-│   │   │   └── IExternalEmailApi.cs
-│   │   ├── Model
-│   │   │   └── ExternalEmailModel.cs
-│   │   ├── Service
-│   │   │   ├── ExternalEmailService.cs
-│   │   │   ├── ExternalEmailServiceConsts.cs
-│   │   │   └── ExternalEmailApiConsts.cs
-│   │   └── ExternalEmailInitializer.cs
-│   ├── ApiConsts.cs
-├── Messaging
-│   ├── RabbitMQ
-│   │   └── MessageBusService.cs
-│   ├── MessagingConsts.cs
-│   └── MessagingInitializer.cs
-└── Redis
-    └── DistributedCacheInitializer.cs
-```
-
-### Feature
-```
-Feature
-├── Domain
-│   ├── Common
-│   └── Exemple
-│       ├── Events
-│       │   ├── Messaging
-│       │   │   ├── ExempleCreateEvent.cs
-│       │   │   ├── ExempleDeleteEvent.cs
-│       │   │   └── ExempleUpdateEvent.cs
-│       │   ├── ExempleBaseEvent.cs
-│       │   ├── ExempleCreateDomainEvent.cs
-│       │   ├── ExempleDeleteDomainEvent.cs
-│       │   └── ExempleUpdateDomainEvent.cs
-│       └── Models
-│           └── ExempleEntity.cs
-├── Exemple
-│   ├── Create
-│   │   ├── Events
-│   │   │   ├── Messaging
-│   │   │   │   ├── Publish
-│   │   │   │   │   ├── CreateExemplePublish.cs
-│   │   │   │   │   └── ICreateExemplePublish.cs
-│   │   │   │   └── Subscribe
-│   │   │   │       ├── CreateExempleSubscribe.cs
-│   │   │   │       ├── ExempleCreateEventHandler.cs
-│   │   │   │       └── ExempleCreateDomainEventHandler.cs
-│   │   ├── CreateExempleCommand.cs
-│   │   ├── CreateExempleCommandHandler.cs
-│   │   ├── CreateExempleCommandValidator.cs
-│   │   └── CreateExempleResponse.cs
-│   ├── Delete
-│   ├── Get
-│   ├── GetById
-│   ├── GetPaginate
-│   └── Update
-```
 
 ## Endpoints da API
 

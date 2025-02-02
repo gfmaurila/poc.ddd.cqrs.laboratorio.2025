@@ -1,8 +1,8 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Feature.Exemple.Create;
-using API.Exemple.Core._08.Feature.Exemple.Update;
 using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
 using Common.Core._08.Domain;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Interface;

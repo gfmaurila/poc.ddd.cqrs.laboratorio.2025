@@ -1,5 +1,4 @@
 ﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 

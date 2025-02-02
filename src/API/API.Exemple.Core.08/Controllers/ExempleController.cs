@@ -1,12 +1,12 @@
 ﻿namespace API.Exemple.Core._08.Controllers;
 
 using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Feature.Exemple.Create;
-using API.Exemple.Core._08.Feature.Exemple.Delete;
-using API.Exemple.Core._08.Feature.Exemple.Get;
-using API.Exemple.Core._08.Feature.Exemple.GetById;
-using API.Exemple.Core._08.Feature.Exemple.GetPaginate;
-using API.Exemple.Core._08.Feature.Exemple.Update;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
+using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
+using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
+using API.Exemple1.Core._08.Feature.Exemple.Queries.GetById;
+using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
 using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;
