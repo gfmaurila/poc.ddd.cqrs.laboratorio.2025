@@ -2,7 +2,7 @@
 
 ### **Tecnologias Utilizadas**
 
-- **ASP.NET Core 9.0**: Framework utilizado para desenvolvimento da API.
+- **ASP.NET Core 8.0**: Framework utilizado para desenvolvimento da API.
 - **YARP (Reverse Proxy)**: Gateway de entrada para gerenciar o roteamento de APIs.
 - **SQL Server**: Banco de dados relacional para armazenar dados principais.
 - **Redis**: Cache em memória para melhorar a performance.
