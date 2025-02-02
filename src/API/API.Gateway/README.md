@@ -58,7 +58,7 @@ A arquitetura da API.Gateway está estruturada para gerenciar chamadas de usuár
 
 ### Endpoints Disponíveis
 #### Autenticação 
-![Git clone](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Auth)
+!(https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Auth)
 - **Gerar token de acesso**:
 ```sh
 curl --location 'http://localhost:5000/api-auth/api/v1/login' \
@@ -71,7 +71,7 @@ curl --location 'http://localhost:5000/api-auth/api/v1/login' \
 ```
 
 #### Exemplos de Rotas de API
-[![Repo git](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Exemple.Core.08)
+!(https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Exemple.Core.08)
 - **Consultar dados de exemplo**:
 ```sh
 curl --location 'http://localhost:5002/api/v1/exemplo' \
