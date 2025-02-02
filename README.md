@@ -17,20 +17,48 @@
 ## 📁 **Estrutura do Projeto**
 
 ```
-├── API.Gateway
-│   └── Program.cs
-├── API.Auth
-│   └── Endpoints
-│       └── ClinicsController.cs
-├── Docker
-│   └── docker-compose.yml
+📂 poc.micro-saas.netcore8
+├── 📂 Documento
+│   └── README.md
+├── 📂 src
+│   ├── 📂 API
+│   │   ├── 📂 API.Exemple.Core.08
+│   │   ├── 📂 API.Gateway
+│   ├── 📂 Core
+│   │   ├── 📂 Common.Core.08
+│   │   ├── 📂 Common.External.Auth.Net8
+│   ├── 📂 External
+│   │   ├── 📂 API.External.Auth
+│   │   │   ├── 📂 API.External.Auth
+│   │   │   └── README.md
+│   │   ├── 📂 API.External.Email
+│   │   ├── 📂 API.External.MKT
+│   ├── 📂 Test
+├── 📄 docker-compose
 ```
 
-### **Descrição das Pastas**
+### **API.Gateway**
 
-- **API.Gateway/**: Contém o projeto de API Gateway usando YARP para gerenciar as rotas.
-- **API.Auth/**: Contém os endpoints da API Auth.  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.netcore9/tree/main/src/API/API.Auth)
-- **Docker/**: Arquivos de configuração do Docker.
+- **API Gateway/**: Descrição: O API Gateway atua como a interface única para os usuários interagirem com os serviços internos. Ele roteia requisições para as APIs internas com base em regras definidas. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Gateway)
+
+- **API.Exemple.Core.08/**: API exemplo que serve como referência para a estrutura base e lógica de domínio. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Exemple.Core.08)
+
+- **API.Customer.Core.08/**: Responsável pela gestão de clientes, incluindo cadastro, atualização e consulta de informações. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Customer.Core.08)
+
+- **API.HR.Core.08/**: Focada em gerenciar os recursos humanos da organização, como funcionários e departamentos. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.HR.Core.08)
+
+- **API.Freelancer.Core.08/**: Gerencia informações e contratos de freelancers. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Freelancer.Core.08)
+
+- **API.Clinic.Core.08/**: Centraliza a gestão de clínicas, incluindo agendamentos, pacientes e serviços oferecidos. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Clinic.Core.08)
+
+- **API.InventoryControl.Core.08/**:Voltada para o controle de estoque, gerenciamento de produtos e movimentações.  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.InventoryControl.Core.08)
+
+
+### **External - Exemplos**
+
+- **API.External.Auth/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Auth)
+- **API.External.Email/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Email)
+- **API.External.MKT/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.MKT)
 
 ---
 
@@ -64,22 +92,6 @@ Update-Database -Context MainContext
 ```bash
 git clone https://github.com/gfmaurila/poc.ddd.cqrs.netcore9.git
 ```
-
----
-
-## 📌 **Endpoints Importantes**
-
-### **API Gateway**
-
-- **Swagger UI**: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
-
-### **API.Auth**
-
-- **Swagger UI**: [http://localhost:5001/swagger/index.html](http://localhost:5001/swagger/index.html)
-- **GET /api/clinics**: Lista todas as clínicas.
-- **POST /api/clinics**: Adiciona uma nova clínica.
-- **PUT /api/clinics/{id}**: Atualiza os dados de uma clínica.
-- **DELETE /api/clinics/{id}**: Remove uma clínica.
 
 ---
 
@@ -125,7 +137,7 @@ git clone https://github.com/gfmaurila/poc.ddd.cqrs.netcore9.git
 
 - **Host**: localhost
 - **Porta**: 8080
-- **Acesso**: [http://localhost:9100/ui/clusters/local/all-topics](http://localhost:9100/ui/clusters/local/all-topics)
+- **Acesso**: [http://localhost:9100](http://localhost:9100)
 
 ---
 
