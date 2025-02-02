@@ -1,85 +1,21 @@
 # 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
 
-# API Exemple
+# API.Gateway
 
 ## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+A API.Gateway é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
 
 ## Tecnologias Utilizadas
 - **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
 - **Swagger para documentação da API**
 - **Serilog para logging**
 - **Docker para conteinerização**
 
 ## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
-
-## Estrutura de Pastas
-
-### Projeto Principal
-```
-API.Exemple.Core.08
-├── Connected Services
-├── Dependências
-├── Properties
-├── Controllers
-├── Extensions
-├── Feature
-│   ├── Domain
-│   │   ├── Common
-│   │   └── Exemple
-│   ├── Exemple
-│       ├── Commands
-│       │   ├── Create
-│       │   ├── Delete
-│       │   └── Update
-│       └── Queries
-│           ├── Get
-│           ├── GetById
-│           └── GetPaginate
-├── Infrastructure
-│   ├── Auth
-│   ├── Database
-│   │   ├── Mappings
-│   │   ├── Repositories
-│   │   ├── ExempleAppDbContext.cs
-│   │   └── UnitOfWork.cs
-│   ├── Integration
-│   ├── Messaging
-│   └── Redis
-├── Migrations
-├── API.Exemple.Core.08.http
-├── appsettings.json
-├── Dockerfile
-└── Program.cs
-└── README.md
-```
+- **yarp.ReverseProxy**: Geração de dados fictícios para testes.
 
 
-## Endpoints da API
+## Endpoints da API.Gateway
 
 ### Autenticação
 Gerar token de acesso:
