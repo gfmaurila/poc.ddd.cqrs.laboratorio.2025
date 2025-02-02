@@ -1,7 +1,6 @@
 ﻿using API.Exemple.Core._08.Feature.Notification;
 using API.Exemple.Core._08.Infrastructure.Integration;
 using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Publish;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;
