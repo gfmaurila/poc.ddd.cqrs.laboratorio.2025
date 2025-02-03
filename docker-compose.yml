@@ -55,6 +55,24 @@ services:
       - redis
       - mongoserver
       - rabbitmq
+  
+  # Customer
+  # http://localhost:5004/swagger/index.html
+  api.customer.core:
+    image: ${DOCKER_REGISTRY-}apicustomercore
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.Customer.Core/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq
 
 # APIs FIM --------------------------------------------------------
 
@@ -257,7 +275,6 @@ services:
 # INFRA FIM --------------------------------------------------------
 
 
-
 volumes:
   zookeeper_data:
     driver: local
@@ -271,6 +288,7 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
 
 
 
