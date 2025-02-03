@@ -84,6 +84,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<InternalsVisibleTo Include="API.Exemple.Core.08.Tests" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<ProjectReference Include="..\..\Core\Common.Core.08\Common.Core.08.csproj" />
 	</ItemGroup>
 
