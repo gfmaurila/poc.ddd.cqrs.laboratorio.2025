@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace API.External.Auth.Tests.Integration.Utilities;
+namespace API.External.Auth.Tests.Integration.Utilities.Factory;
 
 public class TestSqliteWebApplicationFactory<TProgram> : WebApplicationFactory<TProgram> where TProgram : class
 {

@@ -1,13 +1,9 @@
 ﻿using API.Exemple.Core._08.Tests.Integration.Features.Fakes;
+using API.Exemple.Core.Tests.Integration;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
 

@@ -1,5 +1,6 @@
 ﻿using API.External.Auth.Infrastructure.Database;
 using API.External.Auth.Tests.Integration.Utilities.Auth;
+using API.External.Auth.Tests.Integration.Utilities.Factory;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.External.Auth.Tests.Integration.Utilities;

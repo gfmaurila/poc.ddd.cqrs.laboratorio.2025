@@ -1,35 +1,37 @@
-﻿using API.External.Auth.Infrastructure.Database;
-using API.External.Auth.Tests.Integration.Utilities.Auth;
+﻿using API.Exemple.Core._08.Infrastructure.Database;
+using API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
+using API.Exemple.Core.Tests.Integration.Factory;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.External.Auth.Tests.Integration.Utilities;
+namespace API.Exemple.Core.Tests.Integration;
 
-public class DatabaseSqliteFixture : IAsyncLifetime
+public class DatabaseSQLServerFixture : IAsyncLifetime
 {
     private readonly TestWebApplicationFactory<Program> _factory;
 
     public HttpClient Client { get; }
     private readonly AuthToken1 _auth;
-    private EFSqlServerContext _context;
+    private ExempleAppDbContext _context;
 
-    public DatabaseSqliteFixture()
+    private static Random random = new Random();
+
+    public DatabaseSQLServerFixture()
     {
         _auth = new AuthToken1();
         _factory = new TestWebApplicationFactory<Program>();
         Client = _factory.CreateClient();
 
-        // Configurando o DbContext para usar SQLite In-Memory
-        var options = new DbContextOptionsBuilder<EFSqlServerContext>()
-            .UseSqlite("DataSource=:memory:") // SQLite In-Memory
+        // Configurando o DbContext para usar In-Memory Database
+        var options = new DbContextOptionsBuilder<ExempleAppDbContext>()
+            .UseInMemoryDatabase("InMemoryDbForTesting_" + random.Next())
             .Options;
 
-        _context = new EFSqlServerContext(options);
+        _context = new ExempleAppDbContext(options);
     }
 
     public async Task InitializeAsync()
     {
-        // SQLite In-Memory precisa abrir a conexão para que o banco de dados exista
-        await _context.Database.OpenConnectionAsync();
+        // Como estamos usando um banco In-Memory, EnsureCreated é suficiente.
         await _context.Database.EnsureCreatedAsync();
     }
 
@@ -40,8 +42,7 @@ public class DatabaseSqliteFixture : IAsyncLifetime
 
     public async Task DisposeAsync()
     {
-        await _context.Database.EnsureDeletedAsync();
-        await _context.Database.CloseConnectionAsync();
+        // Nenhuma ação necessária para excluir o banco de dados In-Memory
         await _context.DisposeAsync();
     }
 
