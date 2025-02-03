@@ -18,7 +18,6 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(
 //builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConfiguration));
 
 // Repository
-builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<ISendService, SendService>();
 
 var app = builder.Build();
