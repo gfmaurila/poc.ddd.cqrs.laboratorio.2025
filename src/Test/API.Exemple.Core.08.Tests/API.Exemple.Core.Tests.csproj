@@ -38,8 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Integration\Features\" />
-    <Folder Include="Integration\Utilities\" />
+    <Folder Include="Integration\Utilities\Redis\" />
   </ItemGroup>
 
 </Project>
