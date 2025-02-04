@@ -1,6 +1,6 @@
 ﻿using API.HR.Core.Feature.Domain;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace API.HR.Core.Infrastructure.Database.Mappings;
 

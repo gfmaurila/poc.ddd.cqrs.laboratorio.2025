@@ -1,6 +1,6 @@
 ﻿using API.HR.Core.Feature.Domain.Exemple.Events;
-using API.HR.Core.Feature.Domain.Exemple.Models;
 using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.HR.Core.Feature.Domain.Exemple.Models;
 using API.HR.Core.Feature.Exemple.Commands.Create;
 using API.HR.Core.Feature.Exemple.Commands.Update;
 using Common.Core._08.Domain;

@@ -1,20 +1,19 @@
-﻿using API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events.Messaging;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging.Subscribe;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subscribe;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.RabbiMQ;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
+﻿using API.External.Person.Feature.Exemple.Commands.Create.Events.Messaging;
+using API.External.Person.Feature.Exemple.Commands.Delete.Events.Messaging;
+using API.External.Person.Feature.Exemple.Commands.Delete.Events.Messaging.Subscribe;
+using API.External.Person.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
+using API.External.Person.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subscribe;
+using API.External.Person.Feature.Notification.Messaging.Kafka;
 using API.External.Person.Feature.Notification.Messaging.Kafka.Subscribe;
+using API.External.Person.Feature.Notification.Messaging.RabbiMQ;
 using API.External.Person.Feature.Notification.Messaging.RabbiMQ.Subscribe;
+using API.External.Person.Feature.Notification.Messaging.Service;
 using API.External.Person.Infrastructure.Messaging.RabbiMQ;
 using Common.Core._08.Interface;
 using Common.Core._08.Kafka;
 using Microsoft.Extensions.Options;
 
-namespace API.Exemple1.Core._08.Infrastructure.Messaging;
+namespace API.External.Person.Infrastructure.Messaging;
 
 public class MessagingInitializer
 {

@@ -1,9 +1,12 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.External.Person -  Micro SaaS API - Cadastro de Pessoa
 
-# API Exemple
+# API.External.Person
 
 ## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+📖 Objetivo
+A **Micro SaaS API** é um serviço para o cadastro e gerenciamento de informações de **Pessoa Física** e **Pessoa Jurídica** dentro de um ambiente **Micro SaaS**.  
+
+O serviço é projetado para ser escalável, seguro e flexível, permitindo integrações futuras e garantindo consistência nos dados.
 
 ## Tecnologias Utilizadas
 - **ASP.NET Core 8**
@@ -41,7 +44,7 @@ A API Exemple é uma aplicação de exemplo que demonstra a implementação de u
 
 ### Projeto Principal
 ```
-API.Exemple.Core.08
+API.External.Person
 ├── Connected Services
 ├── Dependências
 ├── Properties
@@ -177,6 +180,82 @@ curl --location 'https://localhost:44387/api/v1/Notification' \
 }'
 ```
 
+## 🏗 Estrutura do Domínio
+O domínio principal da API será o **Cadastro de Pessoas**, que incluirá as seguintes entidades principais:
+
+### 1️⃣ **Pessoa (`Person`)**
+- Pode ser **Pessoa Física** ou **Pessoa Jurídica**.
+- Contém informações gerais aplicáveis a ambos os tipos.
+
+### 2️⃣ **Pessoa Física (`IndividualPerson`)**
+- CPF (Cadastro de Pessoa Física).
+- Nome completo.
+- Data de nascimento.
+- Gênero (opcional).
+- Nome da mãe (opcional).
+- Nome do pai (opcional).
+
+### 3️⃣ **Pessoa Jurídica (`LegalEntity`)**
+- CNPJ (Cadastro Nacional de Pessoa Jurídica).
+- Razão Social.
+- Nome Fantasia.
+- Data de abertura.
+- Inscrição Estadual (opcional).
+- Inscrição Municipal (opcional).
+- Nome dos sócios.
+
+### 4️⃣ **Documento (`Document`)**
+- Tipo do documento (CPF, RG, CNPJ, Passaporte, CNH, etc.).
+- Número do documento.
+- Data de emissão.
+- Órgão emissor.
+- País de emissão.
+
+### 5️⃣ **Endereço (`Address`)**
+- Tipo de endereço (Residencial, Comercial, Cobrança, etc.).
+- Logradouro.
+- Número.
+- Complemento.
+- Bairro.
+- Cidade.
+- Estado.
+- CEP.
+- País.
+
+### 6️⃣ **Telefone (`Phone`)**
+- Tipo de telefone (Celular, Fixo, Comercial, WhatsApp).
+- Código de área (DDD).
+- Número do telefone.
+
+### 7️⃣ **E-mail (`Email`)**
+- Endereço de e-mail.
+- Tipo (Pessoal, Comercial, Financeiro, Suporte).
+
+### 🔗 **Relacionamentos**
+- Uma **Pessoa** pode ter múltiplos **Endereços**, **Telefones** e **E-mails**.
+- Uma **Pessoa Física** pode ter múltiplos **Documentos** (ex: CPF e RG).
+- Uma **Pessoa Jurídica** pode ter múltiplos **sócios** cadastrados.
+
+## 🚀 Tecnologias e Arquitetura
+A API será desenvolvida utilizando **.NET Core 8**, seguindo as melhores práticas de desenvolvimento de software moderno.
+
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para mapeamento do banco de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional (a definir).
+- **Swagger/OpenAPI** para documentação e testes da API.
+- **Autenticação JWT** para segurança e controle de acesso.
+- **Clean Architecture** seguindo princípios **DDD (Domain-Driven Design)** e **SOLID**.
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de repositório**, utilizando EF Core.
+4. **Criar os endpoints REST para gerenciamento de pessoas.**
+
+
+
+
 ## Rodando a API
 ### Subindo os serviços com Docker
 ```sh
@@ -206,8 +285,10 @@ RabbitMQ: http://localhost:15672/#/
 
 
 
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
+📌 **Contribuições**
+Sinta-se à vontade para abrir um Pull Request ou sugerir melhorias por meio de Issues!
+
+💡 **Queremos construir algo escalável e eficiente!** 🚀
 
 
 ---
@@ -221,21 +302,4 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme_Figueiras_Maurila-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-maurila)](https://www.linkedin.com/in/guilherme-maurila)
 [![Gmail Badge](https://img.shields.io/badge/-gfmaurila@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gfmaurila@gmail.com)](mailto:gfmaurila@gmail.com)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

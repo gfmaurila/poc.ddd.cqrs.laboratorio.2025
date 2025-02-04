@@ -1,5 +1,4 @@
 ﻿using API.Customer.Core.Feature.Notification.Messaging.Events;
-using API.Customer.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 using Common.Core._08.Kafka;
 
 namespace API.Customer.Core.Feature.Notification.Messaging.Kafka.Subscribe;

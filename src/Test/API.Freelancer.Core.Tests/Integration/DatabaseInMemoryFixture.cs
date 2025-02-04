@@ -1,6 +1,6 @@
-﻿using API.Freelancer.Core.Infrastructure.Database;
+﻿using API.Exemple.Core.Tests.Integration.Factory;
+using API.Freelancer.Core.Infrastructure.Database;
 using API.Freelancer.Core.Tests.Integration.Utilities.Auth;
-using API.Exemple.Core.Tests.Integration.Factory;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Exemple.Core.Tests.Integration;

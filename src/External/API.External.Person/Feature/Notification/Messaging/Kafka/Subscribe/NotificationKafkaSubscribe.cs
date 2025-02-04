@@ -1,5 +1,4 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
+﻿using API.External.Person.Feature.Notification.Messaging.Events;
 using Common.Core._08.Kafka;
 
 namespace API.External.Person.Feature.Notification.Messaging.Kafka.Subscribe;

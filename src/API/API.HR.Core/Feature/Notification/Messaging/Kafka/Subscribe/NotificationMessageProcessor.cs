@@ -1,7 +1,7 @@
-﻿using API.HR.Core.Infrastructure.Integration.ExternalEmail;
-using API.HR.Core.Feature.Notification.Messaging.Events;
+﻿using API.HR.Core.Feature.Notification.Messaging.Events;
 using API.HR.Core.Feature.Notification.Messaging.Request;
 using API.HR.Core.Feature.Notification.Messaging.Service;
+using API.HR.Core.Infrastructure.Integration.ExternalEmail;
 using Newtonsoft.Json;
 
 namespace API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;

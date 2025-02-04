@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>API.Exemple1.Core._08</RootNamespace>
+    <RootNamespace>API.External.Person</RootNamespace>
     <UserSecretsId>e630d066-4d0e-4a8f-a5a7-49891ef494df</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
@@ -24,6 +24,10 @@
     <None Remove="Feature\Domain\Exemple\Events\Messaging\Kafka\**" />
     <None Remove="Feature\Exemple\Commands\Delete\Events\Messaging\Kafka\**" />
     <None Remove="Feature\Exemple\Commands\Update\Events\Messaging\Kafka\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Feature\Domain\rggrp54w.mol~" />
   </ItemGroup>
 
 	<ItemGroup>

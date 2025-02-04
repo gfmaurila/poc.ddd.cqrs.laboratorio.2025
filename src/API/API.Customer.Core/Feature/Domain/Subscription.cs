@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace API.Customer.Core.Feature.Domain;
+﻿namespace API.Customer.Core.Feature.Domain;
 
 public class Subscription
 {

@@ -1,6 +1,6 @@
-﻿using API.HR.Core.Infrastructure.Database;
+﻿using API.Exemple.Core.Tests.Integration.Factory;
+using API.HR.Core.Infrastructure.Database;
 using API.HR.Core.Tests.Integration.Utilities.Auth;
-using API.Exemple.Core.Tests.Integration.Factory;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Exemple.Core.Tests.Integration;

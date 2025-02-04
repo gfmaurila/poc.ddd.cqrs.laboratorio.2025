@@ -1,5 +1,5 @@
-﻿using API.HR.Core.Tests.Integration.Features.Fakes;
-using API.Exemple.Core.Tests.Integration;
+﻿using API.Exemple.Core.Tests.Integration;
+using API.HR.Core.Tests.Integration.Features.Fakes;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;

@@ -1,11 +1,11 @@
-﻿using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+﻿using API.External.Person.Feature.Domain.Exemple.Events.Messaging;
 using API.External.Person.Feature.Notification;
 using API.External.Person.Infrastructure.Integration;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events.Messaging;
+namespace API.External.Person.Feature.Exemple.Commands.Create.Events.Messaging;
 
 /// <summary>
 /// Handles the <see cref="ExempleCreateEvent"/> by sending notifications via RabbitMQ and publishing the event.

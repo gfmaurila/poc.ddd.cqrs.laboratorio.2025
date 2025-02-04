@@ -1,5 +1,4 @@
 ﻿using API.HR.Core.Feature.Notification.Messaging.Events;
-using API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 using Common.Core._08.Kafka;
 
 namespace API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;

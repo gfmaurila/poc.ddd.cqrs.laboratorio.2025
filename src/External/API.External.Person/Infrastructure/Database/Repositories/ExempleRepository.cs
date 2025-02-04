@@ -1,6 +1,6 @@
-﻿using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
-using API.External.Person.Feature.Domain.Exemple;
+﻿using API.External.Person.Feature.Domain.Exemple;
 using API.External.Person.Feature.Domain.Exemple.Models;
+using API.External.Person.Feature.Exemple.Queries.GetPaginate;
 using API.External.Person.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;

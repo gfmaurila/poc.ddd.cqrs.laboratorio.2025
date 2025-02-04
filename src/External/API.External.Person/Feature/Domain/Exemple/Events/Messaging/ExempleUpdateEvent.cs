@@ -1,8 +1,7 @@
-﻿using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
-using API.External.Person.Feature.Domain.Exemple.Events;
-using API.External.Person.Feature.Domain.Exemple.Models;
+﻿using API.External.Person.Feature.Domain.Exemple.Models;
+using API.External.Person.Feature.Exemple.Commands.Update;
 
-namespace API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+namespace API.External.Person.Feature.Domain.Exemple.Events.Messaging;
 
 /// <summary>
 /// Represents an event triggered when an Exemple entity is updated.

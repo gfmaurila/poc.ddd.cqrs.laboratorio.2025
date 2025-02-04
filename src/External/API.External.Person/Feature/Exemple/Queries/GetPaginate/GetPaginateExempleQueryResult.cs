@@ -1,7 +1,7 @@
 ﻿using API.External.Person.Feature.Domain.Exemple.Models;
 using Common.Core._08.Response;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+namespace API.External.Person.Feature.Exemple.Queries.GetPaginate;
 
 /// <summary>
 /// Represents the paginated query result for retrieving Exemple entities.

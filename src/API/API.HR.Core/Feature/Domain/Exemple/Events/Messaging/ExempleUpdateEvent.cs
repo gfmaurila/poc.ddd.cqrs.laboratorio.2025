@@ -1,5 +1,4 @@
-﻿using API.HR.Core.Feature.Domain.Exemple.Events;
-using API.HR.Core.Feature.Domain.Exemple.Models;
+﻿using API.HR.Core.Feature.Domain.Exemple.Models;
 using API.HR.Core.Feature.Exemple.Commands.Update;
 
 namespace API.HR.Core.Feature.Domain.Exemple.Events.Messaging;

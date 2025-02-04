@@ -1,6 +1,6 @@
 ﻿using API.Customer.Core.Feature.Domain.Exemple.Events;
-using API.Customer.Core.Feature.Domain.Exemple.Models;
 using API.Customer.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.Customer.Core.Feature.Domain.Exemple.Models;
 using API.Customer.Core.Feature.Exemple.Commands.Create;
 using API.Customer.Core.Feature.Exemple.Commands.Update;
 using Common.Core._08.Domain;

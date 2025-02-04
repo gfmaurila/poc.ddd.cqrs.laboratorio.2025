@@ -1,7 +1,7 @@
-﻿using API.Customer.Core.Infrastructure.Integration.ExternalEmail;
-using API.Customer.Core.Feature.Notification.Messaging.Events;
+﻿using API.Customer.Core.Feature.Notification.Messaging.Events;
 using API.Customer.Core.Feature.Notification.Messaging.Request;
 using API.Customer.Core.Feature.Notification.Messaging.Service;
+using API.Customer.Core.Infrastructure.Integration.ExternalEmail;
 using Newtonsoft.Json;
 
 namespace API.Customer.Core.Feature.Notification.Messaging.Kafka.Subscribe;

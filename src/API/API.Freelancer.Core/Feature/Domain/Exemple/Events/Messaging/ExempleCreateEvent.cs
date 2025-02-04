@@ -1,5 +1,4 @@
-﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
-using API.Freelancer.Core.Feature.Domain.Exemple.Models;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Freelancer.Core.Feature.Exemple.Commands.Create;
 
 namespace API.Freelancer.Core.Feature.Domain.Exemple.Events.Messaging;

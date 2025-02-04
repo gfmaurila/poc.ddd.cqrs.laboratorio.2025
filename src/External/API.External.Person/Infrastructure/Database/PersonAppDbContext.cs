@@ -1,4 +1,5 @@
-﻿using API.External.Person.Feature.Domain.Exemple;
+﻿using API.External.Person.Feature.Domain;
+using API.External.Person.Feature.Domain.Exemple;
 using API.External.Person.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,14 @@ public class PersonAppDbContext : DbContext
     /// </summary>
     public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
+    public DbSet<API.External.Person.Feature.Domain.Person> Persons { get; set; }
+    public DbSet<IndividualPerson> IndividualPersons { get; set; }
+    public DbSet<LegalEntity> LegalEntities { get; set; }
+    public DbSet<Document> Documents { get; set; }
+    public DbSet<Address> Addresses { get; set; }
+    public DbSet<PhoneEntity> Phones { get; set; }
+    public DbSet<EmailEntity> Emails { get; set; }
+
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
     /// </summary>
@@ -36,6 +45,16 @@ public class PersonAppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
+
+        modelBuilder.ApplyConfiguration(new PersonConfiguration());
+        modelBuilder.ApplyConfiguration(new IndividualPersonConfiguration());
+        modelBuilder.ApplyConfiguration(new LegalEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new DocumentConfiguration());
+        modelBuilder.ApplyConfiguration(new AddressConfiguration());
+        modelBuilder.ApplyConfiguration(new PhoneConfiguration());
+        modelBuilder.ApplyConfiguration(new EmailConfiguration());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     /// <summary>

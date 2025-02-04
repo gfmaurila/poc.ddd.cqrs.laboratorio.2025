@@ -1,6 +1,6 @@
-﻿using API.HR.Core.Feature.Notification;
+﻿using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.HR.Core.Feature.Notification;
 using API.HR.Core.Infrastructure.Integration;
-using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;

@@ -1,5 +1,5 @@
-﻿using API.Customer.Core.Infrastructure.Integration;
-using API.Customer.Core.Feature.Notification.Messaging.Request;
+﻿using API.Customer.Core.Feature.Notification.Messaging.Request;
+using API.Customer.Core.Infrastructure.Integration;
 using Polly;
 using System.Net;
 

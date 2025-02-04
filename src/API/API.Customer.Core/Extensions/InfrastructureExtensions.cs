@@ -3,8 +3,8 @@ using API.Customer.Core.Infrastructure.Database;
 using API.Customer.Core.Infrastructure.Database.Repositories;
 using API.Customer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Customer.Core.Infrastructure.Integration;
-using API.Customer.Core.Infrastructure.Redis;
 using API.Customer.Core.Infrastructure.Messaging;
+using API.Customer.Core.Infrastructure.Redis;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

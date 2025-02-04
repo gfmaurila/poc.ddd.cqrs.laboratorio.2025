@@ -1,12 +1,12 @@
 ﻿namespace API.External.Person.Controllers;
 
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetById;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
 using API.External.Person.Feature.Domain.Exemple.Models;
+using API.External.Person.Feature.Exemple.Commands.Create;
+using API.External.Person.Feature.Exemple.Commands.Delete;
+using API.External.Person.Feature.Exemple.Commands.Update;
+using API.External.Person.Feature.Exemple.Queries.Get;
+using API.External.Person.Feature.Exemple.Queries.GetById;
+using API.External.Person.Feature.Exemple.Queries.GetPaginate;
 using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;

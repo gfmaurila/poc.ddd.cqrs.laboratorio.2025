@@ -1,8 +1,8 @@
-﻿using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail;
+﻿using API.Freelancer.Core.Feature.Notification.Messaging.Events;
+using API.Freelancer.Core.Feature.Notification.Messaging.Request;
+using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail;
 using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Model;
 using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Service;
-using API.Freelancer.Core.Feature.Notification.Messaging.Events;
-using API.Freelancer.Core.Feature.Notification.Messaging.Request;
 using API.Freelancer.Core.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

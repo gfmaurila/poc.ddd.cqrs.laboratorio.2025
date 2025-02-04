@@ -1,10 +1,10 @@
-﻿using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
-using API.External.Person.Feature.Domain.Common;
+﻿using API.External.Person.Feature.Domain.Common;
+using API.External.Person.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Interface;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events.Messaging;
+namespace API.External.Person.Feature.Exemple.Commands.Create.Events.Messaging;
 
 /// <summary>
 /// Handles publishing events related to the creation of an Exemple entity.

@@ -1,6 +1,6 @@
 ﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
-using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Freelancer.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Freelancer.Core.Feature.Exemple.Commands.Create;
 using API.Freelancer.Core.Feature.Exemple.Commands.Update;
 using Common.Core._08.Domain;

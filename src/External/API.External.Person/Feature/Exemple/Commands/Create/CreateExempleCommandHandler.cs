@@ -5,7 +5,7 @@ using Common.Core._08.Domain.ValueObjects;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+namespace API.External.Person.Feature.Exemple.Commands.Create;
 
 /// <summary>
 /// Handles the creation of an <see cref="ExempleEntity"/> by validating the request,

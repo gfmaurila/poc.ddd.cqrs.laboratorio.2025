@@ -1,5 +1,4 @@
-﻿using API.Exemple1.Core._08.Infrastructure.Messaging;
-using Common.Core._08.Interface;
+﻿using Common.Core._08.Interface;
 using RabbitMQ.Client;
 
 namespace API.External.Person.Infrastructure.Messaging.RabbiMQ;

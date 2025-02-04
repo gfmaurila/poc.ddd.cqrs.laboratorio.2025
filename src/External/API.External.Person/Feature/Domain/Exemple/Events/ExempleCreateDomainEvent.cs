@@ -1,5 +1,5 @@
-﻿using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
-using API.External.Person.Feature.Domain.Exemple.Models;
+﻿using API.External.Person.Feature.Domain.Exemple.Models;
+using API.External.Person.Feature.Exemple.Commands.Create;
 
 namespace API.External.Person.Feature.Domain.Exemple.Events;
 

@@ -1,6 +1,6 @@
-﻿using API.Freelancer.Core.Feature.Notification;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.Freelancer.Core.Feature.Notification;
 using API.Freelancer.Core.Infrastructure.Integration;
-using API.Freelancer.Core.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;

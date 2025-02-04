@@ -1,5 +1,5 @@
-﻿using API.HR.Core.Infrastructure.Integration;
-using API.HR.Core.Feature.Notification.Messaging.Request;
+﻿using API.HR.Core.Feature.Notification.Messaging.Request;
+using API.HR.Core.Infrastructure.Integration;
 using Polly;
 using System.Net;
 

@@ -1,7 +1,4 @@
-﻿using API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;
-using API.HR.Core.Feature.Notification.Messaging.RabbiMQ.Subscribe;
-using API.HR.Core.Infrastructure.Messaging.RabbiMQ;
-using API.HR.Core.Feature.Exemple.Commands.Create.Events.Messaging;
+﻿using API.HR.Core.Feature.Exemple.Commands.Create.Events.Messaging;
 using API.HR.Core.Feature.Exemple.Commands.Delete.Events.Messaging;
 using API.HR.Core.Feature.Exemple.Commands.Delete.Events.Messaging.Subscribe;
 using API.HR.Core.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
@@ -9,7 +6,9 @@ using API.HR.Core.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subsc
 using API.HR.Core.Feature.Notification.Messaging.Kafka;
 using API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 using API.HR.Core.Feature.Notification.Messaging.RabbiMQ;
+using API.HR.Core.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 using API.HR.Core.Feature.Notification.Messaging.Service;
+using API.HR.Core.Infrastructure.Messaging.RabbiMQ;
 using Common.Core._08.Interface;
 using Common.Core._08.Kafka;
 using Microsoft.Extensions.Options;

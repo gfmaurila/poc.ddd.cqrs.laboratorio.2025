@@ -1,7 +1,7 @@
 ﻿using API.Customer.Core.Feature.Domain.Exemple;
 using API.Customer.Core.Feature.Domain.Exemple.Models;
-using API.Customer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Customer.Core.Feature.Exemple.Queries.GetPaginate;
+using API.Customer.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 

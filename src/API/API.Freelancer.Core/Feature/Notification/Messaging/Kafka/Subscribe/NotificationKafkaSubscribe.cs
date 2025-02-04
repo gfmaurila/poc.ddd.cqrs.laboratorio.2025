@@ -1,5 +1,4 @@
 ﻿using API.Freelancer.Core.Feature.Notification.Messaging.Events;
-using API.Freelancer.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 using Common.Core._08.Kafka;
 
 namespace API.Freelancer.Core.Feature.Notification.Messaging.Kafka.Subscribe;

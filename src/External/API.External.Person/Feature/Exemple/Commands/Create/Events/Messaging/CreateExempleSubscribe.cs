@@ -1,11 +1,11 @@
-﻿using API.Exemple1.Core._08.Infrastructure.Messaging;
-using API.External.Person.Feature.Domain.Common;
+﻿using API.External.Person.Feature.Domain.Common;
+using API.External.Person.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events.Messaging;
+namespace API.External.Person.Feature.Exemple.Commands.Create.Events.Messaging;
 
 /// <summary>
 /// Background service that subscribes to a RabbitMQ queue and processes Exemple creation events.

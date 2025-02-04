@@ -1,5 +1,4 @@
-﻿using API.Customer.Core.Feature.Domain.Exemple.Events;
-using Common.Core._08.Domain.Enumerado;
+﻿using Common.Core._08.Domain.Enumerado;
 
 namespace API.Customer.Core.Feature.Domain.Exemple.Events.Messaging;
 

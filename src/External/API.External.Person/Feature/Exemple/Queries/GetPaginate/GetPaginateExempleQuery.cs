@@ -2,7 +2,7 @@
 using Common.Core._08.Request;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+namespace API.External.Person.Feature.Exemple.Queries.GetPaginate;
 
 /// <summary>
 /// Represents a paginated query request for retrieving Exemple entities.

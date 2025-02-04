@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Contracts;
-
-namespace API.Freelancer.Core.Feature.Domain;
+﻿namespace API.Freelancer.Core.Feature.Domain;
 
 public class Freelancer
 {

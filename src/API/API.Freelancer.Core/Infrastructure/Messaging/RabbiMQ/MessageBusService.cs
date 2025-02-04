@@ -1,5 +1,4 @@
-﻿using API.Freelancer.Core.Infrastructure.Messaging;
-using Common.Core._08.Interface;
+﻿using Common.Core._08.Interface;
 using RabbitMQ.Client;
 
 namespace API.Freelancer.Core.Infrastructure.Messaging.RabbiMQ;

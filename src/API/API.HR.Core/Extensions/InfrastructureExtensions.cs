@@ -3,8 +3,8 @@ using API.HR.Core.Infrastructure.Database;
 using API.HR.Core.Infrastructure.Database.Repositories;
 using API.HR.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.HR.Core.Infrastructure.Integration;
-using API.HR.Core.Infrastructure.Redis;
 using API.HR.Core.Infrastructure.Messaging;
+using API.HR.Core.Infrastructure.Redis;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

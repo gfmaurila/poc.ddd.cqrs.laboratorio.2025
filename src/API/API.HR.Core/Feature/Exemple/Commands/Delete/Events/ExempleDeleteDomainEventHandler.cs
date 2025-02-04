@@ -1,7 +1,7 @@
 ﻿using API.HR.Core.Feature.Domain.Exemple.Events;
 using API.HR.Core.Feature.Domain.Exemple.Models;
-using API.HR.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.HR.Core.Feature.Exemple.Queries.Get;
+using API.HR.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Interface;
 using MediatR;
 

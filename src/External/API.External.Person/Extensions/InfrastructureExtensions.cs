@@ -1,9 +1,9 @@
-﻿using API.Exemple1.Core._08.Infrastructure.Messaging;
-using API.External.Person.Infrastructure.Auth;
+﻿using API.External.Person.Infrastructure.Auth;
 using API.External.Person.Infrastructure.Database;
 using API.External.Person.Infrastructure.Database.Repositories;
 using API.External.Person.Infrastructure.Database.Repositories.Interfaces;
 using API.External.Person.Infrastructure.Integration;
+using API.External.Person.Infrastructure.Messaging;
 using API.External.Person.Infrastructure.Redis;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;

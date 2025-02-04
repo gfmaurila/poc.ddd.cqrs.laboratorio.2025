@@ -1,6 +1,6 @@
-﻿using API.Customer.Core.Feature.Notification;
+﻿using API.Customer.Core.Feature.Domain.Exemple.Events.Messaging;
+using API.Customer.Core.Feature.Notification;
 using API.Customer.Core.Infrastructure.Integration;
-using API.Customer.Core.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;

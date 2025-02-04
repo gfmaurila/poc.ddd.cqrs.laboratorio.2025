@@ -1,6 +1,4 @@
-﻿using MassTransit.Courier.Contracts;
-
-namespace API.Customer.Core.Feature.Domain;
+﻿namespace API.Customer.Core.Feature.Domain;
 
 public class Customer
 {

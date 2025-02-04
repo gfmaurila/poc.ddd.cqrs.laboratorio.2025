@@ -1,7 +1,7 @@
 ﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
 using API.Freelancer.Core.Feature.Domain.Exemple.Models;
-using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Freelancer.Core.Feature.Exemple.Queries.Get;
+using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Interface;
 using MediatR;
 

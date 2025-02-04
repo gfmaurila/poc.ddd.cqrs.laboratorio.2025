@@ -1,5 +1,5 @@
-﻿using API.Freelancer.Core.Infrastructure.Integration;
-using API.Freelancer.Core.Feature.Notification.Messaging.Request;
+﻿using API.Freelancer.Core.Feature.Notification.Messaging.Request;
+using API.Freelancer.Core.Infrastructure.Integration;
 using Polly;
 using System.Net;
 

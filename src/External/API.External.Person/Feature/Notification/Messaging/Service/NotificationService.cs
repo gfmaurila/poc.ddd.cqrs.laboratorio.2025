@@ -1,9 +1,9 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
+﻿using API.External.Person.Feature.Notification.Messaging.Request;
 using API.External.Person.Infrastructure.Integration;
 using Polly;
 using System.Net;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
+namespace API.External.Person.Feature.Notification.Messaging.Service;
 
 /// <summary>
 /// Service responsible for sending notifications via SMS or WhatsApp using an external API.
