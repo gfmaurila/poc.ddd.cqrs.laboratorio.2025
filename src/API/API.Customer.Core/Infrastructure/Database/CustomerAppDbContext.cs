@@ -1,4 +1,5 @@
-﻿using API.Customer.Core.Feature.Domain.Exemple;
+﻿using API.Customer.Core.Feature.Domain;
+using API.Customer.Core.Feature.Domain.Exemple;
 using API.Customer.Core.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,13 @@ public class CustomerAppDbContext : DbContext
     /// </summary>
     public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
+    public DbSet<Account> Accounts { get; set; }
+    public DbSet<AccountSubscription> AccountSubscriptions { get; set; }
+    public DbSet<SubscriptionPlan> SubscriptionPlans { get; set; }
+    public DbSet<MessageUsage> MessageUsages { get; set; }
+    public DbSet<MessageUsageItem> MessageUsageItems { get; set; }
+    public DbSet<AccountProduct> AccountProducts { get; set; }
+
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
     /// </summary>
@@ -36,6 +44,15 @@ public class CustomerAppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
+
+        modelBuilder.ApplyConfiguration(new AccountConfiguration());
+        modelBuilder.ApplyConfiguration(new AccountSubscriptionConfiguration());
+        modelBuilder.ApplyConfiguration(new SubscriptionPlanConfiguration());
+        modelBuilder.ApplyConfiguration(new MessageUsageConfiguration());
+        modelBuilder.ApplyConfiguration(new MessageUsageItemConfiguration());
+        modelBuilder.ApplyConfiguration(new AccountProductConfiguration());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     /// <summary>
