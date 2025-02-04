@@ -64,6 +64,24 @@ services:
       - app-backend
       - shared-network
 
+  api.external.person:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8086
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5006:80"
+      - "8086:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
+
+
+
   api.external.email:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
@@ -157,6 +175,7 @@ services:
 
 
   
+
 
 
 

@@ -1,0 +1,6 @@
+@API.External.Person_HostAddress = http://localhost:5093
+
+GET {{API.External.Person_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

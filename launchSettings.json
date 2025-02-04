@@ -13,7 +13,8 @@
         "common.external.auth.net8.tests": "StartDebugging",
         "api.external.auth.tests": "StartDebugging",
         "api.external.email": "StartDebugging",
-        "api.customer.core": "StartDebugging"
+        "api.customer.core": "StartDebugging",
+        "api.external.person": "StartDebugging"
       }
     }
   }

@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2025-01-29T19:51:58.536Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="J8L74j0JLU-Sz-DmMlnY" version="24.0.4" type="device" pages="5">
+<mxfile host="Electron" modified="2025-02-03T23:55:02.278Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="0RiKqBCDfulf4VIf6VGt" version="24.0.4" type="device" pages="5">
   <diagram id="UpnjxEBypnCfxaO6hWaG" name="API Gateway">
-    <mxGraphModel dx="2074" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -453,7 +453,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="qOZD_Y3hr8YFyraNIUHw" name="Architecture">
-    <mxGraphModel dx="2074" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -462,6 +462,11 @@
         </mxCell>
         <mxCell id="sd-RvYlaweVp6N_bchjU-3" value="API.NET Core Web APP" style="swimlane;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=0" parent="1" vertex="1">
           <mxGeometry x="40" y="80" width="1050" height="890" as="geometry" />
+        </mxCell>
+        <mxCell id="SxfIzY9s2vj6xXkSahZ0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" edge="1" parent="sd-RvYlaweVp6N_bchjU-3" source="sd-RvYlaweVp6N_bchjU-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="70" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="sd-RvYlaweVp6N_bchjU-8" value="API.Gateway" style="rounded=1;whiteSpace=wrap;html=1;sketch=1;curveFitting=1;jiggle=2;fillColor=#1ba1e2;fontColor=#000000;strokeColor=#006EAF;fontSize=16;fontStyle=1" parent="sd-RvYlaweVp6N_bchjU-3" vertex="1">
           <mxGeometry x="10" y="40" width="160" height="60" as="geometry" />

@@ -74,6 +74,23 @@ services:
       - mongoserver
       - rabbitmq
 
+  api.external.person:
+    image: ${DOCKER_REGISTRY-}apiexternalperson
+    restart: always
+    build:
+      context: .
+      dockerfile: src/External/API.External.Person/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq
+
+
 # APIs FIM --------------------------------------------------------
 
 
@@ -274,7 +291,6 @@ services:
 
 # INFRA FIM --------------------------------------------------------
 
-
 volumes:
   zookeeper_data:
     driver: local
@@ -288,6 +304,7 @@ volumes:
     driver: local
   .docker-conf:
     driver: local
+
 
 
 
