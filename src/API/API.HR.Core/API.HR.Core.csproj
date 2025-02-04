@@ -84,7 +84,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="API.Exemple.Core.08.Tests" />
+		<InternalsVisibleTo Include="API.HR.Core.Tests" />
 	</ItemGroup>
 
 	<ItemGroup>

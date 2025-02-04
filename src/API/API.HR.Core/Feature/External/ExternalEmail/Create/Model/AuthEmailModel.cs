@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Create.Model;
+﻿namespace API.HR.Core.Feature.External.ExternalEmail.Create.Model;
 
 public class AuthEmailModel
 {

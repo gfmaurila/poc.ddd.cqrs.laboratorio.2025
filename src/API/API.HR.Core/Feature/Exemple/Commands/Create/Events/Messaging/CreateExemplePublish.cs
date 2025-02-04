@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Common;
+﻿using API.HR.Core.Feature.Domain.Common;
 using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Interface;
 using System.Text;

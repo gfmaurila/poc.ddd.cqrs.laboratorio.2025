@@ -2,7 +2,7 @@
 using Common.Core._08.Domain.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Exemple.Core._08.Infrastructure.Database.Repositories;
+namespace API.HR.Core.Infrastructure.Database.Repositories;
 
 /// <summary>
 /// Provides a generic repository implementation for data access operations.
@@ -10,13 +10,13 @@ namespace API.Exemple.Core._08.Infrastructure.Database.Repositories;
 /// <typeparam name="T">The entity type that extends <see cref="BaseEntity"/>.</typeparam>
 public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {
-    private readonly ExempleAppDbContext _context;
+    private readonly HRAppDbContext _context;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
     /// </summary>
     /// <param name="context">The database context instance.</param>
-    public BaseRepository(ExempleAppDbContext context)
+    public BaseRepository(HRAppDbContext context)
     {
         _context = context;
     }

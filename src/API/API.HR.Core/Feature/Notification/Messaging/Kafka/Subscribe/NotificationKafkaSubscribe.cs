@@ -2,7 +2,7 @@
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
 using Common.Core._08.Kafka;
 
-namespace API.Exemple.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
+namespace API.HR.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 
 
 public class NotificationKafkaSubscribe : IHostedService

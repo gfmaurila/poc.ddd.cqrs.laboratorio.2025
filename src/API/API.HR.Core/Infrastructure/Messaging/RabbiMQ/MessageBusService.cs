@@ -2,7 +2,7 @@
 using Common.Core._08.Interface;
 using RabbitMQ.Client;
 
-namespace API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+namespace API.HR.Core.Infrastructure.Messaging.RabbiMQ;
 
 /// <summary>
 /// Provides message publishing capabilities to a message bus (e.g., RabbitMQ).

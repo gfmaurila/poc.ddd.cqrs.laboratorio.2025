@@ -3,7 +3,7 @@ using Common.Core._08.Model;
 using Common.Core._08.Service;
 using StackExchange.Redis;
 
-namespace API.Exemple.Core._08.Infrastructure.Redis;
+namespace API.HR.Core.Infrastructure.Redis;
 
 /// <summary>
 /// Initializes and configures the distributed cache services using Redis.

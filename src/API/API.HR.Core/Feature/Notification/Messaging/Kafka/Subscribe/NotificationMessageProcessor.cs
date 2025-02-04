@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
+﻿using API.HR.Core.Infrastructure.Integration.ExternalEmail;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;

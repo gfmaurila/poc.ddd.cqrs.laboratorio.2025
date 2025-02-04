@@ -1,10 +1,10 @@
 ﻿using Common.Core._08.Interface;
 
-namespace API.Exemple.Core._08.Infrastructure.Database;
+namespace API.HR.Core.Infrastructure.Database;
 
-public class UnitOfWork(ExempleAppDbContext dbContext) : IUnitOfWork
+public class UnitOfWork(HRAppDbContext dbContext) : IUnitOfWork
 {
-    private readonly ExempleAppDbContext _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+    private readonly HRAppDbContext _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

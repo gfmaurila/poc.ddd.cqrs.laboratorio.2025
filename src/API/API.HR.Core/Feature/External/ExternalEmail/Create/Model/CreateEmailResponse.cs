@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Response;
 
-namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Create.Model;
+namespace API.HR.Core.Feature.External.ExternalEmail.Create.Model;
 
 public class CreateEmailResponse : BaseResponse
 {

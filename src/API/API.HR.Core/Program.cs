@@ -1,4 +1,4 @@
-using API.Exemple.Core._08.Extensions;
+using API.HR.Core.Extensions;
 using FluentValidation;
 using Serilog;
 

@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
+﻿using API.HR.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Response;
 using MediatR;
 

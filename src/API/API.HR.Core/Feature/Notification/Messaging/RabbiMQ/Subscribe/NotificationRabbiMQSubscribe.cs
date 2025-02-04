@@ -1,6 +1,6 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+﻿using API.HR.Core.Infrastructure.Integration.ExternalEmail;
+using API.HR.Core.Infrastructure.Integration.ExternalEmail.Model;
+using API.HR.Core.Infrastructure.Integration.ExternalEmail.Service;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
 using API.Exemple1.Core._08.Infrastructure.Messaging;
@@ -9,7 +9,7 @@ using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Subscribe;
+namespace API.HR.Core.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 
 /// <summary>
 /// Background service that subscribes to a RabbitMQ queue and processes incoming notification messages.

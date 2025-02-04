@@ -1,10 +1,10 @@
-﻿using API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
-using API.Exemple.Core._08.Feature.External.ExternalEmail.Get.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Api;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
+﻿using API.HR.Core.Feature.External.ExternalEmail.Get;
+using API.HR.Core.Feature.External.ExternalEmail.Get.Model;
+using API.HR.Core.Infrastructure.Integration.ExternalEmail.Api;
+using API.HR.Core.Infrastructure.Integration.ExternalEmail.Model;
 using Polly;
 
-namespace API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+namespace API.HR.Core.Infrastructure.Integration.ExternalEmail.Service;
 
 public class ExternalEmailService : IExternalEmailService
 {

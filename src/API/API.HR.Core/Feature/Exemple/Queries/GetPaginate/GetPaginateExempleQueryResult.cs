@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.HR.Core.Feature.Domain.Exemple.Models;
 using Common.Core._08.Response;
 
 namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;

@@ -1,11 +1,11 @@
-﻿using API.Exemple.Core._08.Tests.Integration.Features.Fakes;
+﻿using API.HR.Core.Tests.Integration.Features.Fakes;
 using API.Exemple.Core.Tests.Integration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
+namespace API.HR.Core.Tests.Integration.Utilities.Auth;
 
 public class AuthToken1 : IClassFixture<DatabaseSQLServerFixture>
 {

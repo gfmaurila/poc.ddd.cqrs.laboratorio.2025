@@ -1,10 +1,10 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
+﻿using API.HR.Core.Feature.Domain.Exemple;
 using Common.Core._08.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Text.Json;
 
-namespace API.Exemple.Core._08.Infrastructure.Database.Mappings;
+namespace API.HR.Core.Infrastructure.Database.Mappings;
 
 /// <summary>
 /// Configures the database mapping for the <see cref="ExempleEntity"/> entity.

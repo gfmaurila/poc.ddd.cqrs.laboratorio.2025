@@ -4,7 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
-namespace API.Exemple.Core._08.Extensions;
+namespace API.HR.Core.Extensions;
 
 public static class SwaggerConfig
 {
@@ -23,7 +23,7 @@ public static class SwaggerConfig
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = "API Exemple",
+                    Title = "API HR",
                     Version = "v1"
                 }
             );
@@ -94,7 +94,7 @@ public static class SwaggerConfig
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.Exemple");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.HR");
         });
     }
 }

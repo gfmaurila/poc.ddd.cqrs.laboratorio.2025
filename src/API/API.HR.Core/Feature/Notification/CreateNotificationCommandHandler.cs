@@ -4,7 +4,7 @@ using API.Exemple1.Core._08.Feature.Notification.Messaging.RabbiMQ;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple.Core._08.Feature.Notification;
+namespace API.HR.Core.Feature.Notification;
 
 public class CreateNotificationCommandHandler : IRequestHandler<CreateNotificationCommand, ApiResult<CreateNotificationResponse>>
 {
