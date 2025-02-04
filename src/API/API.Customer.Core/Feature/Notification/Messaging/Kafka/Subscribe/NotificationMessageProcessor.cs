@@ -1,10 +1,10 @@
 ﻿using API.Customer.Core.Infrastructure.Integration.ExternalEmail;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
+using API.Customer.Core.Feature.Notification.Messaging.Events;
+using API.Customer.Core.Feature.Notification.Messaging.Request;
+using API.Customer.Core.Feature.Notification.Messaging.Service;
 using Newtonsoft.Json;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
+namespace API.Customer.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 
 public class NotificationMessageProcessor : INotificationMessageProcessor
 {

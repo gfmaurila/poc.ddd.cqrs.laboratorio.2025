@@ -1,4 +1,4 @@
-﻿namespace API.Exemple1.Core._08.Feature.Domain;
+﻿namespace API.Customer.Core.Feature.Domain;
 
 public class User
 {

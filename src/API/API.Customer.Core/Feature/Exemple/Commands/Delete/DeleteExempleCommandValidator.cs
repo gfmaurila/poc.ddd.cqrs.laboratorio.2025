@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
+namespace API.Customer.Core.Feature.Exemple.Commands.Delete;
 
 /// <summary>
 /// Validator for the <see cref="DeleteExempleCommand"/> class, ensuring that the provided data is valid.

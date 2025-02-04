@@ -1,5 +1,5 @@
 ﻿using API.HR.Core.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+using API.HR.Core.Feature.Exemple.Commands.Create;
 
 namespace API.HR.Core.Feature.Domain.Exemple.Events;
 

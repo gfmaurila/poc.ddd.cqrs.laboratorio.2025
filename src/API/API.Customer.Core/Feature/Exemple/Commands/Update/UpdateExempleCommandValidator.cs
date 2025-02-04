@@ -1,7 +1,7 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using FluentValidation;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
+namespace API.Customer.Core.Feature.Exemple.Commands.Update;
 
 /// <summary>
 /// Validator for the <see cref="UpdateExempleCommand"/> class, ensuring that all required fields

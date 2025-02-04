@@ -232,6 +232,39 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 
 
 
+## 🧩 Relacionamentos entre as Entidades
+
+- **Bogus**: Geração de dados fictícios para testes.
+
+
+Entidade	            Relacionamentos
+Employee	            Pertence a um Department e a um Position
+Department	            Pode ter vários Employees
+Position	            Pode ter vários Employees
+Benefit	                Pode ser vinculado a vários Employees
+PerformanceReview	    Vinculado a um Employee
+Payroll	                Vinculado a um Employee
+LeaveRequest	        Vinculado a um Employee
+Attendance	            Vinculado a um Employee
+Document	            Vinculado a um Employee
+
+
+## 📋 Exemplo de Fluxo de Negócio
+1 - Cadastro de Funcionário (Employee) com seus dados pessoais, cargo (Position) e departamento (Department).
+2 - Adicionar benefícios (Benefit) que o funcionário possui.
+3 - Realizar uma avaliação de desempenho (PerformanceReview) periódica.
+4 - Registrar presença (Attendance) diariamente.
+5 - Processar folha de pagamento (Payroll) mensalmente.
+6 - Gerenciar solicitações de férias/ausência (LeaveRequest).
+
+
+##  📈 Próximos Passos
+1 - Implementar repositórios para acesso a dados.
+2 - Criar services para regras de negócio.
+3 - Implementar controllers para expor a API REST.
+4 - Configurar migrations com Entity Framework Core.
+
+
 
 
 

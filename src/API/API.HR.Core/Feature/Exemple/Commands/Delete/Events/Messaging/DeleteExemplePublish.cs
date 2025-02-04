@@ -1,10 +1,10 @@
 ﻿using API.HR.Core.Feature.Domain.Common;
-using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Interface;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging;
+namespace API.HR.Core.Feature.Exemple.Commands.Delete.Events.Messaging;
 
 /// <summary>
 /// Handles publishing events related to the deletion of an Exemple entity.

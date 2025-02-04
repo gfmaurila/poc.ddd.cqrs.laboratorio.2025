@@ -1,11 +1,11 @@
 ﻿using API.HR.Core.Feature.Notification;
 using API.HR.Core.Infrastructure.Integration;
-using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging;
+namespace API.HR.Core.Feature.Exemple.Commands.Delete.Events.Messaging;
 
 /// <summary>
 /// Handles the <see cref="ExempleDeleteEvent"/> by sending notifications via RabbitMQ

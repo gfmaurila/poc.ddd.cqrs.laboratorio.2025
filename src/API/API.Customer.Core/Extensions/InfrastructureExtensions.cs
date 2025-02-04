@@ -4,7 +4,7 @@ using API.Customer.Core.Infrastructure.Database.Repositories;
 using API.Customer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Customer.Core.Infrastructure.Integration;
 using API.Customer.Core.Infrastructure.Redis;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+using API.Customer.Core.Infrastructure.Messaging;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

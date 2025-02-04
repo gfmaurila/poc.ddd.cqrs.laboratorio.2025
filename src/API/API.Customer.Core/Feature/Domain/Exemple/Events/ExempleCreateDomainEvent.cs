@@ -1,5 +1,5 @@
 ﻿using API.Customer.Core.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+using API.Customer.Core.Feature.Exemple.Commands.Create;
 
 namespace API.Customer.Core.Feature.Domain.Exemple.Events;
 

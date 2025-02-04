@@ -2,7 +2,7 @@
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+namespace API.Customer.Core.Feature.Exemple.Commands.Create;
 
 public record CreateExempleCommand(
     string FirstName,

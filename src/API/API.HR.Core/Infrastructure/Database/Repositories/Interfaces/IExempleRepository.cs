@@ -1,6 +1,6 @@
 ﻿using API.HR.Core.Feature.Domain.Exemple;
 using API.HR.Core.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+using API.HR.Core.Feature.Exemple.Queries.GetPaginate;
 using Common.Core._08.Domain.Interface;
 using Common.Core._08.Domain.ValueObjects;
 

@@ -1,12 +1,12 @@
 ﻿namespace API.HR.Core.Controllers;
 
 using API.HR.Core.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetById;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+using API.HR.Core.Feature.Exemple.Commands.Create;
+using API.HR.Core.Feature.Exemple.Commands.Delete;
+using API.HR.Core.Feature.Exemple.Commands.Update;
+using API.HR.Core.Feature.Exemple.Queries.Get;
+using API.HR.Core.Feature.Exemple.Queries.GetById;
+using API.HR.Core.Feature.Exemple.Queries.GetPaginate;
 using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;

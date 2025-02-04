@@ -1,9 +1,9 @@
 ﻿using API.HR.Core.Infrastructure.Integration.ExternalEmail;
 using API.HR.Core.Infrastructure.Integration.ExternalEmail.Model;
 using API.HR.Core.Infrastructure.Integration.ExternalEmail.Service;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+using API.HR.Core.Feature.Notification.Messaging.Events;
+using API.HR.Core.Feature.Notification.Messaging.Request;
+using API.HR.Core.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;

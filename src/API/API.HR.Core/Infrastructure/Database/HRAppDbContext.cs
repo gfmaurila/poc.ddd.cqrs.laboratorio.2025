@@ -1,4 +1,5 @@
-﻿using API.HR.Core.Feature.Domain.Exemple;
+﻿using API.HR.Core.Feature.Domain;
+using API.HR.Core.Feature.Domain.Exemple;
 using API.HR.Core.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +30,16 @@ public class HRAppDbContext : DbContext
     /// </summary>
     public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
+
+    public DbSet<Employee> Employees { get; set; }
+    public DbSet<Department> Departments { get; set; }
+    public DbSet<Position> Positions { get; set; }
+    public DbSet<Benefit> Benefits { get; set; }
+    public DbSet<PerformanceReview> PerformanceReviews { get; set; }
+    public DbSet<Payroll> Payrolls { get; set; }
+    public DbSet<LeaveRequest> LeaveRequests { get; set; }
+    public DbSet<Attendance> Attendances { get; set; }
+
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
     /// </summary>
@@ -36,6 +47,15 @@ public class HRAppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
+
+        modelBuilder.ApplyConfiguration(new EmployeeMap());
+        modelBuilder.ApplyConfiguration(new DepartmentMap());
+        modelBuilder.ApplyConfiguration(new PositionMap());
+        modelBuilder.ApplyConfiguration(new BenefitMap());
+        modelBuilder.ApplyConfiguration(new PerformanceReviewMap());
+        modelBuilder.ApplyConfiguration(new PayrollMap());
+        modelBuilder.ApplyConfiguration(new LeaveRequestMap());
+        modelBuilder.ApplyConfiguration(new AttendanceMap());
     }
 
     /// <summary>

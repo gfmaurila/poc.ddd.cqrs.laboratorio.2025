@@ -1,11 +1,11 @@
 ﻿using API.Customer.Core.Feature.Domain.Exemple.Events;
 using API.Customer.Core.Feature.Domain.Exemple.Models;
 using API.Customer.Core.Infrastructure.Database.Repositories.Interfaces;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
+using API.Customer.Core.Feature.Exemple.Queries.Get;
 using Common.Core._08.Interface;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events;
+namespace API.Customer.Core.Feature.Exemple.Commands.Create.Events;
 
 /// <summary>
 /// Handles the <see cref="ExempleCreateDomainEvent"/> to update the cache after a new Exemple entity is created.

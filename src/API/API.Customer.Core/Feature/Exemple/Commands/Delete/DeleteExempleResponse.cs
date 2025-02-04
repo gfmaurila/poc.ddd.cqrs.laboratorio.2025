@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Response;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
+namespace API.Customer.Core.Feature.Exemple.Commands.Delete;
 
 public class DeleteExempleResponse : BaseResponse
 {

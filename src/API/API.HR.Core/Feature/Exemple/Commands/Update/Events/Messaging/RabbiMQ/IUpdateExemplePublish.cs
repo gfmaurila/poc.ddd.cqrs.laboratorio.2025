@@ -1,6 +1,6 @@
-﻿using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+﻿using API.HR.Core.Feature.Domain.Exemple.Events.Messaging;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
+namespace API.HR.Core.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
 
 public interface IUpdateExemplePublish
 {

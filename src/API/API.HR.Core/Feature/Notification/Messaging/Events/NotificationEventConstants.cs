@@ -1,4 +1,4 @@
-﻿namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
+﻿namespace API.HR.Core.Feature.Notification.Messaging.Events;
 
 public static class NotificationEventConstants
 {

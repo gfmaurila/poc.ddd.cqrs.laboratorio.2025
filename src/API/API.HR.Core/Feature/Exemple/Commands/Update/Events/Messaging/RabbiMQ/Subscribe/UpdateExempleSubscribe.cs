@@ -1,11 +1,11 @@
 ﻿using API.HR.Core.Feature.Domain.Common;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+using API.HR.Core.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subscribe;
+namespace API.HR.Core.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subscribe;
 
 /// <summary>
 /// Background service that subscribes to a RabbitMQ queue and processes Exemple update events.
