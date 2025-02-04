@@ -33,11 +33,11 @@ public class FreelancerAppDbContext : DbContext
     public DbSet<API.Freelancer.Core.Feature.Domain.Freelancer> Freelancers { get; set; }
     public DbSet<Client> Clients { get; set; }
     public DbSet<Project> Projects { get; set; }
+    public DbSet<Proposal> Proposals { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Payment> Payments { get; set; }
-    public DbSet<API.Freelancer.Core.Feature.Domain.Task> Tasks { get; set; }
-    public DbSet<Skill> Skills { get; set; }
-    public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<Review> Reviews { get; set; }
+
 
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
@@ -47,14 +47,12 @@ public class FreelancerAppDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
 
-        modelBuilder.ApplyConfiguration(new FreelancerMap());
-        modelBuilder.ApplyConfiguration(new ClientMap());
-        modelBuilder.ApplyConfiguration(new ProjectMap());
-        modelBuilder.ApplyConfiguration(new ContractMap());
-        modelBuilder.ApplyConfiguration(new PaymentMap());
-        modelBuilder.ApplyConfiguration(new TaskMap());
-        modelBuilder.ApplyConfiguration(new SkillMap());
-        modelBuilder.ApplyConfiguration(new InvoiceMap());
+        modelBuilder.ApplyConfiguration(new FreelancerConfiguration());
+        modelBuilder.ApplyConfiguration(new ClientConfiguration());
+        modelBuilder.ApplyConfiguration(new ProjectConfiguration());
+        modelBuilder.ApplyConfiguration(new ProposalConfiguration());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     /// <summary>

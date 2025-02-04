@@ -1,47 +1,87 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.Freelancer.Core
 
-# API Exemple
+## 📖 Descrição
+A **API.Freelancer.Core** é uma plataforma completa para o gerenciamento de freelancers, permitindo que profissionais independentes possam oferecer seus serviços e clientes possam contratá-los de forma eficiente.
 
-## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
 
-## Tecnologias Utilizadas
-- **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+A plataforma inclui funcionalidades como:
+- Cadastro de freelancers e clientes
+- Gestão de propostas e contratos
+- Controle de pagamentos e faturas
+- Avaliações e feedbacks
+- Sistema de mensagens e notificações
+- Gestão de categorias e habilidades
 
-## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+## 🏗 Estrutura do Domínio
+A API gerencia as seguintes entidades principais:
+
+### 1️⃣ **Freelancer (`Freelancer`)**
+- Nome, e-mail, telefone
+- Habilidades e categorias
+- Portfólio e experiências
+- Disponibilidade e localização
+
+### 2️⃣ **Cliente (`Client`)**
+- Nome, e-mail, telefone
+- Histórico de contratações
+- Avaliações feitas
+
+### 3️⃣ **Projeto (`Project`)**
+- Nome, descrição e requisitos
+- Orçamento e prazo
+- Status do projeto (Aberto, Em Andamento, Concluído)
+- Propostas recebidas
+
+### 4️⃣ **Proposta (`Proposal`)**
+- Freelancer que enviou a proposta
+- Valor e prazo estimado
+- Status da proposta (Pendente, Aceita, Recusada)
+
+### 5️⃣ **Contrato (`Contract`)**
+- Associação entre freelancer e cliente
+- Termos do serviço
+- Status (Ativo, Concluído, Cancelado)
+- Pagamentos associados
+
+### 6️⃣ **Pagamento (`Payment`)**
+- Valor do pagamento
+- Status (Pendente, Processado, Concluído)
+- Método de pagamento (Cartão, Pix, Transferência)
+
+### 7️⃣ **Avaliação (`Review`)**
+- Freelancer avaliado por um cliente
+- Cliente avaliado por um freelancer
+- Comentários e notas
+
+### 🔗 **Relacionamentos**
+- Um **Freelancer** pode se candidatar a vários **Projetos**.
+- Um **Cliente** pode publicar vários **Projetos**.
+- Um **Projeto** pode ter várias **Propostas**, mas apenas uma **Proposta** pode ser aceita.
+- Um **Contrato** é firmado entre um **Freelancer** e um **Cliente** com base em uma proposta aceita.
+- Os **Pagamentos** são vinculados a um **Contrato** e liberados conforme as regras definidas.
+- As **Avaliações** são feitas após a conclusão de um projeto ou contrato.
+
+## 🚀 Tecnologias e Arquitetura
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para persistência de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional.
+- **Swagger/OpenAPI** para documentação interativa.
+- **Autenticação JWT** para segurança e controle de acesso.
+- **Integrações REST para meios de pagamento.**
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de persistência com EF Core.**
+4. **Criar os endpoints REST para gerenciamento de freelancers, clientes e projetos.**
+5. **Implementar notificações e sistema de mensagens internas.**
 
 ## Estrutura de Pastas
 
 ### Projeto Principal
 ```
-API.Exemple.Core.08
+API.Freelancer.Core
 ├── Connected Services
 ├── Dependências
 ├── Properties
@@ -206,8 +246,8 @@ RabbitMQ: http://localhost:15672/#/
 
 
 
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
+📌 **Contribuições**
+Sinta-se à vontade para abrir um Pull Request ou sugerir melhorias por meio de Issues!
 
 
 ---
