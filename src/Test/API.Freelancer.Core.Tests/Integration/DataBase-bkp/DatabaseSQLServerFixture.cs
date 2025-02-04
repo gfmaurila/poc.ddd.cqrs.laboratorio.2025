@@ -1,5 +1,5 @@
-﻿//using API.Exemple.Core._08.Infrastructure.Database;
-//using API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
+﻿//using API.Freelancer.Core.Infrastructure.Database;
+//using API.Freelancer.Core.Tests.Integration.Utilities.Auth;
 //using API.Exemple.Core.Tests.Integration.Factory;
 //using Microsoft.EntityFrameworkCore;
 

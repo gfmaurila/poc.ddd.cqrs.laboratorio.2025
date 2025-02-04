@@ -1,6 +1,6 @@
-﻿namespace API.Exemple.Core._08.Controllers;
+﻿namespace API.Freelancer.Core.Controllers;
 
-using API.Exemple.Core._08.Feature.Notification;
+using API.Freelancer.Core.Feature.Notification;
 using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;

@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Common;
+﻿using API.Freelancer.Core.Feature.Domain.Common;
 using API.Exemple1.Core._08.Infrastructure.Messaging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

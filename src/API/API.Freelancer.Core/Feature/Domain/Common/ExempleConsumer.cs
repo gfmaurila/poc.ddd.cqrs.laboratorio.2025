@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple.Core._08.Feature.Domain.Common;
+namespace API.Freelancer.Core.Feature.Domain.Common;
 
 public class ExempleConsumer
 {

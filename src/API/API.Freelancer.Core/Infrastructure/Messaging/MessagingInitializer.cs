@@ -1,6 +1,6 @@
-﻿using API.Exemple.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
-using API.Exemple.Core._08.Feature.Notification.Messaging.RabbiMQ.Subscribe;
-using API.Exemple.Core._08.Infrastructure.Messaging.RabbiMQ;
+﻿using API.Freelancer.Core.Feature.Notification.Messaging.Kafka.Subscribe;
+using API.Freelancer.Core.Feature.Notification.Messaging.RabbiMQ.Subscribe;
+using API.Freelancer.Core.Infrastructure.Messaging.RabbiMQ;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Create.Events.Messaging;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging.Subscribe;

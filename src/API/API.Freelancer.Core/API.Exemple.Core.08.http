@@ -1,6 +1,0 @@
-@API.Exemple.Core._08_HostAddress = http://localhost:5093
-
-GET {{API.Exemple.Core._08_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

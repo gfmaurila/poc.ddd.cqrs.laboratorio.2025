@@ -1,8 +1,8 @@
-﻿using API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
-using API.Exemple.Core._08.Feature.External.ExternalEmail.Get.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
+﻿using API.Freelancer.Core.Feature.External.ExternalEmail.Get;
+using API.Freelancer.Core.Feature.External.ExternalEmail.Get.Model;
+using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Model;
 
-namespace API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+namespace API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Service;
 
 public interface IExternalEmailService
 {

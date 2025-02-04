@@ -1,5 +1,5 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
+using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
 
 namespace API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;

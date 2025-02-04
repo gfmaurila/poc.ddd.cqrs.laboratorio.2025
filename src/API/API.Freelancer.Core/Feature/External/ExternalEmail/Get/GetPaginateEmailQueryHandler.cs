@@ -1,8 +1,8 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+﻿using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Service;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
+namespace API.Freelancer.Core.Feature.External.ExternalEmail.Get;
 
 /// <summary>
 /// Handles queries for retrieving paginated email records from an external email service.

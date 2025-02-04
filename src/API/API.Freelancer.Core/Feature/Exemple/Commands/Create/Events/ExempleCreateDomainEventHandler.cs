@@ -1,6 +1,6 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
+using API.Freelancer.Core.Feature.Domain.Exemple.Models;
+using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
 using Common.Core._08.Interface;
 using MediatR;

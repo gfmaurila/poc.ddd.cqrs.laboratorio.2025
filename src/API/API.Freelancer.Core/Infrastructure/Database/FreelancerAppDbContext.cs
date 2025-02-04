@@ -1,27 +1,27 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
-using API.Exemple.Core._08.Infrastructure.Database.Mappings;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple;
+using API.Freelancer.Core.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Exemple.Core._08.Infrastructure.Database;
+namespace API.Freelancer.Core.Infrastructure.Database;
 
 /// <summary>
 /// Represents the database context for the Exemple application.
 /// Provides access to database entities and configurations.
 /// </summary>
-public class ExempleAppDbContext : DbContext
+public class FreelancerAppDbContext : DbContext
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExempleAppDbContext"/> class.
+    /// Initializes a new instance of the <see cref="FreelancerAppDbContext"/> class.
     /// Default constructor required for design-time tools.
     /// </summary>
-    public ExempleAppDbContext()
+    public FreelancerAppDbContext()
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExempleAppDbContext"/> class with the specified options.
+    /// Initializes a new instance of the <see cref="FreelancerAppDbContext"/> class with the specified options.
     /// </summary>
     /// <param name="options">The database context options.</param>
-    public ExempleAppDbContext(DbContextOptions<ExempleAppDbContext> options) : base(options)
+    public FreelancerAppDbContext(DbContextOptions<FreelancerAppDbContext> options) : base(options)
     { }
 
     /// <summary>

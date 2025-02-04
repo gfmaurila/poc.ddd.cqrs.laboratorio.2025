@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Events;
 using Common.Core._08.Domain.Enumerado;
 
 namespace API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;

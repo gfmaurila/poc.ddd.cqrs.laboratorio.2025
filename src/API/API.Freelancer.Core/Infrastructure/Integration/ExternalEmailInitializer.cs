@@ -1,9 +1,9 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Api;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+﻿using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail;
+using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Api;
+using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Service;
 using Refit;
 
-namespace API.Exemple.Core._08.Infrastructure.Integration;
+namespace API.Freelancer.Core.Infrastructure.Integration;
 
 public class ExternalEmailInitializer
 {

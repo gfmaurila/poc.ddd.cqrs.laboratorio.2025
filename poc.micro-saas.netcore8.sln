@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.InventoryControl.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.InventoryControl.Core.Tests", "src\Test\API.InventoryControl.Core.Tests\API.InventoryControl.Core.Tests.csproj", "{B32EA486-3308-4018-A876-3000811792A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Freelancer.Core", "src\API\API.Freelancer.Core\API.Freelancer.Core.csproj", "{00B370E0-87EC-4DF5-B376-23852F9A290D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Freelancer.Core.Tests", "src\Test\API.Freelancer.Core.Tests\API.Freelancer.Core.Tests.csproj", "{7395EF9F-EE3A-40CC-8426-035F47A76558}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +139,14 @@ Global
 		{B32EA486-3308-4018-A876-3000811792A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B32EA486-3308-4018-A876-3000811792A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B32EA486-3308-4018-A876-3000811792A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B370E0-87EC-4DF5-B376-23852F9A290D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B370E0-87EC-4DF5-B376-23852F9A290D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B370E0-87EC-4DF5-B376-23852F9A290D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B370E0-87EC-4DF5-B376-23852F9A290D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7395EF9F-EE3A-40CC-8426-035F47A76558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7395EF9F-EE3A-40CC-8426-035F47A76558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7395EF9F-EE3A-40CC-8426-035F47A76558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7395EF9F-EE3A-40CC-8426-035F47A76558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -164,5 +176,7 @@ Global
 		{2A3B5D24-DC2D-405D-B201-AD758E821251} = {FA7CE411-2AFC-48B3-B30E-6932163D6BC4}
 		{5C9F7567-E8C3-439F-B318-DE89CF14591A} = {241598C1-0E72-4594-8E8A-B7F3A9E88917}
 		{B32EA486-3308-4018-A876-3000811792A1} = {FA7CE411-2AFC-48B3-B30E-6932163D6BC4}
+		{00B370E0-87EC-4DF5-B376-23852F9A290D} = {241598C1-0E72-4594-8E8A-B7F3A9E88917}
+		{7395EF9F-EE3A-40CC-8426-035F47A76558} = {FA7CE411-2AFC-48B3-B30E-6932163D6BC4}
 	EndGlobalSection
 EndGlobal

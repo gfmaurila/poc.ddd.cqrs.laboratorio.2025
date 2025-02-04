@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail;
+﻿namespace API.Freelancer.Core.Infrastructure.Integration.ExternalEmail;
 
 public class ExternalEmailApiConsts
 {

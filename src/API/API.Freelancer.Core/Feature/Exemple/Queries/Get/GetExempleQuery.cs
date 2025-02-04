@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using Common.Core._08.Response;
 using MediatR;
 

@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Response;
 
-namespace API.Exemple.Core._08.Feature.Notification;
+namespace API.Freelancer.Core.Feature.Notification;
 
 public class CreateNotificationResponse : BaseResponse
 {

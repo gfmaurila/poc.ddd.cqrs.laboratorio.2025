@@ -1,6 +1,6 @@
-﻿namespace API.Exemple.Core._08.Controllers;
+﻿namespace API.Freelancer.Core.Controllers;
 
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Update;

@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple.Core._08.Tests.Integration.Features.Fakes;
+namespace API.Freelancer.Core.Tests.Integration.Features.Fakes;
 
 public static class UtilFake
 {

@@ -23,7 +23,7 @@ public static class SwaggerConfig
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = "API Exemple",
+                    Title = "API InventoryControl",
                     Version = "v1"
                 }
             );
@@ -94,7 +94,7 @@ public static class SwaggerConfig
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.Exemple");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.InventoryControl");
         });
     }
 }

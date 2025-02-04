@@ -29,16 +29,17 @@
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\..\API\API.Exemple.Core.08\API.Exemple.Core.08.csproj" />
-	</ItemGroup>
-
+	
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Integration\Utilities\Redis\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\API.Freelancer.Core\API.Freelancer.Core.csproj" />
   </ItemGroup>
 
 </Project>

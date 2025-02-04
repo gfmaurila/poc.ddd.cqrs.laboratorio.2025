@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+namespace API.Freelancer.Core.Feature.Domain.Exemple.Events;
 
 /// <summary>
 /// Represents a domain event triggered when an Exemple entity is deleted.

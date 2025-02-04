@@ -1,6 +1,6 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
+﻿using API.Freelancer.Core.Feature.Domain.Exemple;
+using API.Freelancer.Core.Feature.Domain.Exemple.Models;
+using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Common.Core._08.Response;
 using MediatR;

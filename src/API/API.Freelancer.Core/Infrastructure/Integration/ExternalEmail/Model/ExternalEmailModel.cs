@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
+﻿namespace API.Freelancer.Core.Infrastructure.Integration.ExternalEmail.Model;
 
 public class CreateSendRequest
 {

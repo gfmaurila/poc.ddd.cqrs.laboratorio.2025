@@ -1,4 +1,4 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration;
+﻿using API.Freelancer.Core.Infrastructure.Integration;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
 using Polly;
 using System.Net;
