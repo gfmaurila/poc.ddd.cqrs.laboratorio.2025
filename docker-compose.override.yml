@@ -64,6 +64,70 @@ services:
       - app-backend
       - shared-network
 
+  api.clinic.core:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8090
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5090:80"
+      - "8090:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
+
+  api.freelancer.core:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8087
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5007:80"
+      - "8087:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
+
+  api.hr.core:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8088
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5008:80"
+      - "8088:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
+
+  api.inventorycontrol.core:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8089
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "5009:80"
+      - "8089:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
+
   api.external.person:
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
@@ -175,6 +239,8 @@ services:
 
 
   
+
+
 
 
 

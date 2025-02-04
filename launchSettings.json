@@ -14,7 +14,11 @@
         "api.external.auth.tests": "StartDebugging",
         "api.external.email": "StartDebugging",
         "api.customer.core": "StartDebugging",
-        "api.external.person": "StartDebugging"
+        "api.external.person": "StartDebugging",
+        "api.clinic.core": "StartDebugging",
+        "api.freelancer.core": "StartDebugging",
+        "api.hr.core": "StartDebugging",
+        "api.inventorycontrol.core": "StartDebugging"
       }
     }
   }
