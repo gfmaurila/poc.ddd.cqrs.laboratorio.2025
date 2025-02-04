@@ -1,41 +1,64 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.Customer.Core
 
-# API Exemple
+## 📖 Descrição
+A **API.Customer.Core** é responsável pelo gerenciamento de clientes e suas assinaturas dentro do ecossistema de produtos SaaS. Essa API permite a criação e administração de contas, usuários, planos e a gestão de cobrança de excedentes por envio de mensagens (**e-mail, SMS, WhatsApp**).
 
-## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+### 🌍 Produtos Integrados
+Cada cliente poderá assinar um ou mais produtos, sendo eles:
 
-## Tecnologias Utilizadas
-- **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+- **API.Clinic.Core** → Sistema para clínicas e consultórios.
+- **API.Freelancer.Core** → Plataforma de freelancers.
+- **API.HR.Core** → Gestão de recursos humanos.
+- **API.InventoryControl.Core** → Controle de estoque e inventário.
 
-## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+## 🏗 Estrutura do Domínio
+A API é organizada da seguinte forma:
+
+### 1️⃣ **Conta (`Account`)**
+- Representa uma organização ou empresa.
+- Possui **múltiplos usuários** vinculados.
+- Está associada a um **plano de assinatura** que define o acesso aos produtos e os limites de uso.
+
+### 2️⃣ **Usuário (`User`)**
+- Cada conta pode ter **vários usuários**.
+- O cadastro do usuário é realizado automaticamente na **API.External.Person**.
+- A autenticação é gerenciada pela **API.External.Auth**.
+
+### 3️⃣ **Plano de Assinatura (`SubscriptionPlan`)**
+- Define os produtos contratados.
+- Especifica limites de uso para envios de mensagens.
+- Pode ser mensal ou anual.
+
+### 4️⃣ **Mensagens (`MessageUsage`)**
+- Controle de envios de mensagens.
+- Tipos suportados: **E-mail, SMS, WhatsApp**.
+- Cobrança de excedentes caso o limite do plano seja ultrapassado.
+
+### 🔗 **Relacionamentos**
+- Uma **Conta** pode ter **vários Usuários**.
+- Cada **Usuário** está associado a uma única **Pessoa** na **API.External.Person**.
+- Cada **Usuário** realiza autenticação via **API.External.Auth**.
+- Uma **Conta** pode assinar múltiplos **Produtos**.
+- Uma **Conta** possui um **Plano de Assinatura** e pode incorrer em **custos adicionais** por excedentes.
+
+## 🚀 Tecnologias e Arquitetura
+A API será desenvolvida utilizando **.NET Core 8**, seguindo boas práticas de desenvolvimento.
+
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para persistência de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional.
+- **Swagger/OpenAPI** para documentação interativa.
+- **Autenticação JWT** para segurança e controle de acesso.
+- **Integrações REST com APIs externas** para autenticação e cadastro de pessoas.
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de persistência com EF Core.**
+4. **Criar os endpoints REST para gerenciamento de contas e usuários.**
+
+---
 
 ## Estrutura de Pastas
 
@@ -206,8 +229,9 @@ RabbitMQ: http://localhost:15672/#/
 
 
 
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
+📌 **Contribuições**
+Sinta-se à vontade para abrir um Pull Request ou sugerir melhorias por meio de Issues!
+
 
 
 ---
@@ -221,52 +245,4 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme_Figueiras_Maurila-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-maurila)](https://www.linkedin.com/in/guilherme-maurila)
 [![Gmail Badge](https://img.shields.io/badge/-gfmaurila@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gfmaurila@gmail.com)](mailto:gfmaurila@gmail.com)
-
-
-
-## 📦 Modelo de Domínio
-## 📝 Entidades Principais:
-1 - User (Usuário do sistema)
-2 - Customer (Cliente do Micro SaaS)
-3 - Subscription (Assinatura)
-4 - Plan (Plano de pagamento)
-5 - Invoice (Fatura gerada para pagamento)
-6 - Payment (Pagamento de uma fatura)
-7 - Product (Produto/Serviço oferecido pelo SaaS)
-8 - Feature (Funcionalidades disponíveis nos planos)
-
-
-
-
-
-## 📚  **Relacionamentos Resumidos**
-- **Guilherme Figueiras Maurila**
-
-Entidade	         Relacionamentos
-User	             Tem vários Customers
-Customer	         Pertence a um User, tem várias Subscriptions
-Subscription	     Pertence a um Customer e a um Plan
-Plan	             Tem várias Features
-Invoice	             Pertence a uma Subscription
-Payment	             Pertence a uma Invoice
-Product	             Tem várias Features
-Feature	             Pertence a um Plan ou Product
-
-
-
-## 🔄  **Exemplo de Fluxo de Negócio**
-
-1 - User cria uma conta.
-2 - User cadastra um Customer.
-3 - Customer escolhe um Plan.
-4 - É gerada uma Subscription para o Customer.
-5 - Todo mês, é gerada uma Invoice.
-6 - O Customer paga a Invoice gerando um Payment.
-
-
-## 🚀  **Próximos Passos**
-
-1 - Implementar DTOs para transferir os dados entre camadas.
-2 - Criar Repositórios e Serviços para cada entidade.
-3 - Implementar as migrations do EF Core.
 

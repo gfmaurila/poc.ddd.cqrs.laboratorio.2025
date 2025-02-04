@@ -2,43 +2,84 @@
 
 # API.External.Person
 
-## Visão Geral
-📖 Objetivo
-A **Micro SaaS API** é um serviço para o cadastro e gerenciamento de informações de **Pessoa Física** e **Pessoa Jurídica** dentro de um ambiente **Micro SaaS**.  
+## 📖 Descrição
+A **Micro SaaS API** é um serviço para o cadastro e gerenciamento de informações de **Pessoa Física** e **Pessoa Jurídica** dentro de um ambiente **Micro SaaS**. 
 
 O serviço é projetado para ser escalável, seguro e flexível, permitindo integrações futuras e garantindo consistência nos dados.
 
-## Tecnologias Utilizadas
-- **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+## 🏗 Estrutura do Domínio
+O domínio principal da API será o **Cadastro de Pessoas**, que incluirá as seguintes entidades principais:
 
-## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+### 1️⃣ **Pessoa (`Person`)**
+- Pode ser **Pessoa Física** ou **Pessoa Jurídica**.
+- Contém informações gerais aplicáveis a ambos os tipos.
+
+### 2️⃣ **Pessoa Física (`IndividualPerson`)**
+- CPF (Cadastro de Pessoa Física).
+- Nome completo.
+- Data de nascimento.
+- Gênero (opcional).
+- Nome da mãe (opcional).
+- Nome do pai (opcional).
+
+### 3️⃣ **Pessoa Jurídica (`LegalEntity`)**
+- CNPJ (Cadastro Nacional de Pessoa Jurídica).
+- Razão Social.
+- Nome Fantasia.
+- Data de abertura.
+- Inscrição Estadual (opcional).
+- Inscrição Municipal (opcional).
+- Nome dos sócios.
+
+### 4️⃣ **Documento (`Document`)**
+- Tipo do documento (CPF, RG, CNPJ, Passaporte, CNH, etc.).
+- Número do documento.
+- Data de emissão.
+- Órgão emissor.
+- País de emissão.
+
+### 5️⃣ **Endereço (`Address`)**
+- Tipo de endereço (Residencial, Comercial, Cobrança, etc.).
+- Logradouro.
+- Número.
+- Complemento.
+- Bairro.
+- Cidade.
+- Estado.
+- CEP.
+- País.
+
+### 6️⃣ **Telefone (`Phone`)**
+- Tipo de telefone (Celular, Fixo, Comercial, WhatsApp).
+- Código de área (DDD).
+- Número do telefone.
+
+### 7️⃣ **E-mail (`Email`)**
+- Endereço de e-mail.
+- Tipo (Pessoal, Comercial, Financeiro, Suporte).
+
+### 🔗 **Relacionamentos**
+- Uma **Pessoa** pode ter múltiplos **Endereços**, **Telefones** e **E-mails**.
+- Uma **Pessoa Física** pode ter múltiplos **Documentos** (ex: CPF e RG).
+- Uma **Pessoa Jurídica** pode ter múltiplos **sócios** cadastrados.
+
+## 🚀 Tecnologias e Arquitetura
+A API será desenvolvida utilizando **.NET Core 8**, seguindo as melhores práticas de desenvolvimento de software moderno.
+
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para mapeamento do banco de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional (a definir).
+- **Swagger/OpenAPI** para documentação e testes da API.
+- **Autenticação JWT** para segurança e controle de acesso.
+- **Clean Architecture** seguindo princípios **DDD (Domain-Driven Design)** e **SOLID**.
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de repositório**, utilizando EF Core.
+4. **Criar os endpoints REST para gerenciamento de pessoas.**
+
 
 ## Estrutura de Pastas
 
@@ -179,81 +220,6 @@ curl --location 'https://localhost:44387/api/v1/Notification' \
   "to": "teste to - teste "
 }'
 ```
-
-## 🏗 Estrutura do Domínio
-O domínio principal da API será o **Cadastro de Pessoas**, que incluirá as seguintes entidades principais:
-
-### 1️⃣ **Pessoa (`Person`)**
-- Pode ser **Pessoa Física** ou **Pessoa Jurídica**.
-- Contém informações gerais aplicáveis a ambos os tipos.
-
-### 2️⃣ **Pessoa Física (`IndividualPerson`)**
-- CPF (Cadastro de Pessoa Física).
-- Nome completo.
-- Data de nascimento.
-- Gênero (opcional).
-- Nome da mãe (opcional).
-- Nome do pai (opcional).
-
-### 3️⃣ **Pessoa Jurídica (`LegalEntity`)**
-- CNPJ (Cadastro Nacional de Pessoa Jurídica).
-- Razão Social.
-- Nome Fantasia.
-- Data de abertura.
-- Inscrição Estadual (opcional).
-- Inscrição Municipal (opcional).
-- Nome dos sócios.
-
-### 4️⃣ **Documento (`Document`)**
-- Tipo do documento (CPF, RG, CNPJ, Passaporte, CNH, etc.).
-- Número do documento.
-- Data de emissão.
-- Órgão emissor.
-- País de emissão.
-
-### 5️⃣ **Endereço (`Address`)**
-- Tipo de endereço (Residencial, Comercial, Cobrança, etc.).
-- Logradouro.
-- Número.
-- Complemento.
-- Bairro.
-- Cidade.
-- Estado.
-- CEP.
-- País.
-
-### 6️⃣ **Telefone (`Phone`)**
-- Tipo de telefone (Celular, Fixo, Comercial, WhatsApp).
-- Código de área (DDD).
-- Número do telefone.
-
-### 7️⃣ **E-mail (`Email`)**
-- Endereço de e-mail.
-- Tipo (Pessoal, Comercial, Financeiro, Suporte).
-
-### 🔗 **Relacionamentos**
-- Uma **Pessoa** pode ter múltiplos **Endereços**, **Telefones** e **E-mails**.
-- Uma **Pessoa Física** pode ter múltiplos **Documentos** (ex: CPF e RG).
-- Uma **Pessoa Jurídica** pode ter múltiplos **sócios** cadastrados.
-
-## 🚀 Tecnologias e Arquitetura
-A API será desenvolvida utilizando **.NET Core 8**, seguindo as melhores práticas de desenvolvimento de software moderno.
-
-📌 **Stack Tecnológico:**
-- **.NET Core 8** para desenvolvimento da API.
-- **Entity Framework Core** para mapeamento do banco de dados.
-- **PostgreSQL / SQL Server** como banco de dados relacional (a definir).
-- **Swagger/OpenAPI** para documentação e testes da API.
-- **Autenticação JWT** para segurança e controle de acesso.
-- **Clean Architecture** seguindo princípios **DDD (Domain-Driven Design)** e **SOLID**.
-
-## 🎯 Próximos Passos
-1. **Definir a estrutura inicial do projeto.**
-2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
-3. **Desenvolver a camada de repositório**, utilizando EF Core.
-4. **Criar os endpoints REST para gerenciamento de pessoas.**
-
-
 
 
 ## Rodando a API
