@@ -11,7 +11,7 @@ public class DatabaseSQLServerFixture : IAsyncLifetime
 
     public HttpClient Client { get; }
     private readonly AuthToken1 _auth;
-    private ExempleAppDbContext _context;
+    private PersonAppDbContext _context;
 
     private static Random random = new Random();
 
@@ -22,11 +22,11 @@ public class DatabaseSQLServerFixture : IAsyncLifetime
         Client = _factory.CreateClient();
 
         // Configurando o DbContext para usar In-Memory Database
-        var options = new DbContextOptionsBuilder<ExempleAppDbContext>()
+        var options = new DbContextOptionsBuilder<PersonAppDbContext>()
             .UseInMemoryDatabase("InMemoryDbForTesting_" + random.Next())
             .Options;
 
-        _context = new ExempleAppDbContext(options);
+        _context = new PersonAppDbContext(options);
     }
 
     public async Task InitializeAsync()

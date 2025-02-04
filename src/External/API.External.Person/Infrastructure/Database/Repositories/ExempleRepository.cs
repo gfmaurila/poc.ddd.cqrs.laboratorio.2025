@@ -13,13 +13,13 @@ namespace API.External.Person.Infrastructure.Database.Repositories;
 /// </summary>
 public class ExempleRepository : BaseRepository<ExempleEntity>, IExempleRepository
 {
-    private readonly ExempleAppDbContext _context;
+    private readonly PersonAppDbContext _context;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ExempleRepository"/> class.
     /// </summary>
     /// <param name="context">Database context for accessing Exemple data.</param>
-    public ExempleRepository(ExempleAppDbContext context) : base(context)
+    public ExempleRepository(PersonAppDbContext context) : base(context)
     {
         _context = context;
     }

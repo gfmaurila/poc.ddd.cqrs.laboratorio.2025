@@ -17,13 +17,13 @@ public class TestInMemoryWebApplicationFactory<TProgram> : WebApplicationFactory
         builder.ConfigureServices(services =>
         {
             // Remove the existing context configuration
-            var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ExempleAppDbContext>));
+            var descriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<PersonAppDbContext>));
 
             if (descriptor is not null)
                 services.Remove(descriptor);
 
             // Add In-Memory context for testing
-            services.AddDbContext<ExempleAppDbContext>(options =>
+            services.AddDbContext<PersonAppDbContext>(options =>
             {
                 options.UseInMemoryDatabase("InMemoryDbForTesting");
             });
@@ -33,7 +33,7 @@ public class TestInMemoryWebApplicationFactory<TProgram> : WebApplicationFactory
 
             // Create the schema in the In-Memory test database
             using var scope = sp.CreateScope();
-            using var appContext = scope.ServiceProvider.GetRequiredService<ExempleAppDbContext>();
+            using var appContext = scope.ServiceProvider.GetRequiredService<PersonAppDbContext>();
             appContext.Database.EnsureCreated();
         });
     }

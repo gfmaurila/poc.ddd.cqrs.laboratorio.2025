@@ -23,7 +23,7 @@ public static class InfrastructureExtensions
     public static async Task MigrateAsync(this WebApplication app)
     {
         await using var serviceScope = app.Services.CreateAsyncScope();
-        await using var writeDbContext = serviceScope.ServiceProvider.GetRequiredService<ExempleAppDbContext>();
+        await using var writeDbContext = serviceScope.ServiceProvider.GetRequiredService<PersonAppDbContext>();
 
         try
         {
@@ -75,7 +75,7 @@ public static class InfrastructureExtensions
 
         try
         {
-            var context = services.GetRequiredService<ExempleAppDbContext>();
+            var context = services.GetRequiredService<PersonAppDbContext>();
             context.Database.Migrate();
             Console.WriteLine("Database migrations applied successfully.");
         }
@@ -114,7 +114,7 @@ public static class InfrastructureExtensions
         ExternalEmailInitializer.Initialize(services, configuration);
 
         // Register the database context with a connection string
-        services.AddDbContext<ExempleAppDbContext>(options =>
+        services.AddDbContext<PersonAppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("SqlConnection")));
 
         return services;

@@ -10,13 +10,13 @@ namespace API.External.Person.Infrastructure.Database.Repositories;
 /// <typeparam name="T">The entity type that extends <see cref="BaseEntity"/>.</typeparam>
 public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {
-    private readonly ExempleAppDbContext _context;
+    private readonly PersonAppDbContext _context;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="BaseRepository{T}"/> class.
     /// </summary>
     /// <param name="context">The database context instance.</param>
-    public BaseRepository(ExempleAppDbContext context)
+    public BaseRepository(PersonAppDbContext context)
     {
         _context = context;
     }
