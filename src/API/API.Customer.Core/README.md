@@ -1,10 +1,10 @@
-# 📚 Projeto: API.Customer.Core
+# 📌 API.Customer.Core
 
 ## 📖 Descrição
-A **API.Customer.Core** é responsável pelo gerenciamento de clientes e suas assinaturas dentro do ecossistema de produtos SaaS. Essa API permite a criação e administração de contas, usuários, planos e a gestão de cobrança de excedentes por envio de mensagens (**e-mail, SMS, WhatsApp**).
+A **API.Customer.Core** gerencia clientes, contas e assinaturas dentro do ecossistema de produtos SaaS. Essa API permite a administração de contas, usuários, múltiplos planos de assinatura e controle de mensagens enviadas (**e-mail, SMS, WhatsApp**), cobrando por excedentes quando necessário.
 
 ### 🌍 Produtos Integrados
-Cada cliente poderá assinar um ou mais produtos, sendo eles:
+Cada cliente pode assinar um ou mais produtos:
 
 - **API.Clinic.Core** → Sistema para clínicas e consultórios.
 - **API.Freelancer.Core** → Plataforma de freelancers.
@@ -12,38 +12,54 @@ Cada cliente poderá assinar um ou mais produtos, sendo eles:
 - **API.InventoryControl.Core** → Controle de estoque e inventário.
 
 ## 🏗 Estrutura do Domínio
-A API é organizada da seguinte forma:
+A API gerencia entidades inter-relacionadas para manter o controle das assinaturas e cobranças:
 
 ### 1️⃣ **Conta (`Account`)**
 - Representa uma organização ou empresa.
-- Possui **múltiplos usuários** vinculados.
-- Está associada a um **plano de assinatura** que define o acesso aos produtos e os limites de uso.
+- Pode ter **múltiplos planos de assinatura**.
+- Cada plano está associado a um ou mais produtos.
 
-### 2️⃣ **Usuário (`User`)**
-- Cada conta pode ter **vários usuários**.
-- O cadastro do usuário é realizado automaticamente na **API.External.Person**.
-- A autenticação é gerenciada pela **API.External.Auth**.
+### 2️⃣ **Assinatura (`AccountSubscription`)**
+- Representa um plano específico que a conta assinou.
+- Define os produtos contratados e seus limites de mensagens.
+- Conectada diretamente a um plano de assinatura (`SubscriptionPlan`).
 
 ### 3️⃣ **Plano de Assinatura (`SubscriptionPlan`)**
-- Define os produtos contratados.
-- Especifica limites de uso para envios de mensagens.
-- Pode ser mensal ou anual.
+- Define os produtos incluídos.
+- Especifica limites de envio de mensagens.
+- Estabelece valores para cobranças extras caso os limites sejam ultrapassados.
 
-### 4️⃣ **Mensagens (`MessageUsage`)**
-- Controle de envios de mensagens.
-- Tipos suportados: **E-mail, SMS, WhatsApp**.
-- Cobrança de excedentes caso o limite do plano seja ultrapassado.
+### 4️⃣ **Uso de Mensagens (`MessageUsage`)**
+- Controla os envios de mensagens para cada assinatura.
+- Registra a quantidade de mensagens enviadas no mês.
+- Acumula cobranças extras quando os limites são ultrapassados.
 
-### 🔗 **Relacionamentos**
-- Uma **Conta** pode ter **vários Usuários**.
-- Cada **Usuário** está associado a uma única **Pessoa** na **API.External.Person**.
-- Cada **Usuário** realiza autenticação via **API.External.Auth**.
-- Uma **Conta** pode assinar múltiplos **Produtos**.
-- Uma **Conta** possui um **Plano de Assinatura** e pode incorrer em **custos adicionais** por excedentes.
+### 5️⃣ **Itens de Uso de Mensagens (`MessageUsageItem`)**
+- Cada item representa um tipo de mensagem enviada (e-mail, SMS, WhatsApp).
+- Contabiliza a quantidade de mensagens enviadas e o custo adicional por excedente.
+
+### 6️⃣ **Produto Associado (`AccountProduct`)**
+- Representa os produtos ativos para cada assinatura.
+- Um plano pode incluir um ou mais produtos.
+
+## 🔗 **Fluxo de Funcionamento**
+1. **Criação da Conta:**
+   - Um cliente cria uma **conta** (`Account`).
+   - Os usuários são gerenciados externamente pela **API.External.Person** e **API.External.Auth**.
+
+2. **Assinatura de Planos:**
+   - A conta pode assinar um ou mais **planos de assinatura** (`AccountSubscription`).
+   - Cada plano contém produtos específicos (`AccountProduct`).
+
+3. **Envio de Mensagens:**
+   - Quando um usuário utiliza um serviço (exemplo: API.Clinic.Core), ele pode enviar **mensagens**.
+   - Cada mensagem enviada é registrada como um **MessageUsageItem**.
+
+4. **Cobrança por Excedentes:**
+   - Se os limites de envio do plano forem ultrapassados, o sistema registra **cobranças extras**.
+   - No final do mês, o total de cobranças (`ExtraCharges`) é calculado e gerado para faturamento.
 
 ## 🚀 Tecnologias e Arquitetura
-A API será desenvolvida utilizando **.NET Core 8**, seguindo boas práticas de desenvolvimento.
-
 📌 **Stack Tecnológico:**
 - **.NET Core 8** para desenvolvimento da API.
 - **Entity Framework Core** para persistência de dados.
@@ -53,10 +69,10 @@ A API será desenvolvida utilizando **.NET Core 8**, seguindo boas práticas de 
 - **Integrações REST com APIs externas** para autenticação e cadastro de pessoas.
 
 ## 🎯 Próximos Passos
-1. **Definir a estrutura inicial do projeto.**
-2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
-3. **Desenvolver a camada de persistência com EF Core.**
-4. **Criar os endpoints REST para gerenciamento de contas e usuários.**
+1. **Implementar a lógica de faturamento no fechamento do mês.**
+2. **Criar endpoints para consulta de consumo e relatórios financeiros.**
+3. **Desenvolver notificações automáticas para avisar sobre limites de mensagens.**
+
 
 ---
 
