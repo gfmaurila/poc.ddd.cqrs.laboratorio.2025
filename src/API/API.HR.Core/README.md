@@ -1,47 +1,75 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.HR.Core
 
-# API Exemple
+## 📖 Descrição
+A **API.HR.Core** é uma plataforma dedicada ao gerenciamento de recursos humanos, fornecendo um sistema completo para controle de funcionários, gestão salarial, promoções, controle financeiro e endereços.
 
-## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+A API permitirá às empresas monitorar e gerenciar eficientemente suas equipes, garantindo transparência nos processos internos de RH.
 
-## Tecnologias Utilizadas
-- **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+## 🏗 Estrutura do Domínio
+A API gerencia as seguintes entidades principais:
 
-## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+### 1️⃣ **Funcionário (`Employee`)**
+- Nome, e-mail, telefone
+- Cargo e departamento
+- Salário atual e histórico salarial
+- Data de admissão e desligamento
+- Endereço residencial
+
+### 2️⃣ **Departamento (`Department`)**
+- Nome do departamento
+- Lista de funcionários
+- Gerente responsável
+
+### 3️⃣ **Histórico Salarial (`SalaryHistory`)**
+- Valor do salário
+- Data da alteração
+- Tipo de alteração (Ajuste, Promoção, Reajuste coletivo)
+
+### 4️⃣ **Promoção (`Promotion`)**
+- Funcionário promovido
+- Novo cargo
+- Novo salário
+- Data da promoção
+- Motivo da promoção
+
+### 5️⃣ **Endereço (`Address`)**
+- Tipo de endereço (Residencial, Comercial)
+- Logradouro, número, complemento
+- Cidade, estado, CEP
+
+### 6️⃣ **Controle Financeiro (`FinancialControl`)**
+- Folha de pagamento mensal
+- Impostos e encargos
+- Benefícios concedidos
+- Cálculo de dissídios
+
+### 🔗 **Relacionamentos**
+- Um **Funcionário** pertence a um **Departamento**.
+- Um **Funcionário** pode ter vários **Registros Salariais** ao longo do tempo.
+- Uma **Promoção** está associada a um **Funcionário**.
+- Um **Funcionário** pode ter múltiplos **Endereços** cadastrados.
+- O **Controle Financeiro** gerencia os custos da empresa com funcionários.
+
+## 🚀 Tecnologias e Arquitetura
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para persistência de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional.
+- **Swagger/OpenAPI** para documentação interativa.
+- **Autenticação JWT** para segurança e controle de acesso.
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de persistência com EF Core.**
+4. **Criar os endpoints REST para gerenciamento de funcionários, departamentos e salários.**
+5. **Implementar um sistema de relatórios para análise financeira e gestão de RH.**
 
 ## Estrutura de Pastas
 
 ### Projeto Principal
 ```
-API.Exemple.Core.08
+API.HR.Core
 ├── Connected Services
 ├── Dependências
 ├── Properties
@@ -206,8 +234,8 @@ RabbitMQ: http://localhost:15672/#/
 
 
 
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
+### 📌 **Contribuições**
+Sinta-se à vontade para abrir um Pull Request ou sugerir melhorias por meio de Issues!
 
 
 ---
@@ -221,65 +249,6 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
 [![Linkedin Badge](https://img.shields.io/badge/-Guilherme_Figueiras_Maurila-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/guilherme-maurila)](https://www.linkedin.com/in/guilherme-maurila)
 [![Gmail Badge](https://img.shields.io/badge/-gfmaurila@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:gfmaurila@gmail.com)](mailto:gfmaurila@gmail.com)
-
-
-
-
-
-
-
-## 📚 Entidades e Domínio do Sistema de Gestão de RH
-
-# 📝 Entidades principais:
-1 - Employee (Funcionário)
-2 - Department (Departamento)
-3 - Position (Cargo)
-4 - Benefit (Benefício)
-5 - PerformanceReview (Avaliação de Desempenho)
-6 - Payroll (Folha de Pagamento)
-7 - LeaveRequest (Solicitação de Férias/Absência)
-8 - Attendance (Registro de Presença)
-9 - Document (Documentos do Funcionário)
-
-
-
-
-## 🧩 Relacionamentos entre as Entidades
-
-- **Bogus**: Geração de dados fictícios para testes.
-
-
-Entidade	            Relacionamentos
-Employee	            Pertence a um Department e a um Position
-Department	            Pode ter vários Employees
-Position	            Pode ter vários Employees
-Benefit	                Pode ser vinculado a vários Employees
-PerformanceReview	    Vinculado a um Employee
-Payroll	                Vinculado a um Employee
-LeaveRequest	        Vinculado a um Employee
-Attendance	            Vinculado a um Employee
-Document	            Vinculado a um Employee
-
-
-## 📋 Exemplo de Fluxo de Negócio
-1 - Cadastro de Funcionário (Employee) com seus dados pessoais, cargo (Position) e departamento (Department).
-2 - Adicionar benefícios (Benefit) que o funcionário possui.
-3 - Realizar uma avaliação de desempenho (PerformanceReview) periódica.
-4 - Registrar presença (Attendance) diariamente.
-5 - Processar folha de pagamento (Payroll) mensalmente.
-6 - Gerenciar solicitações de férias/ausência (LeaveRequest).
-
-
-##  📈 Próximos Passos
-1 - Implementar repositórios para acesso a dados.
-2 - Criar services para regras de negócio.
-3 - Implementar controllers para expor a API REST.
-4 - Configurar migrations com Entity Framework Core.
-
-
-
-
-
 
 
 

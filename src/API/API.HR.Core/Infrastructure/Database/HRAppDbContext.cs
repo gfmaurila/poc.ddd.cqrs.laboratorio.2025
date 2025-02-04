@@ -30,15 +30,12 @@ public class HRAppDbContext : DbContext
     /// </summary>
     public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
-
     public DbSet<Employee> Employees { get; set; }
     public DbSet<Department> Departments { get; set; }
-    public DbSet<Position> Positions { get; set; }
-    public DbSet<Benefit> Benefits { get; set; }
-    public DbSet<PerformanceReview> PerformanceReviews { get; set; }
-    public DbSet<Payroll> Payrolls { get; set; }
-    public DbSet<LeaveRequest> LeaveRequests { get; set; }
-    public DbSet<Attendance> Attendances { get; set; }
+    public DbSet<SalaryHistory> SalaryHistories { get; set; }
+    public DbSet<Promotion> Promotions { get; set; }
+    public DbSet<Address> Addresses { get; set; }
+    public DbSet<FinancialControl> FinancialControls { get; set; }
 
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
@@ -48,14 +45,15 @@ public class HRAppDbContext : DbContext
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
 
-        modelBuilder.ApplyConfiguration(new EmployeeMap());
-        modelBuilder.ApplyConfiguration(new DepartmentMap());
-        modelBuilder.ApplyConfiguration(new PositionMap());
-        modelBuilder.ApplyConfiguration(new BenefitMap());
-        modelBuilder.ApplyConfiguration(new PerformanceReviewMap());
-        modelBuilder.ApplyConfiguration(new PayrollMap());
-        modelBuilder.ApplyConfiguration(new LeaveRequestMap());
-        modelBuilder.ApplyConfiguration(new AttendanceMap());
+        modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+        modelBuilder.ApplyConfiguration(new DepartmentConfiguration());
+        modelBuilder.ApplyConfiguration(new SalaryHistoryConfiguration());
+        modelBuilder.ApplyConfiguration(new PromotionConfiguration());
+        modelBuilder.ApplyConfiguration(new AddressConfiguration());
+        modelBuilder.ApplyConfiguration(new FinancialControlConfiguration());
+
+        base.OnModelCreating(modelBuilder);
+
     }
 
     /// <summary>
