@@ -1,7 +1,7 @@
 ﻿using API.Freelancer.Core.Feature.Domain.Exemple;
 using API.Freelancer.Core.Feature.Domain.Exemple.Models;
 using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+using API.Freelancer.Core.Feature.Exemple.Queries.GetPaginate;
 using Common.Core._08.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 

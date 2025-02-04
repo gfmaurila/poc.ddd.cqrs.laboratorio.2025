@@ -228,6 +228,18 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 
 
 
+## 📚 Entidades e Domínio do Sistema de Gestão de RH
+
+# 📝 Entidades principais:
+1 - Employee (Funcionário)
+2 - Department (Departamento)
+3 - Position (Cargo)
+4 - Benefit (Benefício)
+5 - PerformanceReview (Avaliação de Desempenho)
+6 - Payroll (Folha de Pagamento)
+7 - LeaveRequest (Solicitação de Férias/Absência)
+8 - Attendance (Registro de Presença)
+9 - Document (Documentos do Funcionário)
 
 
 

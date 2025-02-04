@@ -2,7 +2,7 @@
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+namespace API.Freelancer.Core.Feature.Exemple.Queries.GetPaginate;
 
 /// <summary>
 /// Handles the paginated retrieval of Exemple entities based on the provided query parameters.

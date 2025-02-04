@@ -1,10 +1,10 @@
 ﻿using API.Freelancer.Core.Infrastructure.Integration.ExternalEmail;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
+using API.Freelancer.Core.Feature.Notification.Messaging.Events;
+using API.Freelancer.Core.Feature.Notification.Messaging.Request;
+using API.Freelancer.Core.Feature.Notification.Messaging.Service;
 using Newtonsoft.Json;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
+namespace API.Freelancer.Core.Feature.Notification.Messaging.Kafka.Subscribe;
 
 public class NotificationMessageProcessor : INotificationMessageProcessor
 {

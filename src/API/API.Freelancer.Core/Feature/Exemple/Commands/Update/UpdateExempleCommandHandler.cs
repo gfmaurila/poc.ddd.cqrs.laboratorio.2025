@@ -3,7 +3,7 @@ using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
+namespace API.Freelancer.Core.Feature.Exemple.Commands.Update;
 
 /// <summary>
 /// Handles the update operation for an Exemple entity.

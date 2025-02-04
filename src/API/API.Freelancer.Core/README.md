@@ -229,13 +229,40 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 
 
 
+## 📚 Modelo de Domínio: Gestão de Freelancers
+## 📝 Entidades principais:
+1 - Freelancer – Cadastro de freelancers
+2 - Client – Cadastro de clientes
+3 - Project – Projetos gerenciados pelos freelancers
+4 - Contract – Contratos entre freelancers e clientes
+5 - Payment – Pagamentos realizados
+6 - Task – Tarefas dentro de um projeto
+7 - Skill – Habilidades dos freelancers
+8 - Invoice – Faturas geradas
+9 - Review – Avaliações dos freelancers pelos clientes
 
 
 
 
+## 📋 Relacionamentos Resumidos
+Entidade            	Relacionamentos
+Freelancer	            Pode ter vários Projects, Contracts, Skills, Reviews
+Client	                Pode ter vários Projects, Contracts e dar Reviews
+Project	                Pertence a um Freelancer e a um Client
+Contract	            Vincula um Freelancer e um Client
+Payment	                Pertence a um Contract
+Task	                Pertence a um Project
+Skill	                Vinculado a um Freelancer
+Invoice	                Pertence a um Contract
+Review	                Vincula um Freelancer e um Client
 
 
 
+## 🚀 Próximos Passos
+1 - Criar os mapeamentos (Mappings) para o Entity Framework Core.
+2 - Configurar o DbContext.
+3 - Criar repositórios e serviços para implementar a lógica de negócio.
+4 - Desenvolver controllers para expor a API REST.
 
 
 

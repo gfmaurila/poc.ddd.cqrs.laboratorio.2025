@@ -1,4 +1,4 @@
-﻿namespace API.Exemple1.Core._08.Infrastructure.Messaging;
+﻿namespace API.Freelancer.Core.Infrastructure.Messaging;
 
 /// <summary>
 /// Defines constant values for messaging configurations, including RabbitMQ and Kafka.

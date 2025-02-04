@@ -1,6 +1,6 @@
 ﻿using Common.Core._08.Response;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update;
+namespace API.Freelancer.Core.Feature.Exemple.Commands.Update;
 
 public class UpdateExempleResponse : BaseResponse
 {

@@ -1,6 +1,6 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.RabbiMQ;
+﻿using API.Freelancer.Core.Feature.Notification.Messaging.Events;
+using API.Freelancer.Core.Feature.Notification.Messaging.Kafka;
+using API.Freelancer.Core.Feature.Notification.Messaging.RabbiMQ;
 using Common.Core._08.Response;
 using MediatR;
 

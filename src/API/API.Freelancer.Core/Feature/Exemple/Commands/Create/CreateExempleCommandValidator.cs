@@ -1,7 +1,7 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using FluentValidation;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+namespace API.Freelancer.Core.Feature.Exemple.Commands.Create;
 
 /// <summary>
 /// Validator for the <see cref="CreateExempleCommand"/> class, ensuring that the provided data is valid.

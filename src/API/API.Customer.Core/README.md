@@ -224,6 +224,17 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 
 
 
+## 📦 Modelo de Domínio
+## 📝 Entidades Principais:
+1 - User (Usuário do sistema)
+2 - Customer (Cliente do Micro SaaS)
+3 - Subscription (Assinatura)
+4 - Plan (Plano de pagamento)
+5 - Invoice (Fatura gerada para pagamento)
+6 - Payment (Pagamento de uma fatura)
+7 - Product (Produto/Serviço oferecido pelo SaaS)
+8 - Feature (Funcionalidades disponíveis nos planos)
+
 
 
 

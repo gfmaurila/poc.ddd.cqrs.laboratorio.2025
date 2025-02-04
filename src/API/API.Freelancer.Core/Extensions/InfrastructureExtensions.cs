@@ -4,7 +4,7 @@ using API.Freelancer.Core.Infrastructure.Database.Repositories;
 using API.Freelancer.Core.Infrastructure.Database.Repositories.Interfaces;
 using API.Freelancer.Core.Infrastructure.Integration;
 using API.Freelancer.Core.Infrastructure.Redis;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+using API.Freelancer.Core.Infrastructure.Messaging;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

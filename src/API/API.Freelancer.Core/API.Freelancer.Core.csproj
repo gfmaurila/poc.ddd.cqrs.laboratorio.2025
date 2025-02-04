@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>API.Exemple1.Core._08</RootNamespace>
+    <RootNamespace>API.Freelancer.Core</RootNamespace>
     <UserSecretsId>8bd46eee-afdf-44f7-94c5-4e32fe1c7d00</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>

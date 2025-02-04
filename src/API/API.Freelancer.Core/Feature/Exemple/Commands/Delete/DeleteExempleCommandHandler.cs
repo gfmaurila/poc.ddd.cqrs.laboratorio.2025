@@ -2,7 +2,7 @@
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete;
+namespace API.Freelancer.Core.Feature.Exemple.Commands.Delete;
 
 /// <summary>
 /// Handles the deletion of an Exemple entity by validating the request,

@@ -26,9 +26,9 @@ public class PayrollMap : IEntityTypeConfiguration<Payroll>
             .HasMaxLength(500);
 
         // Relacionamento
-        builder.HasOne(p => p.Employee)
-            .WithMany(e => e.Payrolls)
-            .HasForeignKey(p => p.EmployeeId)
-            .OnDelete(DeleteBehavior.Cascade);
+        //builder.HasOne(p => p.Employee)
+        //    .WithMany(e => e.Payrolls)
+        //    .HasForeignKey(p => p.EmployeeId)
+        //    .OnDelete(DeleteBehavior.Cascade);
     }
 }

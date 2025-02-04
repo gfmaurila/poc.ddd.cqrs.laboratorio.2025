@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetById;
+namespace API.Freelancer.Core.Feature.Exemple.Queries.GetById;
 
 /// <summary>
 /// Validator for the <see cref="GetExempleByIdQuery"/> class, ensuring that the provided ID is valid.
