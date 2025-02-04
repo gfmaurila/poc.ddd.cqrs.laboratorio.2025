@@ -228,14 +228,34 @@ Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests 
 
 
 
+## 📚  **Relacionamentos Resumidos**
+- **Guilherme Figueiras Maurila**
+
+Entidade	         Relacionamentos
+User	             Tem vários Customers
+Customer	         Pertence a um User, tem várias Subscriptions
+Subscription	     Pertence a um Customer e a um Plan
+Plan	             Tem várias Features
+Invoice	             Pertence a uma Subscription
+Payment	             Pertence a uma Invoice
+Product	             Tem várias Features
+Feature	             Pertence a um Plan ou Product
 
 
 
+## 🔄  **Exemplo de Fluxo de Negócio**
+
+1 - User cria uma conta.
+2 - User cadastra um Customer.
+3 - Customer escolhe um Plan.
+4 - É gerada uma Subscription para o Customer.
+5 - Todo mês, é gerada uma Invoice.
+6 - O Customer paga a Invoice gerando um Payment.
 
 
+## 🚀  **Próximos Passos**
 
-
-
-
-
+1 - Implementar DTOs para transferir os dados entre camadas.
+2 - Criar Repositórios e Serviços para cada entidade.
+3 - Implementar as migrations do EF Core.
 
