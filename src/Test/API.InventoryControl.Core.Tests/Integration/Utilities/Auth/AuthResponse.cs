@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
+namespace API.InventoryControl.Core.Tests.Integration.Utilities.Auth;
 
 public class AuthResponse
 {

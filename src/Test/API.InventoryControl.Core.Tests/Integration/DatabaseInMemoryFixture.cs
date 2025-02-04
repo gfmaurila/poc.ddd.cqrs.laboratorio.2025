@@ -1,6 +1,6 @@
-﻿using API.Exemple.Core._08.Infrastructure.Database;
-using API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
-using API.Exemple.Core.Tests.Integration.Factory;
+﻿using API.Exemple.Core.Tests.Integration.Factory;
+using API.InventoryControl.Core.Infrastructure.Database;
+using API.InventoryControl.Core.Tests.Integration.Utilities.Auth;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Exemple.Core.Tests.Integration;
@@ -11,7 +11,7 @@ public class DatabaseSQLServerFixture : IAsyncLifetime
 
     public HttpClient Client { get; }
     private readonly AuthToken1 _auth;
-    private ExempleAppDbContext _context;
+    private InventoryControlAppDbContext _context;
 
     private static Random random = new Random();
 
@@ -22,11 +22,11 @@ public class DatabaseSQLServerFixture : IAsyncLifetime
         Client = _factory.CreateClient();
 
         // Configurando o DbContext para usar In-Memory Database
-        var options = new DbContextOptionsBuilder<ExempleAppDbContext>()
+        var options = new DbContextOptionsBuilder<InventoryControlAppDbContext>()
             .UseInMemoryDatabase("InMemoryDbForTesting_" + random.Next())
             .Options;
 
-        _context = new ExempleAppDbContext(options);
+        _context = new InventoryControlAppDbContext(options);
     }
 
     public async Task InitializeAsync()
