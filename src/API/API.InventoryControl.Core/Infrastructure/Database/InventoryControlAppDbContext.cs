@@ -1,4 +1,6 @@
-﻿using API.InventoryControl.Core.Feature.Domain.Exemple;
+﻿using API.Exemple1.Core._08.Feature.Domain;
+using API.Exemple1.Core._08.Infrastructure.Database.Mappings;
+using API.InventoryControl.Core.Feature.Domain.Exemple;
 using API.InventoryControl.Core.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,6 +31,12 @@ public class InventoryControlAppDbContext : DbContext
     /// </summary>
     public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Supplier> Suppliers { get; set; }
+    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+    public DbSet<StockMovement> StockMovements { get; set; }
+
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
     /// </summary>
@@ -36,6 +44,14 @@ public class InventoryControlAppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new ExempleConfiguration());
+
+        modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new SupplierConfiguration());
+        modelBuilder.ApplyConfiguration(new PurchaseOrderConfiguration());
+        modelBuilder.ApplyConfiguration(new StockMovementConfiguration());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     /// <summary>

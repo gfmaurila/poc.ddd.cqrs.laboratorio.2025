@@ -1,47 +1,68 @@
-# 📚 Projeto: API Exemple - Sistema de Mensageria e Autenticação
+# 📚 Projeto: API.InventoryControl.Core
 
-# API Exemple
+## 📖 Descrição
+A **API.InventoryControl.Core** é uma solução para gerenciamento de estoque, permitindo o controle eficiente de produtos, fornecedores, pedidos e movimentações de estoque. 
 
-## Visão Geral
-A API Exemple é uma aplicação de exemplo que demonstra a implementação de uma API REST utilizando ASP.NET Core 8, com suporte a RabbitMQ, Kafka, autenticação JWT e banco de dados SQL Server. 
+A API possibilita que empresas mantenham um acompanhamento detalhado de seus produtos, evitando perdas e garantindo a otimização dos recursos.
 
-## Tecnologias Utilizadas
-- **ASP.NET Core 8**
-- **Entity Framework Core**
-- **RabbitMQ e MassTransit**
-- **Kafka e Confluent.Kafka**
-- **Redis para cache**
-- **MediatR para CQRS**
-- **FluentValidation**
-- **Swagger para documentação da API**
-- **Serilog para logging**
-- **Docker para conteinerização**
+## 🏗 Estrutura do Domínio
+A API gerencia as seguintes entidades principais:
 
-## Pacotes Utilizados
-- **Bogus**: Geração de dados fictícios para testes.
-- **Carter**: Extensão para rotas minimalistas em ASP.NET Core.
-- **Confluent.Kafka**: Cliente Kafka para comunicação assíncrona.
-- **Mapster** e **Mapster.Core**: Mapeamento de objetos sem reflexão.
-- **Antlr4.Runtime**: Biblioteca para análise e processamento de linguagem.
-- **Ardalis.Result**: Manipulação de retornos de operação.
-- **Ardalis.SmartEnum**: Enumerações inteligentes em C#.
-- **FluentValidation**: Validação de modelos de entrada.
-- **AutoMapper**: Mapeamento de objetos automatizado.
-- **RabbitMQ e MassTransit**: Comunicação assíncrona baseada em mensagens.
-- **MediatR**: Implementação do padrão CQRS.
-- **Microsoft.AspNetCore.Authentication.JwtBearer**: Suporte a autenticação JWT.
-- **Microsoft.AspNetCore.Mvc.Versioning**: Controle de versão da API.
-- **Microsoft.EntityFrameworkCore** e **SQL Server**: ORM para banco de dados relacional.
-- **Newtonsoft.Json**: Manipulação avançada de JSON.
-- **Refit**: Cliente HTTP baseado em interfaces.
-- **Serilog**: Logging estruturado.
-- **Swashbuckle.AspNetCore**: Suporte a OpenAPI/Swagger.
+### 1️⃣ **Produto (`Product`)**
+- Nome, descrição e código SKU
+- Categoria e unidade de medida
+- Quantidade disponível em estoque
+- Preço de compra e venda
+- Nível mínimo de estoque (para alertas)
+
+### 2️⃣ **Categoria (`Category`)**
+- Nome e descrição
+- Lista de produtos associados
+
+### 3️⃣ **Fornecedor (`Supplier`)**
+- Nome da empresa
+- Contato e endereço
+- Lista de produtos fornecidos
+
+### 4️⃣ **Pedido de Compra (`PurchaseOrder`)**
+- Fornecedor associado
+- Data do pedido
+- Lista de itens e quantidades
+- Status do pedido (Pendente, Aprovado, Recebido, Cancelado)
+
+### 5️⃣ **Movimentação de Estoque (`StockMovement`)**
+- Produto movimentado
+- Tipo de movimentação (Entrada, Saída, Ajuste)
+- Quantidade e data
+- Motivo da movimentação
+
+### 🔗 **Relacionamentos**
+- Um **Produto** pertence a uma **Categoria**.
+- Um **Produto** pode ser fornecido por múltiplos **Fornecedores**.
+- Um **Fornecedor** pode fornecer múltiplos **Produtos**.
+- Um **Pedido de Compra** está vinculado a um **Fornecedor** e contém vários **Produtos**.
+- Uma **Movimentação de Estoque** está associada a um **Produto** e altera sua quantidade disponível.
+
+## 🚀 Tecnologias e Arquitetura
+📌 **Stack Tecnológico:**
+- **.NET Core 8** para desenvolvimento da API.
+- **Entity Framework Core** para persistência de dados.
+- **PostgreSQL / SQL Server** como banco de dados relacional.
+- **Swagger/OpenAPI** para documentação interativa.
+- **Autenticação JWT** para segurança e controle de acesso.
+
+## 🎯 Próximos Passos
+1. **Definir a estrutura inicial do projeto.**
+2. **Implementar a camada de domínio**, criando as entidades e relacionamentos.
+3. **Desenvolver a camada de persistência com EF Core.**
+4. **Criar os endpoints REST para gerenciamento de estoque, pedidos e fornecedores.**
+5. **Implementar um sistema de notificações para alertas de estoque mínimo.**
 
 ## Estrutura de Pastas
 
 ### Projeto Principal
 ```
-API.Exemple.Core.08
+API.InventoryControl.Core
 ├── Connected Services
 ├── Dependências
 ├── Properties
@@ -206,9 +227,8 @@ RabbitMQ: http://localhost:15672/#/
 
 
 
-## Contribuição
-Sinta-se à vontade para contribuir com melhorias na API Exemple. Pull requests são bem-vindos! 🚀
-
+## 📌 **Contribuições**
+Sinta-se à vontade para abrir um Pull Request ou sugerir melhorias por meio de Issues!
 
 ---
 
