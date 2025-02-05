@@ -14,8 +14,6 @@ public abstract class BaseEntity : IEntity<Guid>
     private readonly List<Event> _domainEvents = new();
 
     public Guid Id { get; protected set; } = Guid.NewGuid();
-    public Guid PersonId { get; protected set; } = Guid.NewGuid();
-    public Guid CustomerId { get; protected set; } = Guid.NewGuid();
 
     public virtual void SetId(Guid id)
     {

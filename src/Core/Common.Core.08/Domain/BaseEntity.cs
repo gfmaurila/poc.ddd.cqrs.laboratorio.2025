@@ -17,7 +17,6 @@ public abstract class BaseEntity : IEntity<Guid>
     /// Defaults to a newly generated <see cref="Guid"/>.
     /// </summary>
     public Guid Id { get; protected set; } = Guid.NewGuid();
-    public Guid CustomerId { get; protected set; } = Guid.NewGuid();
 
     /// <summary>
     /// Indicates whether the entity is active.

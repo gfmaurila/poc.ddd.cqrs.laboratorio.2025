@@ -9,8 +9,16 @@ public class Account : BaseEntity, IAggregateRoot
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public List<AccountSubscription> Subscriptions { get; set; } = new();
+    public List<AccountPersonUser> PersonUsers { get; set; } = new();
 }
 
+public class AccountPersonUser : BaseEntity, IAggregateRoot
+{
+    public Guid AccountId { get; set; }
+    public Account Account { get; set; }
+    public Guid UserId { get; set; }
+    public Guid PersonId { get; set; }
+}
 
 public class AccountSubscription : BaseEntity, IAggregateRoot
 {

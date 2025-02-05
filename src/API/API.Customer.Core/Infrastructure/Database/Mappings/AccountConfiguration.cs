@@ -26,6 +26,32 @@ public class AccountConfiguration : IEntityTypeConfiguration<Account>
             .IsRequired()
             .IsUnicode(false)
             .HasMaxLength(20);
+
+        builder.HasMany(a => a.Subscriptions)
+            .WithOne()
+            .HasForeignKey(s => s.AccountId);
+
+        builder.HasMany(a => a.PersonUsers)
+            .WithOne(pu => pu.Account)
+            .HasForeignKey(pu => pu.AccountId);
+    }
+}
+
+public class AccountPersonUserConfiguration : IEntityTypeConfiguration<AccountPersonUser>
+{
+    public void Configure(EntityTypeBuilder<AccountPersonUser> builder)
+    {
+        builder.ConfigureBaseEntity();
+
+        builder.HasOne(pu => pu.Account)
+            .WithMany(a => a.PersonUsers)
+            .HasForeignKey(pu => pu.AccountId);
+
+        builder.Property(pu => pu.UserId)
+            .IsRequired();
+
+        builder.Property(pu => pu.PersonId)
+            .IsRequired();
     }
 }
 
