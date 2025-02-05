@@ -29,10 +29,6 @@
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\..\API\API.Clinic.Core\API.Clinic.Core.csproj" />
-	</ItemGroup>
-
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>

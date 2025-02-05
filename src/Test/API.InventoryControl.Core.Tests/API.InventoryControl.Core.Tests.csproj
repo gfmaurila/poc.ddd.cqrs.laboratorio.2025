@@ -37,8 +37,4 @@
     <Folder Include="Integration\Utilities\Redis\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\API.InventoryControl.Core\API.InventoryControl.Core.csproj" />
-  </ItemGroup>
-
 </Project>

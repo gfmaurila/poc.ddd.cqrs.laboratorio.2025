@@ -37,8 +37,4 @@
     <Folder Include="Integration\Utilities\Redis\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\API\API.Customer.Core\API.Customer.Core.csproj" />
-  </ItemGroup>
-
 </Project>
