@@ -1,160 +1,134 @@
-# 📘 Projeto: Micro SaaS
+# 📘 Documentação Geral - Projeto Micro SaaS
 
-### **Tecnologias Utilizadas**
+## 📖 Visão Geral
+O **Projeto Micro SaaS** consiste em um conjunto de APIs desenvolvidas em **.NET Core 8.0** para atender diferentes domínios de negócio. Cada API tem uma responsabilidade específica, sendo todas integradas por um **API Gateway** e utilizando **mensageria assíncrona** para comunicação eficiente.
 
-- **ASP.NET Core 8.0**: Framework utilizado para desenvolvimento da API.
-- **YARP (Reverse Proxy)**: Gateway de entrada para gerenciar o roteamento de APIs.
-- **SQL Server**: Banco de dados relacional para armazenar dados principais.
-- **Redis**: Cache em memória para melhorar a performance.
-- **MongoDB**: Banco de dados NoSQL para armazenamento de dados não relacionais.
-- **RabbitMQ**: Broker de mensagens para comunicação assíncrona entre serviços.
-- **Kafka**: Plataforma de streaming distribuída para manipulação de grandes volumes de dados em tempo real.
-- **Kafka UI**: Interface web para monitoramento do Kafka.
-- **Docker & Docker Compose**: Gerenciamento de containers para deploy simplificado.
+## 🏗 Arquitetura e Tecnologias Utilizadas
+O projeto adota uma arquitetura baseada em **Microservices** e **CQRS (Command Query Responsibility Segregation)**, utilizando:
 
----
+- **ASP.NET Core 8.0** → Framework para desenvolvimento das APIs
+- **Entity Framework Core** → ORM para interação com banco de dados relacional
+- **YARP (Reverse Proxy)** → Gerenciamento de roteamento de APIs
+- **SQL Server** → Banco de dados relacional
+- **MongoDB** → Banco de dados NoSQL
+- **Redis** → Cache distribuído para otimização de performance
+- **RabbitMQ / Kafka** → Mensageria para comunicação assíncrona
+- **Docker & Docker Compose** → Contêinerização das aplicações
+- **Swagger/OpenAPI** → Documentação interativa da API
+- **JWT (JSON Web Token)** → Autenticação e autorização
 
-## 📁 **Estrutura do Projeto**
+## 📁 Estrutura do Projeto
 
-```
+```bash
 📂 poc.micro-saas.netcore8
-├── 📂 Documento
-│   └── README.md
 ├── 📂 src
 │   ├── 📂 API
-│   │   ├── 📂 API.Exemple.Core.08
+│   │   ├── 📂 API.Customer.Core
+│   │   ├── 📂 API.HR.Core
+│   │   ├── 📂 API.Freelancer.Core
+│   │   ├── 📂 API.Clinic.Core
+│   │   ├── 📂 API.InventoryControl.Core
 │   │   ├── 📂 API.Gateway
-│   ├── 📂 Core
-│   │   ├── 📂 Common.Core.08
-│   │   ├── 📂 Common.External.Auth.Net8
 │   ├── 📂 External
 │   │   ├── 📂 API.External.Auth
-│   │   │   ├── 📂 API.External.Auth
-│   │   │   └── README.md
 │   │   ├── 📂 API.External.Email
 │   │   ├── 📂 API.External.MKT
 │   ├── 📂 Test
-├── 📄 docker-compose
+├── 📄 docker-compose.yml
 ```
 
-### **API.Gateway**
+## 📌 Descrição das APIs
 
-- **API Gateway/**: Descrição: O API Gateway atua como a interface única para os usuários interagirem com os serviços internos. Ele roteia requisições para as APIs internas com base em regras definidas. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Gateway)
+### 1️⃣ **API.Gateway**
+- Atua como **interface única** entre os clientes e os microservices internos.
+- Gerencia autenticação, autorização e roteamento.
 
-- **API.Exemple.Core.08/**: API exemplo que serve como referência para a estrutura base e lógica de domínio. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Exemple.Core.08)
+### 2️⃣ **API.Customer.Core**
+- Gerenciamento de **contas, usuários e planos de assinatura**.
+- Controle de consumo e **cobrança por excedentes**.
 
-- **API.Customer.Core.08/**: Responsável pela gestão de clientes, incluindo cadastro, atualização e consulta de informações. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Customer.Core.08)
+### 3️⃣ **API.HR.Core**
+- Gestão de **funcionários, salários, promoções e benefícios**.
+- Controle de **departamentos e endereços**.
 
-- **API.HR.Core.08/**: Focada em gerenciar os recursos humanos da organização, como funcionários e departamentos. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.HR.Core.08)
+### 4️⃣ **API.Freelancer.Core**
+- Gerenciamento de **freelancers, clientes, contratos e pagamentos**.
+- Controle de **propostas e avaliações**.
 
-- **API.Freelancer.Core.08/**: Gerencia informações e contratos de freelancers. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Freelancer.Core.08)
+### 5️⃣ **API.Clinic.Core**
+- Gerenciamento de **clínicas, pacientes e agendamentos**.
+- Controle de **consultas médicas e históricos**.
 
-- **API.Clinic.Core.08/**: Centraliza a gestão de clínicas, incluindo agendamentos, pacientes e serviços oferecidos. [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.Clinic.Core.08)
+### 6️⃣ **API.InventoryControl.Core**
+- Gestão de **estoque, produtos e movimentações**.
+- Controle de **pedidos de compra e fornecedores**.
 
-- **API.InventoryControl.Core.08/**:Voltada para o controle de estoque, gerenciamento de produtos e movimentações.  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/API/API.InventoryControl.Core.08)
+### 7️⃣ **APIs Externas**
+- **API.External.Auth** → Autenticação de usuários
+- **API.External.Email** → Envio de e-mails transacionais
+- **API.External.MKT** → Gestão de campanhas de marketing
 
-
-### **External - Exemplos**
-
-- **API.External.Auth/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Auth)
-- **API.External.Email/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.Email)
-- **API.External.MKT/**:  [Documentação](https://github.com/gfmaurila/poc.ddd.cqrs.laboratorio.2025/tree/main/src/External/API.External.MKT)
-
----
-
-## 🌐 **Configuração do Docker**
-
-Para rodar o projeto completo com todos os serviços:
+## 🚀 Execução do Projeto
+O projeto pode ser inicializado utilizando **Docker Compose**:
 
 ```bash
 docker-compose down
 docker-compose up -d --build
-docker-compose up --build
-Update-Database -Context MainContext 
+Update-Database -Context MainContext
 ```
 
-### **Serviços Configurados no Docker Compose:**
+### 📡 Serviços Configurados
+- **SQL Server** (1433)
+- **Redis** (6379)
+- **MongoDB** (27017)
+- **RabbitMQ** (5672)
+- **Kafka** (9092)
+- **Kafka UI** (8080)
 
-- **SQL Server** (porta: `1433`)
-- **Redis** (porta: `6379`)
-- **MongoDB** (porta: `27017`)
-- **RabbitMQ** (porta: `5672`)
-- **Zookeeper** (porta: `2181`)
-- **Kafka** (porta: `9092`)
-- **Kafka UI** (porta: `8080`)
-
----
-
-## 🔧 **Configurando o Projeto**
-
-### Clone o repositório:
+## 🔍 Testes e Qualidade
+### ✅ **Testes Unitários**
+Os testes unitários são implementados utilizando **xUnit**:
 
 ```bash
-git clone https://github.com/gfmaurila/poc.ddd.cqrs.netcore9.git
+dotnet test
 ```
 
----
+### 🔄 **Testes de Integração**
+Os testes de integração utilizam **TestContainers** e **Postman/Newman** para validação:
 
-## 📚 **Configurações de Banco de Dados**
+```bash
+dotnet test --filter Category=IntegrationTests
+```
 
+## 📚 **Banco de Dados**
 ### **SQL Server**
-
-- **Host**: localhost
-- **Porta**: 1433
-- **Usuário**: sa
-- **Senha**: Password!123
+- **Host:** `localhost`
+- **Usuário:** `sa`
+- **Senha:** `Password!123`
 
 ### **MongoDB**
-
-- **Host**: localhost
-- **Porta**: 27017
-- **Database**: clinics\_db
-
-### **Redis**
-
-- **Host**: localhost
-- **Porta**: 6379
-
----
+- **Host:** `localhost`
+- **Database:** `clinics_db`
 
 ## 📦 **Mensageria e Streaming**
-
 ### **RabbitMQ**
-
-- **Host**: localhost
-- **Porta**: 5672
-- **Credenciais**:
-  - **Usuário**: guest
-  - **Senha**: guest
-  - **Acesso**: [http://localhost:15672/#/](http://localhost:15672/#/)
+- **Acesso:** [http://localhost:15672](http://localhost:15672)
+- **Usuário:** guest / **Senha:** guest
 
 ### **Kafka**
+- **Acesso:** [http://localhost:9100](http://localhost:9100)
 
-- **Host**: localhost
-- **Porta**: 9092
-
-### **Kafka UI**
-
-- **Host**: localhost
-- **Porta**: 8080
-- **Acesso**: [http://localhost:9100](http://localhost:9100)
-
----
-
-## 📋 **Comandos SQL Importantes**
+## 📋 **Comandos Importantes**
 
 ```bash
 Add-Migration InitialCreate -Context AppDbContext
 Update-Database -Context AppDbContext
 ```
 
----
-
 ## 🧑‍💻 **Autores**
 
 - **Guilherme Figueiras Maurila**
 
----
 
 ## 📫 Como me encontrar
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCjy19AugQHIhyE0Nv558jcQ)
