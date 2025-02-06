@@ -1,4 +1,4 @@
-# 📚 Projeto: API.Person -  Micro SaaS API - Cadastro de Pessoa
+﻿# 📚 Projeto: API.Person -  Micro SaaS API - Cadastro de Pessoa
 
 # API.Person
 

@@ -2,10 +2,14 @@
 # docker-compose up -d --build
 # docker-compose up --build
 # Add-Migration Inicial -Context ExempleAppDbContext 
-# Update-Database -Context ExempleAppDbContext 
+# Update-Database -Context ExempleAppDbContext
+
+# Add-Migration Inicial -Context ExempleAppDbContext 
+# Update-Database -Context PersonAppDbContext
 
 # Criando API nova
 # dotnet new webapi -n AuthSystem
+# dotnet new webapi -n API.Person
 
 version: '3.4'
 
@@ -62,6 +66,31 @@ services:
       - api.external.auth
       - api.external.email
       - api.external.mkt
+      - api.person
+    links:
+      - api.external.auth
+      - api.external.email
+      - api.external.mkt
+      - api.person
+
+  api.person:
+    image: ${DOCKER_REGISTRY-}apiexternalperson
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.Person/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.external.email
+      - api.external.mkt 
     links:
       - api.external.auth
       - api.external.email
@@ -152,21 +181,7 @@ services:
 
 
 
-  # api.external.person:
-  #   image: ${DOCKER_REGISTRY-}apiexternalperson
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/External/API.External.Person/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
+
 
 
 # APIs FIM --------------------------------------------------------

@@ -1,4 +1,4 @@
-﻿using API.Person.Feature.Domain.Exemple;
+﻿using API.Person.Domain;
 using API.Person.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,7 +27,13 @@ public class PersonAppDbContext : DbContext
     /// <summary>
     /// Gets or sets the database set for Exemple entities.
     /// </summary>
-    public virtual DbSet<ExempleEntity> Exemple { get; set; }
+    public DbSet<PersonEntity> Person { get; set; }
+    public DbSet<IndividualPersonEntity> IndividualPerson { get; set; }
+    public DbSet<LegalEntity> LegalPerson { get; set; }
+    public DbSet<DocumentEntity> Document { get; set; }
+    public DbSet<AddressEntity> Address { get; set; }
+    public DbSet<PhoneEntity> Phone { get; set; }
+    public DbSet<EmailEntity> Email { get; set; }
 
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
@@ -35,7 +41,15 @@ public class PersonAppDbContext : DbContext
     /// <param name="modelBuilder">The model builder used to configure entity models.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new ExempleConfiguration());
+        modelBuilder.ApplyConfiguration(new PersonConfiguration());
+        modelBuilder.ApplyConfiguration(new IndividualPersonConfiguration());
+        modelBuilder.ApplyConfiguration(new LegalEntityConfiguration());
+        modelBuilder.ApplyConfiguration(new DocumentConfiguration());
+        modelBuilder.ApplyConfiguration(new AddressConfiguration());
+        modelBuilder.ApplyConfiguration(new PhoneConfiguration());
+        modelBuilder.ApplyConfiguration(new EmailConfiguration());
+
+        base.OnModelCreating(modelBuilder);
     }
 
     /// <summary>

@@ -1,5 +1,4 @@
-﻿using Common.Core._08.Model;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -23,7 +22,7 @@ public static class SwaggerConfig
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = "API Exemple",
+                    Title = "API Person",
                     Version = "v1"
                 }
             );
@@ -94,7 +93,7 @@ public static class SwaggerConfig
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.Exemple");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "API.Person");
         });
     }
 }
