@@ -2,7 +2,7 @@
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple.Core._08.Feature.Notification;
+namespace API.Person.Feature.Notification;
 
 public record CreateNotificationCommand(
     ENotificationType Notification, string From, string Body, string To

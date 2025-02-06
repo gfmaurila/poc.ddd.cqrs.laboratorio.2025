@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿namespace API.Person.Feature.Domain.Exemple.Models;
 
 public record AuthExempleCreateUpdateDeleteModel(DateTime? DtInsert,
                                                   int? DtInsertId,

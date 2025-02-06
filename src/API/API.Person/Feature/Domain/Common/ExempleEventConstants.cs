@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Feature.Domain.Common;
+﻿namespace API.Person.Feature.Domain.Common;
 
 /// <summary>
 /// Defines constant event names for Exemple-related events used in messaging systems (e.g., RabbitMQ, Kafka).

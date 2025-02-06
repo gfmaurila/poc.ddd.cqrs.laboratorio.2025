@@ -1,6 +1,6 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
+﻿using API.Person.Feature.Notification.Messaging.Request;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
+namespace API.Person.Feature.Notification.Messaging.Service;
 
 public interface INotificationService
 {

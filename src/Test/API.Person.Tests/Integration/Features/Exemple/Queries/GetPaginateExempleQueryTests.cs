@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core.Tests.Integration.Features.Exemple.Queries;
+﻿namespace API.Person.Tests.Integration.Features.Exemple.Queries;
 
 public class GetPaginateExempleQueryTests : IClassFixture<DatabaseSQLServerFixture>
 {

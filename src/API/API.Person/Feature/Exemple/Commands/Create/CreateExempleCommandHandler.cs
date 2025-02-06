@@ -1,11 +1,11 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
+﻿using API.Person.Feature.Domain.Exemple;
+using API.Person.Feature.Domain.Exemple.Models;
+using API.Person.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+namespace API.Person.Feature.Exemple.Commands.Create;
 
 /// <summary>
 /// Handles the creation of an <see cref="ExempleEntity"/> by validating the request,

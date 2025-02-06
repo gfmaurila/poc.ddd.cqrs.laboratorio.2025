@@ -1,10 +1,10 @@
-﻿using API.Exemple.Core._08.Feature.External.ExternalEmail.Create.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
-using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Service;
+﻿using API.Person.Feature.External.ExternalEmail.Create.Model;
+using API.Person.Infrastructure.Integration.ExternalEmail.Model;
+using API.Person.Infrastructure.Integration.ExternalEmail.Service;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Create;
+namespace API.Person.Feature.External.ExternalEmail.Create;
 
 
 

@@ -1,9 +1,9 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+﻿using API.Person.Feature.Notification.Messaging.Events;
+using API.Person.Infrastructure.Messaging;
 using Confluent.Kafka;
 using Newtonsoft.Json;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka;
+namespace API.Person.Feature.Notification.Messaging.Kafka;
 
 /// <summary>
 /// Handles publishing notifications to a Kafka topic.

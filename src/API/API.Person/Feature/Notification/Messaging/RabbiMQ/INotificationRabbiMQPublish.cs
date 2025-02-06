@@ -1,6 +1,6 @@
-﻿using API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
+﻿using API.Person.Feature.Notification.Messaging.Events;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.RabbiMQ;
+namespace API.Person.Feature.Notification.Messaging.RabbiMQ;
 
 public interface INotificationRabbiMQPublish
 {

@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Infrastructure.Integration;
+﻿namespace API.Person.Infrastructure.Integration;
 
 public class ApiConsts
 {

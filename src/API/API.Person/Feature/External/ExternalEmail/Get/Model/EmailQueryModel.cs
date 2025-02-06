@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core._08.Feature.External.ExternalEmail.Get.Model;
+﻿namespace API.Person.Feature.External.ExternalEmail.Get.Model;
 
 public class EmailQueryModel
 {

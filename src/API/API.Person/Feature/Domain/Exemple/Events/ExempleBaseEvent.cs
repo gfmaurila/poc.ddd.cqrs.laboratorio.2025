@@ -1,8 +1,8 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.Person.Feature.Domain.Exemple.Models;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 
-namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+namespace API.Person.Feature.Domain.Exemple.Events;
 
 /// <summary>
 /// Represents the base event class for Exemple-related events.

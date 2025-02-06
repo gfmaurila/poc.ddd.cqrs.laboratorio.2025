@@ -1,7 +1,7 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Events;
 
-namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Events;
+namespace API.Person.Feature.Notification.Messaging.Events;
 
 public class NotificationEvent : Event
 {

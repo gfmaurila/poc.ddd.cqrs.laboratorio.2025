@@ -1,27 +1,27 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
-using API.Exemple.Core._08.Infrastructure.Database.Mappings;
+﻿using API.Person.Feature.Domain.Exemple;
+using API.Person.Infrastructure.Database.Mappings;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Exemple.Core._08.Infrastructure.Database;
+namespace API.Person.Infrastructure.Database;
 
 /// <summary>
 /// Represents the database context for the Exemple application.
 /// Provides access to database entities and configurations.
 /// </summary>
-public class ExempleAppDbContext : DbContext
+public class PersonAppDbContext : DbContext
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExempleAppDbContext"/> class.
+    /// Initializes a new instance of the <see cref="PersonAppDbContext"/> class.
     /// Default constructor required for design-time tools.
     /// </summary>
-    public ExempleAppDbContext()
+    public PersonAppDbContext()
     { }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="ExempleAppDbContext"/> class with the specified options.
+    /// Initializes a new instance of the <see cref="PersonAppDbContext"/> class with the specified options.
     /// </summary>
     /// <param name="options">The database context options.</param>
-    public ExempleAppDbContext(DbContextOptions<ExempleAppDbContext> options) : base(options)
+    public PersonAppDbContext(DbContextOptions<PersonAppDbContext> options) : base(options)
     { }
 
     /// <summary>

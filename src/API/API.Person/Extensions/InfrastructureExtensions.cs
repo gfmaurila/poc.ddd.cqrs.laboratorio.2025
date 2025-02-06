@@ -1,14 +1,14 @@
-﻿using API.Exemple.Core._08.Infrastructure.Auth;
-using API.Exemple.Core._08.Infrastructure.Database;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
-using API.Exemple.Core._08.Infrastructure.Integration;
-using API.Exemple.Core._08.Infrastructure.Redis;
-using API.Exemple1.Core._08.Infrastructure.Messaging;
+﻿using API.Person.Infrastructure.Auth;
+using API.Person.Infrastructure.Database;
+using API.Person.Infrastructure.Database.Repositories;
+using API.Person.Infrastructure.Database.Repositories.Interfaces;
+using API.Person.Infrastructure.Integration;
+using API.Person.Infrastructure.Messaging;
+using API.Person.Infrastructure.Redis;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace API.Exemple.Core._08.Extensions;
+namespace API.Person.Extensions;
 
 /// <summary>
 /// Provides extension methods for configuring infrastructure services, database migrations,
@@ -23,7 +23,7 @@ public static class InfrastructureExtensions
     public static async Task MigrateAsync(this WebApplication app)
     {
         await using var serviceScope = app.Services.CreateAsyncScope();
-        await using var writeDbContext = serviceScope.ServiceProvider.GetRequiredService<ExempleAppDbContext>();
+        await using var writeDbContext = serviceScope.ServiceProvider.GetRequiredService<PersonAppDbContext>();
 
         try
         {
@@ -75,7 +75,7 @@ public static class InfrastructureExtensions
 
         try
         {
-            var context = services.GetRequiredService<ExempleAppDbContext>();
+            var context = services.GetRequiredService<PersonAppDbContext>();
             context.Database.Migrate();
             Console.WriteLine("Database migrations applied successfully.");
         }
@@ -114,7 +114,7 @@ public static class InfrastructureExtensions
         ExternalEmailInitializer.Initialize(services, configuration);
 
         // Register the database context with a connection string
-        services.AddDbContext<ExempleAppDbContext>(options =>
+        services.AddDbContext<PersonAppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("SqlConnection")));
 
         return services;

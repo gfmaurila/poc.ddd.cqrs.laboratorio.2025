@@ -1,11 +1,11 @@
-﻿using API.Exemple.Core._08.Feature.Notification;
-using API.Exemple.Core._08.Infrastructure.Integration;
-using API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+﻿using API.Person.Feature.Domain.Exemple.Events.Messaging;
+using API.Person.Feature.Notification;
+using API.Person.Infrastructure.Integration;
 using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Helper;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
+namespace API.Person.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
 
 /// <summary>
 /// Handles the <see cref="ExempleUpdateEvent"/> by sending notifications via RabbitMQ

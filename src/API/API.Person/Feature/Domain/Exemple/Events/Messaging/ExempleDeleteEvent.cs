@@ -1,7 +1,6 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
-using Common.Core._08.Domain.Enumerado;
+﻿using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple1.Core._08.Feature.Domain.Exemple.Events.Messaging;
+namespace API.Person.Feature.Domain.Exemple.Events.Messaging;
 
 /// <summary>
 /// Represents an event triggered when an Exemple entity is deleted.

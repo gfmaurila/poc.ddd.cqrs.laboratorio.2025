@@ -1,9 +1,9 @@
-﻿namespace API.Exemple.Core._08.Controllers.External.ExternalEmail;
-using API.Exemple.Core._08.Controllers;
+﻿namespace API.Person.Controllers.External.ExternalEmail;
+using API.Person.Controllers;
 
-using API.Exemple.Core._08.Feature.External.ExternalEmail.Create;
-using API.Exemple.Core._08.Feature.External.ExternalEmail.Create.Model;
-using API.Exemple.Core._08.Feature.External.ExternalEmail.Get;
+using API.Person.Feature.External.ExternalEmail.Create;
+using API.Person.Feature.External.ExternalEmail.Create.Model;
+using API.Person.Feature.External.ExternalEmail.Get;
 using Common.Core._08.Domain.Model;
 using Common.Core._08.Response;
 using MediatR;

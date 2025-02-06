@@ -1,9 +1,9 @@
-﻿//using API.Exemple.Core._08.Infrastructure.Database;
-//using API.Exemple.Core._08.Tests.Integration.Utilities.Auth;
-//using API.Exemple.Core.Tests.Integration.Factory;
+﻿//using API.Person.Infrastructure.Database;
+//using API.Person.Tests.Integration.Utilities.Auth;
+//using API.Person.Tests.Integration.Factory;
 //using Microsoft.EntityFrameworkCore;
 
-//namespace API.Exemple.Core.Tests.Integration;
+//namespace API.Person.Tests.Integration;
 
 //public class DatabaseSqliteFixture : IAsyncLifetime
 //{

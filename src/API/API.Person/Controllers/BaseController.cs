@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Exemple.Core._08.Controllers;
+namespace API.Person.Controllers;
 
 [ApiController]
 public abstract partial class BaseController : ControllerBase

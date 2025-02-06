@@ -1,7 +1,7 @@
-﻿using API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Model;
+﻿using API.Person.Infrastructure.Integration.ExternalEmail.Model;
 using Refit;
 
-namespace API.Exemple.Core._08.Infrastructure.Integration.ExternalEmail.Api;
+namespace API.Person.Infrastructure.Integration.ExternalEmail.Api;
 
 public interface IExternalEmailApi
 {

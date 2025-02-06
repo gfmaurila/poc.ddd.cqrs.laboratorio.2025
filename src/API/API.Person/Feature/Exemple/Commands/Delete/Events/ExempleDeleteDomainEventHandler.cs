@@ -1,11 +1,11 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Events;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.Get;
+﻿using API.Person.Feature.Domain.Exemple.Events;
+using API.Person.Feature.Domain.Exemple.Models;
+using API.Person.Feature.Exemple.Queries.Get;
+using API.Person.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Interface;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events;
+namespace API.Person.Feature.Exemple.Commands.Delete.Events;
 
 /// <summary>
 /// Handles the <see cref="ExempleDeleteDomainEvent"/> by updating the cache after an Exemple entity is deleted.

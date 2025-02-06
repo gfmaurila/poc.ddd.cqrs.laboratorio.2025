@@ -4,7 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
-namespace API.Exemple.Core._08.Extensions;
+namespace API.Person.Extensions;
 
 public static class SwaggerConfig
 {

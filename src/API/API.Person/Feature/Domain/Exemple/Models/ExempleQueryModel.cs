@@ -1,7 +1,7 @@
 ﻿using Common.Core._08.Domain.Enumerado;
 using Common.Core._08.Domain.Model;
 
-namespace API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+namespace API.Person.Feature.Domain.Exemple.Models;
 
 public class ExempleQueryModel : BaseQueryModel
 {

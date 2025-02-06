@@ -1,4 +1,4 @@
-﻿namespace API.Exemple.Core.Tests.Integration.Features.Exemple.Commands;
+﻿namespace API.Person.Tests.Integration.Features.Exemple.Commands;
 
 public class CreateExempleCommandTests : IClassFixture<DatabaseSQLServerFixture>
 {

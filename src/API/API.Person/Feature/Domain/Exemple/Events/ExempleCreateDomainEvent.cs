@@ -1,7 +1,7 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple1.Core._08.Feature.Exemple.Commands.Create;
+﻿using API.Person.Feature.Domain.Exemple.Models;
+using API.Person.Feature.Exemple.Commands.Create;
 
-namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+namespace API.Person.Feature.Domain.Exemple.Events;
 
 /// <summary>
 /// Represents a domain event triggered when a new Exemple entity is created.

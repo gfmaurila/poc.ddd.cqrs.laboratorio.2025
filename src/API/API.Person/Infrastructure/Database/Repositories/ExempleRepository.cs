@@ -1,11 +1,11 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple;
-using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
-using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
-using API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+﻿using API.Person.Feature.Domain.Exemple;
+using API.Person.Feature.Domain.Exemple.Models;
+using API.Person.Feature.Exemple.Queries.GetPaginate;
+using API.Person.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Exemple.Core._08.Infrastructure.Database.Repositories;
+namespace API.Person.Infrastructure.Database.Repositories;
 
 /// <summary>
 /// Repository implementation for managing <see cref="ExempleEntity"/> data.
@@ -13,13 +13,13 @@ namespace API.Exemple.Core._08.Infrastructure.Database.Repositories;
 /// </summary>
 public class ExempleRepository : BaseRepository<ExempleEntity>, IExempleRepository
 {
-    private readonly ExempleAppDbContext _context;
+    private readonly PersonAppDbContext _context;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ExempleRepository"/> class.
     /// </summary>
     /// <param name="context">Database context for accessing Exemple data.</param>
-    public ExempleRepository(ExempleAppDbContext context) : base(context)
+    public ExempleRepository(PersonAppDbContext context) : base(context)
     {
         _context = context;
     }

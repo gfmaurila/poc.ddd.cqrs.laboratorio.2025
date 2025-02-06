@@ -1,10 +1,10 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.Person.Feature.Domain.Exemple.Models;
 using Common.Core._08.Response;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Headers;
 
-namespace API.Exemple.Core.Tests.Integration.Features.Exemple.Queries;
+namespace API.Person.Tests.Integration.Features.Exemple.Queries;
 
 public class GetExempleTests : IClassFixture<DatabaseSQLServerFixture>
 {

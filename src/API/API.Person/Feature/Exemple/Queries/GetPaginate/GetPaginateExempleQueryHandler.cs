@@ -1,8 +1,8 @@
-﻿using API.Exemple.Core._08.Infrastructure.Database.Repositories.Interfaces;
+﻿using API.Person.Infrastructure.Database.Repositories.Interfaces;
 using Common.Core._08.Response;
 using MediatR;
 
-namespace API.Exemple1.Core._08.Feature.Exemple.Queries.GetPaginate;
+namespace API.Person.Feature.Exemple.Queries.GetPaginate;
 
 /// <summary>
 /// Handles the paginated retrieval of Exemple entities based on the provided query parameters.

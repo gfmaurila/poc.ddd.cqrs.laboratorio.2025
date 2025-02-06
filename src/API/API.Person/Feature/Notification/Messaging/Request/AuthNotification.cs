@@ -1,4 +1,4 @@
-﻿namespace API.Exemple1.Core._08.Feature.Notification.Messaging.Request;
+﻿namespace API.Person.Feature.Notification.Messaging.Request;
 
 public class AuthNotification
 {

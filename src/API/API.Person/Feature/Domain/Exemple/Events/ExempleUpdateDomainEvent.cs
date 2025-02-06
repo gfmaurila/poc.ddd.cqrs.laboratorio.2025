@@ -1,7 +1,7 @@
-﻿using API.Exemple.Core._08.Feature.Domain.Exemple.Models;
+﻿using API.Person.Feature.Domain.Exemple.Models;
 using Common.Core._08.Domain.Enumerado;
 
-namespace API.Exemple.Core._08.Feature.Domain.Exemple.Events;
+namespace API.Person.Feature.Domain.Exemple.Events;
 
 /// <summary>
 /// Represents a domain event triggered when an Exemple entity is updated.

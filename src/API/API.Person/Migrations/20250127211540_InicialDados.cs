@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace API.Exemple.Core._08.Migrations
+namespace API.Person.Migrations
 {
     /// <inheritdoc />
     public partial class InicialDados : Migration
