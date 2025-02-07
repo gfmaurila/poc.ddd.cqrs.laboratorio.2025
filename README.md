@@ -21,20 +21,36 @@ O projeto adota uma arquitetura baseada em **Microservices** e **CQRS (Command Q
 
 ```bash
 📂 poc.micro-saas.netcore8
+├── 📂 Documento
+│   ├── 📄 README.md
 ├── 📂 src
-│   ├── 📂 API
-│   │   ├── 📂 API.Customer.Core
-│   │   ├── 📂 API.HR.Core
-│   │   ├── 📂 API.Freelancer.Core
-│   │   ├── 📂 API.Clinic.Core
-│   │   ├── 📂 API.InventoryControl.Core
+│   ├── 📂 01 - API
 │   │   ├── 📂 API.Gateway
-│   ├── 📂 External
-│   │   ├── 📂 API.External.Auth
+│   │   ├── 📂 API.Template
+│   │   ├── 📂 API.Auth
+│   │   ├── 📂 API.Person
+│   │   ├── 📂 API.Customer
+│   │   ├── 📂 API.Clinic
+│   │   ├── 📂 API.HR
+│   │   ├── 📂 API.InventoryControl
+│   │   ├── 📂 API.Freelancer
+│   ├── 📂 02 - External
 │   │   ├── 📂 API.External.Email
 │   │   ├── 📂 API.External.MKT
-│   ├── 📂 Test
-├── 📄 docker-compose.yml
+│   ├── 📂 03 - Core
+│   │   ├── 📂 Common.Core.08
+│   │   ├── 📂 Common.External.Auth.Net8
+│   ├── 📂 04 - Test
+│   │   ├── 📂 IntegrationTests
+│   │   │   ├── 📂 API.Exemple.Core.Tests
+│   │   ├── 📂 UnitTests
+│   │       ├── 📂 Common.Core.08.Tests
+│   │       ├── 📂 Common.External.Auth.Net8.Tests
+├── 📂 docker-compose
+│   ├── 📄 .dockerignore
+│   ├── 📄 docker-compose.yml
+│   ├── 📄 docker-compose.override.yml
+│   ├── 📄 launchSettings.json
 ```
 
 ## 📌 Descrição das APIs
