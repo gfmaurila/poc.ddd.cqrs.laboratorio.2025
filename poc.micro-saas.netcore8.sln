@@ -59,6 +59,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - API.Person", "04 - API
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - API.Customer", "05 - API.Customer", "{096D8F30-916F-43F8-8B59-275C1998533D}"
+	ProjectSection(SolutionItems) = preProject
+		src\API\API.Customer\README.md = src\API\API.Customer\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - API.Clinic", "06 - API.Clinic", "{6842EC33-CE6F-44DB-A652-133EB6685E20}"
 EndProject
@@ -75,6 +78,8 @@ EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6DA5D118-E200-4C2D-9CA2-5461F37D1088}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Person", "src\API\API.Person\API.Person.csproj", "{FB9DE7B9-DD86-49AE-8CD6-029AC2BDFDF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Customer", "src\API\API.Customer\API.Customer.csproj", "{D97346BF-6044-40C6-AD39-7DDCF67399A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +135,10 @@ Global
 		{FB9DE7B9-DD86-49AE-8CD6-029AC2BDFDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB9DE7B9-DD86-49AE-8CD6-029AC2BDFDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB9DE7B9-DD86-49AE-8CD6-029AC2BDFDF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D97346BF-6044-40C6-AD39-7DDCF67399A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97346BF-6044-40C6-AD39-7DDCF67399A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97346BF-6044-40C6-AD39-7DDCF67399A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97346BF-6044-40C6-AD39-7DDCF67399A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,5 +170,6 @@ Global
 		{905D7A2A-2EC4-428E-8725-9E4844ECAC13} = {5782D3E5-68BD-47AF-97EE-B91DC1CBF109}
 		{35189615-B274-4F5B-A93E-2C47555181A1} = {FA7CE411-2AFC-48B3-B30E-6932163D6BC4}
 		{FB9DE7B9-DD86-49AE-8CD6-029AC2BDFDF0} = {0252CBC8-AD67-426F-A12B-88554C143F11}
+		{D97346BF-6044-40C6-AD39-7DDCF67399A0} = {096D8F30-916F-43F8-8B59-275C1998533D}
 	EndGlobalSection
 EndGlobal

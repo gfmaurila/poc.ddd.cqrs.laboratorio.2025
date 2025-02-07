@@ -4,8 +4,11 @@
 # Add-Migration Inicial -Context ExempleAppDbContext 
 # Update-Database -Context ExempleAppDbContext
 
-# Add-Migration Inicial -Context ExempleAppDbContext 
+# Add-Migration Inicial -Context PersonAppDbContext 
 # Update-Database -Context PersonAppDbContext
+
+# Add-Migration Inicial -Context CustomerAppDbContext 
+# Update-Database -Context CustomerAppDbContext
 
 # Criando API nova
 # dotnet new webapi -n AuthSystem
@@ -96,23 +99,32 @@ services:
       - api.external.email
       - api.external.mkt
   
-  # # Customer
-  # # http://localhost:5004/swagger/index.html
-  # api.customer.core:
-  #   image: ${DOCKER_REGISTRY-}apicustomercore
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/API/API.Customer.Core/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
+  # Customer
+  # http://localhost:7001/swagger/index.html
+  api.customer:
+    image: ${DOCKER_REGISTRY-}apicustomer
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.Customer/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt 
+    links:
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt
 
   # api.clinic.core:
   #   image: ${DOCKER_REGISTRY-}apicliniccore

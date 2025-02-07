@@ -64,21 +64,21 @@ services:
       - app-backend
       - shared-network
   
-  # api.customer.core:
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Docker
-  #     - ASPNETCORE_HTTP_PORTS=8080
-  #     - ASPNETCORE_HTTPS_PORTS=8085
-  #     - ASPNETCORE_URLS=http://+:80
-  #   ports:
-  #     - "5005:80"
-  #     - "8085:443"
-  #   volumes:
-  #     - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-  #     - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-  #   networks:
-  #     - app-backend
-  #     - shared-network
+  api.customer:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8091
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "7001:80"
+      - "8091:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - app-backend
+      - shared-network
 
   # api.clinic.core:
   #   environment:

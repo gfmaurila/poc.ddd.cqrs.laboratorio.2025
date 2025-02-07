@@ -1,5 +1,6 @@
 ﻿using Common.Core._08.Domain.Events;
 using Common.Core._08.Domain.Interface;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Common.Core._08.Domain;
@@ -8,6 +9,7 @@ namespace Common.Core._08.Domain;
 /// Base class that represents an entity with common behaviors and properties.
 /// </summary>
 [ExcludeFromCodeCoverage]
+[NotMapped]
 public abstract class BaseEntity : IEntity<Guid>
 {
     private readonly List<Event> _domainEvents = new();
