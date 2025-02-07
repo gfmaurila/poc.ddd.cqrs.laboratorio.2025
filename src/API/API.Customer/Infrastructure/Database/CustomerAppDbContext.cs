@@ -1,10 +1,6 @@
-﻿using API.Customer.Core.Infrastructure.Database.Mappings;
-using API.Customer.Domain;
+﻿using API.Customer.Feature.Domain.Exemple;
 using API.Customer.Infrastructure.Database.Mappings;
-using Common.Core._08.Domain;
-using Common.Core._08.Domain.Events;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace API.Customer.Infrastructure.Database;
 
@@ -31,12 +27,7 @@ public class CustomerAppDbContext : DbContext
     /// <summary>
     /// Gets or sets the database set for Exemple entities.
     /// </summary>
-    public DbSet<AccountEntity> Account { get; set; }
-    public DbSet<AccountSubscriptionEntity> AccountSubscription { get; set; }
-    public DbSet<SubscriptionPlanEntity> SubscriptionPlan { get; set; }
-    public DbSet<MessageUsageEntity> MessageUsage { get; set; }
-    public DbSet<MessageUsageItemEntity> MessageUsageItem { get; set; }
-    public DbSet<AccountProductEntity> AccountProduct { get; set; }
+    public virtual DbSet<ExempleEntity> Exemple { get; set; }
 
     /// <summary>
     /// Configures the entity models and applies configurations when the database schema is created.
@@ -44,17 +35,7 @@ public class CustomerAppDbContext : DbContext
     /// <param name="modelBuilder">The model builder used to configure entity models.</param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new AccountConfiguration());
-        modelBuilder.ApplyConfiguration(new AccountSubscriptionConfiguration());
-        modelBuilder.ApplyConfiguration(new SubscriptionPlanConfiguration());
-        modelBuilder.ApplyConfiguration(new MessageUsageConfiguration());
-        modelBuilder.ApplyConfiguration(new AccountProductConfiguration());
-        modelBuilder.ApplyConfiguration(new MessageUsageItemConfiguration());
-
-        modelBuilder.Ignore<Event>(); // Ignora Event no mapeamento do EF
-        modelBuilder.Entity<BaseEntity>().Ignore(e => e.DomainEvents); // Ignora a propriedade DomainEvents
-
-        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfiguration(new ExempleConfiguration());
     }
 
     /// <summary>

@@ -123,3 +123,4 @@ app.Run();
 /// Defines a partial class for `Program`, allowing test configurations if necessary.
 /// </summary>
 public partial class Program { }
+

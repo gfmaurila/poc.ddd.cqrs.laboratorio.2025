@@ -22,7 +22,7 @@ public static class SwaggerConfig
                 "v1",
                 new OpenApiInfo
                 {
-                    Title = "API Person",
+                    Title = "API Customer",
                     Version = "v1"
                 }
             );

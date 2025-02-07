@@ -5,6 +5,7 @@
 # Update-Database -Context ExempleAppDbContext
 
 # Add-Migration Inicial -Context PersonAppDbContext 
+# Add-Migration InicialPerson -Context PersonAppDbContext 
 # Update-Database -Context PersonAppDbContext
 
 # Add-Migration Inicial -Context CustomerAppDbContext 

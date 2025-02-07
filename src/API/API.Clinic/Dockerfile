@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["src/API/API.Clinic/API.Clinic.csproj", "src/API/API.Clinic/"]
+COPY ["src/Core/Common.Core.08/Common.Core.08.csproj", "src/Core/Common.Core.08/"]
 RUN dotnet restore "./src/API/API.Clinic/API.Clinic.csproj"
 COPY . .
 WORKDIR "/src/src/API/API.Clinic"
