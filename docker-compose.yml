@@ -126,74 +126,113 @@ services:
       - api.external.email
       - api.external.mkt
 
-  # api.clinic.core:
-  #   image: ${DOCKER_REGISTRY-}apicliniccore
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/API/API.Clinic.Core/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
+  api.clinic:
+    image: ${DOCKER_REGISTRY-}apiclinic
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.Clinic/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt 
+      - api.customer
+    links:
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt
+      - api.customer
 
-  # api.freelancer.core:
-  #   image: ${DOCKER_REGISTRY-}apifreelancercore
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/API/API.Freelancer.Core/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
+  api.freelancer:
+    image: ${DOCKER_REGISTRY-}apifreelancer
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.Freelancer/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt 
+      - api.customer
+    links:
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt
+      - api.customer
 
-  # api.hr.core:
-  #   image: ${DOCKER_REGISTRY-}apihrcore
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/API/API.HR.Core/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
+  api.hr:
+    image: ${DOCKER_REGISTRY-}apihr
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.HR/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt 
+      - api.customer
+    links:
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt
+      - api.customer
 
-  # api.inventorycontrol.core:
-  #   image: ${DOCKER_REGISTRY-}apiinventorycontrolcore
-  #   restart: always
-  #   build:
-  #     context: .
-  #     dockerfile: src/API/API.InventoryControl.Core/Dockerfile
-  #   networks:
-  #     - app-backend
-  #     - shared-network
-  #   depends_on:
-  #     - sqlserver
-  #     - kafka1
-  #     - redis
-  #     - mongoserver
-  #     - rabbitmq
-
-
-
-
-
+  api.inventorycontrol:
+    image: ${DOCKER_REGISTRY-}apiinventorycontrol
+    restart: always
+    build:
+      context: .
+      dockerfile: src/API/API.InventoryControl/Dockerfile
+    networks:
+      - app-backend
+      - shared-network
+    depends_on:
+      - sqlserver
+      - kafka1
+      - redis
+      - mongoserver
+      - rabbitmq 
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt 
+      - api.customer
+    links:
+      - api.external.auth
+      - api.person
+      - api.external.email
+      - api.external.mkt
+      - api.customer
 
 
 # APIs FIM --------------------------------------------------------
