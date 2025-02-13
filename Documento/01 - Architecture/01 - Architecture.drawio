@@ -1,4 +1,73 @@
-<mxfile host="Electron" modified="2025-02-04T00:38:57.464Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="DohINSMmifJGYQy3yG2J" version="24.0.4" type="device" pages="5">
+<mxfile host="Electron" modified="2025-02-13T14:03:32.758Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="OKC6_blM262z9Gmtj6q6" version="24.0.4" type="device" pages="6">
+  <diagram id="L9suNXlRVn20kb2OeD3u" name="Mapeamento do negocio">
+    <mxGraphModel dx="1434" dy="2125" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="eTmm0g8DlbrHWv06ZE_E-2" target="eTmm0g8DlbrHWv06ZE_E-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" edge="1" parent="1" source="eTmm0g8DlbrHWv06ZE_E-2" target="eTmm0g8DlbrHWv06ZE_E-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="360" />
+              <mxPoint x="480" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" edge="1" parent="1" source="eTmm0g8DlbrHWv06ZE_E-2" target="eTmm0g8DlbrHWv06ZE_E-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="680" />
+              <mxPoint x="430" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-2" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="340" y="360" width="50" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-3" value="O que é necessário para criar o seu Micro-SaaS" style="whiteSpace=wrap;html=1;align=center;strokeWidth=2;pointerEvents=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="10" y="490" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-9" value="Requisitos técnicos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="520" y="330" width="237" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-11" value="Requisitos não técnicos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="510" y="650" width="237" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-15" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="-480" width="50" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.629;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="eTmm0g8DlbrHWv06ZE_E-15" target="eTmm0g8DlbrHWv06ZE_E-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-19" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Autenticação&lt;br&gt;&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-480" width="159" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-22" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Gerenciamento de usuários&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-380" width="350" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eTmm0g8DlbrHWv06ZE_E-23" target="eTmm0g8DlbrHWv06ZE_E-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-23" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Pagamentos&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-280" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-24" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Integração para geração de NFS-e&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-160" width="410" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-25" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Planos de contratação&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-40" width="270" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-32" value="https://www.youtube.com/watch?v=4ErfNkyP940&amp;amp;t=924s" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="725" y="-662" width="330" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eTmm0g8DlbrHWv06ZE_E-33" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Pagamentos&lt;/h1&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="-280" width="160" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram id="UpnjxEBypnCfxaO6hWaG" name="API Gateway">
     <mxGraphModel dx="1434" dy="836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
