@@ -14,7 +14,6 @@
 
 	  <PackageReference Include="Carter" Version="8.0.0" />
 
-	  <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
 	  <PackageReference Include="Mapster" Version="7.4.0" />
 	  <PackageReference Include="Mapster.Core" Version="1.2.1" />
 
