@@ -3,16 +3,12 @@ using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Delete.Events.Messaging.Subscribe;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ;
 using API.Exemple1.Core._08.Feature.Exemple.Commands.Update.Events.Messaging.RabbiMQ.Subscribe;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka;
-using API.Exemple1.Core._08.Feature.Notification.Messaging.Kafka.Subscribe;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.RabbiMQ;
 using API.Exemple1.Core._08.Feature.Notification.Messaging.Service;
-using API.Person.Feature.Notification.Messaging.Kafka.Subscribe;
 using API.Person.Feature.Notification.Messaging.RabbiMQ.Subscribe;
 using API.Person.Infrastructure.Messaging.RabbiMQ;
 using Common.Core._08.Interface;
-using Common.Core._08.Kafka;
-using Microsoft.Extensions.Options;
+using MassTransit;
 
 namespace API.Exemple1.Core._08.Infrastructure.Messaging;
 
@@ -31,29 +27,37 @@ public class MessagingInitializer
         services.AddScoped<IDeleteExemplePublish, DeleteExemplePublish>();
 
         // Subscribe - RabbiMQ
-        services.AddHostedService<NotificationRabbiMQSubscribe>();
-        services.AddHostedService<CreateExempleSubscribe>();
-        services.AddHostedService<UpdateExempleSubscribe>();
-        services.AddHostedService<DeleteExempleSubscribe>();
+        InitializeRabbiMQSubscribe(services, configuration);
+    }
 
-        // Publish - Kafka
-        services.AddScoped<INotificationKafkaPublish, NotificationKafkaPublish>();
 
-        // Subscribe - Kafka
-        // Configuração do Kafka
-        services.Configure<KafkaConsumerConfig>(configuration.GetSection("Kafka"));
+    public static void InitializeRabbiMQSubscribe(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddHttpClient();
 
-        // Registrar a configuração como um singleton para ser usada diretamente
-        services.AddSingleton(sp => sp.GetRequiredService<IOptions<KafkaConsumerConfig>>().Value);
+        // Configuração do MassTransit com RabbitMQ
+        services.AddMassTransit(cfg =>
+        {
+            cfg.SetKebabCaseEndpointNameFormatter();
 
-        // Registrar o KafkaConsumer
-        services.AddSingleton<IKafkaConsumer, KafkaConsumer>();
+            cfg.UsingRabbitMq((context, cfg) =>
+            {
+                cfg.Host(configuration[MessagingConsts.Hostname], h =>
+                {
+                    h.Username(configuration[MessagingConsts.Username]);
+                    h.Password(configuration[MessagingConsts.Password]);
+                });
 
-        // Registrar o processador de mensagens como scoped
-        services.AddScoped<INotificationMessageProcessor, NotificationMessageProcessor>();
+                cfg.ConfigureEndpoints(context);
+            });
 
-        // Registrar o NotificationKafkaSubscribe como hosted service (singleton)
-        services.AddHostedService<NotificationKafkaSubscribe>();
+            // Registrar consumidores
+            cfg.AddConsumer<NotificationRabbiMQSubscribe>();
+            cfg.AddConsumer<CreateExempleSubscribe>();
+            cfg.AddConsumer<UpdateExempleSubscribe>();
+            cfg.AddConsumer<DeleteExempleSubscribe>();
+        });
 
+        //services.AddScoped<INotificationRabbiMQPublish, NotificationRabbiMQPublish>();
     }
 }
